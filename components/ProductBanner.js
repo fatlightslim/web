@@ -10,7 +10,8 @@ const Header = ({ header }) => (
 const LeftCol = ({ title, desc, button }) => (
   <>
     <p className="pt-4 pl-6 text-5xl md:text-6xl font-extrabold leading-none tracking-normal">
-      <span className={title.color} style={{ fontSize: "125%" }}>
+      {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
+      <span  style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <br />

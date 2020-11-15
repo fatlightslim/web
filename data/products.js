@@ -7,7 +7,8 @@ export const products = [
       2: "ゲームを変える",
       // 2: "常識はずれの",
       3: "ライトです。",
-      color: "text-purple-400",
+      // color: "text-purple-400",
+      color: "#8679cb",
     },
     img: {
       src: "/img/SP3000_transparent.png",
@@ -21,7 +22,7 @@ export const products = [
     },
     button: "SP3000がゲームを変える",
     // bg: "from-gray-900 via-purple-900 to-purple-800",
-    bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)"
+    bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
   },
   {
     header: "MARS HYDRO",
@@ -31,7 +32,8 @@ export const products = [
       // 3: "最良のパートナー",
       // 3: "最良の味方",
       3: "最強の味方",
-      color: "text-red-400",
+      // color: "text-red-400",
+      color: "#fc8181",
     },
     img: {
       src: "/img/SP150_transparent.png",
@@ -45,7 +47,7 @@ export const products = [
     },
     button: "SP150の詳細を見る",
     // bg: "from-teal-400 to-blue-900",
-    bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)"
+    bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
   },
   {
     header: "MARS HYDRO",
@@ -55,7 +57,8 @@ export const products = [
       2: "サイズを選べる",
       // 2: "常識はずれの",
       3: "定番アイテム",
-      color: "text-orange-400",
+      // color: "text-orange-400",
+      color: "#f6ad55",
     },
     desc: {
       1: "省エネも。明るさも。TSシリーズは本場米国Amazonで定番のベストセラーモデルです。豊富なサイズバリエーションであなたの栽培環境にあったベストなライト構成が安価に構築可能",
@@ -70,6 +73,6 @@ export const products = [
     button: "TSシリーズの定番モデルを見る",
     // bg: "from-orange-800 via-red-700 to-pink-500",
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
-    bg: "linear-gradient(#0090CE, #01C7B8)"
+    bg: "linear-gradient(#0090CE, #01C7B8)",
   },
 ]

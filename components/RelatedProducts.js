@@ -9,7 +9,8 @@ import BlogBanner from "./BlogBanner"
 const LeftCol = ({ title, desc, button }) => (
   <>
     <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-normal">
-      <span className={title.color} style={{ fontSize: "125%" }}>
+      {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
+      <span  style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <br />
