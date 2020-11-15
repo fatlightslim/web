@@ -1,8 +1,8 @@
 import { products } from "../data/products"
 import Link from "next/link"
-import Image from "next/image"
-import ContactForm from "./ContactForm"
-import CallToAction2 from "./Cta2"
+// import Image from "next/image"
+// import ContactForm from "./ContactForm"
+// import CallToAction2 from "./Cta2"
 import ContactEmail from "./ContactEmail"
 import BlogBanner from "./BlogBanner"
 
