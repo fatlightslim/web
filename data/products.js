@@ -20,7 +20,8 @@ export const products = [
       2: "います。",
     },
     button: "SP3000がゲームを変える",
-    bg: "from-gray-900 via-purple-900 to-purple-800",
+    // bg: "from-gray-900 via-purple-900 to-purple-800",
+    bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)"
   },
   {
     header: "MARS HYDRO",
@@ -30,7 +31,7 @@ export const products = [
       // 3: "最良のパートナー",
       // 3: "最良の味方",
       3: "最強の味方",
-      color: "text-teal-700",
+      color: "text-red-400",
     },
     img: {
       src: "/img/SP150_transparent.png",
@@ -43,7 +44,8 @@ export const products = [
       2: "です。",
     },
     button: "SP150の詳細を見る",
-    bg: "from-teal-400 to-blue-900",
+    // bg: "from-teal-400 to-blue-900",
+    bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)"
   },
   {
     header: "MARS HYDRO",
@@ -66,8 +68,8 @@ export const products = [
       height: 1084,
     },
     button: "TSシリーズの定番モデルを見る",
-    bg: "from-orange-800 via-red-700 to-pink-500",
+    // bg: "from-orange-800 via-red-700 to-pink-500",
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
-    // bg: "linear-gradient(#0090CE, #01C7B8)"
+    bg: "linear-gradient(#0090CE, #01C7B8)"
   },
 ]

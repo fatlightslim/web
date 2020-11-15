@@ -51,14 +51,16 @@ export default function ProductBanner({
       2: "ます。",
     },
     button: "M1が桁違いに速い理由を見る",
-    // bg: "linear-gradient(to right top, #071931 0%, #33274f 50%, #661e43 100%)",
-    bg: "from-purple-900 via-pink-700 to-red-700",
+    bg: "linear-gradient(to right top, #071931 0%, #33274f 50%, #661e43 100%)",
+    // bg: "from-purple-900 via-pink-700 to-red-700",
   },
 }) {
   return (
     <section className="p-3 md:pt-6 md:px-6 bg-black">
       <div
-        className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+        // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+        style={{background:  data.bg}}
+        className={`text-white rounded-3xl`}
       >
         <Header {...data} />
         <div className="flex flex-col md:flex-row py-12 lg:pb-16 lg:pt-16">

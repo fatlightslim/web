@@ -23,11 +23,11 @@ const LeftCol = ({ title, desc, button }) => (
       <span className="whitespace-no-wrap">{desc[2]}</span>
     </p>
 
-      <Link href="/">
-        <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
-          {button}
-        </a>
-      </Link>
+    <Link href="/">
+      <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
+        {button}
+      </a>
+    </Link>
   </>
 )
 
@@ -37,7 +37,7 @@ export default function RelatedProducts() {
       <div className="grid grid-cols-1 md:grid-cols-2 g-0">
         {products.map((data, index) => {
           return (
-            <section className="p-3" key={index} >
+            <section className="p-3" key={index}>
               {/* <div className="absolute right-0 mr-8 mt-6 w-1/3">
                 <Image
                   src={data.img.src}
@@ -46,8 +46,11 @@ export default function RelatedProducts() {
                   alt={data.img.alt}
                 />
               </div> */}
+
               <div
-                className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+                // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+                className={`p-8 text-white rounded-3xl`}
+                style={{ background: data.bg }}
               >
                 <header className="dosis">
                   <h3 className="text-xl font-bold">{data.header}</h3>
@@ -58,10 +61,10 @@ export default function RelatedProducts() {
           )
         })}
         <section className="p-3">
-            <ContactEmail />
+          <ContactEmail />
         </section>
         <section className="p-3">
-            <BlogBanner />
+          <BlogBanner />
         </section>
       </div>
     </div>
