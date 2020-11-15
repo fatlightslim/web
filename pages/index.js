@@ -1,0 +1,355 @@
+import Image from "next/image"
+import Layout from "../components/Layout"
+import Hero from "../components/Hero"
+import Headline from "../components/Headline"
+import Features from "../components/Features"
+import CallToAction from "../components/Cta"
+import CallToAction2 from "../components/Cta2"
+import Testimonials from "../components/Testimonials"
+import FeatureSummary from "../components/FeatureSummary"
+import PricingTable from "../components/PricingTable"
+import Client from "shopify-buy/index.unoptimized.umd"
+import ProductBanner from "../components/ProductBanner"
+import RelatedProducts from "../components/RelatedProducts"
+
+// const client = Client.buildClient({
+//   domain: "fatlightslim.myshopify.com",
+//   storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
+// })
+
+// export async function getStaticProps() {
+//   const res = await client.product.fetchAll()
+//   const products = await JSON.parse(JSON.stringify(res))
+//   return {
+//     props: {
+//       products,
+//       // buildTimestamp: Date.now(),
+//     },
+//   }
+// }
+
+const data = {
+  Hero: {
+    component: "Home",
+    h1: {
+      desc:
+        "太陽光のように強力なLEDライトで収穫量が段違いに向上します！ホビー用途から商業用途まで室内栽培の本場アメリカで大人気のベストセラー植物用ライトです。",
+      tags: () => (
+        <>
+          <div
+            style={{ width: 225, top: 25 }}
+            className="block md:inline-block md:mr-1 md:relative mx-auto"
+          >
+            <Image
+              src="/img/Amazon-logo-RGB.png"
+              alt="amazon.com,アメリカAmazon"
+              className="align-baseline"
+              width={1479}
+              height={450}
+            />
+          </div>
+          <span className="">ランキング</span>
+          <br />
+          <span className="marker-yellow">全米No.1植物用ライト</span>
+          <br />
+
+          {/* <div className="mx-auto bg-black text-white px-6 max-w-lg">
+            <Image
+              src="/img/marshydro.png"
+              alt="MARS HYDRO "
+              width={592}
+              height={75}
+            />
+          </div> */}
+          <span className="dosis font-bold text-silver text-180">
+            MARS HYDRO
+          </span>
+        </>
+      ),
+    },
+    button: {
+      title: "ベストセラー商品を見る",
+      desc: "7日間返品保証つき",
+    },
+    img: {
+      src: "/img/lights.jpg",
+      alt: "SP3000",
+      width: 1000,
+      height: 500,
+    },
+    logo: {
+      title: "公式代理店",
+    },
+  },
+  Headline: {
+    h2: {
+      title: () => (
+        <span>
+          MARS HYDROの植物用LEDライトは収穫量も省エネも桁違い
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            width={40}
+            height={40}
+            className="inline-block text-blue-500"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
+      ),
+      desc:
+        // "Start by defining the pain your customer has right now, for example; clients not paying their invoices. Than write how your solution solves this problem for your customers.",
+        "「収穫量が十分ではない」「植物が急に弱った」等の原因のほとんどはライトの光量不足によるものです。「植物の元気のために電気代やブレーカー、故障のことは気にせずにライトを当て続けたい」そんな夢が叶う2020年最新版の植物用LEDライトをお届けします。",
+    },
+    h3: [
+      {
+        title: "収穫量にきっとビックリします",
+        desc: "太陽光のような心地よい光は植物の光合成",
+        img: {
+          src: "/img/drawing-music.png",
+          alt: "",
+          width: 446,
+          height: 332,
+        },
+      },
+      {
+        title: "電気代がこんなにおトク",
+        desc:
+          "Brief explanation of why and how this benefit will help your customers",
+        img: {
+          src: "/img/drawing-task.png",
+          alt: "",
+          width: 498,
+          height: 288,
+        },
+      },
+      {
+        title: "3年保証 = 品質への自信です。",
+        desc:
+          "IP65準拠の防水・防塵性能が湿気や散水の際のトラブルを未然に防ぎます。もちろん、24時間ライトを点けたままでも大丈夫です。万が一故障した場合はエキスパートが誠心誠意対応させていただきます。",
+        img: {
+          src: "/img/drawing-coffee.png",
+          alt: "",
+          width: 398,
+          height: 344,
+        },
+      },
+    ],
+    quote: {
+      name: "Customer Name, CEO of Company Name",
+      desc:
+        '“Powerfull and relevant testimonial of Customer X. This content should focus on the result the product had for this customer or answer a doubt your potential customer could have. "',
+      img: {
+        src: "/img/avatar-1.png",
+        alt: "Testimonial Avatar",
+        width: 32,
+        height: 32,
+      },
+    },
+  },
+  Features: [
+    {
+      cls1:
+        "flex flex-col md:flex-row items-center content-center py-12 lg:pt-16 lg:pb-32",
+      cls2: "feature-1 md:w-1/2 text-center mb-4 lg:mb-0 relative",
+      img: {
+        src: "/img/device-mobile.png",
+        alt: "Mobile Device",
+        width: 370,
+        height: 736,
+      },
+
+      h2: {
+        title: "もう二度と植物を枯れさせない！",
+        desc:
+          "第3世代LEDチップが室内栽培の常識を変えます。旧世代比で1.5倍の速度、2.5倍の収穫量を実現しました。太陽光のようなライト色はまるでハワイにいるかのような気分。旧来の赤・青・紫のライト色では把握することが難しかった植物の健康状態もカンタンにチェックできます。",
+      },
+      usps: [
+        "Summarize the content above",
+        "For visitors that don't like to read",
+        "And just scan the page",
+      ],
+    },
+    {
+      cls1:
+        "flex flex-col md:flex-row items-center content-center py-12 lg:pb-16 lg:pt-16",
+      cls2:
+        "feature-2 md:w-1/2 text-center order-first md:order-last mb-4 lg:mb-0 relative",
+      img: {
+        src: "/img/device-mobile-tablet-desktop.png",
+        alt: "Mobile Device",
+        width: 870,
+        height: 536,
+      },
+      h2: {
+        title: "電気代を心配する必要はありません",
+        desc:
+          "“Save your favorites links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.",
+      },
+      usps: [
+        "Summarize the content above",
+        "For visitors that don't like to read",
+        "And just scan the page",
+      ],
+    },
+    {
+      cls1:
+        "flex flex-col md:flex-row items-center content-center py-12 lg:pt-16 lg:pb-32",
+      cls2:
+        "feature-3 w-full md:w-1/2 text-center px-4 px-md-0 mb-4 lg:mb-0 relative",
+      img: {
+        src: "/img/device-tablet-phone.png",
+        alt: "Mobile Device",
+        width: 862,
+        height: 608,
+      },
+      h2: {
+        title: "最適なライトがきっと見つかります",
+        desc:
+          "栽培環境にあわせて選べるサイズ、デイジーチェーン（数珠つなぎ）機能であらゆる環境に適応します。",
+      },
+      usps: [
+        "選べるサイズ",
+        "デイジーチェーン（数珠つなぎ）",
+        "あらゆる環境に適応",
+      ],
+    },
+  ],
+  CallToAction: {
+    h4: {
+      title: "7日間返品保証",
+      desc: "万が一商品にご満足いただけない場合、全額返金させていただきます。",
+    },
+    button: "オススメ商品を見る",
+
+    img: {
+      src: "/img/drawing-try.png",
+      alt: "Drawing Try",
+      width: 208,
+      height: 168,
+    },
+    cls: {
+      bg: "bg-yellow-200",
+      border: "border-blue-200"
+    }
+  },
+  Testimonials: {
+    h2: () => (
+      <span>
+        Amazonレビュー2,000件越え！
+        <br /> 9割以上のお客様にご満足の評価をいただいています👍
+      </span>
+    ),
+    quotes: [
+      {
+        name: "Jonathan, Musician",
+        text:
+          "他社の製品より高いので躊躇しましたが、お値段以上でした。今までの苦労が馬鹿らしくなるぐらいの違い(笑) もうライトはこれでいいや。",
+        img: {
+          src: "/img/avatar-1.png",
+          alt: "Testimonial Avatar",
+          width: 32,
+          height: 32,
+        },
+      },
+      {
+        name: "Customer Name, CEO of Company Name",
+        text:
+          "“Powerfull and relevant testimonial of Customer X. This content should focus on the result the product had for this customer or answer a doubt your potential customer could have. ”",
+        img: {
+          src: "/img/avatar-1.png",
+          alt: "Testimonial Avatar",
+          width: 32,
+          height: 32,
+        },
+      },
+    ],
+  },
+
+  Pricing: {
+    h2: {
+      title: "How much is a high converting landing page worth to you?",
+      desc:
+        "Choose between this pricing block, or end the page with a CTA Block as shown below. Choose either one.",
+    },
+    boxes: [
+      {
+        title: "Burple Light",
+        cls:
+          "w-full lg:w-1/3 mt-8 bg-white max-w-lg mx-auto lg:-mr-2 lg:ml-0 lg:mt-8 lg:mt-0",
+        desc: "Explain biggest difference of this plan here",
+        button: "Start free trial now",
+      },
+      {
+        title: "MARS HYDRO",
+        cls:
+          "w-full lg:w-1/3 bg-white shadow-lg max-w-lg mx-auto lg:-mr-2 lg:ml-0 lg:mt-0 lg:mb-0 relative z-10",
+        desc: "This is the plan you want to sell most",
+        button: "Start free trial now",
+        cls2:
+          "block border border-2 border-yellow-600 bg-yellow-500 rounded text-base font-semibold p-4 hover:border-yellow-700 hover:bg-yellow-600 ",
+      },
+      {
+        title: "Decoy",
+        cls:
+          "w-full lg:w-1/3 mt-8 bg-white max-w-lg mx-auto lg:-mr-2 lg:ml-0 lg:mt-8 lg:mt-0",
+        desc:
+          "Make this plan super expensive, so your middle plan looks cheaper",
+        button: "Start free trial now",
+      },
+    ],
+  },
+  CallToAction2: {
+    img: {
+      src: "/img/features-drawing-moonlanding.png",
+      alt: "Drawing Moonlanding",
+      width: 570,
+      height: 334,
+    },
+    h2: {
+      title: "Or,ask if your visitor wants to solve problem X today",
+      desc:
+        "Explain how your solution will solve this problem and ask them to start a free trial, or any other low-key CTA they could take.",
+    },
+    button: {
+      left: "商品の詳細を見る",
+      right: "お問い合わせ",
+      desc: "Reduce Risk: Free 14 day trial",
+    },
+    quote: {
+      img: {
+        src: "/img/avatar-1.png",
+        alt: "Testimonial Avatar",
+        width: 32,
+        height: 32,
+      },
+      name: "Customer Name, CEO of Company Name",
+      title:
+        "“Powerfull and relevant testimonial of Customer X. This content should focus on the result the product had for this customer or answer a doubt your potential customer could have. ",
+    },
+  },
+}
+
+function Home() {
+  // console.log(products)
+  return (
+    <Layout>
+      <Hero data={data.Hero} />
+      <Headline data={data.Headline} />
+      <Features data={data.Features} />
+      <CallToAction data={data.CallToAction} />
+      <Testimonials data={data.Testimonials} />
+      <FeatureSummary />
+      {/* <Pricing data={data.Pricing} /> */}
+      <PricingTable />
+      <RelatedProducts />
+    </Layout>
+  )
+}
+
+export default Home

@@ -1,0 +1,23 @@
+{
+  "name": "fatlightslim.com",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "babel-plugin-transform-define": "^2.0.0",
+    "next": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "shopify-buy": "^2.11.0",
+    "vercel": "^20.1.4"
+  },
+  "devDependencies": {
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.7.4"
+  },
+  "license": "MIT"
+}
