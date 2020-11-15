@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import Hero from '../components/hero'
+import Layout from '../components/Layout'
+import Hero from '../components/Hero'
 import Features from '../components/Features'
 import AppleM1 from '../components/AppleM1'
 

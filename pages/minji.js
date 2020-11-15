@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Headline from '../components/Headline'
 
