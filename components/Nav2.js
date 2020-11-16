@@ -102,7 +102,8 @@ export default function Nav({
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex">
+                        <Logo className="text-gold " />
+            {/* <div className="flex"> */}
               {/* <img
                 className="block lg:hidden h-8 w-auto"
                 src="https://tailwindui.com/img/logos/v1/workflow-mark-on-dark.svg"
@@ -113,8 +114,7 @@ export default function Nav({
                 src="https://tailwindui.com/img/logos/v1/workflow-logo-on-dark.svg"
                 alt="Workflow logo"
               /> */}
-                        <Logo className="text-gold flex items-center" />
-            </div>
+            {/* </div> */}
             <div className="hidden sm:block sm:ml-6">
               <div className="flex">
                 {data.map((v) => {
