@@ -19,7 +19,8 @@ You are supposed to have a knowledge about `react.js` and  `css`.
 ## Why?
 
 Our site is by standing on the shoulders of giants.
-http://fatlightslim.com/thanks
+<!-- http://fatlightslim.com/thanks -->
+https://web-git-main.fatlightslim.vercel.app/thanks
 
 ## How to use
 
