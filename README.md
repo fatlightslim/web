@@ -6,6 +6,8 @@ This is the open source e-commerce template based on fatlightslim.com
 - generates HTML and JSON files, both of which can be cached by a CDN for performance.
 - 18n
 
+demo: https://web-git-main.fatlightslim.vercel.app
+
 ## When should I use it?
 
 If you are attempting to launch a seo frindly web site, this is it!
@@ -14,7 +16,7 @@ If you are attempting to launch a seo frindly web site, this is it!
 
 You are supposed to have a knowledge about `react.js` and  `css`.
 
-# Why?
+## Why?
 
 Our site is by standing on the shoulders of giants.
 http://fatlightslim.com/thanks
