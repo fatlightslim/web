@@ -54,7 +54,7 @@ function MainMenu() {
   return (
     <ul className="flex flex-row">
       {links.map((v, i) => {
-        return i > 4 ? null : (
+        return i > 5 ? null : (
           <li key={i} className="">
             <Link href={v.href}>
               <a className={v.style}>{v.name}</a>
@@ -68,9 +68,9 @@ function MainMenu() {
 
 function SecondMenu() {
   return (
-    <ul className="flex flex-">
+    <ul className="flex flex-row">
       {links.map((v, i) => {
-        return i < 5 ? null : (
+        return i < 6 ? null : (
           <li key={i} className="">
             <Link href={v.href}>
               <a className={v.style}>{v.name}</a>
@@ -84,7 +84,7 @@ function SecondMenu() {
 
 export default function Nav() {
   return (
-    <nav className="p-4 nav-section w-full bg-blue-900 text-white">
+    <nav className="p-4 nav-section w-full bg-gray-800 text-white">
       <div className="container mx-auto">
         <div className="flex justify-between flex-content-center items-center py-2 lg:py-0 px-0 lg:px-0">
           <Logo className="text-gold" />
