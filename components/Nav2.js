@@ -2,55 +2,52 @@ import Link from "next/link"
 import Logo from "./Logo"
 
 const style = {
-  normal:
-    "px-4 py-2 text-gray-400 hover:text-gray-900 transition duration-500 ease-in-out hover:rounded hover:bg-gray-200 rounded",
-  btn:
-    "text-gray-900 px-3 py-2 bg-yellow-500 hover:bg-yellow-600 rounded border border-yellow-600 shadow font-semibold transition duration-500 ease-in-out cursor-pointer",
+  md1:
+    "px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out",
+  md2:
+    "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out",
+  sm1:
+    "block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out",
+  sm2:
+    "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out",
 }
-const links = [
-  {
-    name: "Home",
-    href: "/",
-    style: style.normal,
-  },
-  {
-    name: "Products",
-    href: "/products",
-    style: style.normal,
-  },
-  {
-    name: "Landing",
-    href: "/landing",
-    style: style.normal,
-  },
-  {
-    name: "Minji",
-    href: "/minji",
-    style: style.normal,
-  },
-  {
-    name: "Okada",
-    href: "/okada",
-    style: style.normal,
-  },
-  {
-    name: "Abiru",
-    href: "/abiru",
-    style: style.normal,
-  },
-  {
-    name: "Login",
-    href: "/",
-    style: style.normal,
-  },
-  {
-    name: "Signup for free",
-    href: "/",
-    style: style.btn,
-  },
-]
 
-export default function Nav() {
+export default function Nav({
+  data = [
+    {
+      name: "Home",
+      href: "/",
+      className: {
+        md: style.sm2,
+        sm: style.sm2,
+      },
+    },
+    {
+      name: "Products",
+      href: "/products",
+      className: {
+        md: style.sm2,
+        sm: style.sm2,
+      },
+    },
+    {
+      name: "Landing",
+      href: "/landing",
+      className: {
+        md: style.sm2,
+        sm: style.sm2,
+      },
+    },
+    {
+      name: "Thanks",
+      href: "/thanks",
+      className: {
+        md: style.sm2,
+        sm: style.sm2,
+      },
+    },
+  ],
+}) {
   return (
     <nav className="bg-gray-800">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -105,8 +102,8 @@ export default function Nav() {
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex-shrink-0">
-              <img
+            <div className="flex">
+              {/* <img
                 className="block lg:hidden h-8 w-auto"
                 src="https://tailwindui.com/img/logos/v1/workflow-mark-on-dark.svg"
                 alt="Workflow logo"
@@ -115,34 +112,18 @@ export default function Nav() {
                 className="hidden lg:block h-8 w-auto"
                 src="https://tailwindui.com/img/logos/v1/workflow-logo-on-dark.svg"
                 alt="Workflow logo"
-              />
+              /> */}
+                        <Logo className="text-gold flex items-center" />
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex">
-                <a
-                  href="#"
-                  className="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Dashboard
-                </a>
-                <a
-                  href="#"
-                  className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Team
-                </a>
-                <a
-                  href="#"
-                  className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#"
-                  className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                >
-                  Calendar
-                </a>
+                {data.map((v) => {
+                  return (
+                    <Link key={v.name} href={v.href}>
+                      <a className={v.className.md}>{v.name}</a>
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -196,30 +177,13 @@ export default function Nav() {
   --> */}
       <div className="hidden sm:hidden">
         <div className="px-2 pt-2 pb-3">
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >
-            Dashboard
-          </a>
-          <a
-            href="#"
-            className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >
-            Team
-          </a>
-          <a
-            href="#"
-            className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >
-            Projects
-          </a>
-          <a
-            href="#"
-            className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >
-            Calendar
-          </a>
+          {data.map((v) => {
+            return (
+              <Link key={v.name} href={v.href}>
+                <a className={v.className.sm}>{v.name}</a>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </nav>
