@@ -77,7 +77,7 @@ export default function ContactEmail({
                 </span>
                 hello@fatlightslim.com
               </a>
-              <a
+              {/* <a
                 target="_blank"
                 href="https://twitter.com/messages/compose?recipient_id=1317632177861926917&amp;ref_src=twsrc%5Etfw"
                 className="bg-blue-600 text-white p-2 rounded inline-block my-2 w-full"
@@ -101,7 +101,7 @@ export default function ContactEmail({
                 async
                 src="https://platform.twitter.com/widgets.js"
                 charSet="utf-8"
-              ></script>
+              ></script> */}
             </div>
 
             <p className="text-md md:text-xl lg:text-lg p-4 px-20 md:px-2 pb-8 text-gray-800">
