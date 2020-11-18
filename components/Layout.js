@@ -5,15 +5,15 @@ import Footer from "./Footer"
 export default function Layout({
   children,
   data = {
-    title: "植物用ライト専門店 FAT Light SLIM",
+    title: `植物用LEDライト専門店 ${process.env.site.name}`,
     desc:
       "海外で人気の植物栽培用ライトを安心価格で安全にお届けします。ホビー用途から商用向けまでお取り扱い中！MARS HYDRO公式代理店。中古LEDライトの買取も随時受付中。",
-    href: "https://fatlightslim.com/",
+    href: process.env.url,
     color: "#006eff",
     img:
       "http://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-11-14_at_17.52.16_1200x1200.png?v=1605489192",
     og: {
-      site_name: "FAT Light SLIM",
+      site_name: process.env.site.name,
       type: "website",
     },
     tw: {
@@ -22,7 +22,7 @@ export default function Layout({
   },
 }) {
   return (
-    <div className="mx-auto antialiased">
+    <div className="mx-auto">
       <Head>
         <title>{data.title}</title>
         <meta charSet="utf-8" />
@@ -47,7 +47,7 @@ export default function Layout({
 
       {children}
 
-      <Footer />
+      <Footer  />
     </div>
   )
 }

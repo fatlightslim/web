@@ -1,10 +1,10 @@
 import Link from "next/link"
 
 const Name = ({ name, href }) => (
-  <li className="text-xl">
+  <li className="text-6 md:text-xl">
     <span className="mr-2">{name}</span> 
-    <Link href={href} target="_blank">
-      <a className="">
+    <Link href={href}>
+      <a className="block md:inline-block"  target="_blank">
         <span className="text-blue-500">{href}</span>
       </a>
     </Link>
@@ -33,9 +33,9 @@ export default function Thanks({
 }) {
   return (
     <div className="bg-yellow-100 p-2 md:px-40 md:py-12">
-      <h3 className="text-6xl text-center font-extrabold"></h3>
+      <h3 className="dosis text-6xl leading-tight text-center font-bold mb-8">Thank you, Open Source!</h3>
 
-      <div className="w-full antialiased">
+      <div className="w-full">
         <div className="coding inverse-toggle px-5 pt-4 shadow-lg text-gray-100 text-sm font-mono  bg-gray-800 pb-6  rounded-lg leading-normal overflow-hidden">
           <div className="top mb-2 flex">
             <div className="h-3 w-3 bg-red-500 rounded-full"></div>
@@ -43,7 +43,7 @@ export default function Thanks({
             <div className="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
           </div>
           <div className="mt-4 flex">
-            <span className="text-green-400">{data.prompt}</span>
+            <span className="text-green-400 hidden md:block">{data.prompt}</span>
             <p className="flex-1 typing items-center pl-2">{data.title}</p>
           </div>
           <ul className="leading-9 mt-4">
@@ -52,9 +52,9 @@ export default function Thanks({
             ))}
 
             <li className="mt-2 flex">
-              <span className="text-green-400">{data.prompt}</span>
-              <span className="flex-1 typing items-center pl-2">
-                Our projects are supposed to be opened.&nbsp;->&nbsp;
+              <span className="text-green-400 hidden md:block">{data.prompt}</span>
+              <span className="pl-2">
+                Our projects are supposed to be opened.&nbsp;
                 <Link href="https://github.com/fatlightslim/">
                   <a target="_blank" className="text-red-400 underline">
                     https://github.com/fatlightslim/
@@ -63,7 +63,7 @@ export default function Thanks({
               </span>
             </li>
             <li className="flex">
-              <span className="text-green-400">{data.prompt}</span>
+              <span className="text-green-400 hidden md:block">{data.prompt}</span>
               <span className="flex-1 typing items-center pl-2">
               Pull requests are always welcome!
               </span>

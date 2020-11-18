@@ -8,7 +8,7 @@ import BlogBanner from "./BlogBanner"
 
 const LeftCol = ({ title, desc, button }) => (
   <>
-    <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-normal">
+    <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-no-wrap">
       {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
       <span  style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
@@ -64,10 +64,10 @@ export default function RelatedProducts() {
         <section className="p-3">
           <ContactEmail />
         </section>
+      </div>
         <section className="p-3">
           <BlogBanner />
         </section>
-      </div>
     </div>
   )
 }
