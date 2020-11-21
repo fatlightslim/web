@@ -13,7 +13,7 @@ const Price = ({ price }) => (
       <span className="text-xl -mt-4">$</span>
       <span className="text-6xl ml-1 leading-5">{price}</span>
     </div>
-    <div className="text-gray-600 text-sm">Billed per month</div>
+    <div className="text-gray-700 text-sm">Billed per month</div>
   </>
 )
 
@@ -91,7 +91,7 @@ export default function Pricing({
                   <div>
                     <h3 className="font-semibold text-lg">{box.title}</h3>
                     {box.price}
-                    <p className="mt-8 mb-6 text-gray-600">{box.desc}</p>
+                    <p className="mt-8 mb-6 text-gray-700">{box.desc}</p>
                   </div>
                   {box.list}
                   <div className="my-4">

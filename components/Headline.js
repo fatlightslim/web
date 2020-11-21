@@ -68,7 +68,7 @@ export default function Headline({
             <h2 className="text-2xl md:text-4xl leading-tight font-bold">
               <data.h2.title/>
             </h2>
-            <p className="text-lg py-2 text-gray-600">{data.h2.desc}</p>
+            <p className="text-lg py-2 text-gray-700">{data.h2.desc}</p>
           </div>
         </div>
 
@@ -79,7 +79,7 @@ export default function Headline({
                 key={v.title}
                 className="my-8 lg:my-0 w-full lg:w-2/6 text-center mt-4 flex flex-col justify-between align-content-start px-4"
               >
-                <div className="md:w-1/3 lg:w-2/3 justify-self-start mx-auto py-2 md:py-4 w-1/2 md:w-1/3 lg:w-auto">
+                <div className="md:w-1/3 lg:w-2/3 justify-self-start mx-auto py-2 md:py-4 w-1/2">
                   <Image
                     src={v.img.src}
                     alt={v.img.alt}
@@ -92,7 +92,7 @@ export default function Headline({
                   <h3 className="font-semibold text-xl md:text-2xl lg:text-xl">
                     {v.title}
                   </h3>
-                  <p className="text-gray-600">{v.desc}</p>
+                  <p className="text-gray-700">{v.desc}</p>
                 </div>
               </div>
             )

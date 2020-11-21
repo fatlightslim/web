@@ -206,7 +206,7 @@ export const data = {
       height: 168,
     },
     cls: {
-      bg: "bg-yellow-200",
+      bg: "bg-blue-100",
       border: "border-blue-200",
     },
   },
