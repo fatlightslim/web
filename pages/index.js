@@ -16,9 +16,9 @@ function Home() {
       <Hero data={data.Hero} />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
-      <CallToAction data={data.CallToAction} />
+      {/* <CallToAction data={data.CallToAction} /> */}
       <Testimonials data={data.Testimonials} />
-      <FeatureSummary />
+      {/* <FeatureSummary /> */}
       <PricingTable />
       <RelatedProducts />
     </Layout>

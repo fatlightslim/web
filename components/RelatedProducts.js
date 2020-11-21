@@ -34,7 +34,7 @@ const LeftCol = ({ title, desc, button }) => (
 
 export default function RelatedProducts() {
   return (
-    <div className="bg-black py-3">
+    <div className="bg-gray-200 py-3">
       <div className="grid grid-cols-1 md:grid-cols-2 g-0">
         {products.map((data, index) => {
           return (

@@ -26,7 +26,7 @@ export default function Footer({
         <div className=" flex flex-col lg:flex-row content-center items-center justify-between">
           <div className="flex items-center flex-col lg:flex-row mx-auto">
             <Logo />
-            <span className="ml-0 md:ml-4 text-sm text-gray-600 py-4 lg:py-0">
+            <span className="ml-0 md:ml-4 text-sm text-gray-900 py-4 lg:py-0">
               {data.copyright}
             </span>
           </div>

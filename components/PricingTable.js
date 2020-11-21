@@ -19,7 +19,7 @@ export default function PricingTable() {
                   <h1 className="text-lg font-medium uppercase p-3 pb-0 text-center tracking-wide">
                     Burple
                   </h1>
-                  <h2 className="text-sm text-gray-500 text-center pb-6">
+                  <h2 className="text-sm text-gray-700 text-center pb-6">
                     FREE
                   </h2>
                   Stripe offers everything needed to run an online business at
@@ -110,7 +110,7 @@ export default function PricingTable() {
                 <h1 className="text-lg font-medium uppercase p-3 pb-0 text-center tracking-wide">
                   MARS HYDRO
                 </h1>
-                <h2 className="text-sm text-gray-500 text-center pb-6">
+                <h2 className="text-sm text-gray-700 text-center pb-6">
                   <span className="text-3xl">€19</span> /mo
                 </h2>
                 Stripe offers everything needed to run an online business at
@@ -196,7 +196,7 @@ export default function PricingTable() {
                   <h1 className="text-lg font-medium uppercase p-3 pb-0 text-center tracking-wide">
                     Decoy
                   </h1>
-                  <h2 className="text-sm text-gray-500 text-center pb-6">
+                  <h2 className="text-sm text-gray-700 text-center pb-6">
                     €39 /mo
                   </h2>
                   Stripe offers everything needed to run an online business at

@@ -57,11 +57,11 @@ export default function ProductBanner({
   },
 }) {
   return (
-    <section className="p-3 md:pt-6 md:px-6 bg-black">
+    <section className="p-3 md:pt-6 md:px-6 bg-black ">
       <div
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
         style={{background:  data.bg}}
-        className={`text-white rounded-3xl`}
+        className={`text-white rounded-3xl max-w-screen-xl mx-auto`}
       >
         <Header {...data} />
         <div className="flex flex-col md:flex-row py-12 lg:pb-16 lg:pt-16">

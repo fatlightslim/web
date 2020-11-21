@@ -4,8 +4,8 @@ const Name = ({ name, href }) => (
   <li className="text-6 md:text-xl">
     <span className="mr-2">{name}</span> 
     <Link href={href}>
-      <a className="block md:inline-block"  target="_blank">
-        <span className="text-blue-500">{href}</span>
+      <a className="block md:inline-block"  target="_blank" rel="noopener">
+        <span className="text-blue-300">{href}</span>
       </a>
     </Link>
   </li>
@@ -56,7 +56,7 @@ export default function Thanks({
               <span className="pl-2">
                 Our projects are supposed to be opened.&nbsp;
                 <Link href="https://github.com/fatlightslim/">
-                  <a target="_blank" className="text-red-400 underline">
+                  <a target="_blank" className="text-red-400 underline" rel="noopener">
                     https://github.com/fatlightslim/
                   </a>
                 </Link>

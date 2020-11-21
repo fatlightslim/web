@@ -54,7 +54,7 @@ export default function ContactEmail({
             </h2>
             <div className="m-4">
               <a
-                className="bg-red-500 text-white p-2 rounded inline-block my-2 w-full"
+                className="bg-red-700 text-white p-2 rounded inline-block my-2 w-full"
                 // className="block"
                 href="mailto:hello@fatlightslim.com"
                 tareget="_blank"

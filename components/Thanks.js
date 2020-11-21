@@ -5,7 +5,7 @@ const Name = ({ name, href }) => (
     <span className="mr-2">{name}</span> 
     <Link href={href} target="_blank">
       <a className="">
-        <span className="text-blue-500">{href}</span>
+        <span className="text-blue-300">{href}</span>
       </a>
     </Link>
   </li>
@@ -56,7 +56,7 @@ export default function Thanks({
               <span className="flex-1 typing items-center pl-2">
                 Our projects are supposed to be opened.&nbsp;->&nbsp;
                 <Link href="https://github.com/fatlightslim/">
-                  <a target="_blank" className="text-red-400 underline">
+                  <a target="_blank" className="text-red-400 underline" rel="noopener">
                     https://github.com/fatlightslim/
                   </a>
                 </Link>
