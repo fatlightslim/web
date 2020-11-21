@@ -57,7 +57,7 @@ export default function ProductBanner({
   },
 }) {
   return (
-    <section className="p-3 md:pt-6 md:px-6 bg-black ">
+    <section className="p-3 md:pt-6 md:px-6 bg-gray-200 ">
       <div
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
         style={{background:  data.bg}}
