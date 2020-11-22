@@ -15,12 +15,14 @@ export default function Layout({
     og: {
       site_name: process.env.site.name,
       type: "website",
+      url:  process.env.site.url,
     },
     tw: {
       card: "summary_large_image",
     },
   },
 }) {
+  console.log(data);
   return (
     // <div className="mx-auto">
     <>
@@ -32,7 +34,7 @@ export default function Layout({
         <meta name="description" content={data.desc} />
         <link rel="canonical" href={data.href} />
         <meta property="og:site_name" content={data.og.site_name} />
-        <meta property="og:url" content={data.href} />
+        <meta property="og:url" content={data.og.url} />
         <meta property="og:title" content={data.title} />
         <meta property="og:type" content={data.og.type} />
         <meta property="og:description" content={data.desc} />
