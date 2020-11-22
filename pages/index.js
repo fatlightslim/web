@@ -12,12 +12,12 @@ import {products} from "../data/products"
 import ProductCarousel from "../components/ProductCarousel"
 import Delivery from "../components/Delivery"
 import Henpin from "../components/Henpin"
-import Landing2 from "../components/Landing"
+import Landing2 from "../components/Landing2"
 
 function Home() {
   return (
     <Layout>
-      <Landing2 />
+      {/* <Landing2 /> */}
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
@@ -26,7 +26,7 @@ function Home() {
       <Testimonials data={data.Testimonials} />
       <Henpin />
       {/* <FeatureSummary /> */}
-      <PricingTable />
+      {/* <PricingTable /> */}
       <RelatedProducts />
     </Layout>
   )

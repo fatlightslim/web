@@ -16,7 +16,7 @@ export default function Henpin({
       src: "/img/refund.png",
       alt: "",
       width: 1000,
-      height: 1000,
+      height: 827,
     },
     desc: {
       1: "ご満足いただけない場合全額返金させていただき",
@@ -40,7 +40,7 @@ export default function Henpin({
           </div>
 
           <div className="md:col-span-1">
-            <div className="mt-8 md:mt-0 max-w-md">
+            <div className="mt-0 max-w-md">
               <Image
                 src={data.img.src}
                 width={data.img.width}

@@ -34,10 +34,27 @@ export default function Hero({
     //   }}
     // >
 
-    <div className="w-full bg-gray-100 slide">
+    <div className="w-full slide">
+      <div style={{
+        position: 'fixed',
+        height: '100vh',
+        width: '100vw',
+        overflow: 'hidden',
+        zIndex: -1
+      }}>
+        <Image
+          src="/img/main.jpg"
+          alt="main background"
+          // width={1280}
+          // height={853}
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+      </div>
       <div className="container mx-auto py-8">
         <div className="py-8 text-center w-4/5 mx-auto ">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
             <data.h1.tags />
           </h1>
           <p className="text-xl py-4 text-gray-700">{data.h1.desc}</p>
