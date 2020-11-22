@@ -99,7 +99,7 @@ export default function Headline({
           })}
         </div>
 
-        <div className=" mt-4">
+        {/* <div className=" mt-4">
           <div className="lg:w-1/2 mx-auto text-center mt-4">
             <blockquote className="italic text-lg text-gray-700">
               {data.quote.desc}
@@ -118,7 +118,7 @@ export default function Headline({
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

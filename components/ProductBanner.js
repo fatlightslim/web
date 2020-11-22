@@ -61,7 +61,7 @@ export default function ProductBanner({
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
         style={{ background: data.bg }}
         // style={{ background: data.bg, minHeight: 766 }}
-        className="text-white md:rounded-3xl max-w-screen-xl p-8 mx-auto slide"
+        className="text-white md:rounded-3xl max-w-screen-xl p-8 mx-auto"
       >
         <Header {...data} />
         <div className="grid md:grid-cols-2 mx-auto gap-0">

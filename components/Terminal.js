@@ -32,7 +32,7 @@ export default function Thanks({
   },
 }) {
   return (
-    <div className="bg-yellow-100 p-2 md:px-40 md:py-12">
+    <div className="bg-yellow-100 p-2 md:px-40 md:py-12 min-h-screen">
       <h3 className="dosis text-6xl leading-tight text-center font-bold mb-8">Thank you, Open Source!</h3>
 
       <div className="w-full">
@@ -53,8 +53,8 @@ export default function Thanks({
 
             <li className="mt-2 flex">
               <span className="text-green-400 hidden md:block">{data.prompt}</span>
-              <span className="pl-2">
-                Our projects are supposed to be opened.&nbsp;
+              <span className="">
+                Our GitHub<br />
                 <Link href="https://github.com/fatlightslim/">
                   <a target="_blank" className="text-red-400 underline" rel="noopener">
                     https://github.com/fatlightslim/

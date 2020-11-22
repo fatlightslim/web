@@ -11,7 +11,7 @@ export default function ContactEmail({
     h2: {
       title: "お問い合わせ",
       desc:
-        "Explain how your solution will solve this problem and ask them to start a free trial, or any other low-key CTA they could take.",
+        "製品のことから配送や栽培のことまでお気軽にお問い合わせください。可能な限り迅速に対応させていただきます。",
     },
     button: {
       left: "Clear CTA Text",
@@ -57,7 +57,7 @@ export default function ContactEmail({
                 className="bg-red-700 text-white p-2 rounded inline-block my-2 w-full"
                 // className="block"
                 href="mailto:hello@fatlightslim.com"
-                tareget="_blank"
+                target="_blank"
               >
                 <span className="px-1 bg-white float-left rounded text-red-600 text-xs ">
                   <svg
@@ -81,7 +81,7 @@ export default function ContactEmail({
                 className="bg-blue-400 text-white p-2 rounded inline-block my-2 w-full"
                 // className="block"
                 href="https://twitter.com/fatlightslim"
-                tareget="_blank"
+                target="_blank"
               >
                 <span className="px-1 bg-white float-left rounded text-blue-500 text-xs ">
                   <svg className="inline-block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

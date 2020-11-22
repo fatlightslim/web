@@ -36,10 +36,10 @@ export const products = [
       color: "#fc8181",
     },
     img: {
-      src: "/img/SP150_3xs.png",
+      src: "/img/SP150_3xss.png",
       alt: "",
       width: 1200,
-      height: 510,
+      height: 900,
     },
     desc: {
       1: "テント栽培の最大のパートナー♪これは誇張ではありません。SP150が2019年に発売されて以来、このモデルは米国のテント栽培者向けに大ヒットしました。SP3000のちょうど半分のサイズで初心者から中級者まで幅広くオススメできるモデル",
@@ -53,9 +53,7 @@ export const products = [
     header: "MARS HYDRO",
     title: {
       1: "TSシリーズ",
-      // 2: "色々なサイズの",
       2: "サイズを選べる",
-      // 2: "常識はずれの",
       3: "定番アイテム",
       // color: "text-orange-400",
       color: "#f6ad55",
