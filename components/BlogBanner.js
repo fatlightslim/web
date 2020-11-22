@@ -18,7 +18,7 @@ export default function BlogBanner(params) {
           </div>
         </div>
         <div className="md:col-span-2">
-          <h3 className="text-3xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-no-wrap mt-4">
+          <h3 className="text-3xl md:text-6xl font-extrabold leading-none tracking-tight  mt-4">
             植物用ライトの選び方
           </h3>
           <p className="text-white font-bold text-xl my-4 text-left tracking-tighter leading-1">
@@ -30,7 +30,7 @@ export default function BlogBanner(params) {
             <a
               href="https://fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
               // className="px-4 py-2 rounded bg-yellow-500 text-black font-extrabold text-2xl"
-              className="bg-yellow-500 hover:bg-yellow-600 rounded border border-yellow-600 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
+              className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
             >
               詳細を見る
           </a>

@@ -9,18 +9,18 @@ const Header = ({ header }) => (
 
 const LeftCol = ({ title, desc, button }) => (
   <>
-    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-no-wrap">
+    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-nowrap">
       <span style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <br />
       {title[2]}
       <br />
-      <span className="whitespace-no-wrap">{title[3]}</span>
+      <span className="whitespace-nowrap">{title[3]}</span>
     </p>
     <p className="py-8 max-w-lg lg:mb-12  text-6 md:text-xl font-bold leading-tight tracking-normal">
       {desc[1]}
-      <span className="whitespace-no-wrap">{desc[2]}</span>
+      <span className="whitespace-nowrap">{desc[2]}</span>
     </p>
 
     <Link href="/">

@@ -8,7 +8,7 @@ import BlogBanner from "./BlogBanner"
 
 const LeftCol = ({ title, desc, button }) => (
   <>
-    <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-no-wrap">
+    <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-nowrap">
       {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
       <span style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
@@ -16,12 +16,12 @@ const LeftCol = ({ title, desc, button }) => (
       <br />
       {title[2]}
       <br />
-      <span className="whitespace-no-wrap">{title[3]}</span>
+      <span className="whitespace-nowrap">{title[3]}</span>
     </p>
 
     <p className="max-w-lg mt-8 mb-12 text-6 md:text-xl font-bold leading-tight tracking-normal">
       {desc[1]}
-      <span className="whitespace-no-wrap">{desc[2]}</span>
+      <span className="whitespace-nowrap">{desc[2]}</span>
     </p>
 
     <div className=" text-center md:text-left">
