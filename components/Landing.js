@@ -1,4 +1,4 @@
-export default function Landing2(params) {
+export default function Landing(params) {
   return (
     <>
       <div class="w-full h-screen relative text-white">
