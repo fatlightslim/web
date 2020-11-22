@@ -8,7 +8,7 @@ export const products = [
       // 2: "常識はずれの",
       3: "ライトです。",
       // color: "text-purple-400",
-      color: "#8679cb",
+      color: "#C48CFC",
     },
     img: {
       src: "/img/SP3000_transparent.png",
