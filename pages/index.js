@@ -11,6 +11,7 @@ import {data} from "../data/home"
 import {products} from "../data/products"
 import ProductCarousel from "../components/ProductCarousel"
 import Delivery from "../components/Delivery"
+import Henpin from "../components/Henpin"
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
       <Testimonials data={data.Testimonials} />
+      <Henpin />
       {/* <FeatureSummary /> */}
       <PricingTable />
       <RelatedProducts />
