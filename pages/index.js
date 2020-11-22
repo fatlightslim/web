@@ -14,6 +14,8 @@ import Delivery from "../components/Delivery"
 import Henpin from "../components/Henpin"
 import Landing2 from "../components/Landing"
 import CustomerReview from "../components/CustomerReview"
+import ReviewBanner from "../components/ReviewBanner"
+import AutoPlayReview from "../components/AutoPlayReview"
 // import ReviewCarousel from "../components/ReviewCarousel"
 
 
@@ -31,7 +33,9 @@ function Home() {
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
       {/* <Testimonials data={data.Testimonials} /> */}
-      <CustomerReview />
+      {/* <CustomerReview /> */}
+      <ReviewBanner />
+      {/* <AutoPlayReview /> */}
       <Henpin />
       {/* <FeatureSummary /> */}
       {/* <PricingTable /> */}

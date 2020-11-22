@@ -41,7 +41,7 @@ export default function Henpin({
           </div>
 
           <div className="md:col-span-1">
-            <div className="mt-0 max-w-md">
+            <div className="mt-8 md:m-0 max-w-md">
               <Image
                 src={data.img.src}
                 width={data.img.width}

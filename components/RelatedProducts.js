@@ -45,8 +45,8 @@ export default function RelatedProducts() {
 
               <div
                 // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-                className={`text-white rounded-3xl p-4`}
-                style={{ background: data.bg,  minHeight: 870  }}
+                className={`text-white rounded-3xl p-4 md:min-h-screen`}
+                style={{ background: data.bg }}
               >
                 <header className="dosis">
                   <h3 className="text-xl font-bold">{data.header}</h3>
@@ -56,7 +56,7 @@ export default function RelatedProducts() {
                     <LeftCol {...data} />
                   </div>
                   <div className="md:col-span-1">
-                    <div className="mt-12 md:mt-0" >
+                    <div className="mt-12 "  >
 
                       <Image
                         src={data.img.src}
@@ -76,10 +76,10 @@ export default function RelatedProducts() {
       <div className="bg-gray-200 p-0 grid md:grid-cols-2">
 
         <section className="p-3 md:grid-cols-2">
-          <ContactEmail />
+          <BlogBanner />
         </section>
         <section className="p-3 md:grid-cols-2">
-          <BlogBanner />
+          <ContactEmail />
         </section>
       </div>
     </>

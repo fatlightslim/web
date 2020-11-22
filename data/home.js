@@ -13,11 +13,11 @@ export const data = {
             className="block md:inline-block  mx-auto"
           >
             <Image
-              src="/img/Amazon-logo-RGB.png"
+              src="/img/amazon_PNG11-768x280.png"
               alt="amazon.com,アメリカAmazon"
               className="align-baseline block"
-              width={1479}
-              height={450}
+              width={768}
+              height={280}
             />
           </div>
           <span className="block">ランキング</span>
@@ -47,8 +47,8 @@ export const data = {
   Headline: {
     h2: {
       title: () => (
-        <span>
-          屋内栽培の本場アメリカで<br /><span className="marker-yellow"><span className="text-5xl">9</span>割以上</span>のお客様にご満足の評価を<br />いただいております！
+        <span className="leading-relaxed">
+          屋内栽培の本場アメリカで<br /><span className="marker-yellow"><span className="text-5xl">9</span>割以上</span>のお客様にご満足の評価をいただいております
           {/* MARS HYDROの植物用LEDライトは収穫量も省エネも桁違い */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -138,9 +138,9 @@ export const data = {
           "第3世代LEDチップが室内栽培の常識を変えます。旧世代比で1.5倍の速度、2.5倍の収穫量を実現しました。太陽光のようなライト色はまるでハワイにいるかのような気分。旧来の赤・青・紫のライト色では把握することが難しかった植物の健康状態もカンタンにチェックできます。",
       },
       usps: [
-        "Summarize the content above",
-        "For visitors that don't like to read",
-        "And just scan the page",
+        "最新のLEDチップを搭載",
+        "白色のライトで植物の状態を常にチェック",
+        "成長速度も収穫量も桁違い",
       ],
     },
     {
@@ -155,15 +155,15 @@ export const data = {
         height: 536,
       },
       h2: {
-        title: "ファンの音を気にする時代は終わりました",
+        title: "ファンの音を気にする心配はいりません",
         // title: "電気代を心配する必要はありません",
         desc:
-          "“Save your favorites links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.",
+        "従来のライトはLEDの発熱を逃がすために常時ファンが回り続ける構造になっています。MARS HYDROの製品は最新のLEDチップとアルミ製ヒートシンクを採用することでファンが不要な設計です。当然、電気代も安くなります。"
       },
       usps: [
-        "Summarize the content above",
-        "For visitors that don't like to read",
-        "And just scan the page",
+        "従来のライトは常時ファンが回る構造",
+        "アルミ製ヒートシンクで発熱を抑えるためファンが不要",
+        "当然、電気代も安くなります",
       ],
     },
     {
@@ -180,12 +180,12 @@ export const data = {
       h2: {
         title: "最適なライトがきっと見つかります",
         desc:
-          "栽培環境にあわせて選べるサイズ、デイジーチェーン（数珠つなぎ）機能であらゆる環境に適応します。",
+          "お部屋の一画での趣味の栽培から水耕栽培工場での商業用栽培まで栽培環境に対応してきたMARS HYDROの製品なら、選べるサイズ、デイジーチェーン（数珠つなぎ）機能であなたの環境にとってベストなライト構成が実現できます。",
       },
       usps: [
-        "選べるサイズ",
-        "デイジーチェーン（数珠つなぎ）",
-        "あらゆる環境に適応",
+        "選べるサイズであらゆる環境に適応",
+        "デイジーチェーン対応",
+        "ベストなライト構成が実現できます",
       ],
     },
   ],

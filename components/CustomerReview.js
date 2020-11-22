@@ -16,7 +16,6 @@ const Reviews = ({ quotes }) =>
               height={v.img.height}
             />
           </div>
-
           <span className="ml-2 font-bold text-gray-900 md:text-sm">
             {v.name}
           </span>

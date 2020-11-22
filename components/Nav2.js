@@ -106,7 +106,7 @@ export default function Nav({
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <Logo className="text-gold " />
+            <Logo className="text-gold md:mt-2" />
             <div className="hidden sm:block sm:ml-6">
               <div className="flex">
                 {data.map((v) => {
