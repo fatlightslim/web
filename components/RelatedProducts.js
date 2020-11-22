@@ -37,47 +37,51 @@ const LeftCol = ({ title, desc, button }) => (
 
 export default function RelatedProducts() {
   return (
-    <div className="bg-gray-200 p-0 grid md:grid-cols-2">
-      {products.map((data, index) => {
-        return (
-          <section className="p-2 grid-span-1" key={index}>
+    <>
+      <div className="bg-gray-200 p-0 grid md:grid-cols-3">
+        {products.map((data, index) => {
+          return (
+            <section className="p-2 grid-span-1" key={index}>
 
-            <div
-              // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-              className={`text-white rounded-3xl p-8`}
-              style={{ background: data.bg }}
-            >
-              <header className="dosis">
-                <h3 className="text-xl font-bold">{data.header}</h3>
-              </header>
-              <div className="md:grid-cols-2 mx-auto">
-                <div className="md:col-span-1">
-                  <LeftCol {...data} />
-                </div>
-                <div className="md:col-span-1">
-                  <div className="mt-12 md:mt-0 w-full">
+              <div
+                // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+                className={`text-white rounded-3xl p-4`}
+                style={{ background: data.bg,  minHeight: 870  }}
+              >
+                <header className="dosis">
+                  <h3 className="text-xl font-bold">{data.header}</h3>
+                </header>
+                <div className="md:grid-cols-2 mx-auto">
+                  <div className="md:col-span-1">
+                    <LeftCol {...data} />
+                  </div>
+                  <div className="md:col-span-1">
+                    <div className="mt-12 md:mt-0" >
 
-
-                    <Image
-                      src={data.img.src}
-                      width={data.img.width}
-                      height={data.img.height}
-                      alt={data.img.alt}
-                    />
+                      <Image
+                        src={data.img.src}
+                        width={data.img.width}
+                        height={data.img.height}
+                        alt={data.img.alt}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-            </div>
-          </section>
-        )
-      })}
-      <section className="p-3">
-        <ContactEmail />
-      </section>
-      <section className="p-3">
-        <BlogBanner />
-      </section>
-    </div>
+              </div>
+            </section>
+          )
+        })}
+      </div>
+      <div className="bg-gray-200 p-0 grid md:grid-cols-2">
+
+        <section className="p-3 md:grid-cols-2">
+          <ContactEmail />
+        </section>
+        <section className="p-3 md:grid-cols-2">
+          <BlogBanner />
+        </section>
+      </div>
+    </>
   )
 }

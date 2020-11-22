@@ -77,6 +77,19 @@ export default function ContactEmail({
                 </span>
                 hello@fatlightslim.com
               </a>
+              <a
+                className="bg-blue-400 text-white p-2 rounded inline-block my-2 w-full"
+                // className="block"
+                href="https://twitter.com/fatlightslim"
+                tareget="_blank"
+              >
+                <span className="px-1 bg-white float-left rounded text-blue-500 text-xs ">
+                  <svg className="inline-block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </span>
+                @fatlightslim
+              </a>
               {/* <a
                 target="_blank"
                 href="https://twitter.com/messages/compose?recipient_id=1317632177861926917&amp;ref_src=twsrc%5Etfw"
