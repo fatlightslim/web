@@ -56,6 +56,7 @@ export const data = {
             width={40}
             height={40}
             className="inline-block text-blue-500"
+            style={{display: "inline-block !important"}}
           >
             <path
               fillRule="evenodd"
