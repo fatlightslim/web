@@ -63,7 +63,7 @@ img:not(.no-grow) {
 
 @media (max-width: 768px) {
     .slide {
-        min-height: 760px;
+        min-height: 768px;
     }
 }
 

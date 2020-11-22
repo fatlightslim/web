@@ -49,7 +49,6 @@ export const data = {
       title: () => (
         <span className="leading-relaxed">
           屋内栽培の本場アメリカで<br /><span className="marker-yellow"><span className="text-5xl">9</span>割以上</span>のお客様にご満足の評価をいただいております
-          {/* MARS HYDROの植物用LEDライトは収穫量も省エネも桁違い */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -57,6 +56,7 @@ export const data = {
             width={40}
             height={40}
             className="inline-block text-blue-500"
+            style={{display: "inline-block !important"}}
           >
             <path
               fillRule="evenodd"
