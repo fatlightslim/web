@@ -12,6 +12,7 @@ import {products} from "../data/products"
 import ProductCarousel from "../components/ProductCarousel"
 import Delivery from "../components/Delivery"
 import Henpin from "../components/Henpin"
+import CustomerReview from "../components/CustomerReview"
 
 function Home() {
   return (
@@ -21,7 +22,8 @@ function Home() {
       <Features data={data.Features} />
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
-      <Testimonials data={data.Testimonials} />
+      {/* <Testimonials data={data.Testimonials} /> */}
+      <CustomerReview />
       <Henpin />
       {/* <FeatureSummary /> */}
       <PricingTable />

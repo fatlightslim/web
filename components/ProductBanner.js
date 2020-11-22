@@ -56,7 +56,7 @@ export default function ProductBanner({
   },
 }) {
   return (
-    <section className="md:py-4 md:px-2 bg-gray-200">
+    <section className="md:py-4 md:px-2 bg-gray-100">
       <div
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
         style={{ background: data.bg }}
