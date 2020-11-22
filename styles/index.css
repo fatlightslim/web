@@ -61,6 +61,12 @@ img:not(.no-grow) {
     font-size: 180%;
 }
 
+@media (max-width: 768px) {
+    .slide {
+        min-height: 760px;
+    }
+}
+
 /* Bugfix for slick.js */
 
 .slick-slider {

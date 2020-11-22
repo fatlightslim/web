@@ -25,6 +25,7 @@ export default function Hero({
       title: "Join 1,000+ software businesses who use SaasFolio daily",
     },
   },
+  setClicked
 }) {
   return (
     // <div
@@ -34,11 +35,12 @@ export default function Hero({
     //   }}
     // >
 
-    <div className="w-full slide">
-      <div style={{
+    <div className="w-full">
+      <div className="slide" style={{
         position: 'fixed',
         height: '100vh',
         width: '100vw',
+        // minHeight: 760,
         overflow: 'hidden',
         zIndex: -1
       }}>
@@ -59,11 +61,13 @@ export default function Hero({
           </h1>
           <p className="text-xl py-4 max-w-screen-md mx-auto text-gray-50">{data.h1.desc}</p>
           <div className="flex justify-center items-center flex-col">
-            <Link href="/">
-              <a className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
+            {/* <Link href="/"> */}
+              <a onClick={() => setClicked(true)}
+              href="#"
+              className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
                 {data.button.title}
               </a>
-            </Link>
+            {/* </Link> */}
             <small className="capitalize mt-2 text-gray-200">
               {data.button.desc}
             </small>

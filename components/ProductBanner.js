@@ -56,12 +56,12 @@ export default function ProductBanner({
   },
 }) {
   return (
-    <section className="md:py-4 md:px-2 bg-gray-100">
+    <section className="md:py-4 md:px-2 bg-gray-100 ">
       <div
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-        style={{ background: data.bg }}
+        style={{ background: data.bg}}
         // style={{ background: data.bg, minHeight: 766 }}
-        className="text-white md:rounded-3xl max-w-screen-xl p-8 mx-auto"
+        className="text-white md:rounded-3xl max-w-screen-xl p-8 md:py-12 mx-auto slide"
       >
         <Header {...data} />
         <div className="grid md:grid-cols-2 mx-auto gap-0">

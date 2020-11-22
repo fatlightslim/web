@@ -53,10 +53,10 @@ export default function Thanks({
 
             <li className="mt-2 flex">
               <span className="text-green-400 hidden md:block">{data.prompt}</span>
-              <span className="">
-                Our GitHub<br />
+
+               <span className="md:px-2">Our GitHub
                 <Link href="https://github.com/fatlightslim/">
-                  <a target="_blank" className="text-red-400 underline" rel="noopener">
+                  <a target="_blank" className="text-red-400 pl-2 underline block md:inline-block" rel="noopener">
                     https://github.com/fatlightslim/
                   </a>
                 </Link>

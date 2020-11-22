@@ -77,7 +77,7 @@ export const data = {
     h3: [
       {
         title: "収穫量にきっとビックリします",
-        desc: "太陽光のような心地よい光は植物の光合成をバッチリサポート！生き生きと日々成長するハーブや野菜を育てて、収穫の楽しさを味ってみるのはいかがでしょう！",
+        desc: "太陽光のような心地よい光は植物の光合成をバッチリサポート！生き生きと日々成長するハーブや野菜を育てて、収穫の楽しさを味ってみるのはいかがでしょう！従来の紫色のLEDライトと比較して最大2.5倍の収穫が可能です。",
         img: {
           src: "/img/harvestx.png",
           alt: "",
@@ -125,11 +125,12 @@ export const data = {
       cls1:
         "flex flex-col md:flex-row items-center content-center py-12 lg:pt-16 lg:pb-32",
       cls2: "feature-1 md:w-1/2 text-center mb-4 lg:mb-0 relative",
+        cls3: "md:w-4/5 ",
       img: {
-        src: "/img/device-mobile.png",
-        alt: "Mobile Device",
-        width: 370,
-        height: 736,
+        src: "/img/multi-env.png",
+        alt: "テントでも、キャビネットでも、ラックでも",
+        width: 1500,
+        height: 1500,
       },
 
       h2: {
@@ -149,10 +150,10 @@ export const data = {
       cls2:
         "feature-2 md:w-1/2 text-center order-first md:order-last mb-4 lg:mb-0 relative",
       img: {
-        src: "/img/device-mobile-tablet-desktop.png",
-        alt: "Mobile Device",
-        width: 870,
-        height: 536,
+        src: "/img/heatsink.png",
+        alt: "ヒートシンク",
+        width: 1500,
+        height: 1318,
       },
       h2: {
         title: "ファンの音を気にする心配はいりません",
@@ -162,7 +163,7 @@ export const data = {
       },
       usps: [
         "従来のライトは常時ファンが回る構造",
-        "アルミ製ヒートシンクで発熱を抑えるためファンが不要",
+        "ヒートシンクで発熱を抑えファンが不要",
         "当然、電気代も安くなります",
       ],
     },
@@ -172,15 +173,15 @@ export const data = {
       cls2:
         "feature-3 w-full md:w-1/2 text-center px-4 px-md-0 mb-4 lg:mb-0 relative",
       img: {
-        src: "/img/device-tablet-phone.png",
-        alt: "Mobile Device",
-        width: 862,
-        height: 608,
+        src: "/img/spts.png",
+        alt: "最適なライトがきっと見つかります",
+        width: 937,
+        height: 300,
       },
       h2: {
         title: "最適なライトがきっと見つかります",
         desc:
-          "お部屋の一画での趣味の栽培から水耕栽培工場での商業用栽培まで栽培環境に対応してきたMARS HYDROの製品なら、選べるサイズ、デイジーチェーン（数珠つなぎ）機能であなたの環境にとってベストなライト構成が実現できます。",
+          "お部屋の一画での趣味の栽培から水耕栽培工場での商業用栽培まで様々な環境に対応してきたMARS HYDROの製品なら、選べるサイズ、デイジーチェーン（数珠つなぎ）機能であなたの環境にとってベストなライト構成が実現できます。",
       },
       usps: [
         "選べるサイズであらゆる環境に適応",

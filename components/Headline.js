@@ -65,7 +65,7 @@ export default function Headline({
       <div className="container mx-auto">
         <div className="mb-8">
           <div className="w-full lg:w-8/12 text-center mx-auto">
-            <h2 className="text-2xl md:text-4xl leading-tight font-bold">
+            <h2 className="text-2xl md:text-4xl leading-tight font-bold md:max-w-2xl mx-auto">
               <data.h2.title/>
             </h2>
             <p className="text-lg py-2 text-gray-700"><data.h2.desc /></p>

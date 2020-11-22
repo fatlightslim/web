@@ -12,7 +12,7 @@ export const reviews = [
     img: "/img/review2.png",
     bg: "bg-white",
     lead: "もう買ってしまえばいい",
-    lead2: "このライトは、2x4のための素晴らしい均等なカバレッジを持っている。",
+    lead2: "このライトは、2x4インチテントのための素晴らしく均等な照射範囲を持っている。",
     dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
     dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
     link: "https://fatlightslim.com/products/mars-hydro-sp3000"
@@ -30,7 +30,7 @@ export const reviews = [
     img: "/img/review4.png",
     bg: "bg-white",
     lead: "箱の中の太陽",
-    lead2: "素晴らしい製品です。4x4のテントのライトを探している人にお勧めします。",
+    lead2: "素晴らしい製品です。4x4インチサイズのテントのライトを探している人にお勧めします。",
     dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
     dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
     link: "https://fatlightslim.com/products/mars-hydro-ts-series"
@@ -39,7 +39,7 @@ export const reviews = [
     img: "/img/review0.png",
     bg: "bg-white",
     lead: "すごく明るくて、静かで、熱くならない",
-    lead2: "この光はとても明るいです。太陽のように感じますが、そんなに熱くなりません。",
+    lead2: "このライトの光はとても明るいです。太陽のように感じますが、そんなに熱くなりません。",
     dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
     dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
     link: "https://fatlightslim.com/products/mars-hydro-ts-series"

@@ -82,6 +82,7 @@ export default function ContactEmail({
                 // className="block"
                 href="https://twitter.com/fatlightslim"
                 target="_blank"
+                rel="noopener"
               >
                 <span className="px-1 bg-white float-left rounded text-blue-500 text-xs ">
                   <svg className="inline-block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

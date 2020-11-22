@@ -6,22 +6,28 @@ import { data } from "../data/home"
 import Hero from "./Hero";
 
 export default function ProductCarousel({ settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplaySpeed: 5000,
-    autoplay: true
+  dots: true,
+  infinite: true,
+  speed: 700,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplaySpeed: 5000,
+  autoplay: true
 } }) {
-    return (
-        <Slider {...settings}>
-            <Hero data={data.Hero} />
+  const [clicked, setClicked] = React.useState(false)
+  const props = { setClicked }
+  return !clicked ? (
+    <Slider {...settings}>
+      <Hero data={data.Hero} {...props} />
+      {products.map((data, index) => (
+        <ProductBanner key={index} data={data} />
+      ))}
+    </Slider>
+  ) : (
+      products.map((data, index) => (
+        <ProductBanner key={index} data={data} />
+      ))
 
-            {products.map((data, index) => (
-                <ProductBanner key={index} data={data} />
-            ))}
-        </Slider>
     )
 }

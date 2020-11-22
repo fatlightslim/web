@@ -80,8 +80,9 @@ export default function Features({
           return (
             <div className={v.cls1} key={v.img.src}>
               <div className={v.cls2}>
-                <div className="mx-auto z-10 relative w-2/3 md:w-2/5 lg:w-1/3">
+                <div className={`mx-auto z-10 relative ${v.cls3}`}>
                   <Image
+                  className="rounded"
                     src={v.img.src}
                     alt={v.img.alt}
                     width={v.img.width}

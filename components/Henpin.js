@@ -8,14 +8,14 @@ export default function Henpin({
     header: "返品について",
     title: {
       1: "7日間の",
-      2: "返品無料を",
+      2: "返品保証を",
       3: "お約束します。",
     //   3: "お届けします。",
       color: "#fc2",
     },
     img: {
       src: "/img/refund.png",
-      alt: "",
+      alt: "返品保証",
       width: 1000,
       height: 827,
     },
@@ -31,17 +31,17 @@ export default function Henpin({
   return (
     <section className="md:py-4 md:px-2 bg-gray-200">
       <div
-        className={`text-white md:rounded-3xl max-w-screen-xl p-8 mx-auto `}
+        className={`text-white md:rounded-3xl max-w-screen-xl mx-auto `}
         style={{background: '#01A04B'}}
       >
-        <Header {...data} />
         <div className="grid md:grid-cols-2 mx-auto gap-0">
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 p-8 ">
+        <Header {...data} />
             <LeftCol {...data} />
           </div>
 
           <div className="md:col-span-1">
-            <div className="mt-8 md:m-0 max-w-md">
+            <div className="p-2">
               <Image
                 src={data.img.src}
                 width={data.img.width}

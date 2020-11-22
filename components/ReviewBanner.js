@@ -37,9 +37,9 @@ export default function ReviewBanner({
     header: "お客様の声",
     title: {
       1: "Amazonレビュー",
-      3: "9割以上のお客様にご満足の評価をいただいています👍",
+      3: "9割以上のお客様にご満足の評価をいただいています",
       2: "2,000件越え！",
-      color: "#999",
+      color: "#555",
     },
     img: {
       src: "/img/custome-review.png",
@@ -105,12 +105,12 @@ function Review({ item }) {
         />
       </div>
       <div className={`col-sm-6 ${item.bg}  align-self-center`}>
-        <h3 className="lh-base text-success font-weight-bold">
+        <p className="font-bold">
           {item.lead}
-        </h3>
-        <h6 className="lh-base pl-5 pr-5 text-black">
+        </p>
+        <p className="pl-5 pr-5 text-black">
           {item.lead2}
-        </h6>
+        </p>
       </div>
      </>
 
