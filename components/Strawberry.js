@@ -80,12 +80,6 @@ function Strawberry() {
                   <h2 className="display-3 font-weight-bold m-3 heading">{v.name2}</h2>
 
 
-
-
-
-
-
-
                   <p className="post m-0 text-dark">{v.post}</p>
                   <p className="post m-0 text-dark">{v.post2}</p>
                   <p className="post text-dark">{v.post3}</p>

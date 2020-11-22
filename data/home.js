@@ -9,8 +9,8 @@ export const data = {
       tags: () => (
         <>
           <div
-            style={{ width: 225, top: 25 }}
-            className="block md:inline-block md:mr-1 md:relative mx-auto"
+            style={{ width: 225 }}
+            className="block md:inline-block  mx-auto"
           >
             <Image
               src="/img/Amazon-logo-RGB.png"
@@ -21,17 +21,9 @@ export const data = {
             />
           </div>
           <span className="block">ランキング</span>
-          <span className="marker-yellow">全米No.1植物用ライト</span>
+          <span className="">全米No.1植物用ライト</span>
           <br />
 
-          {/* <div className="mx-auto bg-black text-white px-6 max-w-lg">
-            <Image
-              src="/img/marshydro.png"
-              alt="MARS HYDRO "
-              width={592}
-              height={75}
-            />
-          </div> */}
           <span className="dosis font-bold text-silver text-180">
             MARS HYDRO
           </span>
@@ -56,7 +48,8 @@ export const data = {
     h2: {
       title: () => (
         <span>
-          MARS HYDROの植物用LEDライトは収穫量も省エネも桁違い
+          屋内栽培の本場アメリカで<br /><span className="marker-yellow"><span className="text-5xl">9</span>割以上</span>のお客様にご満足の評価を<br />いただいております！
+          {/* MARS HYDROの植物用LEDライトは収穫量も省エネも桁違い */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -73,30 +66,34 @@ export const data = {
           </svg>
         </span>
       ),
-      desc:
-        // "Start by defining the pain your customer has right now, for example; clients not paying their invoices. Than write how your solution solves this problem for your customers.",
-        "「収穫量が十分ではない」「植物が急に弱った」等の原因のほとんどはライトの光量不足によるものです。「植物の元気のために電気代やブレーカー、故障のことは気にせずにライトを当て続けたい」そんな夢が叶う2020年最新版の植物用LEDライトをお届けします。",
+      desc: () => (
+        <>明るさ、熱調整、消音、電気消費量、値段まで！全ての部門で平均
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fc2" width="20" heigth="20" className="inline">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          4.7点を獲得。<br />「収穫量が十分ではない」「植物が急に弱った」等の原因のほとんどはライトの光量不足によるものです。「植物の元気のために電気代やブレーカー、故障のことは気にせずにライトを当て続けたい」そんな夢が叶う2020年最新版の植物用LEDライトをお届けします。</>
+      ),
     },
     h3: [
       {
         title: "収穫量にきっとビックリします",
-        desc: "太陽光のような心地よい光は植物の光合成",
+        desc: "太陽光のような心地よい光は植物の光合成をバッチリサポート！生き生きと日々成長するハーブや野菜を育てて、収穫の楽しさを味ってみるのはいかがでしょう！",
         img: {
-          src: "/img/drawing-music.png",
+          src: "/img/harvestx.png",
           alt: "",
-          width: 446,
-          height: 332,
+          width: 1278,
+          height: 800,
         },
       },
       {
         title: "電気代がこんなにおトク",
         desc:
-          "Brief explanation of why and how this benefit will help your customers",
+          "明るいライトだったらやっぱり電気代が心配！MARS HYDROなら最新のLEDチップ搭載で電気料金が最大20%OFF。ファンレス構造のため静かな環境で栽培を楽しむことができます。",
         img: {
-          src: "/img/drawing-task.png",
-          alt: "",
-          width: 498,
-          height: 288,
+          src: "/img/savemoney.png",
+          alt: "電気代がこんなにおトク",
+          width: 1280,
+          height: 800,
         },
       },
       {
@@ -104,10 +101,10 @@ export const data = {
         desc:
           "IP65準拠の防水・防塵性能が湿気や散水の際のトラブルを未然に防ぎます。もちろん、24時間ライトを点けたままでも大丈夫です。万が一故障した場合はエキスパートが誠心誠意対応させていただきます。",
         img: {
-          src: "/img/drawing-coffee.png",
-          alt: "",
-          width: 398,
-          height: 344,
+          src: "/img/winx.png",
+          alt: "3年保証 = 品質への自信です",
+          width: 1278,
+          height: 800,
         },
       },
     ],

@@ -52,19 +52,19 @@ export default function Hero({
           quality={100}
         />
       </div>
-      <div className="container mx-auto py-8">
-        <div className="py-8 text-center w-4/5 mx-auto ">
+      <div className="container mx-auto py-8 ">
+        <div className="px-2 py-8 text-center md:w-4/5 mx-auto bg-black bg-opacity-90 rounded-2xl">
           <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
             <data.h1.tags />
           </h1>
-          <p className="text-xl py-4 text-gray-700">{data.h1.desc}</p>
+          <p className="text-xl py-4 max-w-screen-md mx-auto text-gray-50">{data.h1.desc}</p>
           <div className="flex justify-center items-center flex-col">
             <Link href="/">
               <a className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
                 {data.button.title}
               </a>
             </Link>
-            <small className="capitalize mt-2 text-gray-700">
+            <small className="capitalize mt-2 text-gray-200">
               {data.button.desc}
             </small>
           </div>

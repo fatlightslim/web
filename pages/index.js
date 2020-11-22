@@ -14,16 +14,20 @@ import Delivery from "../components/Delivery"
 import Henpin from "../components/Henpin"
 import Landing2 from "../components/Landing"
 import CustomerReview from "../components/CustomerReview"
+// import ReviewCarousel from "../components/ReviewCarousel"
+
 
 
 
 function Home() {
   return (
     <Layout>
-      <Landing2 />
+      {/* <CustomerReview /> */}
+      {/* <Landing2 /> */}
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
+
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
       {/* <Testimonials data={data.Testimonials} /> */}
