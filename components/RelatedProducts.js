@@ -37,20 +37,20 @@ const LeftCol = ({ title, desc, button }) => (
 
 export default function RelatedProducts() {
   return (
-    <div className="bg-gray-200 py-3">
+    <div className="bg-gray-200 p-0 grid md:grid-cols-2">
       {products.map((data, index) => {
         return (
-          <section className="p-3" key={index}>
+          <section className="p-2 grid-span-1" key={index}>
 
             <div
               // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-              className={`p-8 text-white rounded-3xl`}
+              className={`text-white rounded-3xl p-8`}
               style={{ background: data.bg }}
             >
               <header className="dosis">
                 <h3 className="text-xl font-bold">{data.header}</h3>
               </header>
-              <div className="grid md:grid-cols-2 mx-auto">
+              <div className="md:grid-cols-2 mx-auto">
                 <div className="md:col-span-1">
                   <LeftCol {...data} />
                 </div>

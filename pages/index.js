@@ -8,16 +8,17 @@ import FeatureSummary from "../components/FeatureSummary"
 import PricingTable from "../components/PricingTable"
 import RelatedProducts from "../components/RelatedProducts"
 import {data} from "../data/home"
+import {products} from "../data/products"
 import ProductCarousel from "../components/ProductCarousel"
-
+import Delivery from "../components/Delivery"
 
 function Home() {
   return (
     <Layout>
       <ProductCarousel />
-      {/* <Hero data={data.Hero} /> */}
       <Headline data={data.Headline} />
       <Features data={data.Features} />
+      <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
       <Testimonials data={data.Testimonials} />
       {/* <FeatureSummary /> */}

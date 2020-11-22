@@ -15,13 +15,12 @@ export const data = {
             <Image
               src="/img/Amazon-logo-RGB.png"
               alt="amazon.com,アメリカAmazon"
-              className="align-baseline"
+              className="align-baseline block"
               width={1479}
               height={450}
             />
           </div>
-          <span className="">ランキング</span>
-          <br />
+          <span className="block">ランキング</span>
           <span className="marker-yellow">全米No.1植物用ライト</span>
           <br />
 
@@ -159,7 +158,8 @@ export const data = {
         height: 536,
       },
       h2: {
-        title: "電気代を心配する必要はありません",
+        title: "ファンの音を気にする時代は終わりました",
+        // title: "電気代を心配する必要はありません",
         desc:
           "“Save your favorites links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.",
       },
