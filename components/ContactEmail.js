@@ -32,9 +32,9 @@ export default function ContactEmail({
   },
 }) {
   return (
-    <div className="bg-yellow-50 border-t border-yellow-100 rounded-3xl">
-      <div className="mx-auto text-center">
-        <div className="py-4">
+    <div className="bg-yellow-50 border-t border-yellow-100 rounded-3xl ">
+      <div className="mx-auto text-center xl:px-24">
+        <div className="py-4 mt-8">
           <div className="lg:w-3/12 mx-auto">
             <div className="mx-auto w-100 w-1/2 lg:w-full ">
               <Image
@@ -48,8 +48,8 @@ export default function ContactEmail({
         </div>
 
         <div className="">
-          <div className="lg:w-3/6 mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold">
+          <div className="lg:px-20 mx-auto text-center">
+            <h2 className="text-5xl font-bold pt-2 pb-4 text-gray-800">
               {data.h2.title}
             </h2>
             <div className="m-4">
