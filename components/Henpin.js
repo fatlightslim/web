@@ -7,8 +7,9 @@ export default function Henpin({
   data = {
     header: "返品について",
     title: {
-      1: "7日間返品無料",
-      2: "お約束します。",
+      1: "7日間の",
+      2: "返品無料を",
+      3: "お約束します。",
     //   3: "お届けします。",
       color: "#fc2",
     },

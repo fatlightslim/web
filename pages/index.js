@@ -12,18 +12,22 @@ import {products} from "../data/products"
 import ProductCarousel from "../components/ProductCarousel"
 import Delivery from "../components/Delivery"
 import Henpin from "../components/Henpin"
-import Landing2 from "../components/Landing2"
+import Landing2 from "../components/Landing"
+import CustomerReview from "../components/CustomerReview"
+
+
 
 function Home() {
   return (
     <Layout>
-      {/* <Landing2 /> */}
+      <Landing2 />
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
-      <Testimonials data={data.Testimonials} />
+      {/* <Testimonials data={data.Testimonials} /> */}
+      <CustomerReview />
       <Henpin />
       {/* <FeatureSummary /> */}
       {/* <PricingTable /> */}
