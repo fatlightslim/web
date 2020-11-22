@@ -69,10 +69,6 @@ img:not(.no-grow) {
     font-size: 180%;
 }
 
-.bg-red-rakuten {
-    background-color: #be0106;
-    background-color: rgba(190, 1, 6, var(--bg-opacity))
-}
 
 @media (max-width: 768px) {
     .slide {
