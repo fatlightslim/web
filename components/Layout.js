@@ -22,7 +22,7 @@ export default function Layout({
     },
   },
 }) {
-  console.log(data);
+  // console.log(data);
   return (
     // <div className="mx-auto">
     <>

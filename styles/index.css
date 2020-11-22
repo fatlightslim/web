@@ -50,9 +50,9 @@ body {
     background: linear-gradient(transparent 60%, #ffff66 60%);
 }
 
-svg {
+/* svg {
     display: inline-block !important;
-}
+} */
 
 /* img:not(.no-grow):hover {
   transform: scale(1.1);
