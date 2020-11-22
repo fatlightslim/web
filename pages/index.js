@@ -8,12 +8,14 @@ import FeatureSummary from "../components/FeatureSummary"
 import PricingTable from "../components/PricingTable"
 import RelatedProducts from "../components/RelatedProducts"
 import {data} from "../data/home"
+import ProductCarousel from "../components/ProductCarousel"
 
 
 function Home() {
   return (
     <Layout>
-      <Hero data={data.Hero} />
+      <ProductCarousel />
+      {/* <Hero data={data.Hero} /> */}
       <Headline data={data.Headline} />
       <Features data={data.Features} />
       {/* <CallToAction data={data.CallToAction} /> */}

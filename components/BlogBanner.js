@@ -25,13 +25,16 @@ export default function BlogBanner(params) {
             {process.env.site.name}
             のスタッフが経験してきた室内LED栽培の記録です。<br />オタク達がこれまで使ってきたライトを紹介します！
           </p>
-          <a
-            href="https://fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
-            // className="px-4 py-2 rounded bg-yellow-500 text-black font-extrabold text-2xl"
-            className="bg-yellow-500 hover:bg-yellow-600 rounded border border-yellow-600 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
-          >
-            詳細を見る
+          <div className=" text-center">
+
+            <a
+              href="https://fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
+              // className="px-4 py-2 rounded bg-yellow-500 text-black font-extrabold text-2xl"
+              className="bg-yellow-500 hover:bg-yellow-600 rounded border border-yellow-600 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
+            >
+              詳細を見る
           </a>
+          </div>
         </div>
       </div>
     </div>

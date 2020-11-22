@@ -22,7 +22,8 @@ export default function Layout({
   },
 }) {
   return (
-    <div className="mx-auto">
+    // <div className="mx-auto">
+    <>
       <Head>
         <title>{data.title}</title>
         <meta charSet="utf-8" />
@@ -48,6 +49,6 @@ export default function Layout({
       {children}
 
       <Footer  />
-    </div>
+    </>
   )
 }

@@ -1,6 +1,6 @@
 import { products } from "../data/products"
 import Link from "next/link"
-// import Image from "next/image"
+import Image from "next/image"
 // import ContactForm from "./ContactForm"
 // import CallToAction2 from "./Cta2"
 import ContactEmail from "./ContactEmail"
@@ -10,7 +10,7 @@ const LeftCol = ({ title, desc, button }) => (
   <>
     <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-no-wrap">
       {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
-      <span  style={{ fontSize: "125%", color: title.color }}>
+      <span style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <br />
@@ -24,50 +24,60 @@ const LeftCol = ({ title, desc, button }) => (
       <span className="whitespace-no-wrap">{desc[2]}</span>
     </p>
 
-    <Link href="/">
-      <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
-        {button}
-      </a>
-    </Link>
+    <div className=" text-center md:text-left">
+
+      <Link href="/" >
+        <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
+          {button}
+        </a>
+      </Link>
+    </div>
   </>
 )
 
 export default function RelatedProducts() {
   return (
     <div className="bg-gray-200 py-3">
-      <div className="grid grid-cols-1 md:grid-cols-2 g-0">
-        {products.map((data, index) => {
-          return (
-            <section className="p-3" key={index}>
-              {/* <div className="absolute right-0 mr-8 mt-6 w-1/3">
-                <Image
-                  src={data.img.src}
-                  width={data.img.width}
-                  height={data.img.height}
-                  alt={data.img.alt}
-                />
-              </div> */}
+      {products.map((data, index) => {
+        return (
+          <section className="p-3" key={index}>
 
-              <div
-                // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-                className={`p-8 text-white rounded-3xl`}
-                style={{ background: data.bg }}
-              >
-                <header className="dosis">
-                  <h3 className="text-xl font-bold">{data.header}</h3>
-                </header>
-                <LeftCol {...data} />
+            <div
+              // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+              className={`p-8 text-white rounded-3xl`}
+              style={{ background: data.bg }}
+            >
+              <header className="dosis">
+                <h3 className="text-xl font-bold">{data.header}</h3>
+              </header>
+              <div className="grid md:grid-cols-2 mx-auto">
+                <div className="md:col-span-1">
+                  <LeftCol {...data} />
+                </div>
+                <div className="md:col-span-1">
+                  <div className="mt-12 md:mt-0 w-full">
+
+
+                    <Image
+                      src={data.img.src}
+                      width={data.img.width}
+                      height={data.img.height}
+                      alt={data.img.alt}
+                    />
+                  </div>
+                </div>
               </div>
-            </section>
-          )
-        })}
-        <section className="p-3">
-          <ContactEmail />
-        </section>
-      </div>
-        <section className="p-3">
-          <BlogBanner />
-        </section>
+
+            </div>
+          </section>
+        )
+      })}
+      <section className="p-3">
+        <ContactEmail />
+      </section>
+      <section className="p-3">
+        <BlogBanner />
+      </section>
     </div>
   )
 }
