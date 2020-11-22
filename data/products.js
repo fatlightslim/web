@@ -65,8 +65,8 @@ export const products = [
     img: {
       src: "/img/TS_transparent.png",
       alt: "",
-      width: 1418,
-      height: 1084,
+      width: 1000,
+      height: 764,
     },
     button: "TSシリーズの定番モデルを見る",
     // bg: "from-orange-800 via-red-700 to-pink-500",

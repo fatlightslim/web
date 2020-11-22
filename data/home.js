@@ -16,8 +16,8 @@ export const data = {
               src="/img/amazon_PNG11-768x280.png"
               alt="amazon.com,アメリカAmazon"
               className="align-baseline block"
-              width={768}
-              height={280}
+              width={300}
+              height={109}
             />
           </div>
           <span className="block">ランキング</span>
