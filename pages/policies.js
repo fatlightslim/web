@@ -6,7 +6,7 @@ export default function Policies({
     {
       title: "配送ポリシー",
       desc: () => (
-        <>
+        <div className="text-xs">
           <p>
             {process.env.site.name}
             で購入されたMARS HYDRO社の製品は海外工場から直送となります。配送コストを抑え低価格で商品を提供するため、配送コストを抑え低価格で商品を提供するため、ご注文から到着まで7~10日程度のお時間を頂戴することをあらかじめご了承くださいますようお願いいたします。
@@ -23,13 +23,13 @@ export default function Policies({
             の倉庫から集荷した時点でお客様に移行されるものとします。この時点で、お客様には出荷のご案内がメールで送信されます。代金引換（COD）の取引の場合、製品の法的権利はお届け時にお客様に移行されるものとします。配送に関する問題が発生した場合は、問題解決のために
             {process.env.site.name}までご連絡をお願いいたします。
           </p>
-        </>
+        </div>
       ),
     },
     {
       title: "返金ポリシー",
       desc: () => (
-        <>
+        <div className="text-xs">
           <p>
             {process.env.site.name}
             でお買い上げいただいた製品について、皆様にご満足いただけるよう、お客様のニーズを満たすような製品を、格別な努力を払って設計・製造していますが、製品がお客様のご期待にそえない場合があるということも承知しています。
@@ -38,22 +38,22 @@ export default function Policies({
           <p>
             損傷のない製品については、領収書の原本（またはギフトレシート）と、ご購入時の製品パッケージのすべて（本体および同梱のアクセサリ類）を、製品の受け取り後7日以内にご返品いただければ、交換、またはご購入時のお支払い方法に基づいてご返金します。
           </p>
-        </>
+        </div>
       ),
     },
     {
       title: "プライバシーポリシー",
       desc: () => (
-        <div className="">
-          <h2 className="font-bold mt-8 mb-2">はじめに</h2>
+        <div className="text-xs">
+          <h2 className="font-bold mt-4 mb-2">はじめに</h2>
           <p>
             {process.env.company.ja}（以下「当社」）は、個人情報保護の重要性を認識し、適切に利用し、保護することが社会的責任であると考え、個人情報の保護に努めることをお約束いたします。
           </p>
-          <h2 className="font-bold mt-8 mb-2">個人情報の定義</h2>
+          <h2 className="font-bold mt-4 mb-2">個人情報の定義</h2>
           <p>
             個人情報とは、個人に関する情報であり、氏名、生年月日、性別、電話番号、電子メールアドレス、職業、勤務先等、特定の個人を識別し得る情報をいいます。
           </p>
-          <h2 className="font-bold mt-8 mb-2">個人情報の収集・利用</h2>
+          <h2 className="font-bold mt-4 mb-2">個人情報の収集・利用</h2>
           <p>
             当社は、以下の目的のため、その範囲内においてのみ、個人情報を収集・利用いたします。
             <br />
@@ -73,23 +73,23 @@ export default function Policies({
             </li>
             <li>各種のお問い合わせ対応</li>
           </ul>
-          <h2 className="font-bold mt-8 mb-2">個人情報の第三者提供</h2>
+          <h2 className="font-bold mt-4 mb-2">個人情報の第三者提供</h2>
           <p>
             当社は、法令に基づく場合等正当な理由によらない限り、事前に本人の同意を得ることなく、個人情報を第三者に開示・提供することはありません。
           </p>
-          <h2 className="font-bold mt-8 mb-2">委託先の監督</h2>
+          <h2 className="font-bold mt-4 mb-2">委託先の監督</h2>
           <p>
             当社は、お客様へ商品やサービスを提供する等の業務遂行上、個人情報の一部を外部の委託先へ提供する場合があります。その場合、業務委託先が適切に個人情報を取り扱うように管理いたします。
           </p>
-          <h2 className="font-bold mt-8 mb-2">個人情報の管理</h2>
+          <h2 className="font-bold mt-4 mb-2">個人情報の管理</h2>
           <p>
             当社は、個人情報の漏洩、滅失、毀損等を防止するために、個人情報保護管理責任者を設置し、十分な安全保護に努め、また、個人情報を正確に、また最新なものに保つよう、お預かりした個人情報の適切な管理を行います。
           </p>
-          <h2 className="font-bold mt-8 mb-2">クッキーについて</h2>
+          <h2 className="font-bold mt-4 mb-2">クッキーについて</h2>
           <p>
             当ウェブサイトでは、クッキーを商品の購入、利用者の動向調査等の為に使用することがあります。お客様がクッキーを使用しない設定としている場合、当ウェブサイトで使用できる機能については制限される可能性がありますのでご了承下さい。
           </p>
-          <h2 className="font-bold mt-8 mb-2">情報内容の照会、修正または削除</h2>
+          <h2 className="font-bold mt-4 mb-2">情報内容の照会、修正または削除</h2>
           <p>
             当社は、お客様が当社にご提供いただいた個人情報の照会、修正または削除を希望される場合は、ご本人であることを確認させていただいたうえで、合理的な範囲ですみやかに対応させていただきます。
           </p>
@@ -98,15 +98,15 @@ export default function Policies({
     },
     {
       title: "特定商取引に基づく表記",
-      desc: () => (
-        <>
+      desc: ({ className }) => (
+        <div className="text-xs leading-relaxed">
           <p className="">販売業者：{process.env.company.ja}</p>
           <p className="">業務責任者：{process.env.company.person}</p>
           <p className="">所在地：{process.env.company.address}</p>
           <p className="">電話番号：{process.env.company.tel}</p>
           <p className="">メールアドレス：{process.env.site.email}</p>
           <p className="">その他販売条項：上記販売条件をご参照ください</p>
-        </>
+        </div>
       ),
     },
   ],
@@ -117,7 +117,7 @@ export default function Policies({
         {data.map((v) => {
           return (
             <div key={v.title} className="text-sm mb-8">
-              <h2 className="text-xl font-bold tracking-tighter border-b pb-4 mb-4">
+              <h2 className="text-lg font-bold tracking-tighter border-b pb-1 mb-3">
                 {v.title}
               </h2>
               <v.desc />

@@ -95,14 +95,14 @@ export default function Features({
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
                   {v.h2.title}
                 </h2>
-                <p className="text-md lg:text-lg pt-4 pb-8 text-gray-700">
+                <p className="text-md lg:text-lg pt-4 pb-8 text-gray-700 tracking-tight md:mr-4">
                   {v.h2.desc}
                 </p>
 
                 <ul className="usps">
                   {v.usps.map((x) => {
                     return (
-                      <li key={x} className="text-gray-900 py-1">
+                      <li key={x} className="text-gray-900 py-1 tracking-tight">
                         <span className="pr-1">
                           <CheckMark />
                         </span>

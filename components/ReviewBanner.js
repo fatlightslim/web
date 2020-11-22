@@ -17,7 +17,7 @@ const LeftCol = ({ title, img, button }) => (
       <span className="md:inline-block md:ml-1" >
         {title[2]}
       </span>
-      <br />
+      {/* <br /> */}
       {title[3]}
     </p>
     <div className="mt-12 md:mt-0 max-w-xs">

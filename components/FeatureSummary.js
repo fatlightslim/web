@@ -51,7 +51,7 @@ export default function FeatureSummary({
     <div className="bg-white md:text-left py-16 px-4  text-green-900">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl  font-bold mb-16">
-          {data.h2.title}
+          <span className="marker-yellow  ">{data.h2.title}</span>
         </h2>
 
         <div  className="grid grid-cols-3">

@@ -12,7 +12,7 @@ export default function Terms() {
           Legal Information &amp; Notices
         </p>
         <hr className="my-8 mb-12" />
-        <div className="text-left max-w-xl mx-auto text-6 tracking-tight ">
+        <div className="text-left max-w-xl mx-auto tracking-tight text-xs ">
           <p>
             この利用規約（以下、「本規約」といいます。）は、{process.env.company.ja}（以下、「当社」といいます。）がこのウェブサイト上で提供するオンラインショップ（以下、「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下、「ユーザー」といいます。）には、本規約に従って、本サービスをご利用いただきます。
           </p>
