@@ -61,7 +61,7 @@ export default function Headline({
   },
 }) {
   return (
-    <div className="border-t border-b border-blue-200 py-24 bg-blue-100 mb-16 px-4 ">
+    <div className="border-t border-b border-blue-100 py-24 bg-blue-50 mb-16 px-4 ">
       <div className="container mx-auto">
         <div className="mb-8">
           <div className="w-full lg:w-8/12 text-center mx-auto">
@@ -107,7 +107,7 @@ export default function Headline({
             <div className="mt-3 flex justify-center content-center items-center">
               <Image
                 src={data.quote.img.src}
-                className="w-8 lazy self-start"
+                className="w-8"
                 alt={data.quote.img.alt}
                 width={data.quote.img.width}
                 height={data.quote.img.width}

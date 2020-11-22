@@ -14,12 +14,12 @@ const LeftCol = () => (
       <br />
       パワーを誇る
       <br />
-      <span className="whitespace-no-wrap">チップです。</span>
+      <span className="whitespace-nowrap">チップです。</span>
     </p>
     <p className=" max-w-lg p-8  text-6 md:text-xl font-bold leading-1 tracking-normal">
       M1チップは、MacBook&nbsp;Proをとてつもなく高速でパワフルな一台にします。M1が持つ8コアのCPUは、一世代前のものと比べて処理速度が最大2.8倍
       。複雑なワークフローや負荷の高い作業もサクサクこなすその速さには、目を見張るでしょう。しかも、何をする時でも、電力効率が信じられないほど優れてい
-      <span className="whitespace-no-wrap">ます。</span>
+      <span className="whitespace-nowrap">ます。</span>
     </p>
 
     <Link href="/">

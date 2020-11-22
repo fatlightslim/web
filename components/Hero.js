@@ -34,7 +34,7 @@ export default function Hero({
     //   }}
     // >
 
-    <div className="w-full bg-gray-200 slide">
+    <div className="w-full bg-gray-100 slide">
       <div className="container mx-auto py-8">
         <div className="py-8 text-center w-4/5 mx-auto ">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -43,7 +43,7 @@ export default function Hero({
           <p className="text-xl py-4 text-gray-700">{data.h1.desc}</p>
           <div className="flex justify-center items-center flex-col">
             <Link href="/">
-              <a className="bg-yellow-500 hover:bg-yellow-600 rounded border border-yellow-600 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
+              <a className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
                 {data.button.title}
               </a>
             </Link>
