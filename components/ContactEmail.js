@@ -33,7 +33,7 @@ export default function ContactEmail({
 }) {
   return (
     <div className="bg-yellow-50 border-t border-yellow-100 rounded-3xl ">
-      <div className="mx-auto text-center xl:px-24">
+      <div className="mx-auto text-center 2xl:px-24">
         <div className="py-4 mt-8">
           <div className="lg:w-3/12 mx-auto">
             <div className="mx-auto w-100 w-1/2 lg:w-full ">
