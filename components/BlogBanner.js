@@ -23,7 +23,7 @@ export default function BlogBanner(params) {
           </h3>
           <p className="text-white font-bold text-xl my-4 text-left tracking-tighter leading-1">
             {process.env.site.name}
-            のスタッフが経験してきた室内LED栽培の記録です。<br />オタク達がこれまで使ってきたライトを紹介します！
+            のスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
           </p>
           <div className=" text-center">
 

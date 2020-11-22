@@ -11,7 +11,7 @@ const Header = ({ header }) => (
 const LeftCol = ({ title, img, button }) => (
   <>
     <p className="text-3xl font-bold tracking-normal  md:pr-24">
-      <span style={{ fontSize: "125%", color: title.color }}>
+      <span style={{  color: title.color }}>
         {title[1]}
       </span>
       <span className="md:inline-block md:ml-1" >
@@ -37,7 +37,7 @@ export default function ReviewBanner({
     header: "お客様の声",
     title: {
       1: "Amazonレビュー",
-      3: "9割以上のお客様にご満足の評価をいただいています",
+      3: "9割以上のお客様にご満足の評価をいただいています。",
       2: "2,000件越え！",
       color: "#555",
     },
