@@ -38,7 +38,7 @@ const LeftCol = ({ title, desc, button }) => (
 export default function RelatedProducts() {
   return (
     <>
-      <div className="bg-gray-200 p-0 grid md:grid-cols-3">
+      <div className="bg-gray-200 p-0 md:pt-4 grid md:grid-cols-3">
         {products.map((data, index) => {
           return (
             <section className="p-2 grid-span-1" key={index}>
@@ -73,7 +73,7 @@ export default function RelatedProducts() {
           )
         })}
       </div>
-      <div className="bg-gray-200 p-0 grid md:grid-cols-2">
+      <div className="bg-gray-200 p-0 md:pb-4 grid md:grid-cols-2">
 
         <section className="p-3 md:grid-cols-2">
           <BlogBanner />

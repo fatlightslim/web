@@ -37,7 +37,7 @@ function Home() {
       <ReviewBanner />
       {/* <AutoPlayReview /> */}
       <Henpin />
-      {/* <FeatureSummary /> */}
+      <FeatureSummary />
       {/* <PricingTable /> */}
       <RelatedProducts />
     </Layout>

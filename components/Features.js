@@ -82,7 +82,7 @@ export default function Features({
               <div className={v.cls2}>
                 <div className={`mx-auto z-10 relative ${v.cls3}`}>
                   <Image
-                  className="rounded"
+                    className="rounded"
                     src={v.img.src}
                     alt={v.img.alt}
                     width={v.img.width}
@@ -106,7 +106,7 @@ export default function Features({
                         <span className="pr-1">
                           <CheckMark />
                         </span>
-                        {x}
+                        <span className="marker-yellow">{x}</span>
                       </li>
                     )
                   })}

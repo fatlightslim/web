@@ -1,77 +1,77 @@
+import { data } from "autoprefixer"
 import Image from "next/image"
 
 const benefits = [
   {
-    img: "icon-settings.png",
+    img: "dimmable",
     alt: "",
-    txt1: "First main product benefit",
+    txt1: "調光機能付き",
     txt2: "Short text to support claim",
   },
   {
-    img: "icon-star.png",
+    img: "daisy",
     alt: "",
-    txt1: "Second main product benefit",
+    txt1: "20台まで接続",
     txt2: "Short text to support claim",
   },
   {
-    img: "icon-idea.png",
+    img: "chip",
     alt: "",
-    txt1: "Third main product benefit",
+    txt1: "最新版LEDチップ",
     txt2: "Short text to support claim",
   },
   {
-    img: "icon-user.png",
+    img: "ip65",
     alt: "",
-    txt1: "Foursth main product benefit",
+    txt1: "IP65の防水性能",
     txt2: "Short text to support claim",
   },
+  {
+    img: "yield",
+    alt: "",
+    txt1: "収穫量が増大",
+    txt2: "Short text to support claim",
+  },
+  {
+    img: "noiseless",
+    alt: "",
+    txt1: "0ノイズ構造",
+    txt2: "Short text to support claim",
+  },
+
 ]
-
-export default function FeatureSummary() {
+export default function FeatureSummary({
+  data = {
+    h2: {
+      title: "「お値段以上の価値」を提供できる機能を常にアップデートします。"
+    }
+  }
+}) {
   return (
-    <div className="bg-gray-100 text-center md:text-left py-16 px-4">
-      <div className="container mx-auto">
-        <div className="pb-4 lg:pb-8">
-          <div className="lg:w-full text-center">
-            <h2 className="text-2xl md:text-4xl font-bold">
-              Summarize your products main benefits
-            </h2>
-          </div>
-        </div>
+    <div className="bg-white md:text-left py-16 px-4  text-green-900">
+      <div className="container mx-auto text-center">
+        <h2 className="text-4xl  font-bold mb-16">
+          {data.h2.title}
+        </h2>
 
-        <div className="flex flex-col md:flex-row md:flex-wrap">
-          {benefits.map((v,i) => {
+        <div  className="grid grid-cols-3">
+
+          {benefits.map((v, i) => {
             return (
-              <div key={i} className="w-full lg:w-1/4 md:w-1/2 text-center lg:text-left mt-4 flex flex-col justify-between">
-                <div className="w-10 lazy self-start py-2 mx-auto lg:mx-0 loaded">
-                  <Image src={`/img/${v.img}`  } alt="Benefit Icon" width={40} height={50} />
+              <div key={i} className="co">
+                <div className="w-full py-2 mx-auto lg:mx-0">
+                  <Image src={`/img/${v.img}.png`} alt={v.img} width={60} height={60} className="w-1/2" />
                 </div>
 
-                <div>
-                  <h4 className="mb-0 font-bold">{v.txt1}</h4>
-                  <p className="mb-0">{v.txt2}</p>
+                <div className="mb-8">
+                  <h4 className="font-bold ">{v.txt1}</h4>
+                  {/* <p className="mb-0">{v.txt2}</p> */}
                 </div>
               </div>
             )
           })}
         </div>
 
-        <div className="flex  flex-col md:flex-row md:flex-wrap my-4">
-          {[...Array(6)].map((v, i) => {
-            return (
-              <div key={i} className="w-full lg:w-1/4 md:w-1/2 text-center lg:text-left mt-4 flex flex-col justify-between">
-                <div className="w-6 self-start py-2 mx-auto lg:mx-0 ">
-                  <Image src="/img/icon-idea.png" alt="Benefit Icon" width={40} height={50} />
-                </div>
-
-                <div>
-                  <h4 className="mb-0 font-bold">Another claim</h4>
-                  <p className="mb-0">Short text to support claim</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
       </div>
     </div>
   )

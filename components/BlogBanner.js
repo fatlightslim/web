@@ -17,11 +17,11 @@ export default function BlogBanner(params) {
             </span>
           </div>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto 2xl:px-20 2xl:text-center">
           <h3 className="text-3xl md:text-6xl font-extrabold leading-none tracking-tight  mt-4">
             植物用ライトの選び方
           </h3>
-          <p className="text-white font-bold text-xl my-4 text-left tracking-tighter leading-1">
+          <p className="text-white font-bold text-xl my-4 text-left tracking-tighter leading-1 2xl:px-20 2xl:text-center">
             {process.env.site.name}
             のスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
           </p>
