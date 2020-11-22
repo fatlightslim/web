@@ -1,8 +1,8 @@
 export default function BlogBanner(params) {
   return (
     <div className="bg-pink-500 text-white rounded-3xl p-4">
-      <div className="grid md:grid-cols-3 mx-auto max-w-screen-lg">
-        <div className="md:col-span-1">
+      <div className="grid  mx-auto max-w-screen-lg">
+        <div className="">
           <div
             className="rounded-full bg-white flex content-center flex-wrap mx-auto"
             style={{
@@ -17,7 +17,7 @@ export default function BlogBanner(params) {
             </span>
           </div>
         </div>
-        <div className="md:col-span-2">
+        <div className="mx-auto">
           <h3 className="text-3xl md:text-6xl font-extrabold leading-none tracking-tight  mt-4">
             植物用ライトの選び方
           </h3>
