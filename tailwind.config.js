@@ -10,6 +10,7 @@ module.exports = {
     ],
     options: {
       safelist: [
+        "from-gray-900",
         "from-gray-800",
         "from-gray-700",
         "via-purple-900",
