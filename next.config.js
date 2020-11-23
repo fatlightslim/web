@@ -2,9 +2,9 @@ module.exports = {
   // images: {
   //   domains: ['cdn.shopify.com']
   // },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
+  // plugins: [
+  //   require('@tailwindcss/aspect-ratio'),
+  // ],
   i18n: {
     locales: ["ja", "en", "kr"],
     defaultLocale: "ja",

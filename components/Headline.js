@@ -79,7 +79,7 @@ export default function Headline({
                 key={v.title}
                 className="my-8 lg:my-0 w-full lg:w-2/6 text-center mt-4 flex flex-col justify-between align-content-start px-4"
               >
-                <div className="justify-self-start mx-auto py-2">
+                <div className="justify-self-start mx-auto py-2 headline">
                   <Image
                     src={v.img.src}
                     alt={v.img.alt}
