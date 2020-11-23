@@ -73,6 +73,7 @@ export const products = [
     // bg: "linear-gradient(#0090CE, #01C7B8)",
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",
+      // inner: "bg-gray-100",
       outer: "bg-gray-100"
     },
     text: "text-white",
