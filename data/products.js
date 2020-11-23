@@ -1,3 +1,9 @@
+const colors = {
+  sp3000: {
+    inner: "from-gray-800 via-purple-900 to-indigo-900",
+    outer: "bg-gray-100"
+  }
+}
 export const products = [
   {
     header: "MARS HYDRO",
@@ -20,8 +26,8 @@ export const products = [
     button: "SP3000の詳細を見る",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
-      inner: "from-gray-800 via-purple-900 to-indigo-900",
-      outer: "bg-gray-100"
+      inner: sp3000.inner,
+      outer: sp3000.outer
     },
     text: "text-white",
   },
