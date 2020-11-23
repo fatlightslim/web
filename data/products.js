@@ -18,6 +18,7 @@ export const products = [
       2: "います。",
     },
     button: "SP3000の詳細を見る",
+    href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-gray-800 via-purple-900 to-indigo-900",
@@ -44,6 +45,7 @@ export const products = [
       2: "です。",
     },
     button: "SP150の詳細を見る",
+    href: "https://shop.fatlightslim.com/products/mars-hydro-sp150",
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
     bg: {
       inner: "from-gray-700 via-red-900 to-yellow-900",
@@ -70,6 +72,7 @@ export const products = [
       height: 670
     },
     button: "TSシリーズの定番モデルを見る",
+    href: "https://shop.fatlightslim.com/products/mars-hydro-ts-series/",
     // bg: "linear-gradient(#0090CE, #01C7B8)",
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",

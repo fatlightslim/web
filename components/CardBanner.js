@@ -46,9 +46,9 @@ function Img({ img }) {
   );
 }
 
-function Button({ button }) {
+function Button({ button, href }) {
   return (
-    <Link href="/policies">
+    <Link href={href}>
       <a className="mt-8 bg-transparent border border-white rounded-full shadow px-4 py-2 inline-flex items-center text-base font-bold">
         {button}
       </a>

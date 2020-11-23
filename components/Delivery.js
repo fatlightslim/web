@@ -20,6 +20,7 @@ export default function Deliver({
       2: "です。",
     },
     button: "配送ポリシーを見る",
+    href: "/policies",
     bg: {
       outer: "bg-gray-50",
       inner: "from-gray-100 to-white",

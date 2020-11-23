@@ -3,7 +3,7 @@ import Image from "next/image";
 import BlogBanner from "./BlogBanner";
 import Contact from "./Contact";
 
-function Product({ title, img, bg, desc, button, header }) {
+function Product({ title, img, bg, desc, button, header, href }) {
   return (
     <div className="max-w-7xl mx-auto">
       <div
@@ -29,7 +29,7 @@ function Product({ title, img, bg, desc, button, header }) {
               {desc[2]}
             </p>
             <a
-              href="#"
+              href={href}
               className="mt-8 bg-transparent border border-white rounded-full shadow px-4 py-2 inline-flex items-center text-base font-bold text-white"
             >
               {button}

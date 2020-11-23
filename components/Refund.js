@@ -21,8 +21,9 @@ export default function Refund({
       2: "ます。",
     },
     button: "返品ポリシーを見る",
+    href: "/policies",
     bg: {
-      outer: "bg-gray-200",
+      outer: "bg-gray-100",
       inner: "bg-line",
     },
     text: "text-white"

@@ -1,4 +1,4 @@
-import Nav from "./Nav2"
+import Nav from "./Nav"
 import Head from "next/head"
 import Footer from "./Footer"
 

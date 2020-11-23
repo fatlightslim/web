@@ -12,7 +12,7 @@ export default function ProductCarousel({ settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 6000,
   autoplay: true
 } }) {
   const [clicked, setClicked] = React.useState(false)

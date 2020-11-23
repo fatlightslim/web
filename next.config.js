@@ -2,10 +2,10 @@ module.exports = {
   // images: {
   //   domains: ['cdn.shopify.com']
   // },
-  i18n: {
-    locales: ["ja", "en", "kr"],
-    defaultLocale: "ja",
-  },
+  // i18n: {
+  //   locales: ["ja", "en", "kr"],
+  //   defaultLocale: "ja",
+  // },
   env: {
     customKey: "my-value",
     company: {
