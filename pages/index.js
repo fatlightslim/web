@@ -16,6 +16,10 @@ import Landing2 from "../components/Landing"
 import CustomerReview from "../components/CustomerReview"
 import ReviewBanner from "../components/ReviewBanner"
 import AutoPlayReview from "../components/AutoPlayReview"
+import TailwindHero from "../components/tailwindui/Hero"
+import TailwindCta from "../components/tailwindui/Cta"
+import TailwindFeature from "../components/tailwindui/Feature"
+import RelatedProducts2 from "../components/RelatedProducts2"
 // import ReviewCarousel from "../components/ReviewCarousel"
 
 
@@ -26,6 +30,9 @@ function Home() {
     <Layout>
       {/* <CustomerReview /> */}
       {/* <Landing2 /> */}
+      {/* <TailwindHero />
+      <TailwindCta />
+      <TailwindFeature /> */}
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
@@ -39,6 +46,7 @@ function Home() {
       <Henpin />
       <FeatureSummary />
       {/* <PricingTable /> */}
+      <RelatedProducts2 />
       <RelatedProducts />
     </Layout>
   )

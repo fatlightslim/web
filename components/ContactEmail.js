@@ -32,7 +32,7 @@ export default function ContactEmail({
   },
 }) {
   return (
-    <div className="bg-yellow-50 border-t border-yellow-100 rounded-3xl ">
+    <div className="bg-yellow-50 border-t border-yellow-100 rounded-xl ">
       <div className="mx-auto text-center 2xl:px-24">
         <div className="py-4 mt-8 2xl:mt-3">
           <div className="lg:w-3/12 mx-auto">
@@ -48,11 +48,11 @@ export default function ContactEmail({
         </div>
 
         <div className="">
-          <div className="lg:px-20 mx-auto text-center">
+          <div className=" mx-auto text-center">
             <h2 className="text-5xl font-bold pt-2 pb-4 text-gray-800">
               {data.h2.title}
             </h2>
-            <div className="m-4">
+            <div className="m-4 lg:px-20">
               <a
                 className="bg-red-700 text-white p-2 rounded inline-block my-2 w-full"
                 // className="block"

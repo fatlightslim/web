@@ -43,7 +43,7 @@ const benefits = [
 export default function FeatureSummary({
   data = {
     h2: {
-      title: "「お値段以上の価値」を提供できる機能を常にアップデートし続けます。"
+      title: "「お値段以上の価値」をこれからもアップデートし続けます。"
     }
   }
 }) {
