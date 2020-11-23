@@ -11,14 +11,11 @@ module.exports = {
     options: {
       safelist: [
         "from-gray-800",
+        "from-gray-700",
         "via-purple-900",
         "to-indigo-900",
-        "from-gray-700",
         "via-red-900",
         "to-yellow-900",
-        "from-gray-700",
-         "via-red-900",
-         "to-yellow-900"
       ],
     },
   },
@@ -30,5 +27,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    // require("@tailwindcss/aspect-ratio")
+  ],
 };
