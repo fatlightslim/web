@@ -31,7 +31,7 @@ function Button() {
   return (
     <div className="text-center">
     <a
-      href="https://fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
+      href="https://shop.fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
       className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
     >
       詳細を見る

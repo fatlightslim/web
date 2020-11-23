@@ -42,7 +42,6 @@ function Img({ img }) {
       alt={img.alt}
       className="sm:rounded-lg"
     />
-
   );
 }
 
@@ -68,10 +67,7 @@ function Desc({ desc }) {
 function Title({ title }) {
   return (
     <h2 className={`text-5xl md:text-6xl font-extrabold  pt-8 pb-4`}>
-      <span
-        className="block"
-        style={{ fontSize: "125%", color: title.color }}
-      >
+      <span className="block" style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <span className="block">{title[2]}</span>
@@ -87,4 +83,3 @@ function Header({ header }) {
     </header>
   );
 }
-
