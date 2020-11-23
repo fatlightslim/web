@@ -35,12 +35,12 @@ export default function Hero({
     //   }}
     // >
 
-    <div className="w-full">
+    <div className="w-full slide">
       <div className="slide" style={{
         position: 'fixed',
         height: '100vh',
         width: '100vw',
-        // minHeight: 760,
+        // minHeight: 768,
         overflow: 'hidden',
         zIndex: -1
       }}>

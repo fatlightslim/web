@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import ProductBanner from "../components/ProductBanner"
-import CallToAction3 from "../components/CallToAction3"
+import CardBanner from "../components/CardBanner"
 import { products } from "../data/products"
 import { data } from "../data/home"
 import Hero from "./Hero";
@@ -12,7 +12,7 @@ export default function ProductCarousel({ settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 6000,
   autoplay: true
 } }) {
   const [clicked, setClicked] = React.useState(false)
@@ -21,12 +21,12 @@ export default function ProductCarousel({ settings = {
     <Slider {...settings}>
       <Hero data={data.Hero} {...props} />
       {products.map((data, index) => (
-        <ProductBanner key={index} data={data} />
+        <CardBanner {...data} key={index} data={data} />
       ))}
     </Slider>
   ) : (
       products.map((data, index) => (
-        <ProductBanner key={index} data={data} />
+        <CardBanner {...data} key={index} data={data} />
       ))
 
     )

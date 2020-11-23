@@ -1,5 +1,5 @@
-import Link from "next/link"
-import Layout from "../components/Layout"
+import Link from "next/link";
+import Layout from "../components/Layout";
 
 export default function Policies({
   data = [
@@ -9,9 +9,11 @@ export default function Policies({
         <div className="text-xs">
           <p>
             {process.env.site.name}
-            で購入されたMARS HYDRO社の製品は海外工場から直送となります。配送コストを抑え低価格で商品を提供するため、配送コストを抑え低価格で商品を提供するため、ご注文から到着まで7~10日程度のお時間を頂戴することをあらかじめご了承くださいますようお願いいたします。
+            で購入されたMARS
+            HYDRO社の製品は海外工場から直送もしくは大阪市の倉庫からの発送となります。配送コストを抑え低価格で商品を提供するため、配送コストを抑え低価格で商品を提供するため、ご注文から到着まで7~10日程度のお時間を頂戴することをあらかじめご了承くださいますようお願いいたします。
             ご購入後、追跡番号をメールにてお送りいたしますので配送状況については、当該サイトにてご確認いただければ幸いです。
-            ご注文いただいた製品の配送については、いったん{process.env.site.name}
+            ご注文いただいた製品の配送については、いったん
+            {process.env.site.name}
             の設備を離れると、{process.env.site.name}
             が管理できない様々な事情の影響を受ける可能性があるため、配送の遅れに責任を持つことはできませんが、お客様との協力の下で速やかな配送を実現できるよう、可能な限り努力いたします。
           </p>
@@ -47,7 +49,8 @@ export default function Policies({
         <div className="text-xs">
           <h2 className="font-bold mt-4 mb-2">はじめに</h2>
           <p>
-            {process.env.company.ja}（以下「当社」）は、個人情報保護の重要性を認識し、適切に利用し、保護することが社会的責任であると考え、個人情報の保護に努めることをお約束いたします。
+            {process.env.company.ja}
+            （以下「当社」）は、個人情報保護の重要性を認識し、適切に利用し、保護することが社会的責任であると考え、個人情報の保護に努めることをお約束いたします。
           </p>
           <h2 className="font-bold mt-4 mb-2">個人情報の定義</h2>
           <p>
@@ -89,7 +92,9 @@ export default function Policies({
           <p>
             当ウェブサイトでは、クッキーを商品の購入、利用者の動向調査等の為に使用することがあります。お客様がクッキーを使用しない設定としている場合、当ウェブサイトで使用できる機能については制限される可能性がありますのでご了承下さい。
           </p>
-          <h2 className="font-bold mt-4 mb-2">情報内容の照会、修正または削除</h2>
+          <h2 className="font-bold mt-4 mb-2">
+            情報内容の照会、修正または削除
+          </h2>
           <p>
             当社は、お客様が当社にご提供いただいた個人情報の照会、修正または削除を希望される場合は、ご本人であることを確認させていただいたうえで、合理的な範囲ですみやかに対応させていただきます。
           </p>
@@ -122,9 +127,9 @@ export default function Policies({
               </h2>
               <v.desc />
             </div>
-          )
+          );
         })}
       </section>
     </Layout>
-  )
+  );
 }
