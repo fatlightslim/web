@@ -52,7 +52,7 @@ export default function ContactEmail({
             <h2 className="text-5xl font-bold pt-2 pb-4 text-gray-800">
               {data.h2.title}
             </h2>
-            <div className="m-4 lg:px-20">
+            <div className="m-4 sm:px-20">
               <a
                 className="bg-red-700 text-white p-2 rounded inline-block my-2 w-full"
                 // className="block"
@@ -118,7 +118,7 @@ export default function ContactEmail({
               ></script> */}
             </div>
 
-            <p className="text-md md:text-xl lg:text-lg p-4 px-20 md:px-2 pb-8 text-gray-800">
+            <p className="text-md md:text-xl lg:text-lg px-4 sm:mx-20  pb-8 text-gray-800">
               {data.h2.desc}
             </p>
           </div>

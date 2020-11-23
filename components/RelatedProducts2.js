@@ -38,10 +38,15 @@ function Product({ title, img, bg, desc, button, header }) {
 
 export default function RelatedProducts2({ }) {
   return (
-    <section className="grid lg:grid-cols-3 gap-4 bg-gray-100 p-2 md:py-4">
+    <section>
+      <div className="grid lg:grid-cols-3 gap-4 bg-gray-100 p-2 md:py-4">
+
       {products.map((data, index) => <Product key={index} {...data} />)}
+      </div>
+      <div className="grid lg:grid-cols-2 gap-4 bg-gray-100 p-2 md:py-4">
       <BlogBanner />
       <ContactEmail />
+      </div>
     </section>
 
   )

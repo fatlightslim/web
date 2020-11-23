@@ -47,7 +47,7 @@ function Home() {
       <FeatureSummary />
       {/* <PricingTable /> */}
       <RelatedProducts2 />
-      <RelatedProducts />
+      {/* <RelatedProducts /> */}
     </Layout>
   )
 }
