@@ -153,7 +153,7 @@ export const data = {
         src: "/img/heatsink.png",
         alt: "ヒートシンク",
         width: 1500,
-        height: 1318,
+        height: 1500,
       },
       h2: {
         title: "ファンなし。ノイズなし。かなりクール。",
@@ -173,10 +173,10 @@ export const data = {
       cls2:
         "feature-3 w-full md:w-1/2 text-center px-4 px-md-0 mb-4 lg:mb-0 relative",
       img: {
-        src: "/img/spts.png",
+        src: "/img/133.png",
         alt: "最適なライトがきっと見つかります",
-        width: 937,
-        height: 300,
+        width: 1500,
+        height: 1500,
       },
       h2: {
         title: "最適なライトがきっと見つかります",
@@ -198,10 +198,10 @@ export const data = {
     button: "オススメ商品を見る",
 
     img: {
-      src: "/img/drawing-try.png",
+      src: "/img/Drawing-try.png",
       alt: "Drawing Try",
-      width: 208,
-      height: 168,
+      width: 1500,
+      height: 1500,
     },
     cls: {
       bg: "bg-blue-100",

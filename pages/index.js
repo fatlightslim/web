@@ -1,7 +1,6 @@
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import Headline from "../components/Headline"
-import Features from "../components/Features"
 import CallToAction from "../components/Cta"
 import Testimonials from "../components/Testimonials"
 import FeatureSummary from "../components/FeatureSummary"
@@ -16,6 +15,8 @@ import Landing2 from "../components/Landing"
 import CustomerReview from "../components/CustomerReview"
 import ReviewBanner from "../components/ReviewBanner"
 import AutoPlayReview from "../components/AutoPlayReview"
+import Minjida from "../components/Minjida"
+import FeatureNew from "../components/FeatureNew"
 // import ReviewCarousel from "../components/ReviewCarousel"
 
 
@@ -28,7 +29,8 @@ function Home() {
       {/* <Landing2 /> */}
       <ProductCarousel />
       <Headline data={data.Headline} />
-      <Features data={data.Features} />
+      <FeatureNew data={data.FeatureNew} />
+      <Minjida />
 
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
