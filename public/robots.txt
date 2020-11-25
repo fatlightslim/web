@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://fatlightslim.com/sitemap.xml
