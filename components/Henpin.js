@@ -10,7 +10,7 @@ export default function Henpin({
       1: "7日間の",
       2: "返品保証を",
       3: "お約束します。",
-    //   3: "お届けします。",
+      //   3: "お届けします。",
       color: "#fc2",
     },
     img: {
@@ -32,11 +32,11 @@ export default function Henpin({
     <section className="md:py-4 md:px-2 bg-gray-200">
       <div
         className={`text-white md:rounded-3xl max-w-screen-xl mx-auto `}
-        style={{background: '#01A04B'}}
+        style={{ background: '#01A04B' }}
       >
         <div className="grid md:grid-cols-2 mx-auto gap-0">
           <div className="md:col-span-1 p-8 ">
-        <Header {...data} />
+            <Header {...data} />
             <LeftCol {...data} />
           </div>
 
@@ -47,6 +47,7 @@ export default function Henpin({
                 width={data.img.width}
                 height={data.img.height}
                 alt={data.img.alt}
+                className="rounded-xl"
               />
             </div>
           </div>

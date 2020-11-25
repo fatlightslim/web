@@ -1,13 +1,13 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap"); */
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap");
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .dosis {
-    font-family: Dosis, sans-serif;
+  font-family: Dosis, sans-serif;
 }
 
 @tailwind base;
@@ -20,9 +20,6 @@ body {
 
 /* Write your own custom component styles here */
 
-.btn-blue {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
-}
 
 /* Start purging... */
 
@@ -32,49 +29,68 @@ body {
 /* Your own custom utilities */
 
 .text-silver {
-    background: radial-gradient(#eff1ff, #000);
-    background-size: 100% 200%;
-    background-position: 50% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: radial-gradient(#eff1ff, #000);
+  background-size: 100% 200%;
+  background-position: 50% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-line {
+  background: #01a04b;
 }
 
 .text-gold {
-    background-image: linear-gradient( 135deg, #b8751e, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    135deg,
+    #b8751e,
+    #ffce08 37%,
+    #fefeb2 47%,
+    #fafad6 50%,
+    #fefeb2 53%,
+    #e1ce08 63%,
+    #b8751e
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .marker-yellow {
-    background: linear-gradient(transparent 60%, #ffff66 60%);
+  background: linear-gradient(transparent 60%, #ffff66 60%);
 }
 
-/* svg {
-    display: inline-block !important;
-} */
 
-/* img:not(.no-grow):hover {
+.headline img:not(.no-grow):hover {
   transform: scale(1.1);
 }
-img:not(.no-grow) {
+.headline img:not(.no-grow) {
   transition: all 0.2s ease-in-out;
-} */
+}
+
+.text-125 {
+  font-size: 125%;
+}
 
 .text-180 {
-    font-size: 180%;
+  font-size: 180%;
 }
 
 @media (max-width: 768px) {
-    .slide {
-        min-height: 768px;
-    }
+  .slide {
+    min-height: 832px;
+  }
+}
+@media (min-width:768px) and ( max-width:1024px) {
+  .slide {
+    min-height: 1147px;
+  }
 }
 
 /* Bugfix for slick.js */
 
 .slick-slider {
-    display: table !important;
-    table-layout: fixed !important;
-    width: 100% !important;
+  display: table !important;
+  table-layout: fixed !important;
+  width: 100% !important;
 }

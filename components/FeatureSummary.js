@@ -43,7 +43,7 @@ const benefits = [
 export default function FeatureSummary({
   data = {
     h2: {
-      title: "「お値段以上の価値」を提供できる機能を常にアップデートし続けます。"
+      title: "「お値段以上の価値」をこれからもアップデートし続けます。"
     }
   }
 }) {
@@ -64,7 +64,7 @@ export default function FeatureSummary({
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="font-bold ">{v.txt1}</h4>
+                  <p className="font-bold ">{v.txt1}</p>
                   {/* <p className="mb-0">{v.txt2}</p> */}
                 </div>
               </div>

@@ -127,7 +127,7 @@ export const data = {
       cls2: "feature-1 md:w-1/2 text-center mb-4 lg:mb-0 relative",
         cls3: "md:w-4/5 ",
       img: {
-        src: "/img/multi-env.png",
+        src: "/img/sun.png",
         alt: "テントでも、キャビネットでも、ラックでも",
         width: 1500,
         height: 1500,
@@ -150,7 +150,7 @@ export const data = {
       cls2:
         "feature-2 md:w-1/2 text-center order-first md:order-last mb-4 lg:mb-0 relative",
       img: {
-        src: "/img/heatsink.png",
+        src: "/img/heatsink2.png",
         alt: "ヒートシンク",
         width: 1500,
         height: 1500,

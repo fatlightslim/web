@@ -61,7 +61,7 @@ export default function Headline({
   },
 }) {
   return (
-    <div className="border-t border-b border-blue-100 py-24 bg-blue-50 mb-16 px-4 ">
+    <div className="border-t border-b border-blue-100 pt-20 bg-blue-50  px-4 ">
       <div className="container mx-auto">
         <div className="mb-8">
           <div className="w-full lg:w-8/12 text-center mx-auto ">
@@ -79,7 +79,7 @@ export default function Headline({
                 key={v.title}
                 className="my-8 lg:my-0 w-full lg:w-2/6 text-center mt-4 flex flex-col justify-between align-content-start px-4"
               >
-                <div className="justify-self-start mx-auto py-2">
+                <div className="justify-self-start mx-auto py-2 headline">
                   <Image
                     src={v.img.src}
                     alt={v.img.alt}

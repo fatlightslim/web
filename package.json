@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "autoprefixer": "^10.0.2",
     "babel-plugin-transform-define": "^2.0.0",
     "next": "latest",
@@ -19,8 +20,10 @@
     "vercel": "^20.1.4"
   },
   "devDependencies": {
+    "globby": "^11.0.1",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.0",
     "tailwindcss": "^2.0.1"
   },
   "license": "MIT"

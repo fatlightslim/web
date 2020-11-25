@@ -2,9 +2,16 @@ module.exports = {
   // images: {
   //   domains: ['cdn.shopify.com']
   // },
-  i18n: {
-    locales: ["ja", "en", "kr"],
-    defaultLocale: "ja",
+  // i18n: {
+  //   locales: ["ja", "en", "kr"],
+  //   defaultLocale: "ja",
+  // },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./scripts/sitemap-generator");
+    }
+
+    return config;
   },
   env: {
     customKey: "my-value",
@@ -20,7 +27,6 @@ module.exports = {
       url: "http://fatlightslim.com/",
       email: "hello@fatlightslim.com",
       twitter: "@fatlightslim",
-
     },
   },
-}
+};

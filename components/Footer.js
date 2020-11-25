@@ -13,10 +13,10 @@ export default function Footer({
         name: "サイトポリシー",
         href: "/policies",
       },
-      {
-        name: "Thanks \u2665",
-        href: "/thanks",
-      },
+      // {
+      //   name: "Thanks \u2665",
+      //   href: "/thanks",
+      // },
     ],
   },
 }) {
