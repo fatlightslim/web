@@ -9,7 +9,7 @@ import Delivery from "../components/Delivery"
 import ReviewBanner from "../components/ReviewBanner"
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
-import Testimonial from "../components/Testimonial"
+// import Testimonial from "../components/Testimonial"
 
 function Home() {
   return (
