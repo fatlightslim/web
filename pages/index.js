@@ -9,6 +9,7 @@ import Delivery from "../components/Delivery"
 import ReviewBanner from "../components/ReviewBanner"
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
+import OneMoreThing from "../components/OneMoreThing"
 // import Testimonial from "../components/Testimonial"
 
 function Home() {
@@ -22,6 +23,7 @@ function Home() {
       <ReviewBanner />
       <Refund />
       <FeatureSummary />
+      <OneMoreThing />
       {/* <PricingTable /> */}
       <RelatedProducts />
     </Layout>

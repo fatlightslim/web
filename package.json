@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@terwanerik/scrolltrigger": "^1.0.5",
     "autoprefixer": "^10.0.2",
     "babel-plugin-transform-define": "^2.0.0",
     "next": "latest",
@@ -15,8 +16,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-slick": "^0.27.13",
+    "scroll-out": "^2.2.12",
     "shopify-buy": "^2.11.0",
     "slick-carousel": "^1.8.1",
+    "splitting": "^1.0.6",
     "vercel": "^20.1.4"
   },
   "devDependencies": {
