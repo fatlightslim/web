@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function CardBanner(props) {
   return (
     <Card {...props}>
-      <div className="pt-8 pb-12 px-6  sm:px-16 lg:pr-0  xl:px-20">
+      <div className="pt-8 pb-12 px-4  sm:px-16 lg:pr-0  xl:px-20">
         <div className="lg:self-center">
           <Header {...props} />
           <Title {...props} />

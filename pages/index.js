@@ -10,6 +10,7 @@ import ReviewBanner from "../components/ReviewBanner"
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
 import OneMoreThing from "../components/OneMoreThing"
+import CartButton from "../components/CartButton"
 // import Testimonial from "../components/Testimonial"
 
 function Home() {
@@ -26,6 +27,7 @@ function Home() {
       {/* <OneMoreThing /> */}
       {/* <PricingTable /> */}
       <RelatedProducts />
+      <CartButton />
     </Layout>
   )
 }
