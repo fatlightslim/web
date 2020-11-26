@@ -76,25 +76,33 @@ body {
   font-size: 180%;
 }
 
-
-
-.char {
-    display: inline-block;
-    animation-delay: calc(.25s + var(--char-index) * .1s);
-    transition: all .25s calc(.25s + var(--char-index) * .1s);
+.trails-text {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  line-height: 110px;
+  color: black;
+  font-size: 8em;
+  font-weight: 800;
+  letter-spacing: -9px;
+  will-change: transform, opacity;
+  overflow: hidden;
 }
-.text--enter [data-scroll='out'] .char {
+
+.trails-text > div {
+  overflow: hidden;
+}
+
+
+
+[data-scroll] {
+  transition: opacity 1s;
+}
+[data-scroll="in"] {
+  opacity: 1;
+}
+[data-scroll="out"] {
   opacity: 0;
-  transform: translate(0, -150%);
-}
-.text--enter .char {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* scroll trigger */
-[data-scroll="in"] .char {
-  opacity: 1;
 }
 
 /* adjust height for carousel */

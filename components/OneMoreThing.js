@@ -1,14 +1,38 @@
-// import ScrollTrigger from "@terwanerik/scrolltrigger";
 import ScrollOut from "scroll-out";
-// import "splitting/dist/splitting.css";
-// import "splitting/dist/splitting-cells.css";
-// import Splitting from "splitting";
 import { useEffect } from "react";
+import { useTrail, a } from "react-spring";
+
+function Trail({ open, children, ...props }) {
+  const items = React.Children.toArray(children);
+  const trail = useTrail(items.length, {
+    config: { mass: 5, tension: 2000, friction: 200 },
+    opacity: open ? 1 : 0,
+    x: open ? 0 : 20,
+    height: open ? 110 : 0,
+    from: { opacity: 0, x: 20, height: 0 },
+  });
+  return (
+    <div className="trails-main" {...props}>
+      <div>
+        {trail.map(({ x, height, ...rest }, index) => (
+          <a.div
+            key={items[index]}
+            className="trails-text"
+            style={{
+              ...rest,
+              transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
+            }}
+          >
+            <a.div style={{ height }}>{items[index]}</a.div>
+          </a.div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function OneMoreThing(params) {
   useEffect(() => {
-    const el = document.querySelector("[data-headline]");
-    // Splitting();
     ScrollOut({
       // onShown: function (el) {
       //   // use the web animation API
@@ -19,18 +43,16 @@ export default function OneMoreThing(params) {
       //   el.style.opacity = 0;
       // },
     });
-    // const headline = document.querySelector("[data-headline]")
-    // const wrapper = document.querySelector("[data-headline-wrapper]")
-    // const textWrapper = document.querySelector(
-    //   "[data-headline-animation-wrapper]"
-    // )),
-    // (headlineAnimated = document.querySelector(
-    //   "[data-headline-animation]"
-    // )),
   }, []);
   return (
     <div className="bg-gray-50 overflow-hidden sm:rounded-lg">
       <div className="px-4 py-5 sm:p-6">
+        <Trail open data-scroll="out">
+          <span>Lorem</span>
+          <span>Ipsum</span>
+          <span>Dolor</span>
+          <span>Sit</span>
+        </Trail>
         <h3
           className="text-5xl text-center py-8 font-bold text"
           data-headline
