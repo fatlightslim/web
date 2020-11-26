@@ -23,7 +23,7 @@ function Home() {
       <ReviewBanner />
       <Refund />
       <FeatureSummary />
-      <OneMoreThing />
+      {/* <OneMoreThing /> */}
       {/* <PricingTable /> */}
       <RelatedProducts />
     </Layout>
