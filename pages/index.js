@@ -16,8 +16,7 @@ import Landing2 from "../components/Landing"
 import CustomerReview from "../components/CustomerReview"
 import ReviewBanner from "../components/ReviewBanner"
 import AutoPlayReview from "../components/AutoPlayReview"
-import FeatureNew from "../components/FeatureNew"
-import Minjida from "../components/Minjida"
+
 // import ReviewCarousel from "../components/ReviewCarousel"
 
 
@@ -31,9 +30,7 @@ function Home() {
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
-      <FeatureNew />
-      <Minjida />
-    
+   
 
       <Delivery />
       {/* <CallToAction data={data.CallToAction} /> */}
