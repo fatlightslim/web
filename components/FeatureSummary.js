@@ -17,13 +17,13 @@ const benefits = [
   {
     img: "chip",
     alt: "",
-    txt1: "最新版LEDチップ",
+    txt1: "最新LEDチップ",
     txt2: "Short text to support claim",
   },
   {
     img: "ip65",
     alt: "",
-    txt1: "IP65の防水性能",
+    txt1: "防水・防塵",
     txt2: "Short text to support claim",
   },
   {

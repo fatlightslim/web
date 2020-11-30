@@ -13,12 +13,10 @@ const LeftCol = ({ title, img, button }) => (
     <p className="text-3xl font-bold tracking-normal  md:pr-24">
       <span style={{  color: title.color }}>
         {title[1]}
-      </span>
-      <span className="md:inline-block md:ml-1" >
         {title[2]}
-      </span>
       {/* <br /> */}
       {title[3]}
+      </span>
     </p>
     <div className="mt-12 md:mt-0 max-w-xs">
       <Image
@@ -37,7 +35,7 @@ export default function ReviewBanner({
     header: "お客様の声",
     title: {
       1: "Amazonレビュー",
-      3: "9割以上のお客様にご満足の評価をいただいています。",
+      3: "9割以上のお客様にご満足の評価をいただいております！",
       2: "2,000件越え！",
       color: "#555",
     },

@@ -9,7 +9,7 @@ export default function CardBanner(props) {
           <Header {...props} />
           <Title {...props} />
           <Desc {...props} />
-          <Button {...props} />
+          {props.button && <Button {...props} />}
         </div>
       </div>
       <div className="-mt-6 sm:mt-8 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
@@ -57,17 +57,21 @@ function Button({ button, href }) {
 
 function Desc({ desc }) {
   return (
+    <>
+          {desc[0] && <span className="marker-yellow font-extrabold text-2xl">{desc[0]}</span>}
     <p className="mt-4 text-lg leading-6 font-bold">
       {desc[1]}
-      {desc[2]}
+     <span className="whitespace-nowrap">{desc[2]}</span> 
     </p>
+    </>
   );
 }
 
 function Title({ title }) {
   return (
-    <h2 className={`text-5xl md:text-6xl font-extrabold  pt-8 pb-4`}>
-      <span className="block" style={{ fontSize: "125%", color: title.color }}>
+    <h2 className={`dosis text-5xl md:text-6xl font-extrabold  pt-8 pb-4`}>
+      {title[0] && <span style={{ fontSize: "160%", color: title.color }}>{title[0]}</span>}
+      <span className="" style={{ fontSize: "125%", color: title.color }}>
         {title[1]}
       </span>
       <span className="block">{title[2]}</span>

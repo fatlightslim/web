@@ -20,7 +20,9 @@
     "shopify-buy": "^2.11.0",
     "slick-carousel": "^1.8.1",
     "splitting": "^1.0.6",
-    "vercel": "^20.1.4"
+    "tailwindcss-aspect-ratio": "^2.0.0",
+    "vercel": "^20.1.4",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "globby": "^11.0.1",

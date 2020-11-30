@@ -46,11 +46,14 @@ export default function Layout({
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
       </Head>
+      <div className="pt-12 pb-24">
+
       <Nav />
 
       {children}
 
       <Footer  />
+      </div>
     </>
   )
 }
