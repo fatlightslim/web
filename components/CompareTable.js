@@ -1,23 +1,25 @@
 import Image from "next/image";
 import { products } from "../data/products";
+import Link from "next/link";
 
-function Button(params) {
+function Button({ href }) {
   return (
     <div className="mt-8">
       <div className="rounded-lg shadow-md">
-        <a
-          href="#"
-          className="block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base font-medium text-indigo-600 hover:bg-gray-50"
-          aria-describedby="tier-hobby"
-        >
-          詳細を見る
-        </a>
+        <Link href={href}>
+          <a
+            className="block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base font-medium text-indigo-600 hover:bg-gray-50"
+            aria-describedby="tier-hobby"
+          >
+            詳細を見る
+          </a>
+        </Link>
       </div>
     </div>
   );
 }
 
-function Title({img, title, price }) {
+function Title({ img, title, price }) {
   return (
     <div className="bg-white px-6 py-10">
       <div>
@@ -27,11 +29,9 @@ function Title({img, title, price }) {
         >
           {title}
         </h3>
-
-
-            <Card >
-              <Img img={img} />
-            </Card>
+        <Card>
+          <Img img={img} />
+        </Card>
         <div className="mt-4 flex items-center justify-center">
           <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
             <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
@@ -116,7 +116,7 @@ function Header(params) {
   );
 }
 
-function Product({ shortTitle, img, price, feature, className, index }) {
+function Product({ shortTitle, href, img, price, feature, className, index }) {
   return (
     <div className={className}>
       <div
@@ -132,7 +132,7 @@ function Product({ shortTitle, img, price, feature, className, index }) {
                 return <List key={i} text={v} />;
               })}
             </ul>
-            <Button />
+            <Button href={href} />
           </div>
         </div>
       </div>
@@ -162,9 +162,8 @@ function ProductMain({ img, shortTitle, price, feature, className, index }) {
               id="tier-growth"
             >
               {shortTitle}
-              
             </h3>
-            <Card >
+            <Card>
               <Img img={img} />
             </Card>
             <div className="mt-4 flex items-center justify-center">

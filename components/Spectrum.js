@@ -49,7 +49,7 @@ export default function Spectrum({
       alt:
         "アルミ製フルボディヒートシンクが熱を抑えます。ファンなし。ノイズなし。かなりクール。",
       width: 1000,
-      height: 889,
+      height: 753,
     },
     bg: {},
   },
