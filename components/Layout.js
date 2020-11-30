@@ -3,6 +3,7 @@ import Head from "next/head"
 import Footer from "./Footer"
 
 export default function Layout({
+  visible,
   children,
   data = {
     title: `植物用LEDライト専門店 ${process.env.site.name}`,
@@ -48,7 +49,7 @@ export default function Layout({
       </Head>
       <div className="pt-12 pb-24">
 
-      <Nav />
+      <Nav visible={visible} />
 
       {children}
 

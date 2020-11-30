@@ -25,6 +25,18 @@ export const products = [
       outer: "bg-gray-100"
     },
     text: "text-white",
+    shortTitle: "SP3000",
+    price: "79,800",
+    feature: [
+      "2020年最新版LB301Bチップ搭載",
+      "IP65 防水・防塵",
+      "LED寿命100,000時間",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "1080mm x 108mm",
+      "デイジーチェーン",
+      "ノイズレス"
+    ],
   },
   {
     header: "MARS HYDRO",
@@ -52,6 +64,20 @@ export const products = [
       outer: "bg-gray-100"
     },
     text: "text-white",
+    className:
+      "mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+    shortTitle: "SP150",
+    price: "29,800",
+    feature: [
+      // "Epistar SMDチップ",
+      "IP65 防水・防塵",
+      "LED寿命50,000時間",
+      "最大収穫量 2.0g/w",
+      "アルミ製ヒートシンク",
+      "598mm x 50mm",
+      "デイジーチェーン",
+      "ノイズレス"
+    ],
   },
   {
     header: "MARS HYDRO",
@@ -80,6 +106,19 @@ export const products = [
       outer: "bg-gray-100"
     },
     text: "text-white",
+    className:
+      "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3",
+    shortTitle: "TSシリーズ",
+    price: "24,800~",
+    feature: [
+      // "Epistar SMDチップ",
+      "アルミ製フード",
+      "LED寿命50,000時間",
+      "最大収穫量 2.0g/w",
+      "様々なサイズ",
+      "デイジーチェーン",
+      "ノイズレス"
+    ],
 
   },
 ];

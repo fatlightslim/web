@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { products } from "../data/products";
-const data = products[0];
 
 function Button(params) {
   return (
@@ -18,7 +17,7 @@ function Button(params) {
   );
 }
 
-function Title({ title, price }) {
+function Title({img, title, price }) {
   return (
     <div className="bg-white px-6 py-10">
       <div>
@@ -28,6 +27,11 @@ function Title({ title, price }) {
         >
           {title}
         </h3>
+
+
+            <Card >
+              <Img img={img} />
+            </Card>
         <div className="mt-4 flex items-center justify-center">
           <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
             <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
@@ -70,7 +74,7 @@ function List({ text }) {
 function Card({ children, bg, text }) {
   return (
     <div className="bg-white">
-      <div className={`mx-auto -mt-8 text-center max-w-xs ${text}`}>
+      <div className={`mx-auto mt-4 text-center max-w-xs ${text}`}>
         <div
         // className={`bg-gradient-to-r ${bg.inner} lg:rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4`}
         >
@@ -112,24 +116,19 @@ function Header(params) {
   );
 }
 
-function Product({ title, price, index }) {
-  let className =
-    "mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3"
-  if (index === "last") {
-    className = "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3"
-  }
+function Product({ shortTitle, img, price, feature, className, index }) {
   return (
     <div className={className}>
-      <div className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg">
+      <div
+        className={`h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none ${
+          index === "last" ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
+        }`}
+      >
         <div className="flex-1 flex flex-col">
-          <Title title={title} price={price} />
+          <Title title={shortTitle} price={price} img={img} />
           <div className="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10">
             <ul className="space-y-4">
-              {[
-                "Pariatur quod similique",
-                "Pariatur quod similique",
-                "Pariatur quod similique",
-              ].map((v, i) => {
+              {feature.map((v, i) => {
                 return <List key={i} text={v} />;
               })}
             </ul>
@@ -141,9 +140,9 @@ function Product({ title, price, index }) {
   );
 }
 
-function ProductMain(params) {
+function ProductMain({ img, shortTitle, price, feature, className, index }) {
   return (
-    <div className="mt-10 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
+    <div className="my-10 max-w-lg mx-auto lg:my-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
       <div className="relative z-10 rounded-lg shadow-xl">
         <div
           className="pointer-events-none absolute inset-0 rounded-lg border-2 border-indigo-600"
@@ -162,15 +161,16 @@ function ProductMain(params) {
               className="text-center text-3xl font-semibold text-gray-900 sm:-mx-6"
               id="tier-growth"
             >
-              SP3000
+              {shortTitle}
+              
             </h3>
-            <Card {...data}>
-              <Img {...data} />
+            <Card >
+              <Img img={img} />
             </Card>
             <div className="mt-4 flex items-center justify-center">
               <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl">
                 <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-                <span className="font-extrabold">79,800</span>
+                <span className="font-extrabold">{price}</span>
               </span>
             </div>
             <span className="text-xs block text-center font-medium text-gray-500">
@@ -180,13 +180,7 @@ function ProductMain(params) {
         </div>
         <div className="border-t-2 border-gray-100 rounded-b-lg pt-10 pb-8 px-6 bg-gray-50 sm:px-10 sm:py-10">
           <ul className="space-y-4">
-            {[
-              "2020年最新版LB301Bチップ搭載",
-              "Pariatur quod similique",
-              "Pariatur quod similique",
-              "Pariatur quod similique",
-              "Pariatur quod similique",
-            ].map((v, i) => {
+            {feature.map((v, i) => {
               return <List key={i} text={v} />;
             })}
           </ul>
@@ -217,9 +211,9 @@ export default function CompareTable(params) {
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">
-              <Product title="SP150" price="29,800" />
-              <ProductMain />
-              <Product title="TSシリーズ" price="24,800~" index="last" />
+              <ProductMain {...products[0]} />
+              <Product {...products[1]} />
+              <Product {...products[2]} index="last" />
             </div>
           </div>
         </div>

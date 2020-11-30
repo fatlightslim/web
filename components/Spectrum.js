@@ -27,7 +27,7 @@ export default function Spectrum({
   },
   harvest = {
     img: {
-      src: "/img/sp3000/ppfd.png",
+      src: "/img/sp3000/ledchip.png",
       alt:
         "SAMSUNG LM301Bの驚きの性能がこれまでの常識を変えます。なんと、1ワットあたり最大2.5グラム(従来比2倍)の収穫が可能です。",
       width: 1000,

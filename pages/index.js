@@ -1,3 +1,5 @@
+import ScrollTrigger from "react-scroll-trigger";
+
 import { data } from "../data/home";
 import { products } from "../data/products";
 import Layout from "../components/Layout";
@@ -27,8 +29,9 @@ import CompareTable from "../components/CompareTable";
 function Home() {
   const sp3000 = products[0];
   sp3000.bg.outer = "bg-gray-800";
+  const [visible, setVisible] = React.useState(false);
   return (
-    <Layout>
+    <Layout visible={visible}>
       {/* <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
@@ -42,10 +45,9 @@ function Home() {
       <Video />
 
       <div className="bg-black">
-      <div className="max-w-7xl mx-auto bg-black ">
-        <Spectrum />
-      </div>
-
+        <div className="max-w-7xl mx-auto bg-black ">
+          <Spectrum />
+        </div>
       </div>
       <Size />
 
@@ -53,8 +55,19 @@ function Home() {
       {/* <ReviewBanner /> */}
       <Refund />
 
-       {/* <h3 className="text-center text-3xl py-4 pt-12">関連商品</h3> */}
-       <CompareTable />
+      {/* <h3 className="text-center text-3xl py-4 pt-12">関連商品</h3> */}
+
+      <ScrollTrigger
+      // throttleScroll={1900}
+        onEnter={({progress, velocity}) => {
+          // console.log(progress);
+          // console.log(velocity);
+          setVisible(true);
+        }}
+        onExit={() => setVisible(false)}
+      >
+        <CompareTable visible={visible} />
+      </ScrollTrigger>
       {/* <div className="grid lg:grid-cols-2 gap-0 bg-gray-200 md:py-4">
         <CardBanner {...products[1]} />
         <CardBanner {...products[2]} />
@@ -64,7 +77,7 @@ function Home() {
         <Optimal />
         <Contact />
       </div>
-      <CartButton />
+      <CartButton visible={visible} />
     </Layout>
   );
 }
