@@ -10,6 +10,16 @@ module.exports = {
     ],
     options: {
       safelist: [
+        "lg:col-start-6",
+        "lg:col-end-8",
+        "lg:row-start-2",
+        "lg:row-end-3",
+        "lg:mx-0",
+        "lg:max-w-none",
+        "lg:col-start-1",
+        "lg:row-start-2",
+        " lg:row-end-3",
+        "lg:col-end-3",
         "from-gray-900",
         "from-gray-800",
         "from-gray-700",
