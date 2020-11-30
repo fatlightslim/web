@@ -34,7 +34,7 @@ export default function Optimal({props = {
       <div className="">
         <Img {...props} />
       </div>
-      <div className="lg:-mt-12 pt-4 pb-12 px-4 sm:px-16 lg:pr-0  xl:px-20">
+      <div className="pt-4 pb-12 px-4 sm:px-16 lg:pr-0  xl:px-20">
         <div className="lg:self-center">
           {/* <Header {...props} /> */}
           <Title {...props} />
@@ -61,7 +61,7 @@ function Img({img}) {
 
 function Card({ children, bg, text }) {
   return (
-     <div className={bg.outer}>
+     <div className={bg.outer} style={{background: "#000"}}>
       <div className={`max-w-7xl mx-auto   ${text}`}>
         <div
           className={`bg-gradient-to-r ${bg.inner} lg:rounded-lg  overflow-hidden shadow`}
@@ -87,7 +87,7 @@ function Desc({ desc }) {
 
 function Title({ title }) {
   return (
-    <h2 className={`-mt-14 text-4xl md:text-5xl font-extrabold  pt-8 pb-4`}>
+    <h2 className={`-mt-20 text-4xl md:text-5xl font-extrabold  pt-8 pb-4`}>
 
       当店は
       <span className="dosis block" style={{ color: title.color }}>
