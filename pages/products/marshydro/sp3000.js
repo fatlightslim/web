@@ -12,9 +12,20 @@ import Size from "../../../components/Size";
 import Optimal from "../../../components/Optimal";
 import Spectrum from "../../../components/Spectrum";
 import CompareTable from "../../../components/CompareTable";
+import { createCheckout } from "../../../scripts/shopify"
 
 export default function MarsHydroSp3000(props) {
+ const [url, setUrl] = React.useState('#')
   
+  React.useEffect(() => {
+    async function getUrl() {
+     const url = await createCheckout(process.env.sp3000)
+    console.log(url);
+    setUrl(url)
+     }
+     getUrl()
+  },[])
+
   const sp3000 = products[0];
   sp3000.bg.outer = "bg-gray-800";
   const [visible, setVisible] = React.useState(false);
@@ -39,14 +50,14 @@ export default function MarsHydroSp3000(props) {
         }}
         onExit={() => setVisible(false)}
       >
-        <CompareTable visible={visible} />
+        <CompareTable visible={visible} url={url} />
       </ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
         <Contact />
       </div>
-      <CartButton visible={visible} />
+      <CartButton visible={visible} url={url} />
     </Layout>
   );
 }

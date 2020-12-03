@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { products } from "../data/products";
 import Link from "next/link";
-import { createCheckout } from "../scripts/shopify"
 
 function Button({ href }) {
   return (
@@ -141,7 +140,7 @@ function Product({ shortTitle, href, img, price, feature, className, index }) {
   );
 }
 
-function ProductMain({ img, shortTitle, price, feature, className, index }) {
+function ProductMain({ img, shortTitle, price, feature, url }) {
   return (
     <div className="my-10 max-w-lg mx-auto lg:my-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
       <div className="relative z-10 rounded-lg shadow-xl">
@@ -186,13 +185,14 @@ function ProductMain({ img, shortTitle, price, feature, className, index }) {
           </ul>
           <div className="mt-10">
             <div className="rounded-lg shadow-md">
-              <button
-                onClick={() => createCheckout(process.env.sp3000)}
+            <Link href={url}>
+              <a
                 className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                 aria-describedby="tier-growth"
               >
                 購入する
-              </button>
+              </a>
+            </Link>
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@ function ProductMain({ img, shortTitle, price, feature, className, index }) {
   );
 }
 
-export default function CompareTable(params) {
+export default function CompareTable({url}) {
   return (
     <div className="bg-gray-900 dosis">
       <Header />
@@ -211,7 +211,7 @@ export default function CompareTable(params) {
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">
-              <ProductMain {...products[0]} />
+              <ProductMain {...products[0]} url={url} />
               <Product {...products[1]} />
               <Product {...products[2]} index="last" />
             </div>

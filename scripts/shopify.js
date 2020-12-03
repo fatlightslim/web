@@ -14,7 +14,7 @@ const client = Client.buildClient(process.env.shopify)
 
 
 export function createCheckout(variantId) {
-    client.checkout.create().then((checkout) => {
+    return client.checkout.create().then((checkout) => {
         // Do something with the checkout
         const checkoutId = checkout.id
         const lineItemsToAdd = [
@@ -25,12 +25,13 @@ export function createCheckout(variantId) {
         ]
 
         // Add an item to the checkout
-        client.checkout
+        return client.checkout
             .addLineItems(checkoutId, lineItemsToAdd)
             .then((checkout) => {
                 // Do something with the updated checkout
                 // console.log(checkout) // Array with one additional line item
-                window.location.href = checkout.webUrl
+                // window.location.href = checkout.webUrl
+                return checkout.webUrl
             })
     })
 }
