@@ -99,7 +99,8 @@ export const products = [
       height: 670
     },
     button: "TSシリーズの定番モデルを見る",
-    href: "https://shop.fatlightslim.com/products/mars-hydro-ts-series/",
+    // href: "https://shop.fatlightslim.com/products/mars-hydro-ts-series/",
+    href: "/products/marshydro/ts-series",
     // bg: "linear-gradient(#0090CE, #01C7B8)",
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",
@@ -110,7 +111,7 @@ export const products = [
     className:
       "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3",
     shortTitle: "TSシリーズ",
-    price: "24,800~",
+    price: "19,800~",
     feature: [
       // "Epistar SMDチップ",
       "アルミ製フード",
