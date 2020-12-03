@@ -56,7 +56,7 @@ export default function Spectrum({
   connect = {
     img: {
       src: "/img/sp3000/connect.png",
-      alt: "最大20台までの機器をLANケーブルで接続することによって全てのライトをコントロールできます。",
+      alt: "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
       width: 1000,
       height: 713,
     },
