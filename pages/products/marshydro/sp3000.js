@@ -20,7 +20,7 @@ export default function MarsHydroSp3000(props) {
   React.useEffect(() => {
     async function getUrl() {
      const url = await createCheckout(process.env.sp3000)
-    console.log(url);
+    // console.log(url);
     setUrl(url)
      }
      getUrl()
