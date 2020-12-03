@@ -15,7 +15,7 @@ import CompareTable from "../../../components/CompareTable";
 import { createCheckout } from "../../../scripts/shopify"
 
 export default function MarsHydroSp3000(props) {
- const [url, setUrl] = React.useState('#')
+ const [url, setUrl] = React.useState('/')
   
   React.useEffect(() => {
     async function getUrl() {
@@ -30,7 +30,7 @@ export default function MarsHydroSp3000(props) {
   sp3000.bg.outer = "bg-gray-800";
   const [visible, setVisible] = React.useState(false);
   return (
-    <Layout visible={visible} className="pb-24">
+    <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...sp3000} button={false} />
       <Video />
 
