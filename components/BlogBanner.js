@@ -54,10 +54,10 @@ function HeaderSection({
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <div className="text-center text-white">
-        <h2 className="mt-1 text-3xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
+        <h2 className="mt-1 text-2xl font-extrabold text-white sm:text-4xl sm:tracking-tight">
           {data.h2.title}
         </h2>
-        <p className="max-w-xl mt-5 mx-auto text-xl text-gray-50 font-bold">
+        <p className="max-w-xl mt-5 mx-auto text-lg text-gray-50 font-bold">
           {data.h2.desc}
         </p>
       </div>
@@ -67,8 +67,8 @@ function HeaderSection({
 
 function Card({ children }) {
   return (
-    <div className="bg-pink-500 overflow-hidden shadow rounded-lg">
-      <div className="px-4 py-5 sm:p-6">{children}</div>
+    <div className="bg-pink-500 overflow-hidden shadow lg:rounded-lg">
+      <div className="sm:px-4 py-5 ">{children}</div>
     </div>
   );
 }

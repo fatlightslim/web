@@ -1,7 +1,9 @@
 import { products } from "../data/products";
+import Link from "next/link";
 import Image from "next/image";
 import BlogBanner from "./BlogBanner";
 import Contact from "./Contact";
+import Optimal from "./Optimal";
 
 function Product({ title, img, bg, desc, button, header, href }) {
   return (
@@ -28,12 +30,14 @@ function Product({ title, img, bg, desc, button, header, href }) {
               {desc[1]}
               {desc[2]}
             </p>
+            <Link href={href}>
             <a
-              href={href}
+              
               className="mt-8 bg-transparent border border-white rounded-full shadow px-4 py-2 inline-flex items-center text-base font-bold text-white"
             >
               {button}
             </a>
+            </Link>
           </div>
         </div>
         <div className="-mt-8 mx-2 lg:m-8">
@@ -57,9 +61,10 @@ export default function RelatedProducts2({}) {
           <Product key={index} {...data} />
         ))}
       </div>
-      <div className="grid lg:grid-cols-2 gap-4 bg-gray-200 p-2 md:py-4">
+
+      <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
-        {/* <ContactEmail /> */}
+        <Optimal />
         <Contact />
       </div>
     </section>

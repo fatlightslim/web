@@ -9,24 +9,29 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@terwanerik/scrolltrigger": "^1.0.5",
+    "animate.css": "^4.1.1",
     "autoprefixer": "^10.0.2",
     "babel-plugin-transform-define": "^2.0.0",
+    "cors": "^2.8.5",
     "next": "latest",
     "postcss": "^8.1.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scroll-trigger": "^0.6.10",
     "react-slick": "^0.27.13",
     "scroll-out": "^2.2.12",
     "shopify-buy": "^2.11.0",
     "slick-carousel": "^1.8.1",
     "splitting": "^1.0.6",
-    "vercel": "^20.1.4"
+    "tailwindcss-aspect-ratio": "^2.0.0",
+    "vercel": "^20.1.4",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "globby": "^11.0.1",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "tailwindcss": "^2.0.1"
   },
   "license": "MIT"

@@ -21,7 +21,7 @@ export default function Footer({
   },
 }) {
   return (
-    <footer className="py-8 text-center md:text-left bg-gray-100">
+    <footer className="py-8 text-center md:text-left ">
       <div className="container mx-auto">
         <div className=" flex flex-col lg:flex-row content-center items-center justify-between">
           <div className="flex items-center flex-col lg:flex-row mx-auto">
