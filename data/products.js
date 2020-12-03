@@ -110,7 +110,7 @@ export const products = [
     className:
       "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3",
     shortTitle: "TSシリーズ",
-    price: "24,800~",
+    price: "19,800~",
     feature: [
       // "Epistar SMDチップ",
       "アルミ製フード",
