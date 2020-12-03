@@ -18,7 +18,8 @@ function Body({url}) {
             <a
               // onClick={() => createCheckout(process.env.sp3000)}
               type="button"
-              className="float-right mt-2  px-4 py-2 border border-transparent shadow-sm text-white text-sm font-extrabold rounded-full bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="mt-2 float-right text-center rounded-full border border-transparent bg-indigo-600 px-4 py-2 text-sm leading-6 font-bold text-white hover:bg-indigo-700"
+              // className="float-right mt-2  px-4 py-2 border border-transparent shadow-sm text-white text-sm font-extrabold rounded-full bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               購入
             </a>
