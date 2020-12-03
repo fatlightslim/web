@@ -3,6 +3,7 @@ import Head from "next/head"
 import Footer from "./Footer"
 
 export default function Layout({
+  className,
   visible,
   children,
   data = {
@@ -47,7 +48,7 @@ export default function Layout({
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
       </Head>
-      <div className="pt-12 pb-24">
+      <div className={`pt-12 ${className}`}>
 
       <Nav visible={visible} />
 

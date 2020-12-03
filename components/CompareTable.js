@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { products } from "../data/products";
 import Link from "next/link";
+import { createCheckout } from "../scripts/shopify"
 
 function Button({ href }) {
   return (
@@ -185,13 +186,13 @@ function ProductMain({ img, shortTitle, price, feature, className, index }) {
           </ul>
           <div className="mt-10">
             <div className="rounded-lg shadow-md">
-              <a
-                href="#"
+              <button
+                onClick={() => createCheckout(process.env.sp3000)}
                 className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                 aria-describedby="tier-growth"
               >
                 購入する
-              </a>
+              </button>
             </div>
           </div>
         </div>

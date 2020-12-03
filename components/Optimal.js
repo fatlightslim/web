@@ -34,7 +34,7 @@ export default function Optimal({props = {
       <div className="">
         <Img {...props} />
       </div>
-      <div className="pt-4 pb-12 px-4 sm:px-16 lg:pr-0  xl:px-20">
+      <div className="pt-4 pb-12 px-4 sm:px-16 lg:pr-0  xl:px-8">
         <div className="lg:self-center">
           {/* <Header {...props} /> */}
           <Title {...props} />

@@ -10,9 +10,6 @@ export default function Nav({visible}) {
   return (
     <nav className={className}>
       <Logo className="text-gray-50" />
-      {/* <Link href="/products/mars-hydro-sp3000">
-      <a>sp3000</a>
-      </Link> */}
     </nav>
   )
 }

@@ -152,6 +152,7 @@ function Img({ img }) {
         alt={img.alt}
         width={img.width}
         height={img.height}
+        className=" rounded-lg"
       />
     </div>
   );

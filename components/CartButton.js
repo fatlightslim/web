@@ -1,3 +1,5 @@
+import { createCheckout } from "../scripts/shopify"
+
 function Body(params) {
   return (
     <div className="bg-black bg-opacity-90 shadow">
@@ -14,6 +16,7 @@ function Body(params) {
           </div>
           <div>
             <button
+              onClick={() => createCheckout(process.env.sp3000)}
               type="button"
               className="float-right mt-2  px-4 py-2 border border-transparent shadow-sm text-white text-sm font-extrabold rounded-full bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
@@ -23,14 +26,18 @@ function Body(params) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 export default function CartButton({ visible }) {
-  let className = "fixed bottom-0 z-50 w-full animate__animated ";
+  let className = "fixed bottom-0 z-50 w-full animate__animated "
   if (!visible) {
-    className += "animate__slideInUp display-block";
+    className += "animate__slideInUp display-block"
   } else {
-    className += "animate__slideOutDown display-none";
+    className += "animate__slideOutDown display-none"
   }
-  return <div className={className}><Body /></div>;
+  return (
+    <div className={className}>
+      <Body />
+    </div>
+  )
 }
