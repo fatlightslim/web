@@ -1,5 +1,7 @@
 import Image from "next/image";
 import CheckMark from "./Checkmark";
+import { reviews } from "../data/nayami"
+import Slider from "react-slick";
 
 export default function FeatureNew({
   data = {
@@ -9,6 +11,15 @@ export default function FeatureNew({
     2: "",
     3: "",
   },
+  settings = {
+    dots: false,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplaySpeed: 5000,
+    autoplay: true,}
 }) {
   return (
     <>
@@ -16,13 +27,33 @@ export default function FeatureNew({
       <div className="py-16 bg-gray-50 overflow-hidden lg:py-24">
         <div className="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
           <div className="relative">
-            <h2 className="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-center text-2xl pl-4 pr-4 text-gray-500 font-bold">
               これらの悩み、FAT Light SLIMならすべて解決できます！
             </h2>
-            <p className="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
-              植物が成長しない、どのライトが良いか分からない、電気代が心配…などなど！FAT
-              Light SLIMが全部解決して見せます！
-            </p>
+            <section className="md:py-4 md:px-2 bg-gray-50 flex justify-center">
+      <div
+        // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
+        // style={{ background: data.bg }}
+        // style={{ background: data.bg, minHeight: 766 }}
+        className="bg-gray-50 md:rounded-3xl max-w-screen-xl p-8 mx-auto flex justify-center"
+      >
+      
+
+        <div className="mx-auto gap-0">
+         
+          <div className="md:col-span-1 w-full">
+            <Slider {...settings}>
+              {reviews.map((item) => (
+                <Review key={item.img} item={item} />
+              ))}
+            </Slider>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+          
           </div>
           <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div className="relative">
@@ -151,7 +182,7 @@ export default function FeatureNew({
                 />
               </svg>
               <Image
-                src="/img/sun3.png"
+                src="/img/multi.png"
                 alt="multi-env"
                 width={490}
                 height={490}
@@ -441,4 +472,22 @@ export default function FeatureNew({
       </div>
     </>
   );
+}
+
+function Review({ item }) {
+  return (
+    <>
+    <div className="flex justify-center">
+    
+      <div className={`col-sm-6 ${item.bg}  align-self-center`}>
+        
+        <p className="text-center text-3xl leading-8 font-extrabold tracking-tight text-indigo-900">
+         
+          {item.lead2}
+        </p>
+      </div>
+      </div>
+     </>
+
+  )
 }

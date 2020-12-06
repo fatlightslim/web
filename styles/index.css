@@ -76,6 +76,28 @@ body {
   font-size: 180%;
 }
 
+
+
+.char {
+    display: inline-block;
+    animation-delay: calc(.25s + var(--char-index) * .1s);
+    transition: all .25s calc(.25s + var(--char-index) * .1s);
+}
+.text--enter [data-scroll='out'] .char {
+  opacity: 0;
+  transform: translate(0, -150%);
+}
+.text--enter .char {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* scroll trigger */
+[data-scroll="in"] .char {
+  opacity: 1;
+}
+
+/* adjust height for carousel */
 @media (max-width: 768px) {
   .slide {
     min-height: 832px;
