@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Size150({
   data = {
     img: {
-      src: "/img/sp3000/size.png",
+      src: "/img/sp150/size150.png",
       alt: "sp3000 size",
       width: 1000,
       height: 683,
