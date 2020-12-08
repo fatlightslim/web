@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Size({
+export default function Size150({
   data = {
     img: {
       src: "/img/sp3000/size.png",

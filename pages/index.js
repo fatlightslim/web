@@ -17,6 +17,7 @@ import CustomerReview from "../components/CustomerReview"
 import ReviewBanner from "../components/ReviewBanner"
 import AutoPlayReview from "../components/AutoPlayReview"
 import FeatureNew from "../components/FeatureNew"
+import Size150 from "../components/Size150"
 
 // import ReviewCarousel from "../components/ReviewCarousel"
 
@@ -28,6 +29,7 @@ function Home() {
     <Layout>
       {/* <CustomerReview /> */}
       {/* <Landing2 /> */}
+      <Size150 />
       <ProductCarousel />
       <Headline data={data.Headline} />
       <Features data={data.Features} />
