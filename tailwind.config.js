@@ -10,6 +10,18 @@ module.exports = {
     ],
     options: {
       safelist: [
+        "bg-indigo-600", 
+        "hover:bg-indigo-700",
+        "lg:col-start-6",
+        "lg:col-end-8",
+        "lg:row-start-2",
+        "lg:row-end-3",
+        "lg:mx-0",
+        "lg:max-w-none",
+        "lg:col-start-1",
+        "lg:row-start-2",
+        " lg:row-end-3",
+        "lg:col-end-3",
         "from-gray-900",
         "from-gray-800",
         "from-gray-700",

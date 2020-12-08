@@ -5,7 +5,6 @@ export default function Contact(params) {
     <Card>
       <Rocket />
       <HeaderSection />
-      <Social />
     </Card>
   );
 }
@@ -48,10 +47,11 @@ function HeaderSection({
         <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">
           {data.h2.lead}
         </h2>
-        <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:tracking-tight">
           {data.h2.title}
         </p>
-        <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+      <Social />
+        <p className="max-w-xl mx-auto text-lg text-gray-500">
           {data.h2.desc}
         </p>
       </div>
@@ -133,7 +133,7 @@ function Social({
   ],
 }) {
   return (
-    <div className="flex justify-center space-x-6 md:order-2">
+    <div className="flex justify-center space-x-6 md:order-2 py-8 lg:py-12">
       {data.map((v) => (
         <a
           key={v.sr}
@@ -152,7 +152,7 @@ function Social({
 
 function Card({ children }) {
   return (
-    <div className="bg-yellow-50 overflow-hidden shadow rounded-lg">
+    <div className="bg-yellow-50 overflow-hidden shadow lg:rounded-lg">
       <div className="px-4 py-5 sm:p-6">{children}</div>
     </div>
   );

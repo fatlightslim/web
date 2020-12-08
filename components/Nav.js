@@ -1,10 +1,15 @@
-import Link from "next/link"
 import Logo from "./Logo"
 
-export default function Nav() {
+export default function Nav({visible}) {
+  let className = "bg-black bg-opacity-80 text-center py-2 animate__animated fixed top-0 w-full z-50 "
+  if (!visible) {
+    className += "animate__slideInDown display-block"
+  } else {
+    className += "animate__slideOutUp display-none"
+  }
   return (
-    <nav className="bg-gray-900 bg-opacity-90 text-center py-2">
-      <Logo className="text-gold" />
+    <nav className={className}>
+      <Logo className="text-gray-50" />
     </nav>
   )
 }

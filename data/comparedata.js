@@ -1,4 +1,5 @@
-export const products = [
+
+export const comparedata = [
   {
     header: "MARS HYDRO",
     title: {

@@ -1,46 +1,33 @@
+import Document, { Html, Head, Main, NextScript } from "next/document"
+import { GA_TRACKING_ID } from "../scripts/gtag"
 
-import {data} from "../data/home"
-import Layout from "../components/Layout"
-import Headline from "../components/Headline"
-import CallToAction from "../components/Cta"
-import Testimonials from "../components/Testimonials"
-import FeatureSummary from "../components/FeatureSummary"
-// import PricingTable from "../components/PricingTable"
-import ProductCarousel from "../components/ProductCarousel"
-import Delivery from "../components/Delivery"
-import ReviewBanner from "../components/ReviewBanner"
-import AutoPlayReview from "../components/AutoPlayReview"
-import Minjida from "../components/Minjida"
-import FeatureNew from "../components/FeatureNew"
-// import ReviewCarousel from "../components/ReviewCarousel"
-
-
-
-import RelatedProducts from "../components/RelatedProducts2"
-import Refund from "../components/Refund"
-import OneMoreThing from "../components/OneMoreThing"
-// import Testimonial from "../components/Testimonial"
-
-function Home() {
-  return (
-    <Layout>
-      <ProductCarousel />
-      <Headline data={data.Headline} />
-    
-      <FeatureNew data={data.FeatureNew} />
-      <Minjida />
-
-      {/* <Testimonial /> */}
-     
-      <Delivery />
-      <ReviewBanner />
-      <Refund />
-      <FeatureSummary />
-      {/* <OneMoreThing /> */}
-      {/* <PricingTable /> */}
-      <RelatedProducts />
-    </Layout>
-  )
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="ja">
+        <Head>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
 }
-
-export default Home

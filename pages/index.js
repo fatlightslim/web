@@ -11,16 +11,17 @@ import ReviewBanner from "../components/ReviewBanner"
 import AutoPlayReview from "../components/AutoPlayReview"
 import Minjida from "../components/Minjida"
 import FeatureNew from "../components/FeatureNew"
+
 // import ReviewCarousel from "../components/ReviewCarousel"
 
 
 
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
-import OneMoreThing from "../components/OneMoreThing"
+
 // import Testimonial from "../components/Testimonial"
 
-function Home() {
+export default function Home(props) {
   return (
     <Layout>
       <ProductCarousel />
@@ -31,15 +32,12 @@ function Home() {
 
       {/* <Testimonial /> */}
      
+      
       <Delivery />
       <ReviewBanner />
       <Refund />
       <FeatureSummary />
-      {/* <OneMoreThing /> */}
-      {/* <PricingTable /> */}
       <RelatedProducts />
     </Layout>
-  )
+  );
 }
-
-export default Home

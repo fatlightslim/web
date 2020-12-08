@@ -3,6 +3,8 @@ import Head from "next/head"
 import Footer from "./Footer"
 
 export default function Layout({
+  className,
+  visible,
   children,
   data = {
     title: `植物用LEDライト専門店 ${process.env.site.name}`,
@@ -46,11 +48,14 @@ export default function Layout({
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
       </Head>
-      <Nav />
+      <div className={`pt-12 ${className}`}>
+
+      <Nav visible={visible} />
 
       {children}
 
       <Footer  />
+      </div>
     </>
   )
 }
