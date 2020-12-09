@@ -12,8 +12,8 @@ export default function Spectrum({
       src: "/img/sp150/spectrum-150.png",
       alt:
         "これまでの赤色・青色LEDの機能に加えて強力な白色LEDを追加することで太陽光のような理想のライトに近づきました。",
-      width: 1000,
-      height: 1000,
+      width: 899,
+      height: 899,
     },
     desc: {
       1: "ご満足いただけない場合は全額返金させていただき",
@@ -30,8 +30,8 @@ export default function Spectrum({
       src: "/img/sp150/multi2.png",
       alt:
         "軽くてシンプルな本体でどこにでも掛けられる。ひとり暮らしの部屋でも簡単設置。見た目はシンプルだけど、明るさにきっと驚きます。",
-      width: 1000,
-      height: 1000,
+      width: 893,
+      height: 853,
     },
   },
   ppfd = {
@@ -39,7 +39,7 @@ export default function Spectrum({
       src: "/img/sp150/waterproof.png",
       alt:
         "IP65準拠の防水性能。高湿度な栽培環境にも耐えうる設計です。",
-      width: 1000,
+      width: 891,
       height: 900,
     },
   },
@@ -57,8 +57,8 @@ export default function Spectrum({
     img: {
       src: "/img/sp150/multi.png",
       alt: "全ての植物、全ての成長ステージにぴったりの光。その秘訣は322個のSMD LEDチップ。もう冬や梅雨にも大丈夫です。",
-      width: 1000,
-      height: 900,
+      width: 906,
+      height: 824,
     },
   },
   commercial = {
@@ -74,8 +74,8 @@ export default function Spectrum({
     img: {
       src: "/img/sp150/kantan.png",
       alt: "直観的な設置方法。スタートに必要なものは全て入ってます。",
-      width: 1000,
-      height: 1000,
+      width: 900,
+      height: 900,
     },
   },
 }) {
