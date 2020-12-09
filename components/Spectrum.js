@@ -152,7 +152,7 @@ function Img({ img }) {
         alt={img.alt}
         width={img.width}
         height={img.height}
-        className=" rounded-lg"
+        className="sm:rounded-lg"
       />
     </div>
   );

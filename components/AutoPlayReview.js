@@ -1,12 +1,16 @@
 import Slider from "react-slick";
-import { reviews } from "../data/reviews"
+import { reviews } from "../data/reviews";
 
-
-function Review({item}) {
+function Review({ item }) {
   return (
     <div className={`"row d-sm-flex ${item.bg}`}>
-      <div  className="col-sm-6">
-        <a href={item.link}><img src={item.img} alt={item.lead} className="img-fluid d-flex align-item-center pl-2" />
+      <div className="col-sm-6">
+        <a href={item.link}>
+          <img
+            src={item.img}
+            alt={item.lead}
+            className="img-fluid d-flex align-item-center pl-2"
+          />
         </a>
       </div>
       <div className={`col-sm-6 ${item.bg}  align-self-center`}>
@@ -24,35 +28,36 @@ function Review({item}) {
         <img src={item.dq2} alt={item.lead} className="pb-5 pt-2" />
       </div>
     </div>
-
-  )
+  );
 }
 
-export default function AutoPlayReview({ settings = {
-  dots: false,
-  infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 2,
-  autoplay: true,
-  speed: 5000,
-  autoplaySpeed: 5000,
-  cssEase: "linear",
-  responsive: [
-{
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
+export default function AutoPlayReview({
+  settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
-  ]
-} }) {
+      },
+    ],
+  },
+}) {
   return (
     <Slider {...settings}>
       {reviews.map((item) => (
         <Review key={item.img} item={item} />
       ))}
     </Slider>
-  )
+  );
 }

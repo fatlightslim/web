@@ -104,7 +104,7 @@ function Header(params) {
         <h2 className="text-lg leading-6 font-semibold text-gray-300 uppercase tracking-wider">
           Special Offer
         </h2>
-        <p className="mt- text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
+        <p className="mt- text-4xl font-extrabold text-white lg:text-5xl">
           {/* Special Offer */}
           今月のオファー
         </p>
