@@ -17,13 +17,13 @@ const benefits = [
   {
     img: "chip",
     alt: "",
-    txt1: "最新版LEDチップ",
+    txt1: "最新LEDチップ",
     txt2: "Short text to support claim",
   },
   {
     img: "ip65",
     alt: "",
-    txt1: "IP65の防水性能",
+    txt1: "防水・防塵",
     txt2: "Short text to support claim",
   },
   {
@@ -43,15 +43,19 @@ const benefits = [
 export default function FeatureSummary({
   data = {
     h2: {
-      title: "「お値段以上の価値」をこれからもアップデートし続けます。"
+      title: {
+        1: "お値段以上の価値",
+        2: "をこれからもアップデートし続けます。"
+      }
     }
   }
 }) {
   return (
     <div className="bg-white md:text-left py-16 px-4  text-green-900">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl  font-bold mb-16">
-          <span className="marker-yellow  ">{data.h2.title}</span>
+        <h2 className="text-4xl font-bold mb-16">
+          <span className="marker-yellow ">{data.h2.title[1]}</span>
+          <span>{data.h2.title[2]}</span>
         </h2>
 
         <div  className="grid grid-cols-3">
