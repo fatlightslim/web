@@ -34,11 +34,7 @@ export default function MarsHydroSp3000(props) {
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...sp3000} button={false} />
       <Video {...sp3000} />
-      <div className="bg-black">
-        <div className="max-w-7xl mx-auto bg-black ">
-          <ProductFeature feature={feature} />
-        </div>
-      </div>
+      <ProductFeature feature={feature} />
       <Size />
       <Delivery />
       {/* <ReviewBanner /> */}
