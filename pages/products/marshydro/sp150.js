@@ -8,48 +8,46 @@ import CartButton from "../../../components/CartButton";
 import CardBanner from "../../../components/CardBanner";
 import BlogBanner from "../../../components/BlogBanner";
 import Contact from "../../../components/Contact";
-import Video from "../../../components/Video";
-import Size from "../../../components/Size";
+// import Video150 from "../../../components/Video150";
+// import Size150 from "../../../components/Size150";
 import Optimal from "../../../components/Optimal";
 import ProductFeature from "../../../components/ProductFeature";
-import CompareTable from "../../../components/CompareTable";
+// import CompareTable150 from "../../../components/CompareTable150";
 import { createCheckout } from "../../../scripts/shopify";
 
-export default function MarsHydroSp3000(props) {
-  const sp3000 = products[0];
-  sp3000.bg.outer = "bg-gray-800";
+export default function MarsHydroSp150(props) {
+  const product = products[1];
+  product.bg.outer = "bg-gray-800";
+
   const [visible, setVisible] = useState(false);
-  const [url, setUrl] = useState("/");
+  const [url, setUrl] = useState("");
 
   useEffect(() => {
     async function getUrl() {
-      const url = await createCheckout(process.env.sp3000);
+      const url = await createCheckout(process.env.sp150);
       // console.log(url);
       setUrl(url);
     }
     getUrl();
   }, []);
-
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
-      <CardBanner {...sp3000} button={false} />
-      <Video {...sp3000} />
-      <div className="bg-black">
-        <div className="max-w-7xl mx-auto bg-black ">
-          <ProductFeature feature={feature} />
-        </div>
-      </div>
-      <Size />
+      <CardBanner {...product} button={false} />
+      <Video {...product} />
+
+      <ProductFeature feature={feature} />
+      <Size150 />
+
       <Delivery />
       {/* <ReviewBanner /> */}
-      <Refund />{" "}
+      <Refund />
       <ScrollTrigger
         onEnter={({ progress, velocity }) => {
           setVisible(true);
         }}
         onExit={() => setVisible(false)}
       >
-        <CompareTable visible={visible} url={url} />
+        {/* <CompareTable150 visible={visible} url={url} /> */}
       </ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
@@ -66,32 +64,29 @@ const feature = [
     lead:
       "これまでの赤色・青色LEDの機能に加えて強力な白色LEDを追加することで太陽光のような理想のライトに近づきました。",
     img: {
-      src: "/img/sp3000/spectrum.png",
+      src: "/img/sp150/spectrum-150.png",
       alt: "スペクトル",
-      width: 1000,
-      height: 1000,
+      width: 899,
+      height: 899,
     },
   },
   {
     lead:
-      "SAMSUNG LM301Bの驚きの性能がこれまでの常識を変えます。なんと、1ワットあたり最大2.5グラム(従来比2倍)の収穫が可能です。",
+      "軽くてシンプルな本体でどこにでも掛けられる。ひとり暮らしの部屋でも簡単設置。見た目はシンプルだけど、明るさにきっと驚きます。",
     img: {
-      src: "/img/sp3000/ledchip.png",
+      src: "/img/sp150/multi2.png",
       alt: "harvest",
-
-      width: 1000,
-      height: 857,
+      width: 893,
+      height: 853,
     },
   },
   {
-    lead:
-      "PPFD(光合成光量子束密度)の測定におけるパフォーマンスで他社製品を圧倒します。しかも、消費電力は最大30%OFF",
+    lead: "IP65準拠の防水性能。高湿度な栽培環境にも耐えうる設計です。",
     img: {
-      src: "/img/sp3000/ppfd.png",
+      src: "/img/sp150/waterproof.png",
       alt: "ppfd",
-
-      width: 1000,
-      height: 857,
+      width: 891,
+      height: 900,
     },
   },
   {
@@ -104,18 +99,18 @@ const feature = [
       width: 1000,
       height: 753,
     },
-    text: "text-green-500",
+    bg: {},
   },
   {
     lead:
-      "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
+      "全ての植物、全ての成長ステージにぴったりの光。その秘訣は322個のSMD LEDチップ。もう冬や梅雨にも大丈夫です。",
     img: {
-      src: "/img/sp3000/connect.png",
+      src: "/img/sp150/multi.png",
       alt: "connect",
-      width: 1000,
-      height: 713,
+
+      width: 906,
+      height: 824,
     },
-    text: "text-blue-500",
   },
   {
     lead:
@@ -123,19 +118,18 @@ const feature = [
     img: {
       src: "/img/sp3000/commercial.png",
       alt: "commercial",
+
       width: 1000,
       height: 1000,
     },
   },
   {
-    lead:
-      "MARS HYDRO社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
+    lead: "直観的な設置方法。スタートに必要なものは全て入ってます。",
     img: {
-      src: "/img/sp3000/chip.png",
+      src: "/img/sp150/kantan.png",
       alt: "chip",
-
-      width: 1000,
-      height: 880,
+      width: 900,
+      height: 900,
     },
   },
 ];

@@ -38,6 +38,10 @@ export const products = [
       "デイジーチェーン",
       "ノイズレス"
     ],
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
+    }
   },
   {
     header: "MARS HYDRO",
@@ -79,6 +83,10 @@ export const products = [
       "デイジーチェーン",
       "ノイズレス"
     ],
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
+      poster:"https://cdn.shopify.com/s/files/1/0470/9089/2956/files/sp150_e9fa3207-b7f3-44cc-8a3a-ed9fa69739d8.png?v=1607495939"
+    }
   },
   {
     header: "MARS HYDRO",

@@ -9,8 +9,21 @@ import ReviewBanner from "../components/ReviewBanner";
 import RelatedProducts from "../components/RelatedProducts2";
 import Refund from "../components/Refund";
 import FeatureNew from "../components/FeatureNew";
+// import Client from 'shopify-buy/index.unoptimized.umd'
+// const client = Client.buildClient(process.env.shopify)
 
-export default function Home(props) {
+// export async function getStaticProps() {
+//   const res = await client.product.fetchAll()
+//   const products = await JSON.parse(JSON.stringify(res))
+//   return {
+//     props: {
+//       products,
+//       // buildTimestamp: Date.now(),
+//     },
+//   }
+// }
+
+export default function Home({products}) {
   return (
     <Layout>
       <ProductCarousel />
