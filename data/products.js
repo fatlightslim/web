@@ -2,8 +2,8 @@ export const products = [
   {
     header: "MARS HYDRO",
     price: {
-      sale: "￥79,800",
-      regular: "￥89,800"
+      sale: "79,800",
+      regular: "89,800"
     },
     title: {
       1: "SP3000",
