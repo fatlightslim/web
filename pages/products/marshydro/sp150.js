@@ -8,11 +8,9 @@ import CartButton from "../../../components/CartButton";
 import CardBanner from "../../../components/CardBanner";
 import BlogBanner from "../../../components/BlogBanner";
 import Contact from "../../../components/Contact";
-// import Video150 from "../../../components/Video150";
-// import Size150 from "../../../components/Size150";
 import Optimal from "../../../components/Optimal";
 import ProductFeature from "../../../components/ProductFeature";
-// import CompareTable150 from "../../../components/CompareTable150";
+import CompareTable150 from "../../../components/CompareTable150";
 import { createCheckout } from "../../../scripts/shopify";
 
 export default function MarsHydroSp150(props) {
@@ -25,7 +23,6 @@ export default function MarsHydroSp150(props) {
   useEffect(() => {
     async function getUrl() {
       const url = await createCheckout(process.env.sp150);
-      // console.log(url);
       setUrl(url);
     }
     getUrl();
@@ -34,12 +31,9 @@ export default function MarsHydroSp150(props) {
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...product} button={false} />
       <Video {...product} />
-
       <ProductFeature feature={feature} />
-      <Size150 />
-
+      <Size spec={spec} />
       <Delivery />
-      {/* <ReviewBanner /> */}
       <Refund />
       <ScrollTrigger
         onEnter={({ progress, velocity }) => {
@@ -54,7 +48,7 @@ export default function MarsHydroSp150(props) {
         <Optimal />
         <Contact />
       </div>
-      <CartButton visible={visible} url={url} />
+      <CartButton {...product} visible={visible} url={url} />
     </Layout>
   );
 }

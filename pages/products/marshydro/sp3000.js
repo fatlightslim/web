@@ -1,51 +1,46 @@
-import { useEffect, useState } from "react";
-import ScrollTrigger from "react-scroll-trigger";
-import { products } from "../../../data/products";
-import Layout from "../../../components/Layout";
-import Delivery from "../../../components/Delivery";
-import Refund from "../../../components/Refund";
-import CartButton from "../../../components/CartButton";
-import CardBanner from "../../../components/CardBanner";
-import BlogBanner from "../../../components/BlogBanner";
-import Contact from "../../../components/Contact";
-import Video from "../../../components/Video";
-import Size from "../../../components/Size";
-import Optimal from "../../../components/Optimal";
-import ProductFeature from "../../../components/ProductFeature";
-import CompareTable from "../../../components/CompareTable";
-import { createCheckout } from "../../../scripts/shopify";
+import { useEffect, useState } from "react"
+import ScrollTrigger from "react-scroll-trigger"
+import { products } from "../../../data/products"
+import Layout from "../../../components/Layout"
+import Delivery from "../../../components/Delivery"
+import Refund from "../../../components/Refund"
+import CartButton from "../../../components/CartButton"
+import CardBanner from "../../../components/CardBanner"
+import BlogBanner from "../../../components/BlogBanner"
+import Contact from "../../../components/Contact"
+import Video from "../../../components/Video"
+import Size from "../../../components/Size"
+import Optimal from "../../../components/Optimal"
+import ProductFeature from "../../../components/ProductFeature"
+import CompareTable from "../../../components/CompareTable"
+import { createCheckout } from "../../../scripts/shopify"
 
 export default function MarsHydroSp3000(props) {
-  const sp3000 = products[0];
-  sp3000.bg.outer = "bg-gray-800";
-  const [visible, setVisible] = useState(false);
-  const [url, setUrl] = useState("/");
+  const sp3000 = products[0]
+  sp3000.bg.outer = "bg-gray-800"
+  const [visible, setVisible] = useState(false)
+  const [url, setUrl] = useState("/")
 
   useEffect(() => {
     async function getUrl() {
-      const url = await createCheckout(process.env.sp3000);
+      const url = await createCheckout(process.env.sp3000)
       // console.log(url);
-      setUrl(url);
+      setUrl(url)
     }
-    getUrl();
-  }, []);
+    getUrl()
+  }, [])
 
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...sp3000} button={false} />
       <Video {...sp3000} />
-      <div className="bg-black">
-        <div className="max-w-7xl mx-auto bg-black ">
-          <ProductFeature feature={feature} />
-        </div>
-      </div>
-      <Size />
+      <ProductFeature feature={feature} />
+      <Size spec={spec} />
       <Delivery />
-      {/* <ReviewBanner /> */}
-      <Refund />{" "}
+      <Refund />
       <ScrollTrigger
         onEnter={({ progress, velocity }) => {
-          setVisible(true);
+          setVisible(true)
         }}
         onExit={() => setVisible(false)}
       >
@@ -56,9 +51,9 @@ export default function MarsHydroSp3000(props) {
         <Optimal />
         <Contact />
       </div>
-      <CartButton visible={visible} url={url} />
+      <CartButton {...sp3000} visible={visible} url={url} />
     </Layout>
-  );
+  )
 }
 
 const feature = [
@@ -138,4 +133,28 @@ const feature = [
       height: 880,
     },
   },
-];
+]
+
+const spec = {
+  data: [
+    { label: "型番", desc: "SP3000" },
+    { label: "照射範囲", desc: "150cm x 60cm" },
+    {
+      label: "スペクトル",
+      desc: "380-410nm\n650-66nm\n730-740nm\n2800K-3000K\n4800-5000K",
+    },
+    { label: "PPF", desc: "847μmol/s" },
+    { label: "LEDチップ", desc: "957個\nSAMSUNG LM301B\nOSRAM 3030" },
+    {
+      label: "消費電力",
+      desc: "300W±5%@AC120V\n293W±5%@AC240V\n292W±5%@AC277V",
+    },
+    { label: "サイズ", desc: "1080mm x 80mm x 103mm\n4.6kg" },
+  ],
+  img: {
+    src: "/img/sp3000/size.png",
+    alt: "sp3000 size",
+    width: 1000,
+    height: 683,
+  },
+}

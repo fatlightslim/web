@@ -1,6 +1,10 @@
 export const products = [
   {
     header: "MARS HYDRO",
+    price: {
+      sale: "￥79,800",
+      regular: "￥89,800"
+    },
     title: {
       1: "SP3000",
       2: "ゲームを変える",
@@ -27,7 +31,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP3000",
-    price: "79,800",
+    lead: "一番人気",
     feature: [
       "2020年最新版LB301Bチップ搭載",
       "IP65 防水・防塵",
@@ -77,7 +81,7 @@ export const products = [
       // "Epistar SMDチップ",
       "IP65 防水・防塵",
       "LED寿命50,000時間",
-      "最大収穫量 2.0g/w",
+      // "最大収穫量 2.0g/w",
       "アルミ製ヒートシンク",
       "598mm x 50mm",
       "デイジーチェーン",

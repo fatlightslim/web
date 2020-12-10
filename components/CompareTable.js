@@ -169,7 +169,7 @@ function ProductMain({ img, shortTitle, price, feature, url }) {
             <div className="mt-4 flex items-center justify-center">
               <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl">
                 <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-                <span className="font-extrabold">{price}</span>
+                <span className="font-extrabold">{price.regular}</span>
               </span>
             </div>
             <span className="text-xs block text-center font-medium text-gray-500">
