@@ -44,7 +44,13 @@ export default function MarsHydroSp3000(props) {
         }}
         onExit={() => setVisible(false)}
       >
-        <CompareTable visible={visible} url={url} />
+        <CompareTable
+          visible={visible}
+          url={url}
+          main={products[0]}
+          left={products[1]}
+          right={products[2]}
+        />
       </ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />

@@ -35,7 +35,7 @@ function Title({ img, title, price }) {
         <div className="mt-4 flex items-center justify-center">
           <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
             <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-            <span className="font-extrabold">{price.regular}</span>
+            <span className="font-extrabold">{price.sale}</span>
           </span>
         </div>
         <span className="text-xs block text-center font-medium text-gray-500">
@@ -104,7 +104,7 @@ function Header(params) {
         <h2 className="text-lg leading-6 font-semibold text-gray-300 uppercase tracking-wider">
           Special Offer
         </h2>
-        <p className="mt- text-4xl font-extrabold text-white lg:text-5xl">
+        <p className="mt- text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
           {/* Special Offer */}
           今月のオファー
         </p>
@@ -140,7 +140,7 @@ function Product({ shortTitle, href, img, price, feature, className, index }) {
   );
 }
 
-function ProductMain({lead, img, shortTitle, price, feature, url }) {
+function ProductMain({ img, shortTitle, price, feature, url }) {
   return (
     <div className="my-10 max-w-lg mx-auto lg:my-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
       <div className="relative z-10 rounded-lg shadow-xl">
@@ -151,7 +151,7 @@ function ProductMain({lead, img, shortTitle, price, feature, url }) {
         <div className="absolute inset-x-0 top-0 transform translate-y-px">
           <div className="flex justify-center transform -translate-y-1/2">
             <span className="inline-flex rounded-full bg-indigo-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white">
-              {lead}
+              
             </span>
           </div>
         </div>
@@ -169,7 +169,7 @@ function ProductMain({lead, img, shortTitle, price, feature, url }) {
             <div className="mt-4 flex items-center justify-center">
               <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl">
                 <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-                <span className="font-extrabold">{price.regular}</span>
+                <span className="font-extrabold">{price.sale}</span>
               </span>
             </div>
             <span className="text-xs block text-center font-medium text-gray-500">
@@ -201,7 +201,7 @@ function ProductMain({lead, img, shortTitle, price, feature, url }) {
   );
 }
 
-export default function CompareTable({url, main, left, right}) {
+export default function CompareTable({url}) {
   return (
     <div className="bg-gray-900 dosis">
       <Header />
@@ -211,9 +211,9 @@ export default function CompareTable({url, main, left, right}) {
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">
-              <ProductMain {...main} url={url} />
-              <Product {...left} />
-              <Product {...right} index="last" />
+              <ProductMain {...products[1]} url={url} />
+              <Product {...products[0]} />
+              <Product {...products[2]} index="last" />
             </div>
           </div>
         </div>

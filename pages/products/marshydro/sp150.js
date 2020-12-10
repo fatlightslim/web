@@ -1,32 +1,35 @@
-import { useEffect, useState } from "react";
-import ScrollTrigger from "react-scroll-trigger";
-import { products } from "../../../data/products";
-import Layout from "../../../components/Layout";
-import Delivery from "../../../components/Delivery";
-import Refund from "../../../components/Refund";
-import CartButton from "../../../components/CartButton";
-import CardBanner from "../../../components/CardBanner";
-import BlogBanner from "../../../components/BlogBanner";
-import Contact from "../../../components/Contact";
-import Optimal from "../../../components/Optimal";
-import ProductFeature from "../../../components/ProductFeature";
-import CompareTable150 from "../../../components/CompareTable150";
-import { createCheckout } from "../../../scripts/shopify";
+import { useEffect, useState } from "react"
+import ScrollTrigger from "react-scroll-trigger"
+import { products } from "../../../data/products"
+import Layout from "../../../components/Layout"
+import Delivery from "../../../components/Delivery"
+import Refund from "../../../components/Refund"
+import CartButton from "../../../components/CartButton"
+import CardBanner from "../../../components/CardBanner"
+import BlogBanner from "../../../components/BlogBanner"
+import Contact from "../../../components/Contact"
+import Optimal from "../../../components/Optimal"
+import ProductFeature from "../../../components/ProductFeature"
+import CompareTableSP150 from "../../../components/CompareTableSP150"
+import Video from "../../../components/Video"
+import Size from "../../../components/Size"
+import { createCheckout } from "../../../scripts/shopify"
 
 export default function MarsHydroSp150(props) {
-  const product = products[1];
-  product.bg.outer = "bg-gray-800";
+  const product = products[1]
+  product.bg.outer = "bg-gray-800"
 
-  const [visible, setVisible] = useState(false);
-  const [url, setUrl] = useState("");
+  const [visible, setVisible] = useState(false)
+  const [url, setUrl] = useState("")
 
   useEffect(() => {
     async function getUrl() {
-      const url = await createCheckout(process.env.sp150);
-      setUrl(url);
+      const url = await createCheckout(process.env.sp150)
+      setUrl(url)
     }
-    getUrl();
-  }, []);
+    getUrl()
+  }, [])
+
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...product} button={false} />
@@ -37,11 +40,19 @@ export default function MarsHydroSp150(props) {
       <Refund />
       <ScrollTrigger
         onEnter={({ progress, velocity }) => {
-          setVisible(true);
+          setVisible(true)
         }}
         onExit={() => setVisible(false)}
       >
-        {/* <CompareTable150 visible={visible} url={url} /> */}
+        <CompareTableSP150 visible={visible} url={url} />
+
+        {/* <CompareTable
+          visible={visible}
+          url={url}
+          main={products[0]}
+          left={products[1]}
+          right={products[2]}
+        /> */}
       </ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
@@ -50,7 +61,7 @@ export default function MarsHydroSp150(props) {
       </div>
       <CartButton {...product} visible={visible} url={url} />
     </Layout>
-  );
+  )
 }
 
 const feature = [
@@ -126,4 +137,34 @@ const feature = [
       height: 900,
     },
   },
-];
+]
+
+const spec = {
+  data: [
+    { label: "型番", desc: "SP150" },
+    { label: "照射範囲", desc: "90cm x 90cm" },
+    {
+      label: "スペクトル",
+      desc: "3000-3200nm\n6000-6500nm\n650-665nm",
+    },
+    { label: "PPF", desc: "561μmol/s" },
+    { label: "LEDチップ", desc: "322個\nSMD LED" },
+    {
+      label: "消費電力",
+      desc: "134W±5%@AC120V\n139W±5%@AC240V",
+    },
+    { label: "サイズ", desc: "598mm x 80mm x 50mm\n1.9kg" },
+  ],
+  img: {
+    src: "/img/sp150/size150.png",
+    alt: "sp150 size",
+    width: 1000,
+    height: 683,
+  },
+}
+
+                                
+
+                                
+                                
+                              
