@@ -1,16 +1,16 @@
-import Image from "next/image";
+import Image from "next/image"
 
 export default function ProductFeature({ feature }) {
-  return feature.map((v) => {
-    return (
-      <Container>
+  return <Container>
+    {feature.map((v) => {
+      return (
         <Card key={v.lead}>
           <Lead v={v} />
           <Img img={v.img} />
         </Card>
-      </Container>
-    );
-  });
+      )
+    })}
+  </Container>
 }
 
 function Container({ children }) {
@@ -18,13 +18,13 @@ function Container({ children }) {
     <div className="bg-black text-left">
       <div className="max-w-7xl mx-auto bg-black ">{children}</div>
     </div>
-  );
+  )
 }
 
 function Lead({ v }) {
-  let className = "dosis text-left text-4xl font-extrabold p-4 mb-4";
-  if (v.text) className += ` ${v.text}`;
-  return <p className={className}>{v.lead}</p>;
+  let className = "dosis text-left text-4xl font-extrabold p-4 mb-4"
+  if (v.text) className += ` ${v.text}`
+  return <p className={className}>{v.lead}</p>
 }
 
 function Img({ img }) {
@@ -38,7 +38,7 @@ function Img({ img }) {
         className="sm:rounded-lg"
       />
     </div>
-  );
+  )
 }
 
 function Card({ children }) {
@@ -50,5 +50,5 @@ function Card({ children }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

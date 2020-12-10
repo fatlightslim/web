@@ -8,11 +8,11 @@ import CartButton from "../../../components/CartButton";
 import CardBanner from "../../../components/CardBanner";
 import BlogBanner from "../../../components/BlogBanner";
 import Contact from "../../../components/Contact";
-// import Video150 from "../../../components/Video150";
-// import Size150 from "../../../components/Size150";
 import Optimal from "../../../components/Optimal";
 import ProductFeature from "../../../components/ProductFeature";
-// import CompareTable150 from "../../../components/CompareTable150";
+import CompareTable from "../../../components/CompareTable";
+import Video from "../../../components/Video";
+import Size from "../../../components/Size";
 import { createCheckout } from "../../../scripts/shopify";
 
 export default function MarsHydroSp150(props) {
@@ -20,26 +20,19 @@ export default function MarsHydroSp150(props) {
   product.bg.outer = "bg-gray-800";
 
   const [visible, setVisible] = useState(false);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("/");
 
   useEffect(() => {
-    async function getUrl() {
-      const url = await createCheckout(process.env.sp150);
-      // console.log(url);
-      setUrl(url);
-    }
-    getUrl();
+    createCheckout(process.env.sp150).then((url) => setUrl(url));
   }, []);
+
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...product} button={false} />
       <Video {...product} />
-
       <ProductFeature feature={feature} />
-      <Size150 />
-
+      <Size spec={spec} />
       <Delivery />
-      {/* <ReviewBanner /> */}
       <Refund />
       <ScrollTrigger
         onEnter={({ progress, velocity }) => {
@@ -47,14 +40,20 @@ export default function MarsHydroSp150(props) {
         }}
         onExit={() => setVisible(false)}
       >
-        {/* <CompareTable150 visible={visible} url={url} /> */}
+        <CompareTable
+          visible={visible}
+          url={url}
+          main={products[1]}
+          left={products[0]}
+          right={products[2]}
+        />
       </ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
         <Contact />
       </div>
-      <CartButton visible={visible} url={url} />
+      <CartButton {...product} visible={visible} url={url} />
     </Layout>
   );
 }
@@ -133,3 +132,27 @@ const feature = [
     },
   },
 ];
+
+const spec = {
+  data: [
+    { label: "型番", desc: "SP150" },
+    { label: "照射範囲", desc: "90cm x 90cm" },
+    {
+      label: "スペクトル",
+      desc: "3000-3200nm\n6000-6500nm\n650-665nm",
+    },
+    { label: "PPF", desc: "561μmol/s" },
+    { label: "LEDチップ", desc: "322個\nSMD LED" },
+    {
+      label: "消費電力",
+      desc: "134W±5%@AC120V\n139W±5%@AC240V",
+    },
+    { label: "サイズ", desc: "598mm x 80mm x 50mm\n1.9kg" },
+  ],
+  img: {
+    src: "/img/sp150/size150.png",
+    alt: "sp150 size",
+    width: 1000,
+    height: 683,
+  },
+};

@@ -1,6 +1,10 @@
 export const products = [
   {
     header: "MARS HYDRO",
+    price: {
+      sale: "￥79,800",
+      regular: "￥89,800"
+    },
     title: {
       1: "SP3000",
       2: "ゲームを変える",
@@ -27,7 +31,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP3000",
-    price: "79,800",
+    lead: "一番人気",
     feature: [
       "2020年最新版LB301Bチップ搭載",
       "IP65 防水・防塵",
@@ -62,30 +66,32 @@ export const products = [
       2: "です。",
     },
     button: "SP150の詳細を見る",
-    href: "https://shop.fatlightslim.com/products/mars-hydro-sp150",
+    href: "/products/marshydro/sp150",
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
     bg: {
       inner: "from-gray-700 via-red-900 to-yellow-900",
       outer: "bg-gray-100"
     },
     text: "text-white",
-    className:
-      "mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3",
     shortTitle: "SP150",
-    price: "29,800",
+    price: {
+      sale: "29,800",
+      regular: "32,800"
+    },
     feature: [
       // "Epistar SMDチップ",
       "IP65 防水・防塵",
       "LED寿命50,000時間",
-      "最大収穫量 2.0g/w",
+      // "最大収穫量 2.0g/w",
       "アルミ製ヒートシンク",
       "598mm x 50mm",
       "デイジーチェーン",
       "ノイズレス"
     ],
+    lead: "セール中",
     video: {
       src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
-      poster:"https://cdn.shopify.com/s/files/1/0470/9089/2956/files/sp150_e9fa3207-b7f3-44cc-8a3a-ed9fa69739d8.png?v=1607495939"
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"
     }
   },
   {
@@ -116,10 +122,11 @@ export const products = [
       outer: "bg-gray-100"
     },
     text: "text-white",
-    className:
-      "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3",
     shortTitle: "TSシリーズ",
-    price: "19,800~",
+    price: {
+      sale: "19,800~",
+      regular: "32,800"
+    },
     feature: [
       // "Epistar SMDチップ",
       "アルミ製フード",
