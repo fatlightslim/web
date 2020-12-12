@@ -19,6 +19,7 @@ module.exports = {
         storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
     },
     sp3000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNTg4MzQzNzI2MDk1Ng==",
+    sp150: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNTg4Mzc1OTU2NzAwNA==",
     customKey: "my-value",
     company: {
       ja: "合同会社SBO",
