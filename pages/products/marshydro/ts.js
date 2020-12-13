@@ -30,7 +30,6 @@ export default function MarsHydroSp150(props) {
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...product} button={false} />
-      <Video {...product} />
       <ProductFeature feature={feature} />
       <TStable />
       <Delivery />
@@ -95,7 +94,7 @@ const feature = [
   },
   {
     lead:
-      "全ての植物、全ての成長ステージにぴったりの光。その秘訣は新しいSMD LEDチップ。もう冬や梅雨にも大丈夫です。",
+      "全ての植物、全ての成長ステージにぴったりの光。その秘訣は新しいSMD LEDチップ。気候条件に左右されることなく安定した収穫をお約束します。",
     img: {
       src: "/img/sp150/multi.png",
       alt: "connect",

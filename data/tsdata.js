@@ -73,7 +73,7 @@ export const tsdata = [
     },
     text: "text-white",
     shortTitle: "TS1000",
-    short: "3x3のテントにピッタリ",
+    short: "80cmX80cmのテントにピッタリ",
     price: {
       sale: "￥39,800",
       regular: "￥45,800"

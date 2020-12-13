@@ -6,7 +6,7 @@ function Header(params) {
   return (
     <div className="sm:flex sm:flex-col sm:align-center">
       <h1 className="text-5xl font-extrabold text-white sm:text-center">
-        TSseries製品仕様
+        TSシリーズ製品仕様
       </h1>
       <p className="mt-5 text-xl text-gray-400 sm:text-center">
         選べる５つのサイズ
@@ -82,9 +82,7 @@ function Product({ shortTitle, href, img, price, spec, className, index, short }
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
      <Title title={shortTitle} price={price} img={img} short={short} />
       <div className="pt-6 pb-8 px-6">
-        <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">
-          What's included
-        </h3>
+        
         <ul className="mt-6 space-y-4">
           {spec.map((v, i) => {
             return <List key={i} text={v} />;
