@@ -2,14 +2,8 @@ export const tsdata = [
   {
     header: "MARS HYDRO",
     price: {
-      sale: "￥19,800",
-      regular: "￥29,800"
-    },
-    title: {
-      1: "TS600",
-      2: "ゲームを変える",
-      3: "ライトです。",
-      color: "#C48CFC",
+      sale: "19,800",
+      regular: "29,800"
     },
     img: {
       src: "/img/ts/TS600-package.png",
@@ -48,12 +42,6 @@ export const tsdata = [
   },
   {
     header: "MARS HYDRO",
-    title: {
-      1: "SP150",
-      2: "テント栽培の",
-      3: "最強の味方",
-      color: "#fc8181",
-    },
     img: {
       src: "/img/ts/TS1000-package.png",
       alt: "MARS HYDRO TS1000",
@@ -75,8 +63,8 @@ export const tsdata = [
     shortTitle: "TS1000",
     short: "80cmX80cmのテントにピッタリ",
     price: {
-      sale: "￥39,800",
-      regular: "￥45,800"
+      sale: "39,800",
+      regular: "45,800"
     },
     spec: [
       "消費電力：150W",
@@ -94,12 +82,6 @@ export const tsdata = [
   },
   {
     header: "MARS HYDRO",
-    title: {
-      1: "TSシリーズ",
-      2: "サイズを選べる",
-      3: "定番アイテム",
-      color: "#f6ad55",
-    },
     desc: {
       1: "TSシリーズは米国Amazonで定番のベストセラーモデルです。独自のアルミ製フードは照射効率を高め、収穫量を増大させます。豊富なサイズバリエーションであなたの栽培環境にあったベストなライトが構築可能です。初心者向けから本格的なプロ向けモデルまで幅広くご用意して",
       2: "います。",
@@ -123,8 +105,8 @@ export const tsdata = [
     shortTitle: "TSL2000",
     short: "最適な空間活用",
     price: {
-      sale: "￥49,800",
-      regular: "￥59,800"
+      sale: "49,800",
+      regular: "59,800"
     },
     spec: [
       "消費電力：300W",
@@ -142,12 +124,6 @@ video: {
   },
   {
     header: "MARS HYDRO",
-    title: {
-      1: "TSシリーズ",
-      2: "サイズを選べる",
-      3: "定番アイテム",
-      color: "#f6ad55",
-    },
     desc: {
       1: "TSシリーズは米国Amazonで定番のベストセラーモデルです。独自のアルミ製フードは照射効率を高め、収穫量を増大させます。豊富なサイズバリエーションであなたの栽培環境にあったベストなライトが構築可能です。初心者向けから本格的なプロ向けモデルまで幅広くご用意して",
       2: "います。",
@@ -171,8 +147,8 @@ video: {
     shortTitle: "TSW2000",
     short: "もっと広い世界へ",
     price: {
-      sale: "￥49,800",
-      regular: "￥59,800"
+      sale: "49,800",
+      regular: "59,800"
     },
     spec: [
       "消費電力：300W",
@@ -190,12 +166,6 @@ video: {
   },
   {
     header: "MARS HYDRO",
-    title: {
-      1: "TSシリーズ",
-      2: "サイズを選べる",
-      3: "定番アイテム",
-      color: "#f6ad55",
-    },
     desc: {
       1: "TSシリーズは米国Amazonで定番のベストセラーモデルです。独自のアルミ製フードは照射効率を高め、収穫量を増大させます。豊富なサイズバリエーションであなたの栽培環境にあったベストなライトが構築可能です。初心者向けから本格的なプロ向けモデルまで幅広くご用意して",
       2: "います。",
@@ -219,8 +189,8 @@ video: {
     shortTitle: "TS3000",
     short: "TSシリーズの最上級モデル",
     price: {
-      sale: "￥79,800",
-      regular: "￥89,800"
+      sale: "79,800",
+      regular: "89,800"
     },
     spec: [
       "消費電力：450W",

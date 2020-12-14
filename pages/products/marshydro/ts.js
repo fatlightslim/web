@@ -1,53 +1,96 @@
-import { useEffect, useState } from "react";
-import ScrollTrigger from "react-scroll-trigger";
-import { products } from "../../../data/products";
-import Layout from "../../../components/Layout";
-import Delivery from "../../../components/Delivery";
-import Refund from "../../../components/Refund";
-import CartButton from "../../../components/CartButton";
-import CardBanner from "../../../components/CardBanner";
-import BlogBanner from "../../../components/BlogBanner";
-import Contact from "../../../components/Contact";
-import Optimal from "../../../components/Optimal";
-import ProductFeature from "../../../components/ProductFeature";
-import CompareTable from "../../../components/CompareTable";
-import Video from "../../../components/Video";
-import Size from "../../../components/Size";
-import TStable from "../../../components/TStable";
-import { createCheckout } from "../../../scripts/shopify";
+import { useEffect, useState } from "react"
+import ScrollTrigger from "react-scroll-trigger"
+import { products } from "../../../data/products"
+import Layout from "../../../components/Layout"
+import Delivery from "../../../components/Delivery"
+import Refund from "../../../components/Refund"
+import CartButton from "../../../components/CartButton"
+import CardBanner from "../../../components/CardBanner"
+import BlogBanner from "../../../components/BlogBanner"
+import Contact from "../../../components/Contact"
+import Optimal from "../../../components/Optimal"
+import ProductFeature from "../../../components/ProductFeature"
+import CompareTable from "../../../components/CompareTable"
+import Video from "../../../components/Video"
+import Size from "../../../components/Size"
+import TStable from "../../../components/TStable"
+import { createCheckout } from "../../../scripts/shopify"
 
-export default function MarsHydroSp150(props) {
-  const product = products[2];
-  product.bg.outer = "bg-gray-800";
+// import Client from 'shopify-buy/index.unoptimized.umd'
+// const client = Client.buildClient(process.env.shopify)
+
+// export async function getStaticProps() {
+//   const res = await client.product.fetchAll()
+//   const products = await JSON.parse(JSON.stringify(res))
+//   return {
+//     props: {
+//       productx: products,
+//       // buildTimestamp: Date.now(),
+//     },
+//   }
+// }
+
+const variant = [
+  {
+    id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjMyMTQ1ODM4OTE0OA==",
+    title: "TS600",
+    price: { sales: "19,800", regular: "29,800" },
+  },
+  {
+    id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjMyMTQ1ODQyMTkxNg==",
+    title: "TS1000",
+    price: { sales: "39,800", regular: "49,800" },
+  },
+  {
+    id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjMyMTQ1ODQ4NzQ1Mg==",
+    title: "TSL2000",
+    price: { sales: "49,800", regular: "59,800" },
+  },
+  {
+    id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjMyMTQ1ODQ1NDY4NA==",
+    title: "TSW2000",
+    price: { sales: "49,800", regular: "59,800" },
+  },
+  {
+    id: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNjMyMTQ1ODUyMDIyMA==",
+    title: "TS3000",
+    price: { sales: "79,800", regular: "89,800" },
+  },
+]
+
+export default function MarsHydroTS() {
+  const product = products[2]
+  product.bg.outer = "bg-gray-800"
 
   const [visible, setVisible] = useState(false);
-  const [url, setUrl] = useState("/");
+  const [urls, setUrls] = useState([])
 
   useEffect(() => {
-    createCheckout(process.env.sp150).then((url) => setUrl(url));
-  }, []);
+    const data = variant.map(async (v) => {
+      return await createCheckout(v.id).then((url) => {
+        return { url, name: v.title, price: v.price }
+      })
+    })
+    Promise.all(data).then((urls) => {
+      setUrls(urls)
+    })
+  }, [])
 
   return (
     <Layout visible={visible} className="pb-24 lg:pb-0">
       <CardBanner {...product} button={false} />
       <ProductFeature feature={feature} />
-      <TStable />
+      <TStable urls={urls} />
       <Delivery />
       <Refund />
-      <ScrollTrigger
-        onEnter={({ progress, velocity }) => {
-          setVisible(true);
-        }}
-        onExit={() => setVisible(false)}
-      ></ScrollTrigger>
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
         <Contact />
       </div>
-      <CartButton {...product} visible={visible} url={url} />
+      {/* <CartButton {...product} visible={visible} url={url} /> */}
     </Layout>
-  );
+  )
 }
 
 const feature = [
@@ -123,7 +166,7 @@ const feature = [
       height: 900,
     },
   },
-];
+]
 
 const spec = {
   data: [
@@ -147,4 +190,4 @@ const spec = {
     width: 1000,
     height: 683,
   },
-};
+}
