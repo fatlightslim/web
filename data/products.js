@@ -3,7 +3,7 @@ export const products = [
     header: "MARS HYDRO",
     price: {
       sale: "￥79,800",
-      regular: "￥89,800"
+      regular: "￥89,800",
     },
     title: {
       1: "SP3000",
@@ -15,7 +15,7 @@ export const products = [
       src: "/img/SP3000_transparentx.png",
       alt: "MARS HYDRO SP3000",
       width: 900,
-      height: 670
+      height: 670,
     },
     desc: {
       1: "最新のSAMSUNG LB301Bチップは、SP3000をとてつもなく省エネでパワフルな一台にします。一世代前の性能と比較して収穫量が最大2.5倍。ノイズレスで煌々と照りつけるライトはまるでハワイ気分！さらに、電気使用量は従来モデルと比較して最大30%削減して",
@@ -27,7 +27,7 @@ export const products = [
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-gray-800 via-purple-900 to-indigo-900",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "SP3000",
@@ -40,12 +40,14 @@ export const products = [
       "アルミ製ヒートシンク",
       "1080mm x 108mm",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
   },
   {
     header: "MARS HYDRO",
@@ -59,7 +61,7 @@ export const products = [
       src: "/img/SP150_3xss.png",
       alt: "MARS HYDRO SP150",
       width: 900,
-      height: 670
+      height: 670,
     },
     desc: {
       1: "省エネも。明るさも。テント栽培の最大のパートナー♪これは誇張ではありません。SP150が2019年に発売されて以来、このモデルは米国のテント栽培者向けに大ヒットしました。SP3000のちょうど半分のサイズで初めてのテント栽培に挑戦する方に是非ともオススメしたい人気のモデル",
@@ -70,13 +72,13 @@ export const products = [
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
     bg: {
       inner: "from-gray-700 via-red-900 to-yellow-900",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "SP150",
     price: {
       sale: "29,800",
-      regular: "32,800"
+      regular: "32,800",
     },
     feature: [
       // "Epistar SMDチップ",
@@ -86,13 +88,15 @@ export const products = [
       "アルミ製ヒートシンク",
       "598mm x 50mm",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
     lead: "セール中",
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552",
+    },
   },
   {
     header: "MARS HYDRO",
@@ -110,7 +114,7 @@ export const products = [
       src: "/img/TS_transparent.png",
       alt: "MARS HYDRO TSシリーズ",
       width: 900,
-      height: 670
+      height: 670,
     },
     button: "TSシリーズの定番モデルを見る",
     href: "/products/marshydro/ts",
@@ -119,13 +123,13 @@ export const products = [
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",
       // inner: "bg-gray-100",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "TSシリーズ",
     price: {
       sale: "19,800~",
-      regular: "32,800"
+      regular: "32,800",
     },
     feature: [
       // "Epistar SMDチップ",
@@ -134,12 +138,13 @@ export const products = [
       "最大収穫量 2.0g/w",
       "様々なサイズ",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
-video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"
-    }
-
+    video: {
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552",
+    },
   },
-];
+]
