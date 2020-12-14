@@ -113,7 +113,7 @@ export const products = [
       height: 670
     },
     button: "TSシリーズの定番モデルを見る",
-    href: "https://shop.fatlightslim.com/products/mars-hydro-ts-series/",
+    href: "/products/marshydro/ts",
     // href: "/products/marshydro/ts-series",
     // bg: "linear-gradient(#0090CE, #01C7B8)",
     bg: {
