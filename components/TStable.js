@@ -47,7 +47,7 @@ function Img({ img }) {
   )
 }
 function Button({ url }) {
-  console.log(url);
+  // console.log(url);
   return (
     <Link href={url}>
       <a className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
