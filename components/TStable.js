@@ -83,6 +83,7 @@ function List({ text }) {
     </li>
   )
 }
+
 function Title({ product, img, title, price, short }) {
   return (
     <div className="p-6">
@@ -104,7 +105,7 @@ function Title({ product, img, title, price, short }) {
 }
 function Product(props) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200 my-4">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200 my-4 sm:my-0">
       <Title {...props} />
       <div className="pt-6 pb-8 px-6">
         <ul className="mt-6 space-y-4">
