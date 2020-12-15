@@ -26,7 +26,15 @@ export default function NewHero(params) {
           <div className="px-6 md:max-w-3xl md:mx-auto lg:mx-0 lg:max-w-none">
             <h1 className="mt-3 text-3xl font-semibold font-display text-white sm:mt-6 sm:text-4xl xl:text-6xl">
               <>
-                <div style={{ width: 200 }} className="ml-2">
+                <div style={{ width: 130 }} className="mt-8 sm:ml-2 lg:hidden">
+                  <Image
+                    src="/img/amazon_PNG11-768x280.png"
+                    alt="amazon.com,アメリカAmazon"
+                    width={300}
+                    height={109}
+                  />
+                </div>
+                <div style={{ width: 220 }} className="ml-2 hidden lg:block">
                   <Image
                     src="/img/amazon_PNG11-768x280.png"
                     alt="amazon.com,アメリカAmazon"
@@ -35,17 +43,17 @@ export default function NewHero(params) {
                   />
                 </div>
                 <span className="block -mt-2 mb-2">ランキング</span>
-                <span className="block">全米No.1植物用ライト</span>
+                <span className="block mb-4">全米No.1植物用ライト</span>
 
-                <span className="dosis font-bold text-gold text-180">
+                <span className="dosis font-bold text-gold text-180 ">
                   MARS HYDRO
                 </span>
               </>
             </h1>
-            <p className="mt-2 text-lg text-gray-300 sm:mt-3 sm:text-xl sm:max-w-xl xl:mt-4 xl:text-2xl xl:max-w-2xl">
+            <p className="mt-2 text-lg text-gray-300 sm:mt-3 sm:text-xl sm:max-w-xl xl:mt-4 xl:text-2xl xl:max-w-2xl xl:pr-4">
               太陽光のように強力なLEDライトで収穫量が段違いに向上します！ホビー用途から商業用途まで室内栽培の本場アメリカで大人気のベストセラー植物用ライトです。
             </p>
-            <div className="mt-6 sm:flex sm:mt-8 xl:mt-12">
+            {/* <div className="mt-6 sm:flex sm:mt-8 xl:mt-12">
               <a
                 href="/"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-md text-gray-900 bg-white shadow-sm hover:text-gray-600 focus:outline-none focus:text-gray-600 transition ease-in-out duration-150 xl:text-lg xl:py-4"
@@ -58,7 +66,7 @@ export default function NewHero(params) {
               >
                 Get early access →
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="mt-8 sm:mt-12 relative h-64 overflow-hidden bg-gray-300 lg:hidden">
             <div
@@ -66,8 +74,6 @@ export default function NewHero(params) {
               style={{
                 height: "800%",
                 width: "400%",
-                top: "-100%",
-                left: "-100%",
                 backgroundSize: "400px auto",
                 backgroundImage: 'url("/img/hero-pattern-lg.png")',
               }}

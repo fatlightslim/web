@@ -1,7 +1,7 @@
-import Image from "next/image";
-import CheckMark from "./Checkmark";
-import { reviews } from "../data/nayami";
-import Slider from "react-slick";
+import Image from "next/image"
+import CheckMark from "./Checkmark"
+import { reviews } from "../data/nayami"
+import Slider from "react-slick"
 
 export default function FeatureNew({
   data = {
@@ -352,24 +352,22 @@ export default function FeatureNew({
         </div>
       </div>
     </>
-  );
+  )
 }
 
 function Review({ item }) {
   return (
-    <>
-      <div className="flex justify-center">
-        <div className={`col-sm-6 ${item.bg}  align-self-center`}>
-          <p className="text-center text-3xl leading-8 font-extrabold tracking-tight text-indigo-900">
-            {item.lead2}
-          </p>
-        </div>
+    <div className="flex justify-center">
+      <div className={`col-sm-6 ${item.bg}  align-self-center`}>
+        <p className="text-center text-4xl leading-1 font-extrabold tracking-tight text-indigo-900">
+          {item.lead2}
+        </p>
       </div>
-    </>
-  );
+    </div>
+  )
 }
 
-function Carousel({settings}) {
+function Carousel({ settings }) {
   return (
     <div className="py-16 bg-gray-50  overflow-hidden lg:py-24">
       <h2 className="dosis text-center text-2xl px-4 text-gray-500 font-bold">
@@ -383,7 +381,7 @@ function Carousel({settings}) {
           className="md:rounded-3xl max-w-screen-xl py-8 mx-auto flex justify-center"
         >
           <div className="mx-auto gap-0">
-            <div className="md:col-span-1 w-full">
+            <div className="md:col-span-1 w-full px-2">
               <Slider {...settings}>
                 {reviews.map((item) => (
                   <Review key={item.img} item={item} />
@@ -394,5 +392,5 @@ function Carousel({settings}) {
         </div>
       </section>
     </div>
-  );
+  )
 }
