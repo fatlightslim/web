@@ -7,8 +7,8 @@ function Body({url, price}) {
         <div className="px-4 py-5 sm:p-6 grid grid-cols-2  sm:px-6  lg:px-8 w-full ">
           <div className="">
             <p className="dosis text-lg leading-6 font-medium whitespace-nowrap inline-block">
-              <span className="text-4xl font-bold text-gray-50 ">{price.sale}</span>
-              <span className="line-through ml-1 text-red-500 text-xl">{price.regular}
+              <span className="text-4xl font-bold text-gray-50 ">&yen;{price.sale}</span>
+              <span className="line-through ml-1 text-red-500 text-xl">&yen;{price.regular}
               </span>
             </p>
             <p className="text-xs ml-5 text-yellow-300">税込・送料込</p>

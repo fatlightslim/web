@@ -56,7 +56,7 @@ function Product({ title, img, bg, desc, button, header, href }) {
 export default function RelatedProducts2({}) {
   return (
     <section>
-      <div className="grid lg:grid-cols-3 gap-4 bg-gray-200 p-2 md:pt-4 md:pb-0">
+      <div className="grid lg:grid-cols-3 gap-2 bg-gray-200 p-2 md:pt-4 md:pb-0">
         {products.map((data, index) => (
           <Product key={index} {...data} />
         ))}
