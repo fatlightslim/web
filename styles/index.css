@@ -101,7 +101,7 @@ body {
 /* adjust height for carousel */
 @media (max-width: 768px) {
   .slide {
-    min-height: 832px;
+    min-height: 855px;
   }
 }
 @media (min-width:768px) and ( max-width:1024px) {
@@ -117,3 +117,5 @@ body {
   table-layout: fixed !important;
   width: 100% !important;
 }
+
+

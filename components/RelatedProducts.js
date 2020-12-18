@@ -10,9 +10,7 @@ const LeftCol = ({ title, desc, button }) => (
   <>
     <p className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight whitespace-nowrap">
       {/* <span className={title.color} style={{ fontSize: "125%" }}> */}
-      <span style={{ fontSize: "125%", color: title.color }}>
-        {title[1]}
-      </span>
+      <span style={{ fontSize: "125%", color: title.color }}>{title[1]}</span>
       <br />
       {title[2]}
       <br />
@@ -25,8 +23,7 @@ const LeftCol = ({ title, desc, button }) => (
     </p>
 
     <div className=" text-center md:text-left">
-
-      <Link href="/" >
+      <Link href="/">
         <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
           {button}
         </a>
@@ -42,7 +39,6 @@ export default function RelatedProducts() {
         {products.map((data, index) => {
           return (
             <section className="p-2 grid-span-1" key={index}>
-
               <div
                 // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
                 className={`text-white rounded-3xl p-4 md:min-h-screen`}
@@ -56,8 +52,7 @@ export default function RelatedProducts() {
                     <LeftCol {...data} />
                   </div>
                   <div className="md:col-span-1">
-                    <div className="mt-12 "  >
-
+                    <div className="mt-12 ">
                       <Image
                         src={data.img.src}
                         width={data.img.width}
@@ -67,14 +62,12 @@ export default function RelatedProducts() {
                     </div>
                   </div>
                 </div>
-
               </div>
             </section>
           )
         })}
       </div>
       <div className="bg-gray-200 p-0 md:pb-4 grid md:grid-cols-2">
-
         <section className="p-3 md:grid-cols-2">
           <BlogBanner />
         </section>

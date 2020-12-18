@@ -21,7 +21,7 @@ export const reviews = [
     img: "/img/review3.png",
     bg: "bg-gray-50",
     lead: "MARS HYDROを買って後悔することはないです",
-    lead2: "趣味で軽くやってみたいだけだけど電気代が怖い",
+    lead2: "趣味でやってみたいけど電気代が怖い",
     dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
     dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
     link: "https://fatlightslim.com/products/mars-hydro-ts-series"

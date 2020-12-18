@@ -1,6 +1,10 @@
 export const products = [
   {
     header: "MARS HYDRO",
+    price: {
+      sale: "79,800",
+      regular: "89,800"
+    },
     title: {
       1: "SP3000",
       2: "ゲームを変える",
@@ -27,7 +31,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP3000",
-    price: "79,800",
+    lead: "一番人気",
     feature: [
       "2020年最新版LB301Bチップ搭載",
       "IP65 防水・防塵",
@@ -38,6 +42,10 @@ export const products = [
       "デイジーチェーン",
       "ノイズレス"
     ],
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
+    }
   },
   {
     header: "MARS HYDRO",
@@ -58,27 +66,33 @@ export const products = [
       2: "です。",
     },
     button: "SP150の詳細を見る",
-    href: "https://shop.fatlightslim.com/products/mars-hydro-sp150",
+    href: "/products/marshydro/sp150",
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
     bg: {
       inner: "from-gray-700 via-red-900 to-yellow-900",
       outer: "bg-gray-100"
     },
     text: "text-white",
-    className:
-      "mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3",
     shortTitle: "SP150",
-    price: "29,800",
+    price: {
+      sale: "29,800",
+      regular: "32,800"
+    },
     feature: [
       // "Epistar SMDチップ",
       "IP65 防水・防塵",
       "LED寿命50,000時間",
-      "最大収穫量 2.0g/w",
+      // "最大収穫量 2.0g/w",
       "アルミ製ヒートシンク",
       "598mm x 50mm",
       "デイジーチェーン",
       "ノイズレス"
     ],
+    lead: "セール中",
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"
+    }
   },
   {
     header: "MARS HYDRO",
@@ -99,7 +113,8 @@ export const products = [
       height: 670
     },
     button: "TSシリーズの定番モデルを見る",
-    href: "https://shop.fatlightslim.com/products/mars-hydro-ts-series/",
+    href: "/products/marshydro/ts",
+    // href: "/products/marshydro/ts-series",
     // bg: "linear-gradient(#0090CE, #01C7B8)",
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",
@@ -107,10 +122,11 @@ export const products = [
       outer: "bg-gray-100"
     },
     text: "text-white",
-    className:
-      "mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3",
     shortTitle: "TSシリーズ",
-    price: "19,800~",
+    price: {
+      sale: "19,800~",
+      regular: "32,800"
+    },
     feature: [
       // "Epistar SMDチップ",
       "アルミ製フード",
