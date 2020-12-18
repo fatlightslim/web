@@ -24,7 +24,7 @@ export default function NewHero(params) {
       >
         <div>
           <div className="px-6 md:max-w-3xl md:mx-auto lg:mx-0 lg:max-w-none">
-            <h1 className="mt-3 text-4xl font-semibold font-display text-white sm:mt-6 xl:text-6xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl font-semibold font-display text-white sm:mt-6 xl:text-6xl">
               <>
                 <div style={{ width: 130 }} className="mt-8 sm:ml-2 lg:hidden">
                   <Image
@@ -50,7 +50,7 @@ export default function NewHero(params) {
                 </span>
               </>
             </h1>
-            <p className="mt-2 text-lg text-gray-300 sm:mt-3 sm:text-xl sm:max-w-xl xl:mt-4 xl:text-2xl xl:max-w-2xl xl:pr-4">
+            <p className="mt-2 text-xl text-gray-300 sm:mt-3 sm:text-xl sm:max-w-xl xl:mt-4 xl:text-2xl xl:max-w-2xl xl:pr-4">
               太陽光のように強力なLEDライトで収穫量が段違いに向上します！ホビー用途から商業用途まで室内栽培の本場アメリカで大人気のベストセラー植物用ライトです。
             </p>
             {/* <div className="mt-6 sm:flex sm:mt-8 xl:mt-12">
