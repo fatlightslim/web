@@ -11,7 +11,7 @@ export default function NewHero(params) {
           top: "-25%",
           left: "-100%",
           backgroundSize: "800px auto",
-          backgroundImage: 'url("/img/hero-pattern-lg.png")',
+          backgroundImage: 'url("/img/hero.jpg")',
         }}
       />
       <div
@@ -24,7 +24,7 @@ export default function NewHero(params) {
       >
         <div>
           <div className="px-6 md:max-w-3xl md:mx-auto lg:mx-0 lg:max-w-none">
-            <h1 className="mt-3 text-3xl font-semibold font-display text-white sm:mt-6 sm:text-4xl xl:text-6xl">
+            <h1 className="mt-3 text-4xl font-semibold font-display text-white sm:mt-6 xl:text-6xl">
               <>
                 <div style={{ width: 130 }} className="mt-8 sm:ml-2 lg:hidden">
                   <Image
@@ -34,7 +34,7 @@ export default function NewHero(params) {
                     height={109}
                   />
                 </div>
-                <div style={{ width: 220 }} className="ml-2 hidden lg:block">
+                <div style={{ width: 220 }} className="xl:-mt-20 ml-2 hidden lg:block">
                   <Image
                     src="/img/amazon_PNG11-768x280.png"
                     alt="amazon.com,アメリカAmazon"
@@ -42,8 +42,8 @@ export default function NewHero(params) {
                     height={109}
                   />
                 </div>
-                <span className="block -mt-2 mb-2">ランキング</span>
-                <span className="block mb-4">全米No.1植物用ライト</span>
+                <span className="block -mt-4 mb-2">全米No. 1 ベストセラー</span>
+                <span className="block mb-4">植物育成用LEDライト</span>
 
                 <span className="dosis font-bold text-gold text-180 ">
                   MARS HYDRO
@@ -75,7 +75,7 @@ export default function NewHero(params) {
                 height: "800%",
                 width: "400%",
                 backgroundSize: "400px auto",
-                backgroundImage: 'url("/img/hero-pattern-lg.png")',
+                backgroundImage: 'url("/img/hero.jpg")',
               }}
             />
           </div>
