@@ -4,16 +4,32 @@ export default function NewHero(params) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900 lg:bg-gray-300">
       <div
-        className="hidden lg:block absolute scroll-bg"
+        className="hidden lg:block fixed  scroll-bg"
         style={{
-          height: "400%",
-          width: "400%",
-          top: "-25%",
-          left: "-100%",
+          // position: "fixed",
+          height: "200%",
+          width: "200%",
+          // top: "-25%",
+          left: "-20%",
+          backgroundRepeat: "repeat",
           backgroundSize: "800px auto",
-          backgroundImage: 'url("/img/hero.jpg")',
+          // backgroundImage: 'url("/img/hero.jpg")',
         }}
-      />
+      >
+        <Image
+          src="/img/hero.jpg"
+          alt="hero"
+          layout="fill"
+          objectFit="scale-down"
+          // className="object-cover"
+          // className="object-center object-cover pointer-events-none"
+          // objectPosition="100% -25%"
+          // sizes="800px auto"
+          // width={1601}
+          // height={2558}
+        />
+      </div>
+
       <div
         className="relative min-h-screen lg:min-w-3xl xl:min-w-4xl lg:flex lg:items-center lg:justify-center lg:w-3/5 lg:py-20 lg:pl-8 lg:pr-8 bg-no-repeat"
         style={{
@@ -34,7 +50,10 @@ export default function NewHero(params) {
                     height={109}
                   />
                 </div>
-                <div style={{ width: 220 }} className="xl:-mt-20 ml-2 hidden lg:block">
+                <div
+                  style={{ width: 220 }}
+                  className="xl:-mt-20 ml-2 hidden lg:block"
+                >
                   <Image
                     src="/img/amazon_PNG11-768x280.png"
                     alt="amazon.com,アメリカAmazon"
@@ -70,14 +89,25 @@ export default function NewHero(params) {
           </div>
           <div className="mt-8 sm:mt-12 relative h-64 overflow-hidden bg-gray-300 lg:hidden">
             <div
-              className="absolute scroll-bg"
+              className="absolute scroll-bg z-0"
               style={{
-                height: "800%",
-                width: "400%",
-                backgroundSize: "400px auto",
-                backgroundImage: 'url("/img/hero.jpg")',
+                height: "300%",
+                width: "150%",
+                backgroukdSize: "400px auto",
+                // backgroundImage: 'url("/img/hero.jpg")',
               }}
-            />
+            >
+              <Image
+                src="/img/hero.jpg"
+                alt="hero"
+                layout="fill"
+                objectFit="scale-down"
+          // objectPosition="100% -25%"
+          // sizes="800px auto"
+          // width={1601}
+          // height={2558}
+              />
+            </div>
           </div>
         </div>
       </div>
