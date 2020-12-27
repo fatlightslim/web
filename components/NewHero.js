@@ -4,7 +4,7 @@ export default function NewHero(params) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900 lg:bg-gray-300">
       <div
-        className="hidden lg:block fixed  scroll-bg"
+        className="hidden lg:block absolute  scroll-bg"
         style={{
           // position: "fixed",
           height: "200%",
