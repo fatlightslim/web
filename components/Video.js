@@ -9,7 +9,7 @@ export default function Video({video}) {
           src={video.src}
           className="lg:rounded-lg"
         >
-          <BigPlayButton position="center" className="z-50" />
+          <BigPlayButton position="center" className="z-10" />
         </Player>
       </div>
     </div>

@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import ScrollTrigger from "react-scroll-trigger"
 import { products } from "../../../data/products"
 import Layout from "../../../components/Layout"
 import Delivery from "../../../components/Delivery"
 import Refund from "../../../components/Refund"
-import CartButton from "../../../components/CartButton"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
@@ -13,46 +11,99 @@ import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
-import { createCheckout } from "../../../scripts/shopify"
+import { client } from "../../../scripts/shopify"
+import BuyButton from "../../../components/BuyButton"
+import Cart from "../../../components/Cart"
 
-export default function MarsHydroSp3000(props) {
+export default function MarsHydroSp3000({}) {
   const sp3000 = products[0]
   sp3000.bg.outer = "bg-gray-800"
-  const [visible, setVisible] = useState(false)
-  const [url, setUrl] = useState("/")
+  // const [visible, setVisible] = useState(false)
+  // const [url, setUrl] = useState("/")
+  const [fixedHeader, setFixedHeader] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
+  const [checkout, setCheckout] = useState({ lineItems: [] })
+  const [product, setProduct] = useState(null)
+  // const [shop, setShop] = useState({})
+  console.log(checkout);
 
   useEffect(() => {
-    createCheckout(process.env.sp3000).then((url) => setUrl(url));
+    // createCheckout(process.env.sp3000).then((url) => setUrl(url));
+    client.checkout.create().then((res) => setCheckout(res))
+    client.product
+      .fetch(process.env.products.sp3000)
+      .then((res) => setProduct(res))
+    // client.shop.fetchInfo().then((res) => setShop(res))
   }, [])
 
+  const addVariantToCart = (variantId, quantity) => {
+    setCartOpen(true)
+
+    const lineItemsToAdd = [{ variantId, quantity }]
+    const checkoutId = checkout.id
+
+    return client.checkout
+      .addLineItems(checkoutId, lineItemsToAdd)
+      .then((res) => setCheckout(res))
+  }
+
+  const updateQuantityInCart = (lineItemId, quantity) => {
+    const checkoutId = checkout.id
+    const lineItemsToUpdate = [
+      { id: lineItemId, quantity: parseInt(quantity, 10) },
+    ]
+
+    return client.checkout
+      .updateLineItems(checkoutId, lineItemsToUpdate)
+      .then((res) => setCheckout(res))
+  }
+
+  const removeLineItemInCart = (lineItemId) => {
+    const checkoutId = checkout.id
+
+    return client.checkout
+      .removeLineItems(checkoutId, [lineItemId])
+      .then((res) => setCheckout(res))
+  }
+
+  const props = {
+    Layout: {
+      setFixedHeader,
+      fixedHeader,
+      setCartOpen,
+    },
+    Cart: {
+      cartOpen,
+      setCartOpen,
+      checkout,
+      updateQuantityInCart,
+      removeLineItemInCart
+    },
+    BuyButton: {
+      fixedHeader,
+      setCartOpen,
+      addVariantToCart,
+      product
+    },
+  }
+  // console.log(product.variants);
+
   return (
-    <Layout visible={visible} className="pb-24 lg:pb-0">
+    <Layout {...props.Layout} {...sp3000}>
+      <Cart {...props.Cart} />
+      <BuyButton {...sp3000} {...props.BuyButton} />
       <CardBanner {...sp3000} button={false} />
       <Video {...sp3000} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
       <Delivery />
       <Refund />
-      <ScrollTrigger
-        onEnter={({ progress, velocity }) => {
-          setVisible(true)
-        }}
-        onExit={() => setVisible(false)}
-      >
-        <CompareTable
-          visible={visible}
-          url={url}
-          main={products[0]}
-          left={products[1]}
-          right={products[2]}
-        />
-      </ScrollTrigger>
+      <CompareTable main={products[0]} left={products[1]} right={products[2]} />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
         <Contact />
       </div>
-      <CartButton {...sp3000} visible={visible} url={url} />
     </Layout>
   )
 }

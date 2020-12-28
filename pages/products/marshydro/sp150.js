@@ -13,7 +13,7 @@ import ProductFeature from "../../../components/ProductFeature";
 import CompareTable from "../../../components/CompareTable";
 import Video from "../../../components/Video";
 import Size from "../../../components/Size";
-import { createCheckout } from "../../../scripts/shopify";
+// import { createCheckout } from "../../../scripts/shopify";
 
 export default function MarsHydroSp150(props) {
   const product = products[1];
@@ -23,7 +23,7 @@ export default function MarsHydroSp150(props) {
   const [url, setUrl] = useState("/");
 
   useEffect(() => {
-    createCheckout(process.env.sp150).then((url) => setUrl(url));
+    // createCheckout(process.env.sp150).then((url) => setUrl(url));
   }, []);
 
   return (

@@ -31,6 +31,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP3000",
+    descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
     lead: "一番人気",
     feature: [
       "2020年最新版LB301Bチップ搭載",
@@ -74,6 +75,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP150",
+    descForMenu: "一番人気。80cmサイズのテントに最適",
     price: {
       sale: "29,800",
       regular: "32,800"
@@ -123,6 +125,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "TSシリーズ",
+    descForMenu: "サイズが選べる定番ベストセラー",
     price: {
       sale: "19,800~",
       regular: "32,800"

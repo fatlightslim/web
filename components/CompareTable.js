@@ -188,7 +188,7 @@ function ProductMain({ lead, img, shortTitle, price, feature, url }) {
           </ul>
           <div className="mt-10">
             <div className="rounded-lg shadow-md">
-              <Link href={url}>
+              <Link href={'http://google.com'}>
                 <a
                   className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                   aria-describedby="tier-growth"

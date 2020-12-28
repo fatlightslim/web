@@ -57,7 +57,7 @@ function HeaderSection({
         <h2 className="mt-1 text-2xl font-extrabold text-white sm:text-4xl sm:tracking-tight">
           {data.h2.title}
         </h2>
-        <p className="max-w-xl mt-5 mx-auto text-lg text-gray-50 font-bold">
+        <p className="max-w-xl mt-5 mx-auto text-lg text-gray-50 font-bold dosis">
           {data.h2.desc}
         </p>
       </div>

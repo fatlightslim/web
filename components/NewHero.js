@@ -9,7 +9,7 @@ export default function NewHero(params) {
           // position: "fixed",
           height: "200%",
           width: "200%",
-          // top: "-25%",
+          top: "-15%",
           left: "-20%",
           backgroundRepeat: "repeat",
           backgroundSize: "800px auto",

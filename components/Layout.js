@@ -1,10 +1,16 @@
-import Nav from "./Nav"
-import Head from "next/head"
-import Footer from "./Footer"
+import Nav from "./Nav";
+import ScrollTrigger from "react-scroll-trigger";
+import Head from "next/head";
+import Footer from "./Footer";
+import Logo from "./Logo";
 
 export default function Layout({
+  addVariantToCart,
+  fixedHeader,
+  setFixedHeader,
+  router,
   className,
-  visible,
+  setCartOpen,
   children,
   data = {
     title: `植物用LEDライト専門店 ${process.env.site.name}`,
@@ -17,12 +23,13 @@ export default function Layout({
     og: {
       site_name: process.env.site.name,
       type: "website",
-      url:  process.env.site.url,
+      url: process.env.site.url,
     },
     tw: {
       card: "summary_large_image",
     },
   },
+  
 }) {
   // console.log(data);
   return (
@@ -48,14 +55,28 @@ export default function Layout({
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
       </Head>
-      <div className={`pt-12 ${className}`}>
+      <div
+        className={`${
+          router && router.pathname === "/" ? "pt-10" : ""
+        } ${className}`}
+      >
+        <ScrollTrigger
+          onEnter={() => setFixedHeader(false)}
+          onProgress={({ progress, velocity }) => {
+            if (progress === 1) {
+              setFixedHeader(true);
+            } else if (progress <= 1) {
+              setFixedHeader(false);
+            }
+          }}
+        >
+          <Nav setCartOpen={setCartOpen} router={router} addVariantToCart={addVariantToCart} />
+        </ScrollTrigger>
 
-      <Nav visible={visible} />
+        {children}
 
-      {children}
-
-      <Footer  />
+        <Footer />
       </div>
     </>
-  )
+  );
 }

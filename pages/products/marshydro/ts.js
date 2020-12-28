@@ -9,7 +9,7 @@ import Contact from "../../../components/Contact"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import TStable from "../../../components/TStable"
-import { createCheckout } from "../../../scripts/shopify"
+// import { createCheckout } from "../../../scripts/shopify"
 
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
@@ -61,14 +61,14 @@ export default function MarsHydroTS() {
   const [urls, setUrls] = useState([])
 
   useEffect(() => {
-    const data = variant.map(async (v) => {
-      return await createCheckout(v.id).then((url) => {
-        return { url, name: v.title, price: v.price }
-      })
-    })
-    Promise.all(data).then((urls) => {
-      setUrls(urls)
-    })
+    // const data = variant.map(async (v) => {
+    //   return await createCheckout(v.id).then((url) => {
+    //     return { url, name: v.title, price: v.price }
+    //   })
+    // })
+    // Promise.all(data).then((urls) => {
+    //   setUrls(urls)
+    // })
   }, [])
 
   return (
