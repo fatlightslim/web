@@ -13,11 +13,11 @@ export default function NewHero(params) {
           left: "-20%",
           backgroundRepeat: "repeat",
           backgroundSize: "800px auto",
-          // backgroundImage: 'url("/img/hero.jpg")',
+          // backgroundImage: 'url("/img/hero2.jpg")',
         }}
       >
         <Image
-          src="/img/hero.jpg"
+          src="/img/hero2.jpg"
           alt="hero"
           layout="fill"
           objectFit="scale-down"
@@ -94,11 +94,11 @@ export default function NewHero(params) {
                 height: "300%",
                 width: "150%",
                 backgroukdSize: "400px auto",
-                // backgroundImage: 'url("/img/hero.jpg")',
+                // backgroundImage: 'url("/img/hero2.jpg")',
               }}
             >
               <Image
-                src="/img/hero.jpg"
+                src="/img/hero2.jpg"
                 alt="hero"
                 layout="fill"
                 objectFit="scale-down"
