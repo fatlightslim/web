@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Cookies from "js-cookie"
 import { products } from "../../../data/products"
 import Layout from "../../../components/Layout"
 import Delivery from "../../../components/Delivery"
@@ -25,11 +26,20 @@ export default function MarsHydroSp3000({}) {
   const [checkout, setCheckout] = useState({ lineItems: [] })
   const [product, setProduct] = useState(null)
   // const [shop, setShop] = useState({})
-  console.log(checkout);
+  console.log(checkout)
 
   useEffect(() => {
-    // createCheckout(process.env.sp3000).then((url) => setUrl(url));
-    client.checkout.create().then((res) => setCheckout(res))
+    const checkoutId = Cookies.get("checkoutId")
+    if (checkoutId) {
+      client.checkout.fetch(checkoutId).then((res) => {
+        setCheckout(res)
+      })
+    } else {
+      client.checkout.create().then((res) => {
+        setCheckout(res)
+        Cookies.set("checkoutId", res.id, { expires: 365 })
+      })
+    }
     client.product
       .fetch(process.env.products.sp3000)
       .then((res) => setProduct(res))
@@ -49,9 +59,7 @@ export default function MarsHydroSp3000({}) {
 
   const updateQuantityInCart = (lineItemId, quantity) => {
     const checkoutId = checkout.id
-    const lineItemsToUpdate = [
-      { id: lineItemId, quantity: parseInt(quantity, 10) },
-    ]
+    const lineItemsToUpdate = [{ id: lineItemId, quantity }]
 
     return client.checkout
       .updateLineItems(checkoutId, lineItemsToUpdate)
@@ -63,7 +71,10 @@ export default function MarsHydroSp3000({}) {
 
     return client.checkout
       .removeLineItems(checkoutId, [lineItemId])
-      .then((res) => setCheckout(res))
+      .then((res) => {
+        setCheckout(res)
+        console.log(res)
+      })
   }
 
   const props = {
@@ -77,13 +88,13 @@ export default function MarsHydroSp3000({}) {
       setCartOpen,
       checkout,
       updateQuantityInCart,
-      removeLineItemInCart
+      removeLineItemInCart,
     },
     BuyButton: {
       fixedHeader,
       setCartOpen,
       addVariantToCart,
-      product
+      product,
     },
   }
   // console.log(product.variants);

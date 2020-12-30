@@ -1,6 +1,7 @@
+import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Minus, Plus } from "./Svg"
+import { Minus, Plus, X, Close, Spin } from "./Svg"
 import { products } from "../data/products"
 
 export default function Cart({
@@ -11,6 +12,7 @@ export default function Cart({
   removeLineItemInCart,
 }) {
   const [quantity, setQuantity] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   const increaseQuantity = (n = 1, lineItemId) => {
     const val = Number(quantity) + n
@@ -36,22 +38,7 @@ export default function Cart({
             className=" rounded-md text-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             <span className="sr-only">Close panel</span>
-            {/* Heroicon name: x */}
-            <svg
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="{2}"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X />
           </button>
         </div>
       </div>
@@ -64,35 +51,20 @@ export default function Cart({
       currency: "JPY",
     }).format(data)
 
-  const RemoveItem = ({lineItemId}) => (
-    <div className="absolute top-0 right-0 -mt-2 pr-2">
+  const RemoveItem = ({ lineItemId }) => (
+    <div className="absolute top-0 right-0 -mt-2 pr-4">
       <button
         onClick={() => removeLineItemInCart(lineItemId)}
         type="button"
-        className="bg-red-500 rounded-full p-1 text-white focus:outline-none "
+        className="text-white focus:outline-none "
       >
         <span className="sr-only">Close</span>
-        {/* Heroicon name: x */}
-        <svg
-          className="h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <Close />
       </button>
     </div>
   )
 
-  const List = ({ variant, title, id, ...rest }) => {
+  const List = ({ variant, title, id }) => {
     const splitted = title.split(" ")
     const name = splitted[2]
     const brand = splitted[0] + " " + splitted[1]
@@ -148,12 +120,12 @@ export default function Cart({
         <button type="button" onClick={() => increaseQuantity(-1, id)}>
           <Minus width={16} height={16} />
         </button>
-        <input
+        <span
           type="number"
           max={99}
           min={1}
-          className="text-center align-text-bottom font-bold"
-          value={quantity}
+          className="text-center align-text-bottom font-bold px-2"
+          children={quantity}
           // onChange={(e) => handleQuantity(e.target.value, id)}
           // onBlur={() => handleBlur(id, quantity)}
         />
@@ -165,7 +137,7 @@ export default function Cart({
   )
 
   const Actions = () => (
-    <div className="flex-shrink-0 px-4 py-4 flex justify-end">
+    <div className="flex-shrink-0 px-4 py-4 flex justify-center">
       <button
         onClick={() => setCartOpen(false)}
         type="button"
@@ -173,18 +145,18 @@ export default function Cart({
       >
         買い物を続ける
       </button>
-      <button
-        type="submit"
-        className="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        ご購入手続きへ
-      </button>
+      <Link href={checkout.webUrl ? checkout.webUrl : "/products/marshydro/sp3000"}>
+        <a onClick={() => setLoading(true)} className="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          {loading && <Spin />}
+          ご購入手続き
+        </a>
+      </Link>
     </div>
   )
 
   const Card = () => (
     <div className="bg-white overflow-hidden shadow rounded-lg mx-2">
-      <div className="px-4 py-4 sm:p-6 text-xs font-medium">
+      <div className="px-4 py-4 sm:p-6 text-xs font-medium text-center">
         <p className="text-lg">7日間の返品保証をお約束します。</p>
         万が一ご満足いただけない場合は全額返金させていただきます。
       </div>
@@ -222,7 +194,7 @@ export default function Cart({
                   <div className="absolute inset-0 px-4 sm:px-6">
                     <div className="h-full " aria-hidden="true">
                       <div className="flex-1 flex flex-col text-base">
-                        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <ul className="grid grid-cols-1 ">
                           {checkout.lineItems.map((v, i) => {
                             // console.log(v);
                             return <List {...v} key={i} />
@@ -232,7 +204,7 @@ export default function Cart({
                     </div>
                   </div>
                 ) : (
-                  <p>empty</p>
+                  <p>カートは空です。</p>
                 )}
               </div>
               <Card />
