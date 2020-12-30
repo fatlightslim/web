@@ -6,18 +6,16 @@ export default function NewHero(params) {
       <div
         className="hidden lg:block absolute  scroll-bg"
         style={{
-          // position: "fixed",
-          height: "200%",
-          width: "200%",
-          // top: "-25%",
-          left: "-20%",
-          backgroundRepeat: "repeat",
+          height: "400%",
+          width: "400%",
+          top: "-25%",
+          left: "-100%",
           backgroundSize: "800px auto",
-          // backgroundImage: 'url("/img/hero2.jpg")',
+          backgroundImage: 'url("/img/hero.jpg")',
         }}
       >
-        <Image
-          src="/img/hero2.jpg"
+        {/* <Image
+          src="/img/hero.jpg"
           alt="hero"
           layout="fill"
           objectFit="scale-down"
@@ -27,7 +25,7 @@ export default function NewHero(params) {
           // sizes="800px auto"
           // width={1601}
           // height={2558}
-        />
+        /> */}
       </div>
 
       <div
@@ -88,17 +86,18 @@ export default function NewHero(params) {
             </div> */}
           </div>
           <div className="mt-8 sm:mt-12 relative h-64 overflow-hidden bg-gray-300 lg:hidden">
-            <div
-              className="absolute scroll-bg z-0"
+          <div
+              className="absolute scroll-bg"
               style={{
-                height: "300%",
-                width: "150%",
-                backgroukdSize: "400px auto",
-                // backgroundImage: 'url("/img/hero2.jpg")',
+                height: "800%",
+                width: "400%",
+                top: "-50%",
+                backgroundSize: "400px auto",
+                backgroundImage: 'url("/img/hero.jpg")',
               }}
-            >
-              <Image
-                src="/img/hero2.jpg"
+            />
+              {/* <Image
+                src="/img/hero.jpg"
                 alt="hero"
                 layout="fill"
                 objectFit="scale-down"
@@ -106,8 +105,7 @@ export default function NewHero(params) {
           // sizes="800px auto"
           // width={1601}
           // height={2558}
-              />
-            </div>
+              /> */}
           </div>
         </div>
       </div>
