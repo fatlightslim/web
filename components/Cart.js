@@ -88,7 +88,8 @@ export default function Cart({
               </span>
             </div>
             <p className="mt-1 text-gray-500 text-sm truncate">
-              大阪より即日配送
+              {/* 大阪より即日配送 */}
+              海外工場から発送
             </p>
           </div>
           <div className="w-10 h-10  flex-shrink-0">
