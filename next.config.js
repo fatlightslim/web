@@ -1,25 +1,37 @@
-module.exports = {
-  // images: {
-  //   domains: ['cdn.shopify.com']
-  // },
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+})
+module.exports = withMDX({
+// module.exports = {
+  pageExtensions: ["js", "jsx", "mdx"],
+  images: {
+    domains: ['cdn.shopify.com']
+  },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
   //   defaultLocale: "ja",
   // },
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
   webpack: (config, { isServer }) => {
     if (isServer) {
-      require("./scripts/sitemap-generator");
+      require("./scripts/sitemap-generator")
     }
 
-    return config;
+    return config
   },
   env: {
     shopify: {
-        domain: "fatlightslim.myshopify.com",
-        storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
+      domain: "fatlightslim.myshopify.com",
+      storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
     },
-    sp3000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNTg4MzQzNzI2MDk1Ng==",
-    sp150: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC8zNTg4Mzc1OTU2NzAwNA==",
+    products: {
+      sp3000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5MzgxNjU5MTY=",
+      sp150: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTg2NTU2NDQ=",
+      ts: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTkzNzY1NDA=",
+    },
     customKey: "my-value",
     company: {
       ja: "合同会社SBO",
@@ -35,4 +47,4 @@ module.exports = {
       twitter: "@fatlightslim",
     },
   },
-};
+})

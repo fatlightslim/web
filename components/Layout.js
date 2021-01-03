@@ -1,11 +1,19 @@
+import { useEffect, useState, cloneElement } from "react"
+import Cookies from "js-cookie"
 import Nav from "./Nav"
+import ScrollTrigger from "react-scroll-trigger"
 import Head from "next/head"
 import Footer from "./Footer"
+import { client } from "../scripts/shopify"
+import BuyButton from "./BuyButton"
+import Cart from "./Cart"
 
 export default function Layout({
-  className,
-  visible,
   children,
+  router,
+  productId,
+  productJson,
+  className,
   data = {
     title: `植物用LEDライト専門店 ${process.env.site.name}`,
     desc:
@@ -17,14 +25,99 @@ export default function Layout({
     og: {
       site_name: process.env.site.name,
       type: "website",
-      url:  process.env.site.url,
+      url: process.env.site.url,
     },
     tw: {
       card: "summary_large_image",
     },
   },
 }) {
-  // console.log(data);
+  const [fixedHeader, setFixedHeader] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
+  const [checkout, setCheckout] = useState({ lineItems: [] })
+  const [product, setProduct] = useState(null)
+  // console.log(product);
+
+  useEffect(() => {
+    if (productId) {
+      const checkoutId = Cookies.get("checkoutId")
+      if (checkoutId) {
+        client.checkout.fetch(checkoutId).then((res) => {
+          setCheckout(res)
+        })
+      } else {
+        client.checkout.create().then((res) => {
+          setCheckout(res)
+          Cookies.set("checkoutId", res.id, { expires: 365 })
+        })
+      }
+
+      client.product.fetch(productId).then((res) => {
+        setProduct(res)
+      })
+    }
+    // client.product.fetchAll().then((products) => {
+    //   // Do something with the products
+    //   console.log(products);
+    // });
+  }, [])
+
+  const addVariantToCart = (variantId, quantity) => {
+    setCartOpen(true)
+
+    const lineItemsToAdd = [{ variantId, quantity }]
+    const checkoutId = checkout.id
+
+    return client.checkout
+      .addLineItems(checkoutId, lineItemsToAdd)
+      .then((res) => setCheckout(res))
+  }
+
+  const updateQuantityInCart = (lineItemId, quantity) => {
+    const checkoutId = checkout.id
+    const lineItemsToUpdate = [{ id: lineItemId, quantity }]
+
+    return client.checkout
+      .updateLineItems(checkoutId, lineItemsToUpdate)
+      .then((res) => setCheckout(res))
+  }
+
+  const removeLineItemInCart = (lineItemId) => {
+    const checkoutId = checkout.id
+
+    return client.checkout
+      .removeLineItems(checkoutId, [lineItemId])
+      .then((res) => {
+        setCheckout(res)
+      })
+  }
+
+  const props = {
+    Cart: {
+      cartOpen,
+      setCartOpen,
+      checkout,
+      updateQuantityInCart,
+      removeLineItemInCart,
+    },
+    BuyButton: {
+      fixedHeader,
+      addVariantToCart,
+      product,
+      ...productJson,
+    },
+  }
+
+  // console.log(children);
+  const additionalProps = { addVariantToCart, product }
+  const newChildren = children.length > 0 ? children.map((v, i) => {
+    return (
+      <React.Fragment key={i}>
+        {cloneElement(v, additionalProps)}
+      </React.Fragment>
+    )
+  }) : children
+
   return (
     // <div className="mx-auto">
     <>
@@ -48,13 +141,30 @@ export default function Layout({
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
       </Head>
-      <div className={`pt-12 ${className}`}>
+      <div
+        className={`${
+          router && router.pathname === "/" ? "pt-10" : ""
+        } ${className}`}
+      >
+        <ScrollTrigger
+          onEnter={() => setFixedHeader(false)}
+          onProgress={({ progress, velocity }, ref) => {
+            // console.log(ref);
+            if (progress > 0.1) {
+              setFixedHeader(true)
+            } else if (progress <= 0.1) {
+              setFixedHeader(false)
+            }
+          }}
+        >
+          <Nav setCartOpen={setCartOpen} router={router} />
 
-      <Nav visible={visible} />
+        {newChildren}
 
-      {children}
-
-      <Footer  />
+        </ScrollTrigger>
+        <Footer />
+        {product && product.productType === "SP" && <BuyButton {...props.BuyButton} />}
+        <Cart {...props.Cart} />
       </div>
     </>
   )

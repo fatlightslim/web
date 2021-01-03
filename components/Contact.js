@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/image"
 
 export default function Contact(params) {
   return (
@@ -6,7 +6,7 @@ export default function Contact(params) {
       <Rocket />
       <HeaderSection />
     </Card>
-  );
+  )
 }
 
 function Rocket({
@@ -16,7 +16,7 @@ function Rocket({
       alt: "Drawing Moonlanding",
       width: 570,
       height: 334,
-    }
+    },
   },
 }) {
   return (
@@ -28,7 +28,7 @@ function Rocket({
         height={data.img.height}
       />
     </div>
-  );
+  )
 }
 
 function HeaderSection({
@@ -50,13 +50,11 @@ function HeaderSection({
         <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:tracking-tight">
           {data.h2.title}
         </p>
-      <Social />
-        <p className="max-w-xl mx-auto text-lg text-gray-500">
-          {data.h2.desc}
-        </p>
+        <Social />
+        <p className="max-w-xl mx-auto text-lg text-gray-500">{data.h2.desc}</p>
       </div>
     </div>
-  );
+  )
 }
 
 function Social({
@@ -133,7 +131,7 @@ function Social({
   ],
 }) {
   return (
-    <div className="flex justify-center space-x-6 md:order-2 py-8 lg:py-12">
+    <div className="flex justify-center space-x-6 md:order-2 py-8 lg:py-12 relative z-30">
       {data.map((v) => (
         <a
           key={v.sr}
@@ -147,7 +145,7 @@ function Social({
         </a>
       ))}
     </div>
-  );
+  )
 }
 
 function Card({ children }) {
@@ -155,5 +153,5 @@ function Card({ children }) {
     <div className="bg-yellow-50 overflow-hidden shadow lg:rounded-lg">
       <div className="px-4 py-5 sm:p-6">{children}</div>
     </div>
-  );
+  )
 }

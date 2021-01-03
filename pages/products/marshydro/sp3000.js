@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react"
-import ScrollTrigger from "react-scroll-trigger"
 import { products } from "../../../data/products"
 import Layout from "../../../components/Layout"
 import Delivery from "../../../components/Delivery"
 import Refund from "../../../components/Refund"
-import CartButton from "../../../components/CartButton"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
@@ -13,46 +10,29 @@ import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
-import { createCheckout } from "../../../scripts/shopify"
 
-export default function MarsHydroSp3000(props) {
+export default function MarsHydroSp3000({}) {
   const sp3000 = products[0]
   sp3000.bg.outer = "bg-gray-800"
-  const [visible, setVisible] = useState(false)
-  const [url, setUrl] = useState("/")
-
-  useEffect(() => {
-    createCheckout(process.env.sp3000).then((url) => setUrl(url));
-  }, [])
+  const productId =
+    process.env.products[
+      sp3000["href"].split("/")[sp3000["href"].split("/").length - 1]
+    ]
 
   return (
-    <Layout visible={visible} className="pb-24 lg:pb-0">
-      <CardBanner {...sp3000} button={false} />
+    <Layout productJson={sp3000} productId={productId}>
+      <CardBanner {...sp3000} />
       <Video {...sp3000} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
       <Delivery />
       <Refund />
-      <ScrollTrigger
-        onEnter={({ progress, velocity }) => {
-          setVisible(true)
-        }}
-        onExit={() => setVisible(false)}
-      >
-        <CompareTable
-          visible={visible}
-          url={url}
-          main={products[0]}
-          left={products[1]}
-          right={products[2]}
-        />
-      </ScrollTrigger>
+      <CompareTable main={products[0]} left={products[1]} right={products[2]} />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
         <Contact />
       </div>
-      <CartButton {...sp3000} visible={visible} url={url} />
     </Layout>
   )
 }
@@ -74,7 +54,6 @@ const feature = [
     img: {
       src: "/img/sp3000/ledchip.png",
       alt: "harvest",
-
       width: 1000,
       height: 857,
     },
@@ -85,7 +64,6 @@ const feature = [
     img: {
       src: "/img/sp3000/ppfd.png",
       alt: "ppfd",
-
       width: 1000,
       height: 857,
     },
@@ -96,7 +74,6 @@ const feature = [
     img: {
       src: "/img/sp3000/heatsink.png",
       alt: "heatsink",
-
       width: 1000,
       height: 753,
     },
@@ -129,7 +106,6 @@ const feature = [
     img: {
       src: "/img/sp3000/chip.png",
       alt: "chip",
-
       width: 1000,
       height: 880,
     },

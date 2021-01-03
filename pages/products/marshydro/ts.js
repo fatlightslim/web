@@ -9,21 +9,8 @@ import Contact from "../../../components/Contact"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import TStable from "../../../components/TStable"
-import { createCheckout } from "../../../scripts/shopify"
+import { client } from "../../../scripts/shopify"
 
-// import Client from 'shopify-buy/index.unoptimized.umd'
-// const client = Client.buildClient(process.env.shopify)
-
-// export async function getStaticProps() {
-//   const res = await client.product.fetchAll()
-//   const products = await JSON.parse(JSON.stringify(res))
-//   return {
-//     props: {
-//       productx: products,
-//       // buildTimestamp: Date.now(),
-//     },
-//   }
-// }
 
 const variant = [
   {
@@ -56,26 +43,16 @@ const variant = [
 export default function MarsHydroTS() {
   const product = products[2]
   product.bg.outer = "bg-gray-800"
-
-  const [visible, setVisible] = useState(false);
-  const [urls, setUrls] = useState([])
-
-  useEffect(() => {
-    const data = variant.map(async (v) => {
-      return await createCheckout(v.id).then((url) => {
-        return { url, name: v.title, price: v.price }
-      })
-    })
-    Promise.all(data).then((urls) => {
-      setUrls(urls)
-    })
-  }, [])
+  const productId =
+    process.env.products[
+      product["href"].split("/")[product["href"].split("/").length - 1]
+    ]
 
   return (
-    <Layout visible={visible} className="pb-24 lg:pb-0">
-      <CardBanner {...product} button={false} />
+    <Layout productJson={product} productId={productId}>
+      <CardBanner {...product} />
       <ProductFeature feature={feature} />
-      <TStable urls={urls} />
+      <TStable urls={variant} />
       <Delivery />
       <Refund />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
@@ -83,7 +60,6 @@ export default function MarsHydroTS() {
         <Optimal />
         <Contact />
       </div>
-      {/* <CartButton {...product} visible={visible} url={url} /> */}
     </Layout>
   )
 }

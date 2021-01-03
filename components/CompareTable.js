@@ -143,7 +143,7 @@ function Product({ shortTitle, href, img, price, feature, index }) {
   );
 }
 
-function ProductMain({ lead, img, shortTitle, price, feature, url }) {
+function ProductMain({ lead, img, shortTitle, price, feature, addVariantToCart, variant}) {
   return (
     <div className="my-10 max-w-lg mx-auto lg:my-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
       <div className="relative z-10 rounded-lg shadow-xl">
@@ -158,7 +158,7 @@ function ProductMain({ lead, img, shortTitle, price, feature, url }) {
             </span>
           </div>
         </div>
-        <div className="bg-white rounded-t-lg px-6 pt-12 pb-10">
+        <div className="bg-white rounded-t-lg px-6 pt-12 pb-10  dosis">
           <div>
             <h3
               className="text-center text-3xl font-semibold text-gray-900 sm:-mx-6"
@@ -169,7 +169,7 @@ function ProductMain({ lead, img, shortTitle, price, feature, url }) {
             <Card>
               <Img img={img} />
             </Card>
-            <div className="mt-4 flex items-center justify-center">
+            <div className="mt-4 flex items-center justify-center ">
               <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl">
                 <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
                 <span className="font-extrabold">{price.sale}</span>
@@ -188,14 +188,13 @@ function ProductMain({ lead, img, shortTitle, price, feature, url }) {
           </ul>
           <div className="mt-10">
             <div className="rounded-lg shadow-md">
-              <Link href={url}>
-                <a
+              <button
+              onClick={() => addVariantToCart(variant.id, 1)}
                   className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                   aria-describedby="tier-growth"
                 >
                   購入する
-                </a>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -204,23 +203,23 @@ function ProductMain({ lead, img, shortTitle, price, feature, url }) {
   );
 }
 
-export default function CompareTable({ url, main, left, right }) {
-  return (
-    <div className="bg-gray-900 dosis">
+export default function CompareTable({ url, main, left, right, addVariantToCart, product }) {
+  return product ? (
+    <div className="bg-gray-900 relative z-10">
       <Header />
 
       <div className="mt-16 bg-white pb-12 lg:mt-20 lg:pb-20">
-        <div className="relative z-0">
+        <div className="relative">
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">
+              <ProductMain {...main} url={url} addVariantToCart={addVariantToCart} variant={product.variants[0]} />
               <Product {...left} />
-              <ProductMain {...main} url={url} />
               <Product {...right} index="last" />
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  ) : null
 }
