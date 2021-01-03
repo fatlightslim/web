@@ -9,13 +9,13 @@ export default function NewHero(params) {
         style={{
           height: "400%",
           width: "400%",
-          top: "-65%",
-          left: "67%",
+          top: "-25%",
+          left: "-100%",
           backgroundSize: "800px auto",
-          // backgroundImage: 'url("/img/hero.jpg")',
+          backgroundImage: 'url("/img/hero.jpg")',
         }}
       >
-        <Image width={1000} height={1598} src="/img/hero.jpg" alt="hero" />
+        {/* <Image width={1000} height={1598} src="/img/hero.jpg" alt="hero" /> */}
       </div>
       <div
         className="relative min-h-screen lg:min-w-3xl xl:min-w-4xl lg:flex lg:items-center lg:justify-center lg:w-3/5 lg:py-20 lg:pl-8 lg:pr-8 bg-no-repeat"
@@ -65,7 +65,7 @@ export default function NewHero(params) {
                 height: "800%",
                 width: "400%",
                 top: "-50%",
-                left: "25%",
+                left: "38%",
                 // backgroundSize: "400px auto",
                 // backgroundImage: 'url("/img/hero.jpg")',
                 // backgroundImage: 'url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxNTk4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg==")'
