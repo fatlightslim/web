@@ -1,21 +1,20 @@
-
 import Image from "next/image"
 import { tsdata } from "../data/tsdata"
 import Link from "next/link"
 
-export default function TStable({ urls }) {
+export default function TStable({ urls, addVariantToCart  }) {
   return (
-    <div className="bg-gray-900 dosis">
+    <div className="bg-gray-900 relative z-30">
       <div className="text-white max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <Header />
         <div className="mt-12 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
-          {urls.length > 0 && [0, 1, 2].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]} />
+          {[0, 1, 2].map((v) => {
+            return <Product key={v} {...tsdata[v]} product={urls[v]} addVariantToCart={addVariantToCart}  />
           })}
         </div>
         <div className=" sm:mt-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
           {[3, 4].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]} />
+            return <Product key={v} {...tsdata[v]} product={urls[v]} addVariantToCart={addVariantToCart} />
           })}
         </div>
       </div>
@@ -46,16 +45,6 @@ function Img({ img }) {
     />
   )
 }
-function Button({ url }) {
-  // console.log(url);
-  return (
-    <Link href={url}>
-      <a className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
-        今すぐ購入
-      </a>
-    </Link>
-  )
-}
 
 function Check() {
   return (
@@ -84,12 +73,12 @@ function List({ text }) {
   )
 }
 
-function Title({ product, img, title, price, short }) {
+function Title({ product, img, shortTitle, price, short, addVariantToCart }) {
   return (
-    <div className="p-6">
+    <div className="p-6 dosis">
       <Img img={img} className="sm:rounded" />
 
-      <h2 className="text-lg leading-6 font-medium text-gray-900">{title}</h2>
+      <h2 className="text-lg leading-6 font-medium text-gray-900">{shortTitle}</h2>
       <p className="mt-4 text-sm text-gray-500">{short}</p>
       <p className="mt-8">
         <span className="text-4xl font-extrabold text-gray-900">
@@ -99,7 +88,12 @@ function Title({ product, img, title, price, short }) {
           ¥{price.regular}
         </span>
       </p>
-      {product && <Button url={product.url} />}
+      <button
+        onClick={() => addVariantToCart(product.id, 1)}
+        className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+      >
+        今すぐ購入
+      </button>
     </div>
   )
 }

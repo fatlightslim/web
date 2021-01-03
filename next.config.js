@@ -1,11 +1,20 @@
-module.exports = {
-  // images: {
-  //   domains: ['cdn.shopify.com']
-  // },
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+})
+module.exports = withMDX({
+// module.exports = {
+  pageExtensions: ["js", "jsx", "mdx"],
+  images: {
+    domains: ['cdn.shopify.com']
+  },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
   //   defaultLocale: "ja",
   // },
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
   webpack: (config, { isServer }) => {
     if (isServer) {
       require("./scripts/sitemap-generator")
@@ -21,7 +30,7 @@ module.exports = {
     products: {
       sp3000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5MzgxNjU5MTY=",
       sp150: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTg2NTU2NDQ=",
-      ts: "sp3000.js?b93b:28 Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTkzNzY1NDA="
+      ts: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTkzNzY1NDA=",
     },
     customKey: "my-value",
     company: {
@@ -38,4 +47,4 @@ module.exports = {
       twitter: "@fatlightslim",
     },
   },
-}
+})

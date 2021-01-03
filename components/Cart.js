@@ -11,14 +11,18 @@ export default function Cart({
   updateQuantityInCart,
   removeLineItemInCart,
 }) {
-  const [quantity, setQuantity] = useState(1)
   const [loading, setLoading] = useState(false)
 
   const increaseQuantity = (n = 1, lineItemId) => {
-    const val = Number(quantity) + n
+
+    // const val = 0 !== Object.keys(quantity).length ?  Number(quantity[lineItemId]) + n : n
+    // console.log(val);
+    // const val = Number(quantity) + n
+    // console.log(checkout.lineItems.filter(v => v.id === lineItemId)[0]["quantity"]);
+    const val = checkout.lineItems.filter(v => v.id === lineItemId)[0]["quantity"] + n
+    // console.log(val);
 
     if (Number.isInteger(val) && val >= 1) {
-      setQuantity(val)
       updateQuantityInCart(lineItemId, val)
     }
   }
@@ -52,7 +56,7 @@ export default function Cart({
     }).format(data)
 
   const RemoveItem = ({ lineItemId }) => (
-    <div className="absolute top-0 right-0 -mt-2 pr-4">
+    <div className="absolute top-0 right-0 -mt-2 ">
       <button
         onClick={() => removeLineItemInCart(lineItemId)}
         type="button"
@@ -64,13 +68,13 @@ export default function Cart({
     </div>
   )
 
-  const List = ({ variant, title, id }) => {
+  const List = ({ variant, title, id, quantity }) => {
     const splitted = title.split(" ")
-    const name = splitted[2]
     const brand = splitted[0] + " " + splitted[1]
+   const name =  variant.title === "Default Title" ? splitted[2] : variant.title
 
     return (
-      <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+      <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 my-2 relative">
         <RemoveItem lineItemId={id} />
 
         <div className="w-full flex items-center justify-between p-6 space-x-6">
@@ -88,7 +92,7 @@ export default function Cart({
             </p>
           </div>
           <div className="w-10 h-10  flex-shrink-0">
-            <Image {...products[0].img} alt="" />
+            <Image src={variant.image.src} alt={variant.title} width={1500} height={1500} />
           </div>
         </div>
         <div>
@@ -155,7 +159,7 @@ export default function Cart({
   )
 
   const Card = () => (
-    <div className="bg-white overflow-hidden shadow rounded-lg mx-2">
+    <div className="bg-gray-100 overflow-hidden shadow rounded-lg mx-4 relative">
       <div className="px-4 py-4 sm:p-6 text-xs font-medium text-center">
         <p className="text-lg">7日間の返品保証をお約束します。</p>
         万が一ご満足いただけない場合は全額返金させていただきます。
@@ -174,12 +178,12 @@ export default function Cart({
 
   return (
     <div
-      className={`fixed inset-0 overflow-hidden ${cartOpen ? "z-50" : "z-30"}`}
+      className={`fixed inset-0 overflow-hidden ${cartOpen ? "z-50 block" : "hidden"}`}
     >
       <div className="absolute inset-0 overflow-hidden">
         <Overlay />
         <section
-          className="absolute inset-y-0 right-0 pl-10 max-w-full flex"
+          className={`absolute inset-y-0 right-0 pl-10 max-w-full flex ${cartOpen ? "z-50" : "z-0"}`}
           aria-labelledby="slide-over-heading"
         >
           <div
@@ -191,10 +195,10 @@ export default function Cart({
               <Header />
               <div className="mt-6 relative flex-1 px-4 sm:px-6">
                 {checkout.lineItems.length > 0 ? (
-                  <div className="absolute inset-0 px-4 sm:px-6">
+                  <div className=" inset-0  sm:px-6">
                     <div className="h-full " aria-hidden="true">
                       <div className="flex-1 flex flex-col text-base">
-                        <ul className="grid grid-cols-1 ">
+                        <ul className="grid grid-cols-1 gap-1">
                           {checkout.lineItems.map((v, i) => {
                             // console.log(v);
                             return <List {...v} key={i} />
@@ -207,8 +211,8 @@ export default function Cart({
                   <p>カートは空です。</p>
                 )}
               </div>
-              <Card />
               <Actions />
+              <Card />
             </div>
           </div>
         </section>

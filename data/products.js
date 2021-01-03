@@ -32,7 +32,7 @@ export const products = [
     text: "text-white",
     shortTitle: "SP3000",
     descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
-    lead: "一番人気",
+    lead: "最新モデル",
     feature: [
       "2020年最新版LB301Bチップ搭載",
       "IP65 防水・防塵",
@@ -90,7 +90,7 @@ export const products = [
       "デイジーチェーン",
       "ノイズレス"
     ],
-    lead: "セール中",
+    lead: "一番人気",
     video: {
       src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
       poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"

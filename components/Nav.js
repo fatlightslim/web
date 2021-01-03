@@ -7,17 +7,9 @@ import { Router } from "next/router";
 
 export default function Nav({ router, setCartOpen }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const props = { menuOpen, setMenuOpen, setCartOpen, addVariantToCart };
-  // let className =
-  //   "bg-black bg-opacity-80 text-center py-2 animate__animated fixed top-0 w-full z-50 ";
-  // if (!visible) {
-  //   className += " display-block";
-  // } else {
-  //   className += "animate__slideOutUp display-none";
-  // }
 
   const FlayoutMenu = () => (
-    <div className="z-40 relative">
+    <div className={`relative z-50`}>
       <div className="relative">
         <div className="max-w-7xl mx-auto flex px-4 sm:px-6 lg:px-8">
           {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
@@ -50,7 +42,7 @@ export default function Nav({ router, setCartOpen }) {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
+                ariaHidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -86,10 +78,10 @@ export default function Nav({ router, setCartOpen }) {
         </div>
       </div>
       <div
-        className={`absolute z-10 inset-x-0 transform shadow-lg ${
+        className={`absolute z-50 inset-x-0 transform shadow-lg ${
           menuOpen
-            ? "transition ease-out duration-200  opacity-100 translate-y-0"
-            : "transition ease-in duration-150  opacity-0 translate-y-1"
+            ? "transition ease-out duration-200  opacity-100 translate-y-0 block"
+            : "transition ease-in duration-150  opacity-0 translate-y-1 hidden"
         }`}
       >
         <Menu />
@@ -97,7 +89,7 @@ export default function Nav({ router, setCartOpen }) {
       </div>
     </div>
   );
-  let className = "py-1 bg-black bg-opacity-80";
+  let className = "py-1 bg-black bg-opacity-80 z-30";
   if (router && router.pathname === "/") {
     className += " fixed top-0 w-full z-40";
   }
@@ -158,9 +150,9 @@ const List = ({ shortTitle, descForMenu, href, img, index }) => {
 };
 
 const actions = [
-  { label: "全ての商品を見る" },
-  { label: "よくある質問" },
-  { label: "お問い合わせ" },
+  // { label: "全ての商品を見る" },
+  { label: "よくある質問", link: "/faq"  },
+  { label: "お問い合わせ", link: "/contact" },
 ];
 
 const Actions = () => (
@@ -173,10 +165,10 @@ const Actions = () => (
   </div>
 );
 
-const ActionMenu = ({ label, icon }) => (
+const ActionMenu = ({ label, link }) => (
   <div className="flow-root">
+    <Link href={link}>
     <a
-      href="#"
       className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150"
     >
       {/* Heroicon name: play */}
@@ -203,5 +195,6 @@ const ActionMenu = ({ label, icon }) => (
       </svg>
       <span className="ml-3">{label}</span>
     </a>
+    </Link>
   </div>
 );

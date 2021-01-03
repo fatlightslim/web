@@ -1,29 +1,16 @@
-import Link from "next/link"
-import { products } from "../data/products"
-
-export default function BuyButton({product, fixedHeader, ...rest }) {
+export default function BuyButton({ product, fixedHeader, ...rest }) {
   let className = fixedHeader
     ? "display-block w-full fixed top-0 z-40"
     : "hidden"
   return product ? (
     <div className={className}>
-      <Body {...rest} product={product} />
+      <Body product={product} {...rest} />
     </div>
   ) : null
 }
 
-function Body({
-  setCartOpen,
-  header,
-  url,
-  price,
-  shortTitle,
-  bg,
-  title,
-  addVariantToCart,
-  product
-}) {
-  const variant =  product.variants[0] 
+function Body({ header, shortTitle, bg, title, addVariantToCart, product }) {
+  const variant = product.variants[0]
   return (
     <div className={`bg-gradient-to-r ${bg.inner}`}>
       {/* <div className="bg-black bg-opacity-80 shadow "> */}
@@ -45,10 +32,7 @@ function Body({
           <div>
             {/* <Link href={url}> */}
             <button
-              onClick={() => {
-                addVariantToCart(variant.id, 1)
-                setCartOpen(true)
-              }}
+              onClick={() => addVariantToCart(variant.id, 1)}
               // className="mt-2 float-right text-center rounded-full border border-transparent bg-indigo-600 px-4 py-2 text-sm leading-6 font-bold text-white hover:bg-indigo-700"
               className="float-right mt-1 px-3 py-1.5 border border-transparent text-xs font-bold rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >

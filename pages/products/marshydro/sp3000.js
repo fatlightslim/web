@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import Cookies from "js-cookie"
 import { products } from "../../../data/products"
 import Layout from "../../../components/Layout"
 import Delivery from "../../../components/Delivery"
@@ -12,98 +10,18 @@ import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
-import { client } from "../../../scripts/shopify"
-import BuyButton from "../../../components/BuyButton"
-import Cart from "../../../components/Cart"
 
 export default function MarsHydroSp3000({}) {
   const sp3000 = products[0]
   sp3000.bg.outer = "bg-gray-800"
-  // const [visible, setVisible] = useState(false)
-  // const [url, setUrl] = useState("/")
-  const [fixedHeader, setFixedHeader] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false)
-  const [checkout, setCheckout] = useState({ lineItems: [] })
-  const [product, setProduct] = useState(null)
-  // const [shop, setShop] = useState({})
-  console.log(checkout)
-
-  useEffect(() => {
-    const checkoutId = Cookies.get("checkoutId")
-    if (checkoutId) {
-      client.checkout.fetch(checkoutId).then((res) => {
-        setCheckout(res)
-      })
-    } else {
-      client.checkout.create().then((res) => {
-        setCheckout(res)
-        Cookies.set("checkoutId", res.id, { expires: 365 })
-      })
-    }
-    client.product
-      .fetch(process.env.products.sp3000)
-      .then((res) => setProduct(res))
-    // client.shop.fetchInfo().then((res) => setShop(res))
-  }, [])
-
-  const addVariantToCart = (variantId, quantity) => {
-    setCartOpen(true)
-
-    const lineItemsToAdd = [{ variantId, quantity }]
-    const checkoutId = checkout.id
-
-    return client.checkout
-      .addLineItems(checkoutId, lineItemsToAdd)
-      .then((res) => setCheckout(res))
-  }
-
-  const updateQuantityInCart = (lineItemId, quantity) => {
-    const checkoutId = checkout.id
-    const lineItemsToUpdate = [{ id: lineItemId, quantity }]
-
-    return client.checkout
-      .updateLineItems(checkoutId, lineItemsToUpdate)
-      .then((res) => setCheckout(res))
-  }
-
-  const removeLineItemInCart = (lineItemId) => {
-    const checkoutId = checkout.id
-
-    return client.checkout
-      .removeLineItems(checkoutId, [lineItemId])
-      .then((res) => {
-        setCheckout(res)
-        console.log(res)
-      })
-  }
-
-  const props = {
-    Layout: {
-      setFixedHeader,
-      fixedHeader,
-      setCartOpen,
-    },
-    Cart: {
-      cartOpen,
-      setCartOpen,
-      checkout,
-      updateQuantityInCart,
-      removeLineItemInCart,
-    },
-    BuyButton: {
-      fixedHeader,
-      setCartOpen,
-      addVariantToCart,
-      product,
-    },
-  }
-  // console.log(product.variants);
+  const productId =
+    process.env.products[
+      sp3000["href"].split("/")[sp3000["href"].split("/").length - 1]
+    ]
 
   return (
-    <Layout {...props.Layout} {...sp3000}>
-      <Cart {...props.Cart} />
-      <BuyButton {...sp3000} {...props.BuyButton} />
-      <CardBanner {...sp3000} button={false} />
+    <Layout productJson={sp3000} productId={productId}>
+      <CardBanner {...sp3000} />
       <Video {...sp3000} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
@@ -136,7 +54,6 @@ const feature = [
     img: {
       src: "/img/sp3000/ledchip.png",
       alt: "harvest",
-
       width: 1000,
       height: 857,
     },
@@ -147,7 +64,6 @@ const feature = [
     img: {
       src: "/img/sp3000/ppfd.png",
       alt: "ppfd",
-
       width: 1000,
       height: 857,
     },
@@ -158,7 +74,6 @@ const feature = [
     img: {
       src: "/img/sp3000/heatsink.png",
       alt: "heatsink",
-
       width: 1000,
       height: 753,
     },
@@ -191,7 +106,6 @@ const feature = [
     img: {
       src: "/img/sp3000/chip.png",
       alt: "chip",
-
       width: 1000,
       height: 880,
     },
