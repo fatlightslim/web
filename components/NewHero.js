@@ -9,7 +9,7 @@ export default function NewHero(params) {
         style={{
           height: "400%",
           width: "400%",
-          top: "-25%",
+          top: "-75%",
           left: "-100%",
           backgroundSize: "800px auto",
           backgroundImage: 'url("/img/hero.jpg")',
@@ -64,7 +64,7 @@ export default function NewHero(params) {
               style={{
                 height: "800%",
                 width: "400%",
-                top: "-50%",
+                top: "-70%",
                 left: "38%",
                 // backgroundSize: "400px auto",
                 // backgroundImage: 'url("/img/hero.jpg")',
