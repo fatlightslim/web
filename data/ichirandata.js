@@ -173,8 +173,8 @@ export const ichirandata = [
   {
     header: "MARS HYDRO",
     price: {
-      sale: "49,800",
-      regular: "59,800"
+      sale: "電気代も心配ない！",
+      regular: ""
     },
     img: {
       src: "/img/h.png",
@@ -190,8 +190,8 @@ export const ichirandata = [
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
  
     text: "text-black",
-    shortTitle: "TS3000",
-    short: "本格的な栽培を楽しみたいお客様にとてもおすすめのプロ向けモデル。収穫量を増やしたい方はこちらをチョイス！",
+    shortTitle: "ライトの選び方",
+    short: "FATLightSLIMのスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！",
     
   },
 ]
