@@ -10,6 +10,7 @@ import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import TStable from "../../../components/TStable"
 import { createCheckout } from "../../../scripts/shopify"
+import Call from "../../../components/Call"
 
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
@@ -78,6 +79,7 @@ export default function MarsHydroTS() {
       <TStable urls={urls} />
       <Delivery />
       <Refund />
+      <Call />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />

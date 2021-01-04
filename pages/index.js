@@ -10,6 +10,7 @@ import RelatedProducts from "../components/RelatedProducts2";
 import Refund from "../components/Refund";
 import FeatureNew from "../components/FeatureNew";
 import NewHero from "../components/NewHero";
+import Ichiran from "../components/Ichiran";
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
 
@@ -32,6 +33,7 @@ export default function Home({products}) {
       <Headline data={data.Headline} />
       {/* <Features data={data.Features} /> */}
       <FeatureNew />
+      <Ichiran />
       <Delivery />
       <ReviewBanner />
       <Refund />
