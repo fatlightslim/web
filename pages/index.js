@@ -1,3 +1,5 @@
+import { withRouter } from 'next/router'
+
 import { data } from "../data/home";
 import Layout from "../components/Layout";
 import Headline from "../components/Headline";
@@ -24,9 +26,9 @@ import NewHero from "../components/NewHero";
 //   }
 // }
 
-export default function Home({products}) {
+ function Home({router}) {
   return (
-    <Layout>
+    <Layout router={router}>
       {/* <ProductCarousel /> */}
       <NewHero />
       <Headline data={data.Headline} />
@@ -40,3 +42,5 @@ export default function Home({products}) {
     </Layout>
   );
 }
+
+export default withRouter(Home)

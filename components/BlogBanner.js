@@ -29,9 +29,9 @@ function Circle({}) {
 
 function Button() {
   return (
-    <div className="text-center">
+    <div className="text-center relative z-30">
     <a
-      href="https://shop.fatlightslim.com/blogs/staff/how-to-choose-your-grow-light"
+      href="/posts/how-to-choose-your-grow-light"
       className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"
     >
       詳細を見る
@@ -57,7 +57,7 @@ function HeaderSection({
         <h2 className="mt-1 text-2xl font-extrabold text-white sm:text-4xl sm:tracking-tight">
           {data.h2.title}
         </h2>
-        <p className="max-w-xl mt-5 mx-auto text-lg text-gray-50 font-bold">
+        <p className="max-w-xl mt-5 mx-auto text-lg text-gray-50 font-bold dosis">
           {data.h2.desc}
         </p>
       </div>

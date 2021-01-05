@@ -10,7 +10,7 @@ module.exports = {
     ],
     options: {
       safelist: [
-        "bg-indigo-600", 
+        "bg-indigo-600",
         "hover:bg-indigo-700",
         "lg:col-start-6",
         "lg:col-end-8",
@@ -41,7 +41,11 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  // variants: {
+  //   extend: {
+  //     border: ["last"],
+  //   },
+  // },
   plugins: [
     // require("@tailwindcss/aspect-ratio")
   ],
