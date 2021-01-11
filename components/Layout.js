@@ -125,11 +125,11 @@ export default function Layout({
     // <div className="mx-auto">
     <>
       <Head>
-        <title>{data.title}</title>
+        <title>{productJson &&  `${productJson.meta.title} | `}{data.title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="theme-color" content={data.color} />
-        <meta name="description" content={data.desc} />
+        <meta name="description" content={productJson && productJson.meta.description || data.desc} />
         <link rel="canonical" href={data.href} />
         <meta property="og:site_name" content={data.og.site_name} />
         <meta property="og:url" content={data.og.url} />

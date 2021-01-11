@@ -1,5 +1,9 @@
 export const products = [
   {
+    meta: {
+      title: "MARS HYDRO SP3000",
+      description: "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
+    },
     header: "MARS HYDRO",
     price: {
       sale: "79,800",
@@ -49,6 +53,10 @@ export const products = [
     }
   },
   {
+    meta: {
+      title: "MARS HYDRO SP150",
+      description: "80 x 80cmのテントに最適な植物用LEDライトの新定番。最新のチップで太陽光色のフルスペクトラムを実現！買って損はしません。"
+    },
     header: "MARS HYDRO",
     title: {
       1: "SP150",
@@ -97,6 +105,10 @@ export const products = [
     }
   },
   {
+    meta: {
+      title: "MARS HYDRO TSシリーズ",
+      description: "アメリカAmazonで最も売れている植物用LEDライト、MARS HYDROの定番ベストセラー商品。栽培環境に合わせて選べる5つのサイズ、アルミ製の高反射フードで植物の成長をブーストします。"
+    },
     header: "MARS HYDRO",
     title: {
       1: "TSシリーズ",
@@ -142,6 +154,10 @@ export const products = [
 
   },
   {
+    meta: {
+      title: "MARS HYDRO SP6500",
+      description: "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
+    },
     header: "MARS HYDRO",
     price: {
       sale: "129,800",
@@ -190,6 +206,10 @@ export const products = [
     }
   },
   {
+    meta: {
+      title: "MARS HYDRO FC6500",
+      description: "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
+    },
     header: "MARS HYDRO",
     price: {
       sale: "149,800",
