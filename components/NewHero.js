@@ -18,7 +18,7 @@ export default function NewHero(params) {
       <div
         className="relative min-h-screen lg:min-w-3xl xl:min-w-4xl lg:flex lg:items-center lg:justify-center lg:w-3/5 lg:py-20 lg:pl-8 lg:pr-8 bg-no-repeat"
         style={{
-          backgroundImage: 'url("/img/angled-background.svg")',
+          backgroundImage: 'url("https://cdn.shopify.com/s/files/1/0470/9089/2956/files/angled-background.svg?v=1610347412")',
           backgroundSize: "100% auto",
           backgroundPosition: "-5px -5px",
         }}
