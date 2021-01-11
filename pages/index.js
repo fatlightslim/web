@@ -17,7 +17,6 @@ import FCcard from "../components/FCcard"
   // Set your secret key. Remember to switch to your live secret key in production!
   // See your keys here: https://dashboard.stripe.com/account/apikeys
   // const Stripe = require("stripe")
-  // const stripe = Stripe("sk_live_yWdxMhHRxkr7VgzDbiJNzi6Z")
 
 // export async function getStaticProps() {
 //   const res = await client.product.fetchAll()
