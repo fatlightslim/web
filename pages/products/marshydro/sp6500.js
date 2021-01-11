@@ -40,7 +40,7 @@ export default function MarsHydroSp3000({}) {
 const feature = [
   {
     lead:
-      "白色、及び赤色のLedチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
+      "白色、及び赤色のLEDチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
     img: {
       src: "/img/sp6500/SP6500-01.png",
       alt: "スペクトル",
@@ -50,7 +50,7 @@ const feature = [
   },
   {
     lead:
-      "SAMSUNG製 LM301BとOSRAM製Ledチップを使用。2356個にも及ぶ高密度に配置されたLedが、植物たちに太陽のような温かい光と安心感を与えます。",
+      "SAMSUNG製 LM301BとOSRAM製LEDチップを使用。2356個にも及ぶ高密度に配置されたLEDが、植物たちに太陽のような温かい光と安心感を与えます。",
     img: {
       src: "/img/sp6500/sp6500perform.png",
       alt: "performance",
