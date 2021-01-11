@@ -3,13 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 
 
-export default function Henpin({
+export default function FCcard({
   data = {
     header: "フォルダブルライト登場！",
     title: {
       1: "最先端の",
       2: "新商品",
-      3: "ついに入荷しました",
+      3: "ついに入荷！",
       //   3: "お届けします。",
       color: "#fc2",
     },

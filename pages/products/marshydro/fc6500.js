@@ -11,6 +11,7 @@ import Optimal from "../../../components/Optimal"
 import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
 import CompareTable from "../../../components/CompareTable"
 
+
 export default function MarsHydroFc6500({}) {
   const product = products[4]
   product.bg.outer = "bg-white-800"
@@ -27,6 +28,7 @@ export default function MarsHydroFc6500({}) {
       <CompareTable main={products[4]} left={products[3]} right={products[0]} />
       <Delivery />
       <Refund />
+   
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
