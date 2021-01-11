@@ -141,4 +141,52 @@ export const products = [
     ],
 
   },
+  {
+    header: "MARS HYDRO",
+    price: {
+      sale: "129,800",
+      regular: "139,800"
+    },
+    title: {
+      1: "SP6500",
+      2: "新しい世界を",
+      3: "体感せよ",
+      color: "#fce428",
+    },
+    img: {
+      src: "/img/sp6500/sp6500e.png",
+      alt: "MARS HYDRO SP6500",
+      width: 1500,
+      height: 1303
+    },
+    desc: {
+      1: "最新のSAMSUNG製LB301BLEDチップとOSRAM製チップがあなたを新世界へと誘います。一世代前の物と比較しLEDチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
+    },
+    button: "SP6500の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
+    href: "/products/marshydro/sp6500",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-gray-900 via-yellow-300 to-yellow-700",
+      outer: "bg-gray-100"
+    },
+    text: "text-white",
+    shortTitle: "SP6500",
+    descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
+    lead: "最新モデル",
+    feature: [
+      "2020年最新版LB301Bチップ搭載",
+      "IP65 防水・防塵",
+      "LED寿命100,000時間",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "1073mm x 92mm",
+      "デイジーチェーン",
+      "ノイズレス"
+    ],
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
+    }
+  },
 ];

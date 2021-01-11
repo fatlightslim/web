@@ -12,19 +12,20 @@ import RelatedProducts from "../components/RelatedProducts2";
 import Refund from "../components/Refund";
 import FeatureNew from "../components/FeatureNew";
 import NewHero from "../components/NewHero";
-// import Client from 'shopify-buy/index.unoptimized.umd'
-// const client = Client.buildClient(process.env.shopify)
+import Client from 'shopify-buy/index.unoptimized.umd'
+const client = Client.buildClient(process.env.shopify)
 
-// export async function getStaticProps() {
-//   const res = await client.product.fetchAll()
-//   const products = await JSON.parse(JSON.stringify(res))
-//   return {
-//     props: {
-//       products,
-//       // buildTimestamp: Date.now(),
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const res = await client.product.fetchAll()
+  const products = await JSON.parse(JSON.stringify(res))
+  console.log(products);
+  return {
+    props: {
+      products,
+      // buildTimestamp: Date.now(),
+    },
+  }
+}
 
  function Home({router}) {
   return (
