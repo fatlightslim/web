@@ -149,8 +149,8 @@ export const products = [
     },
     title: {
       1: "SP6500",
-      2: "SP3000を",
-      3: "超えるもの",
+      2: "新しい世界を",
+      3: "体感せよ",
       color: "#fce428",
     },
     img: {
@@ -160,14 +160,14 @@ export const products = [
       height: 670
     },
     desc: {
-      1: "SAMSUNG製LB301Bチップは、SP3000を省エネでパワフルな一台にしましたが、それだけでは終わりません。チップ数はSP3000の倍。お客様を、植物を、新たな次元へお届けします。",
+      1: "最新のSAMSUNG製LB301BLedチップとOSRAMLedチップがあなたを新世界へと誘います。一世代前の物と比較しLedチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
     },
     button: "SP6500の詳細を見る",
     // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
-    href: "/products/marshydro/sp3000",
+    href: "/products/marshydro/sp6500",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
-      inner: "from-yellow-300 via-yellow-900 to-orange-800",
+      inner: "from-gray-900 via-yellow-300 to-yellow-700",
       outer: "bg-gray-100"
     },
     text: "text-white",

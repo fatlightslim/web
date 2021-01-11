@@ -40,7 +40,7 @@ export default function MarsHydroSp3000({}) {
 const feature = [
   {
     lead:
-      "白色、及び赤色のチップセットを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
+      "白色、及び赤色のLedチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
     img: {
       src: "/img/sp6500/SP6500-01.png",
       alt: "スペクトル",
@@ -50,7 +50,7 @@ const feature = [
   },
   {
     lead:
-      "SAMSUNG製 LM301Bチップセットを使用。SP3000にも使用されているチップセットでありながら、その数は倍。お客様に新たな次元の使用感をお約束します。",
+      "SAMSUNG製 LM301BとOSRAM製Ledチップを使用。2356個にも及ぶ高密度に配置されたLedが、植物たちに太陽のような温かい光と安心感を与えます。",
     img: {
       src: "/img/sp6500/sp6500perform.png",
       alt: "performance",
@@ -60,7 +60,7 @@ const feature = [
   },
   {
     lead:
-      "PPFD(光合成光量子束密度)の測定におけるパフォーマンスでSP6500の有能製を証明。SP3000を遥かに超える高密度を実現",
+      "PPFD(光合成光量子束密度)の測定におけるパフォーマンスでSP6500の有能性を証明。SP6500を使わない理由があるでしょうか？",
     img: {
       src: "/img/sp6500/SP6500ppfd.png",
       alt: "ppfd",
