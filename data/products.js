@@ -144,8 +144,8 @@ export const products = [
   {
     header: "MARS HYDRO",
     price: {
-      sale: "120,000",
-      regular: "89,800"
+      sale: "129,800",
+      regular: "139,800"
     },
     title: {
       1: "SP6500",
@@ -156,11 +156,11 @@ export const products = [
     img: {
       src: "/img/SP6500/sp6500e.png",
       alt: "MARS HYDRO SP6500",
-      width: 900,
-      height: 670
+      width: 1500,
+      height: 1303
     },
     desc: {
-      1: "最新のSAMSUNG製LB301BLEDチップとOSRAMLEDチップがあなたを新世界へと誘います。一世代前の物と比較しLEDチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
+      1: "最新のSAMSUNG製LB301BLEDチップとOSRAM製チップがあなたを新世界へと誘います。一世代前の物と比較しLEDチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
     },
     button: "SP6500の詳細を見る",
     // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",

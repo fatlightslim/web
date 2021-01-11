@@ -11,18 +11,18 @@ import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
 
-export default function MarsHydroSp3000({}) {
-  const sp3000 = products[3]
-  sp3000.bg.outer = "bg-gray-800"
+export default function MarsHydrosp6500({}) {
+  const product = products[3]
+  product.bg.outer = "bg-gray-800"
   const productId =
     process.env.products[
-      sp3000["href"].split("/")[sp3000["href"].split("/").length - 1]
+      product["href"].split("/")[product["href"].split("/").length - 1]
     ]
+    console.log(productId);
 
   return (
-    <Layout productJson={sp3000} productId={productId}>
-      <CardBanner {...sp3000} />
-      {/* <Video {...sp3000} /> */}
+    <Layout productJson={product} productId={productId}>
+      <CardBanner {...product} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
       <Delivery />
@@ -72,7 +72,7 @@ const feature = [
     lead:
       "アルミ製フルボディヒートシンクが熱を抑えます。ファンなし。ノイズなし。かなりクール。",
     img: {
-      src: "/img/sp3000/heatsink.png",
+      src: "/img/sp6500/heatsink.png",
       alt: "heatsink",
       width: 1000,
       height: 753,
@@ -83,7 +83,7 @@ const feature = [
     lead:
       "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
     img: {
-      src: "/img/sp3000/connect.png",
+      src: "/img/sp6500/connect.png",
       alt: "connect",
       width: 1000,
       height: 713,
@@ -94,7 +94,7 @@ const feature = [
   //   lead:
   //     "個人でのホビー用途から商業施設での本格的な栽培まで多くのお客様に幅広く支持されています。",
   //   img: {
-  //     src: "/img/sp3000/commercial.png",
+  //     src: "/img/sp6500/commercial.png",
   //     alt: "commercial",
   //     width: 1000,
   //     height: 1000,
@@ -104,7 +104,7 @@ const feature = [
     lead:
       "MARS HYDRO社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
     img: {
-      src: "/img/sp3000/chip.png",
+      src: "/img/sp6500/chip.png",
       alt: "chip",
       width: 1000,
       height: 880,
