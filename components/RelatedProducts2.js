@@ -8,7 +8,7 @@ const productsSorted = [1, 0, 3, 2, 4]
 
 function Product({ title, img, bg, desc, button, header, href }) {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto mt-2">
       <div
         className={`rounded-xl shadow-xl overflow-hidden bg-gradient-to-r ${bg.inner}`}
       >
