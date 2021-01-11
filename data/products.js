@@ -154,7 +154,7 @@ export const products = [
       color: "#fce428",
     },
     img: {
-      src: "/img/SP6500/sp6500e.png",
+      src: "/img/sp6500/sp6500e.png",
       alt: "MARS HYDRO SP6500",
       width: 1500,
       height: 1303
