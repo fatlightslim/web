@@ -12,7 +12,7 @@ import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
 import CompareTable from "../../../components/CompareTable"
 
 export default function MarsHydroFc6500({}) {
-  const fc6500 = products[4]
+  const fc6500 = products[3]
   fc6500.bg.outer = "bg-white-800"
   const productId =
     process.env.products[
@@ -24,7 +24,7 @@ export default function MarsHydroFc6500({}) {
       <CardBanner {...fc6500} />
       <ProductFeatureWhite feature={feature} />
       <Size spec={spec} />
-      <CompareTable main={products[4]} left={products[3]} right={products[0]} />
+      <CompareTable main={products[3]} left={products[1]} right={products[0]} />
       <Delivery />
       <Refund />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">

@@ -144,57 +144,8 @@ export const products = [
   {
     header: "MARS HYDRO",
     price: {
-      sale: "79,800",
-      regular: "89,800"
-    },
-    title: {
-      1: "SP3000",
-      2: "ゲームを変える",
-      3: "ライトです。",
-      color: "#C48CFC",
-    },
-    img: {
-      src: "/img/SP3000_transparentx.png",
-      alt: "MARS HYDRO SP3000",
-      width: 900,
-      height: 670
-    },
-    desc: {
-      1: "最新のSAMSUNG LB301Bチップは、SP3000をとてつもなく省エネでパワフルな一台にします。一世代前の性能と比較して収穫量が最大2.5倍。ノイズレスで煌々と照りつけるライトはまるでハワイ気分！さらに、電気使用量は従来モデルと比較して最大30%削減。驚きの省エネ・高コスパモデル",
-      2: "です。",
-    },
-    button: "SP3000の詳細を見る",
-    // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
-    href: "/products/marshydro/sp3000",
-    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
-    bg: {
-      inner: "from-gray-800 via-purple-900 to-indigo-900",
-      outer: "bg-gray-100"
-    },
-    text: "text-white",
-    shortTitle: "SP3000",
-    descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
-    lead: "最新モデル",
-    feature: [
-      "2020年最新版LB301Bチップ搭載",
-      "IP65 防水・防塵",
-      "LED寿命100,000時間",
-      "最大収穫量 2.5g/w",
-      "アルミ製ヒートシンク",
-      "1080mm x 108mm",
-      "デイジーチェーン",
-      "ノイズレス"
-    ],
-    video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
-    }
-  },
-  {
-    header: "MARS HYDRO",
-    price: {
       sale: "149,800",
-      regular: "89,800"
+      regular: "159,800"
     },
     title: {
       1: "FC6500",

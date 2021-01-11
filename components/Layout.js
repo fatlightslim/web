@@ -110,13 +110,16 @@ export default function Layout({
 
   // console.log(children);
   const additionalProps = { addVariantToCart, product }
-  const newChildren = children.length > 0 ? children.map((v, i) => {
-    return (
-      <React.Fragment key={i}>
-        {cloneElement(v, additionalProps)}
-      </React.Fragment>
-    )
-  }) : children
+  const newChildren =
+    children.length > 0
+      ? children.map((v, i) => {
+          return (
+            <React.Fragment key={i}>
+              {cloneElement(v, additionalProps)}
+            </React.Fragment>
+          )
+        })
+      : children
 
   return (
     // <div className="mx-auto">
@@ -159,11 +162,12 @@ export default function Layout({
         >
           <Nav setCartOpen={setCartOpen} router={router} />
 
-        {newChildren}
-
+          {newChildren}
         </ScrollTrigger>
         <Footer />
-        {product && product.productType === "SP" && <BuyButton {...props.BuyButton} />}
+        {product && product.productType === "SP" && (
+          <BuyButton {...props.BuyButton} />
+        )}
         <Cart {...props.Cart} />
       </div>
     </>
