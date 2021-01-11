@@ -18,7 +18,6 @@ export default function Nav({ router, setCartOpen }) {
             type="button"
             className="group rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none "
           >
-
             <svg
               className="h-6 w-6 text-gray-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +32,6 @@ export default function Nav({ router, setCartOpen }) {
                 d={!menuOpen ? "M4 8h16M4 16h16" : "M6 18L18 6M6 6l12 12"}
               />
             </svg>
-
           </button>
           <Logo className="text-gray-50 mx-auto" />
 

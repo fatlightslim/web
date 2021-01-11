@@ -1,5 +1,4 @@
 import { withRouter } from "next/router"
-
 import { data } from "../data/home"
 import Layout from "../components/Layout"
 import Headline from "../components/Headline"
