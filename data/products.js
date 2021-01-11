@@ -194,7 +194,7 @@ export const products = [
     header: "MARS HYDRO",
     price: {
       sale: "149,800",
-      regular: "89,800"
+      regular: "159,800"
     },
     title: {
       1: "FC6500",
@@ -222,7 +222,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "FC6500",
-    descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
+    descForMenu: "業界最上級のハイエンドモデル",
     lead: "最新モデル",
     feature: [
       "2020年最新版LB301Bチップ搭載",
