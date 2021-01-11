@@ -18,6 +18,7 @@ import FCcard from "../components/FCcard"
   // See your keys here: https://dashboard.stripe.com/account/apikeys
   // const Stripe = require("stripe")
 
+
 // export async function getStaticProps() {
 //   const res = await client.product.fetchAll()
 //   const products = await JSON.parse(JSON.stringify(res))

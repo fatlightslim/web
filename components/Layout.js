@@ -4,9 +4,38 @@ import Nav from "./Nav"
 import ScrollTrigger from "react-scroll-trigger"
 import Head from "next/head"
 import Footer from "./Footer"
-import { client } from "../scripts/shopify"
+// import { client } from "../scripts/shopify"
 import BuyButton from "./BuyButton"
 import Cart from "./Cart"
+const contentful = require("contentful");
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: "4p0n5sjyhk5h",
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: "gTHu912mqms6OwX2MIDHGKE549yTo0mRZgbMsROIf9I"
+});
+// This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
+client.getEntries({content_type: "product"}).then(r => {
+
+console.log(r.items)
+})
+// client
+//   .getEntries("")
+//   .then(entry => console.log(entry))
+//   .catch(err => console.log(err));
+
+const query = `
+{
+  Product {
+    items {
+      title
+      price {
+        description
+      }
+    }
+  }
+}
+`;
 
 export default function Layout({
   children,
@@ -36,7 +65,33 @@ export default function Layout({
   const [cartOpen, setCartOpen] = useState(false)
   const [checkout, setCheckout] = useState({ lineItems: [] })
   const [product, setProduct] = useState(null)
-  // console.log(product);
+
+const [page, setPage] = useState(null);
+  console.log(page);
+
+  useEffect(() => {
+    window
+      .fetch(`https://graphql.contentful.com/content/v1/spaces/4p0n5sjyhk5h/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: "Bearer gTHu912mqms6OwX2MIDHGKE549yTo0mRZgbMsROIf9I",
+        },
+        // send the GraphQL query
+        body: JSON.stringify({ query }),
+      })
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+
+        // rerender the entire component with new data
+        console.log(data);
+        // setPage(data.Product.items[0]);
+      });
+  }, []);
 
   useEffect(() => {
     if (productId) {
