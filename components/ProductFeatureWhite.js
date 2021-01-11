@@ -15,8 +15,8 @@ export default function ProductFeature({ feature }) {
 
 function Container({ children }) {
   return (
-    <div className="bg-black text-left">
-      <div className="max-w-7xl mx-auto bg-black">{children}</div>
+    <div className="bg-white text-left">
+      <div className="max-w-7xl mx-auto bg-white ">{children}</div>
     </div>
   )
 }
@@ -43,9 +43,9 @@ function Img({ img }) {
 
 function Card({ children }) {
   return (
-    <div className="bg-black">
-      <div className={`max-w-3xl mx-auto py-12 lg:p-4 lg:py-12 text-white`}>
-        <div className={`bg-black lg:rounded-lg shadow-xl overflow-hidden`}>
+    <div className="bg-white">
+      <div className={`max-w-3xl mx-auto py-12 lg:p-4 lg:py-12 text-black`}>
+        <div className={`bg-white lg:rounded-lg shadow-xl overflow-hidden`}>
           {children}
         </div>
       </div>

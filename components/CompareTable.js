@@ -34,7 +34,7 @@ function Title({ img, title, price }) {
         <div className="mt-4 flex items-center justify-center">
           <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
             <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-            <span className="font-extrabold">{price.sale}</span>
+            <span className="font-bold dosis">{price.sale}</span>
           </span>
         </div>
         <span className="text-xs block text-center font-medium text-gray-500">
@@ -203,7 +203,8 @@ function ProductMain({ lead, img, shortTitle, price, feature, addVariantToCart, 
   );
 }
 
-export default function CompareTable({ url, main, left, right, addVariantToCart, product }) {
+export default function CompareTable({ url, main, left, right, product, ...rest }) {
+  console.log(product);
   return product ? (
     <div className="bg-gray-900 relative z-10">
       <Header />
@@ -213,7 +214,7 @@ export default function CompareTable({ url, main, left, right, addVariantToCart,
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">
-              <ProductMain {...main} url={url} addVariantToCart={addVariantToCart} variant={product.variants[0]} />
+              <ProductMain {...main} url={url} {...rest} variant={product.variants[0]} />
               <Product {...left} />
               <Product {...right} index="last" />
             </div>

@@ -1,4 +1,5 @@
 import Image from "next/image"
+const bg = "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/hero.jpg?v=1610334052"
 
 export default function NewHero(params) {
   return (
@@ -11,7 +12,7 @@ export default function NewHero(params) {
           top: "-25%",
           left: "-100%",
           backgroundSize: "800px auto",
-          backgroundImage: 'url("/img/hero.jpg")',
+          backgroundImage: `url("${bg}")`,
         }}
       />
       <div
@@ -64,7 +65,7 @@ export default function NewHero(params) {
                 top: "-100%",
                 left: "-100%",
                 backgroundSize: "400px auto",
-                backgroundImage: 'url("/img/hero.jpg")',
+                backgroundImage: `url("${bg}")`,
               }}
             >
 {/* 

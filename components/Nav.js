@@ -1,12 +1,12 @@
-import Logo from "./Logo";
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { products } from "../data/products";
-import { Router } from "next/router";
+import Logo from "./Logo"
+import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
+import { products } from "../data/products"
+import { Router } from "next/router"
 
 export default function Nav({ router, setCartOpen }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const FlayoutMenu = () => (
     <div className={`relative z-50`}>
@@ -18,40 +18,20 @@ export default function Nav({ router, setCartOpen }) {
             type="button"
             className="group rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none "
           >
-            {/* Heroicon name: chevron-down Item active: "text-gray-600", Item
-        inactive: "text-gray-400" */}
-            {!menuOpen ? (
-              <svg
-                className="h-6 w-6 text-gray-50"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M4 8h16M4 16h16"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-50"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            )}
+            <svg
+              className="h-6 w-6 text-gray-50"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d={!menuOpen ? "M4 8h16M4 16h16" : "M6 18L18 6M6 6l12 12"}
+              />
+            </svg>
           </button>
           <Logo className="text-gray-50 mx-auto" />
 
@@ -85,19 +65,19 @@ export default function Nav({ router, setCartOpen }) {
         }`}
       >
         <Menu />
-        <Actions  />
+        <Actions />
       </div>
     </div>
-  );
-  let className = "py-1 bg-black bg-opacity-80 z-30";
+  )
+  let className = "py-1 bg-black bg-opacity-80 z-30"
   if (router && router.pathname === "/") {
-    className += " fixed top-0 w-full z-40";
+    className += " fixed top-0 w-full z-40"
   }
   return (
     <div className={className}>
-      <FlayoutMenu  />
+      <FlayoutMenu />
     </div>
-  );
+  )
 }
 
 const Menu = () => (
@@ -108,13 +88,13 @@ const Menu = () => (
       ))}
     </div>
   </div>
-);
+)
 
 const List = ({ shortTitle, descForMenu, href, img, index }) => {
   let className =
-    "-m-3 p-3 flex flex-col justify-between sm:rounded-lg hover:bg-gray-50 transition ease-in-out duration-150 border-b border-dotted sm:border-none last:border-none";
+    "-m-3 p-3 flex flex-col justify-between sm:rounded-lg hover:bg-gray-50 transition ease-in-out duration-150 border-b border-dotted sm:border-none last:border-none"
   if (index === products.length - 1) {
-    className += " border-none";
+    className += " border-none"
   }
 
   return (
@@ -146,14 +126,14 @@ const List = ({ shortTitle, descForMenu, href, img, index }) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
 const actions = [
   // { label: "全ての商品を見る" },
-  { label: "よくある質問", link: "/faq"  },
+  { label: "よくある質問", link: "/faq" },
   { label: "お問い合わせ", link: "/contact" },
-];
+]
 
 const Actions = () => (
   <div className="bg-gray-50">
@@ -163,38 +143,36 @@ const Actions = () => (
       ))}
     </div>
   </div>
-);
+)
 
 const ActionMenu = ({ label, link }) => (
   <div className="flow-root">
     <Link href={link}>
-    <a
-      className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150"
-    >
-      {/* Heroicon name: play */}
-      <svg
-        className="flex-shrink-0 h-6 w-6 text-gray-400"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-      <span className="ml-3">{label}</span>
-    </a>
+      <a className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150">
+        {/* Heroicon name: play */}
+        <svg
+          className="flex-shrink-0 h-6 w-6 text-gray-400"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span className="ml-3">{label}</span>
+      </a>
     </Link>
   </div>
-);
+)

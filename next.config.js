@@ -2,17 +2,17 @@ const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
 })
 module.exports = withMDX({
-// module.exports = {
+  // module.exports = {
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
-    domains: ['cdn.shopify.com']
+    domains: ["cdn.shopify.com"],
   },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
   //   defaultLocale: "ja",
   // },
   plugins: [
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/typography"),
     // ...
   ],
   webpack: (config, { isServer }) => {

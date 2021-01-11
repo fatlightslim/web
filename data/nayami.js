@@ -35,13 +35,13 @@ export const reviews = [
     dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
     link: "https://fatlightslim.com/products/mars-hydro-ts-series"
   },
-  {
-    img: "/img/review0.png",
-    bg: "bg-gray-50",
-    lead: "すごく明るくて、静かで、熱くならない",
-    lead2: "似たような物を使ったことあるけど付けっぱなしだどすぐ壊れちゃう",
-    dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
-    dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
-    link: "https://fatlightslim.com/products/mars-hydro-ts-series"
-  },
+  // {
+  //   img: "/img/review0.png",
+  //   bg: "bg-gray-50",
+  //   lead: "すごく明るくて、静かで、熱くならない",
+  //   lead2: "似たような物を使ったことあるけど付けっぱなしだどすぐ壊れちゃう",
+  //   dq: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq.png?v=1604515690",
+  //   dq2: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/dq2.png?v=1604515689",
+  //   link: "https://fatlightslim.com/products/mars-hydro-ts-series"
+  // },
 ]

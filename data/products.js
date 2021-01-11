@@ -18,7 +18,7 @@ export const products = [
       height: 670
     },
     desc: {
-      1: "最新のSAMSUNG LB301Bチップは、SP3000をとてつもなく省エネでパワフルな一台にします。一世代前の性能と比較して収穫量が最大2.5倍。ノイズレスで煌々と照りつけるライトはまるでハワイ気分！さらに、電気使用量は従来モデルと比較して最大30%削減。驚きの省エネ・高コスパモデル",
+      1: "最新のSAMSUNG LM301Bチップは、SP3000をとてつもなく省エネでパワフルな一台にします。一世代前の性能と比較して収穫量が最大2.5倍。ノイズレスで煌々と照りつけるライトはまるでハワイ気分！さらに、電気使用量は従来モデルと比較して最大30%削減。驚きの省エネ・高コスパモデル",
       2: "です。",
     },
     button: "SP3000の詳細を見る",
@@ -181,6 +181,55 @@ export const products = [
       "最大収穫量 2.5g/w",
       "アルミ製ヒートシンク",
       "1073mm x 92mm",
+      "デイジーチェーン",
+      "ノイズレス"
+    ],
+    video: {
+      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
+    }
+  },
+  {
+    header: "MARS HYDRO",
+    price: {
+      sale: "149,800",
+      regular: "159,800"
+    },
+    title: {
+      1: "FC6500",
+      2: "業界最上級の",
+      3: "プレミアムLED",
+      color: "#C48CFC",
+    },
+    img: {
+      src: "/img/fc6500/fcmain.png",
+      alt: "MARS HYDRO FC6500",
+      width: 900,
+      height: 670
+    },
+    desc: {
+      1: "ついに来ました！圧倒的なハイスペック。LEDチップのクオリティ、発熱調整、防水防塵、省エネ設計まで業界トップクラスのハイエンドモデル。MARS HYDRO定番モデルのTS3000より約3倍以上のLEDチップが入ったプレミアムモデルになります。商業用ではもちろん、テント用としても大人気",
+      2: "です。",
+    },
+    button: "FC6500の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
+    href: "/products/marshydro/fc6500",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-gray-900 via-pink-700 to-pink-600",
+      outer: "bg-gray-100"
+    },
+    text: "text-white",
+    shortTitle: "FC6500",
+    descForMenu: "業界最上級のハイエンドモデル",
+    lead: "最新モデル",
+    feature: [
+      "2020年最新版LB301Bチップ搭載",
+      "3,144個のLEDチップセットアップ",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "フォルダブル式",
       "デイジーチェーン",
       "ノイズレス"
     ],
