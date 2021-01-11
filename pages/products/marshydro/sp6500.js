@@ -18,7 +18,6 @@ export default function MarsHydrosp6500({}) {
     process.env.products[
       product["href"].split("/")[product["href"].split("/").length - 1]
     ]
-    console.log(productId);
 
   return (
     <Layout productJson={product} productId={productId}>
@@ -42,7 +41,7 @@ const feature = [
     lead:
       "白色、及び赤色のLEDチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
     img: {
-      src: "/img/sp6500/SP6500-01.png",
+      src: "/img/sp6500/sp6500-01.png",
       alt: "スペクトル",
       width: 1000,
       height: 1000,
