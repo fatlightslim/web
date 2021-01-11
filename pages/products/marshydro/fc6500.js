@@ -12,19 +12,19 @@ import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
 import CompareTable from "../../../components/CompareTable"
 
 export default function MarsHydroFc6500({}) {
-  const fc6500 = products[3]
-  fc6500.bg.outer = "bg-white-800"
+  const product = products[4]
+  product.bg.outer = "bg-white-800"
   const productId =
     process.env.products[
-      fc6500["href"].split("/")[fc6500["href"].split("/").length - 1]
+      product["href"].split("/")[product["href"].split("/").length - 1]
     ]
 
   return (
-    <Layout productJson={fc6500} productId={productId}>
-      <CardBanner {...fc6500} />
+    <Layout productJson={product} productId={productId}>
+      <CardBanner {...product} />
       <ProductFeatureWhite feature={feature} />
       <Size spec={spec} />
-      <CompareTable main={products[3]} left={products[1]} right={products[0]} />
+      <CompareTable main={products[4]} left={products[3]} right={products[0]} />
       <Delivery />
       <Refund />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
@@ -131,7 +131,7 @@ const spec = {
   img: {
     src: "/img/fc6500/size6500.png",
     alt: "fc6500 size",
-    width: 1000,
-    height: 683,
+    width: 1200,
+    height: 800,
   },
 }

@@ -2,17 +2,17 @@ const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
 })
 module.exports = withMDX({
-// module.exports = {
+  // module.exports = {
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
-    domains: ['cdn.shopify.com']
+    domains: ["cdn.shopify.com"],
   },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
   //   defaultLocale: "ja",
   // },
   plugins: [
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/typography"),
     // ...
   ],
   webpack: (config, { isServer }) => {
@@ -32,7 +32,7 @@ module.exports = withMDX({
       sp150: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTg2NTU2NDQ=",
       ts: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTkzNzY1NDA=",
       sp6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NDgxMDcxNjQ=",
-      fc6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NDgxMDcxNjQ="
+      fc6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NzM2NjYyMDQ=",
     },
     customKey: "my-value",
     company: {
