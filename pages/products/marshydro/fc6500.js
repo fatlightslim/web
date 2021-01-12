@@ -25,7 +25,7 @@ export default function MarsHydroFc6500({}) {
       <CardBanner {...fc6500} />
       <ProductFeatureWhite feature={feature} />
       <Size spec={spec} />
-      <CompareTable main={products[4]} left={products[3]} right={products[0]} />
+      <CompareTable main={products[4]} left={products[3]} right={products[5]} />
       <Delivery />
       <Refund />
    
