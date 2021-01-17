@@ -42,7 +42,7 @@ const feature = [
     lead:
       "これまでの赤色・青色LEDの機能に加えて強力な白色LEDを追加することで太陽光のような理想のライトに近づきました。",
     img: {
-      src: "/img/sp3000/spectrum_jap.png",
+      src: "/img/sp3000/spectrum.png",
       alt: "スペクトル",
       width: 1000,
       height: 1000,
