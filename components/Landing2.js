@@ -59,7 +59,7 @@ export default function Landing2(params) {
                     <h2 class="font-bold mx-auto text-center text-2xl md:text-5xl max-w-3xl leading-tight text-gray-800 mb-12">屋内栽培の本場アメリカで<br /><span class="underline">9割以上</span>のお客様にご満足の評価を<br />いただいております！</h2>
 
 
-                    <p class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed">明るさ、熱調整、消音、電気消費量、値段まで！全ての部門で平均☆4.7点を獲得。「収穫量が十分ではない」「植物が急に弱った」等の原因のほとんどはライトの光量不足によるものです。「植物の元気のために電気代やブレーカー、故障のことは気にせずにライトを当て続けたい」そんな夢が叶う2020年最新版の植物用LEDライトをお届けします。</p>
+                    <p class="mb-6 text-gray-600 mx-auto max-w-lg text-center leading-relaxed">明るさ、熱調整、消音、電気消費量、値段まで！全ての部門で平均☆4.7点を獲得。「収穫量が十分ではない」「植物が急に弱った」等の原因のほとんどはライトの光量不足によるものです。「植物の元気のために電気代やブレーカー、故障のことは気にせずにライトを当て続けたい」そんな夢が叶う2021年最新版の植物用LEDライトをお届けします。</p>
 
 
                     <p class="text-gray-600 mx-auto max-w-lg text-center leading-relaxed">色んなクーポンがもらえる！ <a href="https://www.instagram.com/invites/contact/?i=swf8p8ynuslc&amp;utm_content=kcc3nuo" class="text-black">Instagram</a>もチェック！</p>

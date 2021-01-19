@@ -13,6 +13,7 @@ import Refund from "../components/Refund";
 import FeatureNew from "../components/FeatureNew";
 import NewHero from "../components/NewHero";
 import FCcard from "../components/FCcard";
+import Ts3000card from "../components/Ts3000card";
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
 
@@ -36,6 +37,7 @@ import FCcard from "../components/FCcard";
       {/* <Features data={data.Features} /> */}
       
       <FeatureNew />
+      <Ts3000card />
       <FCcard />
       <Delivery />
       <ReviewBanner />

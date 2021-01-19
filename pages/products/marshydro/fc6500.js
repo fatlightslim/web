@@ -8,13 +8,13 @@ import Contact from "../../../components/Contact"
 import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
-import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
+import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
 
 
 export default function MarsHydroFc6500({}) {
   const fc6500 = products[4]
-  fc6500.bg.outer = "bg-white-800"
+  fc6500.bg.outer = "bg-black-800"
   const productId =
     process.env.products[
       fc6500["href"].split("/")[fc6500["href"].split("/").length - 1]
@@ -23,7 +23,7 @@ export default function MarsHydroFc6500({}) {
   return (
     <Layout productJson={fc6500} productId={productId}>
       <CardBanner {...fc6500} />
-      <ProductFeatureWhite feature={feature} />
+      <ProductFeature feature={feature} />
       <Size spec={spec} />
       <CompareTable main={products[4]} left={products[3]} right={products[5]} />
       <Delivery />
@@ -68,7 +68,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   {
     lead:
@@ -89,7 +89,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   
   {

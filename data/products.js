@@ -198,7 +198,7 @@ export const products = [
       1: "FC6500",
       2: "業界最上級の",
       3: "プレミアムLED",
-      color: "#C48CFC",
+      color: "#e995c2",
     },
     img: {
       src: "/img/fc6500/fcmain.png",
@@ -215,8 +215,8 @@ export const products = [
     href: "/products/marshydro/fc6500",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
-      inner: "from-gray-900 via-pink-700 to-pink-600",
-      outer: "bg-gray-100"
+      inner: "from-gray-900 via-babypink-700 to-pink-600",
+      outer: "bg-gray-900"
     },
     text: "text-white",
     shortTitle: "FC6500",
