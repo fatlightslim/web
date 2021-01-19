@@ -42,7 +42,7 @@ const feature = [
     lead:
       "白色、及び赤色のLEDチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
     img: {
-      src: "/img/sp6500/SP6500-01.png",
+      src: "/img/sp6500/sp6500-01.png",
       alt: "スペクトル",
       width: 1000,
       height: 1000,
@@ -62,7 +62,7 @@ const feature = [
     lead:
       "PPFD(光合成光量子束密度)の測定におけるパフォーマンスでSP6500の有能性を証明。SP6500を使わない理由があるでしょうか？",
     img: {
-      src: "/img/sp6500/SP6500ppfd.png",
+      src: "/img/sp6500/sp6500ppfd.png",
       alt: "ppfd",
       width: 1000,
       height: 1000,
