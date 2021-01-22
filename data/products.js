@@ -160,7 +160,7 @@ export const products = [
       height: 670
     },
     desc: {
-      1: "最新のSAMSUNG製LB301BLEDチップとOSRAMLEDチップがあなたを新世界へと誘います。一世代前の物と比較しLEDチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
+      1: "最新のSAMSUNG製、OSRAM製LEDチップがあなたを新世界へと誘います。総LEDチップ数は実に2356個。その様はまさに小さな太陽。さあ、植物とともに新たな世界を体験しましょう！！",
     },
     button: "SP6500の詳細を見る",
     // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
