@@ -2,16 +2,15 @@ import { withRouter } from "next/router"
 import { data } from "../data/home"
 import Layout from "../components/Layout"
 import Headline from "../components/Headline"
-import Features from "../components/Features"
 import FeatureSummary from "../components/FeatureSummary"
-import ProductCarousel from "../components/ProductCarousel"
 import Delivery from "../components/Delivery"
 import ReviewBanner from "../components/ReviewBanner"
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
 import FeatureNew from "../components/FeatureNew"
 import NewHero from "../components/NewHero"
-import FCcard from "../components/FCcard"
+import FCcard from "../components/FCcard";
+import Ts3000card from "../components/Ts3000card";
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
   // Set your secret key. Remember to switch to your live secret key in production!
@@ -35,12 +34,10 @@ import FCcard from "../components/FCcard"
 function Home({ router }) {
   return (
     <Layout router={router}>
-      {/* <ProductCarousel /> */}
       <NewHero />
       <Headline data={data.Headline} />
-      {/* <Features data={data.Features} /> */}
-
       <FeatureNew />
+      <Ts3000card />
       <FCcard />
       <Delivery />
       <ReviewBanner />
