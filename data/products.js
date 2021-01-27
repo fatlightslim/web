@@ -167,7 +167,7 @@ export const products = [
     href: "/products/marshydro/sp6500",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
-      inner: "from-gray-900 via-yellow-300 to-yellow-700",
+      inner: "from-gray-900 via-yellow-300 to-yellow-600",
       outer: "bg-gray-100"
     },
     text: "text-white",
