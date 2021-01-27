@@ -1,7 +1,6 @@
 import { useEffect, useState, cloneElement } from "react"
 import Cookies from "js-cookie"
 import Nav from "./Nav"
-import ScrollTrigger from "react-scroll-trigger"
 import Head from "next/head"
 import Footer from "./Footer"
 import { client } from "../scripts/shopify"
@@ -36,7 +35,6 @@ export default function Layout({
   const [cartOpen, setCartOpen] = useState(false)
   const [checkout, setCheckout] = useState({ lineItems: [] })
   const [product, setProduct] = useState(null)
-  // console.log(product);
 
   useEffect(() => {
     if (productId) {
@@ -108,28 +106,41 @@ export default function Layout({
     },
   }
 
-  // console.log(children);
   const additionalProps = { addVariantToCart, product }
-  const newChildren =
-    children.length > 0
-      ? children.map((v, i) => {
-          return (
-            <React.Fragment key={i}>
-              {cloneElement(v, additionalProps)}
-            </React.Fragment>
-          )
-        })
-      : children
+
+  // const newChildren =
+  //   children.length > 0
+  //     ? children.map((v, i) => {
+  //         return (
+  //           <React.Fragment key={i}>
+  //             {cloneElement(v, additionalProps)}
+  //           </React.Fragment>
+  //         )
+  //       })
+  //     : children
+
+  const newChildren = React.Children.map(children, function (child) {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, additionalProps)
+    }
+    return child
+  })
 
   return (
     // <div className="mx-auto">
     <>
       <Head>
-        <title>{productJson &&  `${productJson.meta.title} | `}{data.title}</title>
+        <title>
+          {productJson && `${productJson.meta.title} | `}
+          {data.title}
+        </title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="theme-color" content={data.color} />
-        <meta name="description" content={productJson && productJson.meta.description || data.desc} />
+        <meta
+          name="description"
+          content={(productJson && productJson.meta.description) || data.desc}
+        />
         <link rel="canonical" href={data.href} />
         <meta property="og:site_name" content={data.og.site_name} />
         <meta property="og:url" content={data.og.url} />
@@ -149,25 +160,12 @@ export default function Layout({
           router && router.pathname === "/" ? "pt-10" : ""
         } ${className}`}
       >
-        <ScrollTrigger
-          onEnter={() => setFixedHeader(false)}
-          onProgress={({ progress, velocity }, ref) => {
-            // console.log(ref);
-            if (progress > 0.1) {
-              setFixedHeader(true)
-            } else if (progress <= 0.1) {
-              setFixedHeader(false)
-            }
-          }}
-        >
-          <Nav setCartOpen={setCartOpen} router={router} />
-
-          {newChildren}
-        </ScrollTrigger>
-        <Footer />
+        <Nav setCartOpen={setCartOpen} router={router} />
         {product && product.productType === "SP" && (
           <BuyButton {...props.BuyButton} />
         )}
+        {newChildren}
+        <Footer />
         <Cart {...props.Cart} />
       </div>
     </>

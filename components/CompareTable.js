@@ -204,7 +204,7 @@ function ProductMain({ lead, img, shortTitle, price, feature, addVariantToCart, 
 }
 
 export default function CompareTable({ url, main, left, right, product, ...rest }) {
-  console.log(product);
+  // console.log(product);
   return product ? (
     <div className="bg-gray-900 relative z-10">
       <Header />

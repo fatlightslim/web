@@ -1,12 +1,21 @@
+import { useScrollPosition } from "@n8tb1t/use-scroll-position"
+import { useState } from "react"
+
 export default function BuyButton({ product, fixedHeader, ...rest }) {
-  let className = fixedHeader
-    ? "display-block w-full fixed top-0 z-40"
-    : "hidden"
-  return product ? (
-    <div className={className}>
+  const [isVisible, setIsVisible] = useState(false)
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const current = currPos.y < -1000
+      setIsVisible(current)
+    },
+    [isVisible]
+  )
+  return (
+    <div className={isVisible ? "sticky top-0 z-50" : "hidden"}>
       <Body product={product} {...rest} />
     </div>
-  ) : null
+  )
 }
 
 function Body({ header, shortTitle, bg, title, addVariantToCart, product }) {

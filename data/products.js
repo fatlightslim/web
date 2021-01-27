@@ -2,12 +2,13 @@ export const products = [
   {
     meta: {
       title: "MARS HYDRO SP3000",
-      description: "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
+      description:
+        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
     },
     header: "MARS HYDRO",
     price: {
       sale: "79,800",
-      regular: "89,800"
+      regular: "89,800",
     },
     title: {
       1: "SP3000",
@@ -19,7 +20,7 @@ export const products = [
       src: "/img/SP3000_transparentx.png",
       alt: "MARS HYDRO SP3000",
       width: 900,
-      height: 670
+      height: 670,
     },
     desc: {
       1: "最新のSAMSUNG LM301Bチップは、SP3000をとてつもなく省エネでパワフルな一台にします。一世代前の性能と比較して収穫量が最大2.5倍。ノイズレスで煌々と照りつけるライトはまるでハワイ気分！さらに、電気使用量は従来モデルと比較して最大30%削減。驚きの省エネ・高コスパモデル",
@@ -31,7 +32,7 @@ export const products = [
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-gray-800 via-purple-900 to-indigo-900",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "SP3000",
@@ -45,17 +46,20 @@ export const products = [
       "アルミ製ヒートシンク",
       "1080mm x 108mm",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
   },
   {
     meta: {
       title: "MARS HYDRO SP150",
-      description: "80 x 80cmのテントに最適な植物用LEDライトの新定番。最新のチップで太陽光色のフルスペクトラムを実現！買って損はしません。"
+      description:
+        "80 x 80cmのテントに最適な植物用LEDライトの新定番。最新のチップで太陽光色のフルスペクトラムを実現！買って損はしません。",
     },
     header: "MARS HYDRO",
     title: {
@@ -68,7 +72,7 @@ export const products = [
       src: "/img/SP150_3xss.png",
       alt: "MARS HYDRO SP150",
       width: 900,
-      height: 670
+      height: 670,
     },
     desc: {
       1: "省エネも。明るさも。テント栽培の最大のパートナー♪これは誇張ではありません。SP150が2019年に発売されて以来、このモデルは米国のテント栽培者向けに大ヒットしました。SP3000のちょうど半分のサイズで初めてのテント栽培に挑戦する方に是非ともオススメしたい人気のモデル",
@@ -79,14 +83,14 @@ export const products = [
     // bg: "linear-gradient(to bottom, #4c102a 0%, #151516 100%)",
     bg: {
       inner: "from-gray-700 via-red-900 to-yellow-900",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "SP150",
     descForMenu: "一番人気。80cmサイズのテントに最適",
     price: {
       sale: "29,800",
-      regular: "32,800"
+      regular: "32,800",
     },
     feature: [
       // "Epistar SMDチップ",
@@ -96,18 +100,21 @@ export const products = [
       "アルミ製ヒートシンク",
       "598mm x 50mm",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
     lead: "一番人気",
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/default.jobtemplate.mp4.480.mp4?v=1607495412",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Screen_Shot_2020-12-10_at_13.28.54.png?v=1607574552",
+    },
   },
   {
     meta: {
       title: "MARS HYDRO TSシリーズ",
-      description: "アメリカAmazonで最も売れている植物用LEDライト、MARS HYDROの定番ベストセラー商品。栽培環境に合わせて選べる5つのサイズ、アルミ製の高反射フードで植物の成長をブーストします。"
+      description:
+        "アメリカAmazonで最も売れている植物用LEDライト、MARS HYDROの定番ベストセラー商品。栽培環境に合わせて選べる5つのサイズ、アルミ製の高反射フードで植物の成長をブーストします。",
     },
     header: "MARS HYDRO",
     title: {
@@ -124,7 +131,7 @@ export const products = [
       src: "/img/TS_transparent.png",
       alt: "MARS HYDRO TSシリーズ",
       width: 900,
-      height: 670
+      height: 670,
     },
     button: "TSシリーズの定番モデルを見る",
     href: "/products/marshydro/ts",
@@ -133,14 +140,14 @@ export const products = [
     bg: {
       inner: "from-gray-900 via-green-900 to-green-800",
       // inner: "bg-gray-100",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "TSシリーズ",
     descForMenu: "サイズが選べる定番ベストセラー",
     price: {
       sale: "19,800~",
-      regular: "32,800"
+      regular: "32,800",
     },
     feature: [
       // "Epistar SMDチップ",
@@ -149,19 +156,19 @@ export const products = [
       "最大収穫量 2.0g/w",
       "様々なサイズ",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
-
   },
   {
     meta: {
       title: "MARS HYDRO SP6500",
-      description: "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
+      description:
+        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
     },
     header: "MARS HYDRO",
     price: {
       sale: "129,800",
-      regular: "139,800"
+      regular: "139,800",
     },
     title: {
       1: "SP6500",
@@ -173,7 +180,7 @@ export const products = [
       src: "/img/sp6500/sp6500e.png",
       alt: "MARS HYDRO SP6500",
       width: 1500,
-      height: 1303
+      height: 1303,
     },
     desc: {
       1: "最新のSAMSUNG製LB301BLEDチップとOSRAM製チップがあなたを新世界へと誘います。一世代前の物と比較しLEDチップ数は約2.5倍。その様はまさに小さな太陽。さあ、新たな世界へ旅立ちましょう！",
@@ -184,7 +191,7 @@ export const products = [
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-gray-900 via-yellow-300 to-yellow-700",
-      outer: "bg-gray-100"
+      outer: "bg-gray-100",
     },
     text: "text-white",
     shortTitle: "SP6500",
@@ -198,18 +205,25 @@ export const products = [
       "アルミ製ヒートシンク",
       "1073mm x 92mm",
       "デイジーチェーン",
-      "ノイズレス"
+      "ノイズレス",
     ],
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
   },
   {
+    meta: {
+      title: "MARS HYDRO FC6500",
+      description:
+        "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+    },
     header: "MARS HYDRO",
     price: {
       sale: "149,800",
-      regular: "159,800"
+      regular: "159,800",
     },
     title: {
       1: "FC6500",
@@ -221,7 +235,7 @@ export const products = [
       src: "/img/fc6500/fcmain.png",
       alt: "MARS HYDRO FC6500",
       width: 900,
-      height: 670
+      height: 670,
     },
     desc: {
       1: "ついに来ました！圧倒的なハイスペック。LEDチップのクオリティ、発熱調整、防水防塵、省エネ設計まで業界トップクラスのハイエンドモデル。MARS HYDRO定番モデルのTS3000より約3倍以上のLEDチップが入ったプレミアムモデルになります。商業用ではもちろん、テント用としても大人気",
@@ -233,7 +247,7 @@ export const products = [
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-gray-900 via-babypink-700 to-pink-600",
-      outer: "bg-gray-900"
+      outer: "bg-gray-900",
     },
     text: "text-white",
     shortTitle: "FC6500",
@@ -249,11 +263,12 @@ export const products = [
       "デイジーチェーン",
       "1130mm x 1120mm",
       "ノイズレス",
-
     ],
     video: {
-      src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
-      poster: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948"
-    }
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
   },
-];
+]

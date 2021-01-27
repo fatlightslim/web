@@ -5,7 +5,6 @@ import Refund from "../../../components/Refund"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
-// import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
@@ -13,19 +12,19 @@ import CompareTable from "../../../components/CompareTable"
 
 
 export default function MarsHydroFc6500({}) {
-  const fc6500 = products[4]
-  fc6500.bg.outer = "bg-black-800"
+  const product = products[4]
+  product.bg.outer = "bg-white-800"
   const productId =
     process.env.products[
-      fc6500["href"].split("/")[fc6500["href"].split("/").length - 1]
+      product["href"].split("/")[product["href"].split("/").length - 1]
     ]
 
   return (
-    <Layout productJson={fc6500} productId={productId}>
-      <CardBanner {...fc6500} />
+    <Layout productJson={product} productId={productId}>
+      <CardBanner {...product} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
-      <CompareTable main={products[4]} left={products[3]} right={products[5]} />
+      <CompareTable main={products[4]} left={products[3]} right={products[0]} />
       <Delivery />
       <Refund />
    
