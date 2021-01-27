@@ -22,12 +22,6 @@ body {
 /* Write your own custom component styles here */
 
 
-/* Start purging... */
-
-@tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
 
 .text-silver {
   background: radial-gradient(#eff1ff, #000);
@@ -179,3 +173,8 @@ body {
     animation-iteration-count: infinite;
   }
 }
+
+
+@tailwind utilities;
+
+/* Your own custom utilities */

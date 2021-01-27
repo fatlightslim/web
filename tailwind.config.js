@@ -8,7 +8,7 @@ module.exports = {
       "./components/**/*.{js,ts,jsx,tsx}",
       "./pages/**/*.{js,ts,jsx,tsx}",
     ],
-    whitelistPatterns: [/^bg-/, /^text-/, /^from-/, /^via-/, /^to/],
+    // whitelistPatterns: [/^bg-/, /^text-/, /^from-/, /^via-/, /^to/],
     // options: {
     //   safelist: [
     //     "bg-indigo-600",
