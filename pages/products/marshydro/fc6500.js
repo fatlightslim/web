@@ -5,10 +5,9 @@ import Refund from "../../../components/Refund"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
-import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
-import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
+import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
 
 
@@ -23,7 +22,7 @@ export default function MarsHydroFc6500({}) {
   return (
     <Layout productJson={product} productId={productId}>
       <CardBanner {...product} />
-      <ProductFeatureWhite feature={feature} />
+      <ProductFeature feature={feature} />
       <Size spec={spec} />
       <CompareTable main={products[4]} left={products[3]} right={products[0]} />
       <Delivery />
@@ -68,7 +67,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   {
     lead:
@@ -89,7 +88,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   
   {
@@ -133,7 +132,7 @@ const spec = {
   img: {
     src: "/img/fc6500/size6500.png",
     alt: "fc6500 size",
-    width: 1200,
-    height: 800,
+    width: 1000,
+    height: 683,
   },
 }

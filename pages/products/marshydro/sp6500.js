@@ -5,7 +5,6 @@ import Refund from "../../../components/Refund"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
-import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
@@ -39,17 +38,18 @@ export default function MarsHydrosp6500({}) {
 const feature = [
   {
     lead:
-      "白色、及び赤色のLEDチップを追加し、より暖かな光を実現。究極に植物の促進をお助けします。",
+      "白、赤色のLEDチップをさらに追加し、より自然な太陽光を実現。植物の光合成に不可欠な光エネルギーを、スムーズかつエコにお届けします。",
     img: {
-      src: "/img/sp6500/sp6500-01.png",
+      src: "/img/sp6500/SP6500perfectspectrum3.png",
       alt: "スペクトル",
-      width: 1000,
+      width: 1200,
       height: 1000,
     },
   },
   {
     lead:
-      "SAMSUNG製 LM301BとOSRAM製LEDチップを使用。2356個にも及ぶ高密度に配置されたLEDが、植物たちに太陽のような温かい光と安心感を与えます。",
+      "SAMSUNG製、OSRAM製LEDチップを使用。2356個にも及ぶ高密度に配置されたLEDが、植物たちに太陽のような温かい光と安心感を与えます。",
+      
     img: {
       src: "/img/sp6500/sp6500perform.png",
       alt: "performance",
@@ -59,19 +59,20 @@ const feature = [
   },
   {
     lead:
-      "PPFD(光合成光量子束密度)の測定におけるパフォーマンスでSP6500の有能性を証明。SP6500を使わない理由があるでしょうか？",
+      "PPFDの測定においてSP6500の圧倒的な光子量を証明。『短時間』『小スペース』でも、植物たちが効率的に光合成を行えます。",
     img: {
       src: "/img/sp6500/SP6500ppfd.png",
       alt: "ppfd",
       width: 1000,
       height: 1000,
     },
+    　　text: "text-yellow-300",
   },
   {
     lead:
       "アルミ製フルボディヒートシンクが熱を抑えます。ファンなし。ノイズなし。かなりクール。",
     img: {
-      src: "/img/sp6500/heatsink.png",
+      src: "/img/sp3000/heatsink.png",
       alt: "heatsink",
       width: 1000,
       height: 753,
@@ -82,7 +83,7 @@ const feature = [
     lead:
       "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
     img: {
-      src: "/img/sp6500/connect.png",
+      src: "/img/sp3000/connect.png",
       alt: "connect",
       width: 1000,
       height: 713,
@@ -93,7 +94,7 @@ const feature = [
   //   lead:
   //     "個人でのホビー用途から商業施設での本格的な栽培まで多くのお客様に幅広く支持されています。",
   //   img: {
-  //     src: "/img/sp6500/commercial.png",
+  //     src: "/img/sp3000/commercial.png",
   //     alt: "commercial",
   //     width: 1000,
   //     height: 1000,
@@ -103,7 +104,7 @@ const feature = [
     lead:
       "MARS HYDRO社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
     img: {
-      src: "/img/sp6500/chip.png",
+      src: "/img/sp3000/chip.png",
       alt: "chip",
       width: 1000,
       height: 880,
@@ -111,7 +112,7 @@ const feature = [
   },
   {
     lead:
-      "MARS HYDRO社の製品を初めて使う？ご安心を！ユーザーマニュアル付きです。",
+      "MARS HYDRO社の製品を初めて使う？ご安心を！そんな方でもスムーズに使うためのユーザーマニュアル付きです。",
     img: {
       src: "/img/sp6500/sp6500n.png",
       alt: "manual",

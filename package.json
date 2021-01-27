@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@next/mdx": "^10.0.4",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/typography": "^0.3.1",
