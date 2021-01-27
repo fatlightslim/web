@@ -5,27 +5,27 @@ import Refund from "../../../components/Refund"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
-import Video from "../../../components/Video"
+// import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
-import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
+import ProductFeature from "../../../components/ProductFeature"
 import CompareTable from "../../../components/CompareTable"
 
 
 export default function MarsHydroFc6500({}) {
-  const product = products[4]
-  product.bg.outer = "bg-white-800"
+  const fc6500 = products[4]
+  fc6500.bg.outer = "bg-black-800"
   const productId =
     process.env.products[
-      product["href"].split("/")[product["href"].split("/").length - 1]
+      fc6500["href"].split("/")[fc6500["href"].split("/").length - 1]
     ]
 
   return (
-    <Layout productJson={product} productId={productId}>
-      <CardBanner {...product} />
-      <ProductFeatureWhite feature={feature} />
+    <Layout productJson={fc6500} productId={productId}>
+      <CardBanner {...fc6500} />
+      <ProductFeature feature={feature} />
       <Size spec={spec} />
-      <CompareTable main={products[4]} left={products[3]} right={products[0]} />
+      <CompareTable main={products[4]} left={products[3]} right={products[5]} />
       <Delivery />
       <Refund />
    
@@ -68,7 +68,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   {
     lead:
@@ -89,7 +89,7 @@ const feature = [
       width: 1000,
       height: 1000,
     },
-    text: "text-black",
+    text: "text-white",
   },
   
   {
@@ -133,7 +133,7 @@ const spec = {
   img: {
     src: "/img/fc6500/size6500.png",
     alt: "fc6500 size",
-    width: 1200,
-    height: 800,
+    width: 1000,
+    height: 683,
   },
 }
