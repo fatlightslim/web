@@ -11,17 +11,11 @@ body {
   font-family: Dosis, sans-serif;
 }
 
-@tailwind base;
-/* Write your own custom base styles here */
-
-/* Start purging... */
-
-@tailwind components;
-/* Stop purging. */
-
-/* Write your own custom component styles here */
-
-
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+@tailwind  utilities;
 
 .text-silver {
   background: radial-gradient(#eff1ff, #000);
@@ -173,8 +167,3 @@ body {
     animation-iteration-count: infinite;
   }
 }
-
-
-@tailwind utilities;
-
-/* Your own custom utilities */
