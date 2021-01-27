@@ -206,10 +206,6 @@ export const products = [
     }
   },
   {
-    meta: {
-      title: "MARS HYDRO FC6500",
-      description: "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!"
-    },
     header: "MARS HYDRO",
     price: {
       sale: "149,800",
@@ -219,7 +215,7 @@ export const products = [
       1: "FC6500",
       2: "業界最上級の",
       3: "プレミアムLED",
-      color: "#C48CFC",
+      color: "#e995c2",
     },
     img: {
       src: "/img/fc6500/fcmain.png",
@@ -236,22 +232,24 @@ export const products = [
     href: "/products/marshydro/fc6500",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
-      inner: "from-gray-900 via-pink-700 to-pink-600",
-      outer: "bg-gray-100"
+      inner: "from-gray-900 via-babypink-700 to-pink-600",
+      outer: "bg-gray-900"
     },
     text: "text-white",
     shortTitle: "FC6500",
     descForMenu: "業界最上級のハイエンドモデル",
     lead: "最新モデル",
     feature: [
-      "2020年最新版LB301Bチップ搭載",
+      "2020年最新版LM301B&OSRAMチップ搭載",
       "3,144個のLEDチップセットアップ",
+      "120cm x 120cmサイズの栽培テント向け",
       "IP65 防水・防塵",
       "最大収穫量 2.5g/w",
       "アルミ製ヒートシンク",
-      "フォルダブル式",
       "デイジーチェーン",
-      "ノイズレス"
+      "1130mm x 1120mm",
+      "ノイズレス",
+
     ],
     video: {
       src: "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
