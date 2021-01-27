@@ -40,7 +40,7 @@ const feature = [
     lead:
       "白、赤色のLEDチップをさらに追加し、より自然な太陽光を実現。植物の光合成に不可欠な光エネルギーを、スムーズかつエコにお届けします。",
     img: {
-      src: "/img/sp6500/sp6500perfectspectrum3.png",
+      src: "/img/sp6500/SP6500perfectspectrum3.png",
       alt: "スペクトル",
       width: 1200,
       height: 1000,
@@ -61,7 +61,7 @@ const feature = [
     lead:
       "PPFDの測定においてSP6500の圧倒的な光子量を証明。『短時間』『小スペース』でも、植物たちが効率的に光合成を行えます。",
     img: {
-      src: "/img/sp6500/sp6500ppfd.png",
+      src: "/img/sp6500/SP6500ppfd.png",
       alt: "ppfd",
       width: 1000,
       height: 1000,
