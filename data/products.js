@@ -167,8 +167,8 @@ export const products = [
     },
     header: "MARS HYDRO",
     price: {
-      sale: "134,800",
-      regular: "144,800",
+      sale: "129,800",
+      regular: "139,800",
     },
     title: {
       1: "SP6500",
@@ -222,8 +222,8 @@ export const products = [
     },
     header: "MARS HYDRO",
     price: {
-      sale: "154,800",
-      regular: "164,800",
+      sale: "159,800",
+      regular: "169,800",
     },
     title: {
       1: "FC6500",
@@ -279,8 +279,8 @@ export const products = [
     },
     header: "MARS HYDRO",
     price: {
-      sale: "134,800",
-      regular: "144,800",
+      sale: "129,800",
+      regular: "139,800",
     },
     title: {
       1: "SP6500",
