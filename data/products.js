@@ -3,12 +3,12 @@ export const products = [
     meta: {
       title: "MARS HYDRO SP3000",
       description:
-        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中！ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
     },
     header: "MARS HYDRO",
     price: {
-      sale: "79,800",
-      regular: "89,800",
+      sale: "84,800",
+      regular: "94,800",
     },
     title: {
       1: "SP3000",
@@ -47,6 +47,14 @@ export const products = [
       "1080mm x 108mm",
       "デイジーチェーン",
       "ノイズレス",
+    ],
+    feature2: [
+      "最新版LB301Bチップ搭載",
+      "957個のLEDチップ",
+      "120cm x 60cmテント向け",
+      "IP65 防水・防塵",
+      "アルミ製ヒートシンク",
+      "1080mm x 108mm",
     ],
     video: {
       src:
@@ -163,7 +171,7 @@ export const products = [
     meta: {
       title: "MARS HYDRO SP6500",
       description:
-        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+        "大人気のMARS HYDRO SPシリーズに待望のNEWモデルが登場しました！ 今回も期待以上の仕上がりで海外でも売切れ続出中！ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
     },
     header: "MARS HYDRO",
     price: {
@@ -207,6 +215,14 @@ export const products = [
       "デイジーチェーン",
       "ノイズレス",
     ],
+    feature2: [
+      "最新版LB301Bチップ搭載",
+      "2,376個のLEDチップ",
+      "200cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "1073mm x 90mm",
+    ],
     video: {
       src:
         "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
@@ -222,8 +238,8 @@ export const products = [
     },
     header: "MARS HYDRO",
     price: {
-      sale: "149,800",
-      regular: "159,800",
+      sale: "159,800",
+      regular: "169,800",
     },
     title: {
       1: "FC6500",
@@ -256,7 +272,7 @@ export const products = [
     feature: [
       "2020年最新版LM301B&OSRAMチップ搭載",
       "3,144個のLEDチップセットアップ",
-      "120cm x 120cmサイズの栽培テント向け",
+      "120cm x 120cmテント向け",
       "IP65 防水・防塵",
       "最大収穫量 2.5g/w",
       "アルミ製ヒートシンク",
@@ -271,4 +287,4 @@ export const products = [
         "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
     },
   },
-]
+];

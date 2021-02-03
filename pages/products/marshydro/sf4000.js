@@ -5,29 +5,29 @@ import Refund from "../../../components/Refund"
 import CardBanner from "../../../components/CardBanner"
 import BlogBanner from "../../../components/BlogBanner"
 import Contact from "../../../components/Contact"
+import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
-import CompareTableFC6500 from "../../../components/CompareTableFC6500"
+import CompareTable from "../../../components/CompareTable"
 
-
-export default function MarsHydroFc6500({}) {
-  const product = products[4]
-  product.bg.outer = "bg-white-800"
+export default function MarsHydroSf4000({}) {
+  const sf4000 = products[0]
+  sf4000.bg.outer = "bg-gray-800"
   const productId =
     process.env.products[
-      product["href"].split("/")[product["href"].split("/").length - 1]
+      sf4000["href"].split("/")[sf4000["href"].split("/").length - 1]
     ]
 
   return (
-    <Layout productJson={product} productId={productId}>
-      <CardBanner {...product} />
+    <Layout productJson={sf4000} productId={productId}>
+      <CardBanner {...sf4000} />
+      <Video {...sf4000} />
       <ProductFeature feature={feature} />
       <Size spec={spec} />
-      <CompareTableFC6500 main={products[4]} left={products[0]} right={products[3]} />
       <Delivery />
       <Refund />
-   
+      <CompareTable main={products[0]} left={products[1]} right={products[2]} />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
@@ -42,7 +42,7 @@ const feature = [
     lead:
       "これまでの赤色・青色LEDの機能に加えて強力な白色LEDを追加することで太陽光のような理想のライトに近づきました。",
     img: {
-      src: "/img/fc6500/fcspectrum.png",
+      src: "/img/sp3000/spectrum.png",
       alt: "スペクトル",
       width: 1000,
       height: 1000,
@@ -60,42 +60,41 @@ const feature = [
   },
   {
     lead:
-      "その業界No.1のSAMSUNG LM301Bチップを3,144個も使用した贅沢なLEDライトです。本社の定番モデルのTS3000よりも約３倍以上のLEDチップが入ったハイエンドモデル！",
-    img: {
-      src: "/img/fc6500/ledchip.png",
-      alt: "connect",
-      width: 1000,
-      height: 1000,
-    },
-    text: "text-white",
-  },
-  {
-    lead:
       "PPFD(光合成光量子束密度)の測定におけるパフォーマンスで他社製品を圧倒します。しかも、消費電力は最大30%OFF",
     img: {
-      src: "/img/fc6500/fcmap.png",
+      src: "/img/sp3000/ppfd.png",
       alt: "ppfd",
       width: 1000,
-      height: 1000,
+      height: 857,
     },
   },
   {
     lead:
-      "比べものにならない、圧倒的な性能。FC6500が選ばれてるその理由は、数字が証明してくれます。",
+      "アルミ製フルボディヒートシンクが熱を抑えます。ファンなし。ノイズなし。かなりクール。",
     img: {
-      src: "/img/fc6500/fctable.png",
+      src: "/img/sp3000/heatsink.png",
       alt: "heatsink",
       width: 1000,
-      height: 1000,
+      height: 753,
     },
-    text: "text-white",
+    text: "text-green-500",
   },
-  
+  {
+    lead:
+      "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
+    img: {
+      src: "/img/sp3000/connect.png",
+      alt: "connect",
+      width: 1000,
+      height: 713,
+    },
+    text: "text-blue-500",
+  },
   {
     lead:
       "個人でのホビー用途から商業施設での本格的な栽培まで多くのお客様に幅広く支持されています。",
     img: {
-      src: "/img/fc6500/fccommercial.png",
+      src: "/img/sp3000/commercial.png",
       alt: "commercial",
       width: 1000,
       height: 1000,
@@ -105,33 +104,33 @@ const feature = [
     lead:
       "MARS HYDRO社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
     img: {
-      src: "/img/fc6500/samsung.png",
+      src: "/img/sp3000/chip.png",
       alt: "chip",
-      width: 960,
-      height: 640,
+      width: 1000,
+      height: 880,
     },
   },
 ]
 
 const spec = {
   data: [
-    { label: "型番", desc: "FC6500" },
-    { label: "照射範囲", desc: "152cm x 152cm" },
+    { label: "型番", desc: "SP3000" },
+    { label: "照射範囲", desc: "150cm x 60cm" },
     {
       label: "スペクトル",
-      desc: "660-665nm\n2800K-3000K\n4800-5000K",
+      desc: "380-410nm\n650-66nm\n730-740nm\n2800K-3000K\n4800-5000K",
     },
-    { label: "PPF", desc: "2.9μmol/j" },
-    { label: "LEDチップ", desc: "3,144個\nSAMSUNG LM301B\nOSRAM 3030" },
+    { label: "PPF", desc: "847μmol/s" },
+    { label: "LEDチップ", desc: "957個\nSAMSUNG LM301B\nOSRAM 3030" },
     {
       label: "消費電力",
-      desc: "651W±5%@AC240V\n638W±5%@AC240V\n636W±5%@AC277V",
+      desc: "300W±5%@AC120V\n293W±5%@AC240V\n292W±5%@AC277V",
     },
-    { label: "サイズ", desc: "1130mm x 1120mm x 106mm\n4.6kg" },
+    { label: "サイズ", desc: "1080mm x 80mm x 103mm\n4.6kg" },
   ],
   img: {
-    src: "/img/fc6500/size6500.png",
-    alt: "fc6500 size",
+    src: "/img/sp3000/size.png",
+    alt: "sp3000 size",
     width: 1000,
     height: 683,
   },
