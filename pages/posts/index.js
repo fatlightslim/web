@@ -70,7 +70,7 @@ export default function Posts(params) {
               <div className="flex-shrink-0">
                 <img
                   className="h-48 w-full object-cover"
-                  src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                  src="/img/whatisppfd.png"
                   alt=""
                 />
               </div>
