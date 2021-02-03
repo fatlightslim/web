@@ -5,16 +5,12 @@ module.exports = withMDX({
   // module.exports = {
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
-    domains: ["cdn.shopify.com"],
+    domains: ["cdn.shopify.com", "images.ctfassets.net"],
   },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
   //   defaultLocale: "ja",
   // },
-  plugins: [
-    require("@tailwindcss/typography"),
-    // ...
-  ],
   webpack: (config, { isServer }) => {
     if (isServer) {
       require("./scripts/sitemap-generator")
@@ -34,7 +30,6 @@ module.exports = withMDX({
       sp6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NDgxMDcxNjQ=",
       fc6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NzM2NjYyMDQ=",
     },
-    customKey: "my-value",
     company: {
       ja: "合同会社SBO",
       en: "SBO LLC",

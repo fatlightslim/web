@@ -122,6 +122,7 @@ const feature = [
   },
 ]
 
+
 const spec = {
   data: [
     { label: "型番", desc: "SP6500" },

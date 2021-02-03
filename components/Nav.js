@@ -77,9 +77,9 @@ export default function Nav({ router, setCartOpen }) {
     </div>
   )
   let className = "py-1 bg-black bg-opacity-80 z-30"
-  if (router && router.pathname === "/") {
-    className += " fixed top-0 w-full z-40"
-  }
+  // if (router && router.pathname === "/") {
+  //   className += " fixed top-0 w-full z-40"
+  // }
   return (
     <div className={className}>
       <FlayoutMenu />

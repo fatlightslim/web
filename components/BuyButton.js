@@ -1,7 +1,7 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
 import { useState } from "react"
 
-export default function BuyButton({ product, fixedHeader, ...rest }) {
+export default function BuyButton({ product,  ...rest }) {
   const [isVisible, setIsVisible] = useState(false)
 
   useScrollPosition(
