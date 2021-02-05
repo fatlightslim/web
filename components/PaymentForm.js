@@ -1,5 +1,5 @@
 import { fetchPostJSON } from "../utils/api-helpers"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Spin, ChevRight } from "./Svg"
 import { loadStripe } from "@stripe/stripe-js"
 
@@ -24,15 +24,11 @@ export default function PaymentForm({ setForm, form, items }) {
   const [active, setActive] = useState(data[0]["label"])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    document.body.scrollTop = 0 // For Safari
-    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
-  }, [])
 
   const handleClick = async () => {
     setLoading(true)
     data[1]["label"] === active
-      ? setForm({ key: "CONFIRM", value: {} })
+      ? setForm({ key: "CONFIRM", value: form.value })
       : createStripeSession()
   }
 

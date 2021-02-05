@@ -1,4 +1,3 @@
-import ScrollTrigger from "react-scroll-trigger"
 import { products } from "../../../data/products"
 import Layout from "../../../components/Layout"
 import Delivery from "../../../components/Delivery"

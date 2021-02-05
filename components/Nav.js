@@ -1,3 +1,4 @@
+import { Transition } from "@headlessui/react"
 import Logo from "./Logo"
 import Link from "next/link"
 import Image from "next/image"
@@ -64,16 +65,20 @@ export default function Nav({ router, setCartOpen }) {
           <CartOpen />
         </div>
       </div>
-      <div
-        className={`absolute z-50 inset-x-0 transform shadow-lg ${
-          menuOpen
-            ? "transition ease-out duration-200 opacity-100 translate-y-0 block"
-            : "transition ease-in duration-150 opacity-0 translate-y-1 hidden"
-        }`}
+
+      <Transition
+        show={menuOpen}
+        className={`absolute z-50 inset-x-0 transform shadow-lg`}
+        enter="transition ease-out duration-200"
+        enterFrom="opacity-0 -translate-y-1"
+        enterTo="opacity-100 translate-y-0 block"
+        leave="transition ease-in duration-150"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 -translate-y-1 hidden"
       >
         <Menu />
         <Actions />
-      </div>
+      </Transition>
     </div>
   )
   let className = "py-1 bg-black bg-opacity-80 z-30"
@@ -109,7 +114,7 @@ const List = ({ shortTitle, descForMenu, href, img, index }) => {
       <a className={className}>
         <div className="flex md:h-full lg:flex-col md:text-center">
           <div className="w-16 sm:w-32 md:mx-auto">
-            <Image {...img}  />
+            <Image {...img} />
           </div>
           <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
             <div>

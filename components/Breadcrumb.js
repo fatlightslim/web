@@ -1,6 +1,6 @@
 export default function Breadcrumb(props) {
   return (
-    <nav className="flex pl-4 pt-4" aria-label="Breadcrumb">
+    <nav className="max-w-7xl mx-auto flex pl-4 pt-4 md:pl-8" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-1">
         <li>
           <div>
@@ -22,6 +22,7 @@ export default function Breadcrumb(props) {
         {[
           { label: "配送", key: "ORDER" },
           { label: "支払い", key: "PAYMENT" },
+          // { label: "確認", key: "CONFIRM" },
         ].map((v) => {
           return (
             <li key={v.key}>
@@ -44,11 +45,11 @@ export default function Breadcrumb(props) {
                   href="#"
                   className={`${
                     v.key === props.form.key
-                      ? "text-indigo-500 "
+                      ? "text-indigo-500"
                       : "text-gray-500"
                   } ml-4 text-xs font-bold hover:text-gray-700`}
                 >
-                  {v.label}
+                  {v.key === "PAYMENT" && props.form.key==="CONFIRM" ? <span className="text-indigo-500">確認</span> : v.label}
                 </a>
               </div>
             </li>

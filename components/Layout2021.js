@@ -22,11 +22,17 @@ function Layout({ product, children, router }) {
   useEffect(() => {
     const appState = localStorage.getItem(APP_KEY)
     if (appState) setItems(JSON.parse(appState))
+
   }, [])
 
   useEffect(() => {
     localStorage.setItem(APP_KEY, JSON.stringify(items))
   }, [items])
+
+  useEffect(() => {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+  }, [form])
 
   const updateQtyInCart = (id, qty) => {
     const copied = items.filter((v) => v.product.sys.id !== id)

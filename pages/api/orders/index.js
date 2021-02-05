@@ -20,18 +20,29 @@ export default async function handler(req, res) {
   }
 
   async function post() {
-    const { _id, ...rest } = req.body
-    db.collection("orders").findOneAndUpdate(
-      { _id: ObjectId(_id) },
-      {
-        $set: {
-          ...rest,
+    const { _id, status, ...rest } = req.body
+    const update = {
+      $set: {
+        ...rest,
+        _ts: new Date(),
+      },
+    }
+    if (status) {
+      update["$push"] = {
+        status: {
+          status,
           _ts: new Date(),
         },
-      },
+      }
+    }
+
+    db.collection("orders").findOneAndUpdate(
+      { _id: ObjectId(_id) },
+      update,
       { upsert: true, returnOriginal: false },
       (err, r) => {
         if (err) console.log(err)
+    console.log(r)
         res.json(r.value)
       }
     )

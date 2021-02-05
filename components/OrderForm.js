@@ -10,7 +10,6 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
   })
 
   useEffect(() => {
-    // console.log(form);
     const { customer } = form.value
     if (customer) {
       Object.keys(customer).forEach((v) => {
@@ -165,6 +164,20 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
                     <ExCircle className="h-5 w-5 text-red-500" />
                   </div>
                 )} */}
+              </div>
+
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none  bg-transparent focus:z-10 sm:text-sm border-gray-300"
+                  placeholder="氏名"
+                  ref={register({ required: true })}
+                />
               </div>
               <div>
                 <label htmlFor="tel" className="sr-only">
