@@ -1,8 +1,11 @@
 import { fetchPostJSON } from "../utils/api-helpers"
 import { useState } from "react"
 import { Spin, Lock } from "./Svg"
+import { useRouter } from 'next/router'
+
 
 export default function Confirm({ setForm, items, form, formatter }) {
+  const router = useRouter()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
   const [loading, setLoading] = useState(false)
 
@@ -31,8 +34,8 @@ export default function Confirm({ setForm, items, form, formatter }) {
       items,
       status: "cod",
     }).then((value) => {
-      setForm({ key: "DONE", value })
       setLoading(false)
+      router.push("/order/success")
     })
   }
 

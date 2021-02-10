@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Logo from "./Logo"
 import Confirm from "./Confirm"
-import Done from "./Done"
 import OrderForm from "./OrderForm"
 import PaymentForm from "./PaymentForm"
 import Breadcrumb from "./Breadcrumb"

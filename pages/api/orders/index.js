@@ -53,7 +53,9 @@ export default async function handler(req, res) {
 //   _id: ObjectId,
 //   _ts: DateTime, // A.K.A updatedAt. createdAt is supposed to be extracted from _id. ObjectId.getTimestamp().
 //   items: Array, // line items from contentful and qty. {{ product: { fields, sys }}, qty: 1 }
-//   status: String, // payment status based on webhook from Stripe
+//   status: Array [
+//     {status: "cod", _ts: new Date() }
+//   ], // ['cod', 'awaiting_payment', 'paid', 'failure', 'done', 'shipping']
 //   customer: {
 //     name: String,
 //     email: String,
