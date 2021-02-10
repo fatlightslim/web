@@ -1,30 +1,34 @@
-import { products } from "../../../data/products"
-import Layout from "../../../components/Layout"
-import Delivery from "../../../components/Delivery"
-import Refund from "../../../components/Refund"
-import CardBanner from "../../../components/CardBanner"
-import BlogBanner from "../../../components/BlogBanner"
-import Contact from "../../../components/Contact"
-import Video from "../../../components/Video"
-import Size from "../../../components/Size"
-import Optimal from "../../../components/Optimal"
-import ProductFeaturewhite from "../../../components/ProductFeaturewhite"
-import CompareTableSF4000 from "../../../components/CompareTableSF4000"
+import { products } from "../../../data/products";
+import Layout from "../../../components/Layout";
+import Delivery from "../../../components/Delivery";
+import Refund from "../../../components/Refund";
+import CardBanner from "../../../components/CardBanner";
+import BlogBanner from "../../../components/BlogBanner";
+import Contact from "../../../components/Contact";
+import Video from "../../../components/Video";
+import Size from "../../../components/Size";
+import Optimal from "../../../components/Optimal";
+import ProductFeaturewhite from "../../../components/ProductFeaturewhite";
+import CompareTableSF4000 from "../../../components/CompareTableSF4000";
 
 export default function SpiderfarmerSf4000({}) {
-  const sf4000 = products[5]
-  sf4000.bg.outer = "bg-white"
+  const sf4000 = products[5];
+  sf4000.bg.outer = "bg-white";
   const productId =
     process.env.products[
       sf4000["href"].split("/")[sf4000["href"].split("/").length - 1]
-    ]
+    ];
 
   return (
     <Layout productJson={sf4000} productId={productId}>
       <CardBanner {...sf4000} />
       <ProductFeaturewhite feature={feature} />
       <Size spec={spec} />
-      <CompareTableSF4000 main={products[5]} left={products[3]} right={products[4]} />
+      <CompareTableSF4000
+        main={products[5]}
+        left={products[3]}
+        right={products[4]}
+      />
       <Delivery />
       <Refund />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
@@ -33,13 +37,12 @@ export default function SpiderfarmerSf4000({}) {
         <Contact />
       </div>
     </Layout>
-  )
+  );
 }
 
 const feature = [
   {
-    lead:
-      "",
+    lead: "",
     img: {
       src: "/img/sf4000/sf4000led.png",
       alt: "SF4000",
@@ -118,7 +121,7 @@ const feature = [
       height: 295,
     },
   },
-]
+];
 
 const spec = {
   data: [
@@ -142,4 +145,4 @@ const spec = {
     width: 1000,
     height: 627,
   },
-}
+};
