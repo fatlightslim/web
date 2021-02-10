@@ -8,12 +8,12 @@ import Contact from "../../../components/Contact"
 import Video from "../../../components/Video"
 import Size from "../../../components/Size"
 import Optimal from "../../../components/Optimal"
-import ProductFeature from "../../../components/ProductFeature"
-import CompareTable from "../../../components/CompareTable"
+import ProductFeaturewhite from "../../../components/ProductFeaturewhite"
+import CompareTableSF4000 from "../../../components/CompareTableSF4000"
 
-export default function MarsHydroSf4000({}) {
-  const sf4000 = products[0]
-  sf4000.bg.outer = "bg-gray-800"
+export default function SpiderfarmerSf4000({}) {
+  const sf4000 = products[5]
+  sf4000.bg.outer = "bg-white"
   const productId =
     process.env.products[
       sf4000["href"].split("/")[sf4000["href"].split("/").length - 1]
@@ -22,12 +22,11 @@ export default function MarsHydroSf4000({}) {
   return (
     <Layout productJson={sf4000} productId={productId}>
       <CardBanner {...sf4000} />
-      <Video {...sf4000} />
-      <ProductFeature feature={feature} />
+      <ProductFeaturewhite feature={feature} />
       <Size spec={spec} />
+      <CompareTableSF4000 main={products[5]} left={products[3]} right={products[4]} />
       <Delivery />
       <Refund />
-      <CompareTable main={products[0]} left={products[1]} right={products[2]} />
       <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
         <BlogBanner />
         <Optimal />
@@ -40,98 +39,107 @@ export default function MarsHydroSf4000({}) {
 const feature = [
   {
     lead:
+      "",
+    img: {
+      src: "/img/sf4000/sf4000led.png",
+      alt: "SF4000",
+      width: 1000,
+      height: 1000,
+    },
+  },
+  {
+    lead:
       "これまでの赤色・青色LEDの機能に加えて強力な白色LEDを追加することで太陽光のような理想のライトに近づきました。",
     img: {
-      src: "/img/sp3000/spectrum.png",
+      src: "/img/sf4000/sfspectrum3.png",
       alt: "スペクトル",
+      width: 970,
+      height: 1540,
+    },
+  },
+
+  {
+    lead:
+      "SAMSUNG LM301Bの性能はピカイチ。1Wあたりの収穫量は業界トップレベルです。さらに、UL・CE公認のドライバを使い、電気代は最大30%OFF",
+    img: {
+      src: "/img/sf4000/hardware.png",
+      alt: "hardware",
       width: 1000,
       height: 1000,
     },
   },
   {
     lead:
-      "SAMSUNG LM301Bの驚きの性能がこれまでの常識を変えます。なんと、1ワットあたり最大2.5グラム(従来比2倍)の収穫が可能です。",
+      "全ての植物。全ての成長ステージに有効な最適の光。明るさ調節もわかりやすくて簡単！",
     img: {
-      src: "/img/sp3000/ledchip.png",
-      alt: "harvest",
+      src: "/img/sf4000/sftip.png",
+      alt: "tip",
       width: 1000,
-      height: 857,
+      height: 1000,
     },
   },
   {
     lead:
-      "PPFD(光合成光量子束密度)の測定におけるパフォーマンスで他社製品を圧倒します。しかも、消費電力は最大30%OFF",
+      "トップレベルの完全防水設計でどこにでも安心設置。さらに！ボディー自体が熱循環パンネルになっていて、ファンがなくても熱くなることはありません。",
     img: {
-      src: "/img/sp3000/ppfd.png",
-      alt: "ppfd",
-      width: 1000,
-      height: 857,
-    },
-  },
-  {
-    lead:
-      "アルミ製フルボディヒートシンクが熱を抑えます。ファンなし。ノイズなし。かなりクール。",
-    img: {
-      src: "/img/sp3000/heatsink.png",
+      src: "/img/sf4000/sf4000w.png",
       alt: "heatsink",
-      width: 1000,
-      height: 753,
+      width: 800,
+      height: 800,
     },
-    text: "text-green-500",
   },
   {
     lead:
-      "最大20台までの機器をRJ11コネクタで接続することによって全てのライトをコントロールできます。",
+      "RJ11ケーブルを利用することで、最大12台のライトを同時にコントロール。もちろん、FATLightSLIMの商品はRJ11ケーブル付き！",
     img: {
-      src: "/img/sp3000/connect.png",
+      src: "/img/sf4000/sf4000d.png",
       alt: "connect",
-      width: 1000,
-      height: 713,
+      width: 900,
+      height: 900,
     },
-    text: "text-blue-500",
   },
   {
     lead:
-      "個人でのホビー用途から商業施設での本格的な栽培まで多くのお客様に幅広く支持されています。",
+      "個人でのホビー用途から研究所や農園での専門的な栽培まで多くのお客様に幅広く支持されています。",
     img: {
-      src: "/img/sp3000/commercial.png",
+      src: "/img/sf4000/sf4000c.png",
       alt: "commercial",
-      width: 1000,
-      height: 1000,
+      width: 970,
+      height: 600,
     },
   },
   {
     lead:
-      "MARS HYDRO社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
+      "SPIDER FARMER社の製品は本物のSAMSUNG LM301Bチップのみ使用しています。類似品・詐欺商品等にはご注意ください。",
     img: {
-      src: "/img/sp3000/chip.png",
+      src: "/img/sf4000/sf4000n.png",
       alt: "chip",
-      width: 1000,
-      height: 880,
+      width: 970,
+      height: 295,
     },
   },
 ]
 
 const spec = {
   data: [
-    { label: "型番", desc: "SP3000" },
-    { label: "照射範囲", desc: "150cm x 60cm" },
+    { label: "型番", desc: "SF4000" },
+    { label: "照射範囲", desc: "150cm x 150cm" },
     {
       label: "スペクトル",
-      desc: "380-410nm\n650-66nm\n730-740nm\n2800K-3000K\n4800-5000K",
+      desc: "660-665nm\n3000K\n5000K\nIR760nm",
     },
-    { label: "PPF", desc: "847μmol/s" },
-    { label: "LEDチップ", desc: "957個\nSAMSUNG LM301B\nOSRAM 3030" },
+    { label: "PPF", desc: "1217umol/s" },
+    { label: "LEDチップ", desc: "1,212個\nSAMSUNG LM301B" },
     {
       label: "消費電力",
-      desc: "300W±5%@AC120V\n293W±5%@AC240V\n292W±5%@AC277V",
+      desc: "3.787A@AC120V\n1.864A@AC240V\n1.641A@AC277V",
     },
-    { label: "サイズ", desc: "1080mm x 80mm x 103mm\n4.6kg" },
+    { label: "サイズ", desc: "648mm x 536mm x 59mm\n8.766kg" },
   ],
   img: {
-    src: "/img/sp3000/size.png",
-    alt: "sp3000 size",
+    src: "/img/sf4000/sf4000size.png",
+    alt: "sf4000 size",
     width: 1000,
-    height: 683,
+    height: 627,
   },
 }

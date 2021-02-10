@@ -45,7 +45,7 @@ function Card({ children }) {
   return (
     <div className="bg-white">
       <div className={`max-w-3xl mx-auto py-12 lg:p-4 lg:py-12 text-black`}>
-        <div className={`bg-white lg:rounded-lg shadow-xl overflow-hidden`}>
+        <div className={`bg-white lg:rounded-lg overflow-hidden`}>
           {children}
         </div>
       </div>

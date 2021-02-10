@@ -223,6 +223,14 @@ export const products = [
       "最大収穫量 2.5g/w",
       "1073mm x 90mm",
     ],
+    feature3: [
+      "MARS HYDRO社",
+      "最新版LB301Bチップ搭載",
+      "2,376個のLEDチップ",
+      "200cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "1073mm x 90mm",
+    ],
     video: {
       src:
         "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
@@ -254,7 +262,7 @@ export const products = [
       height: 670,
     },
     desc: {
-      1: "ついに来ました！圧倒的なハイスペック。LEDチップのクオリティ、発熱調整、防水防塵、省エネ設計まで業界トップクラスのハイエンドモデル。MARS HYDRO定番モデルのTS3000より約3倍以上のLEDチップが入ったプレミアムモデルになります。商業用ではもちろん、テント用としても大人気",
+      1: "ついに来ました！圧倒的なハイスペック。LEDチップのクオリティ、発熱調整、防水防塵、省エネ設計まで業界トップクラスのハイエンドモデル。MARS HYDRO定番モデルのTS3000より約3倍以上のLEDチップが入ったプレミアムモデルになります。商業用はもちろん、テントにもおすすめ",
       2: "です。",
     },
     button: "FC6500の詳細を見る",
@@ -278,6 +286,72 @@ export const products = [
       "アルミ製ヒートシンク",
       "デイジーチェーン",
       "1130mm x 1120mm",
+      "ノイズレス",
+    ],
+    feature3: [
+      "MARS HYDRO社",
+      "最新版LB301Bチップ搭載",
+      "3,144個のLEDチップ",
+      "120cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "1130mm x 1120mm",
+    ],
+    video: {
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
+  },
+  {
+    meta: {
+      title: "SPIDER FARMER SF4000",
+      description:
+        "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+    },
+    header: "SPIDER FARMER",
+    price: {
+      sale: "120,000",
+      regular: "130,000",
+    },
+    title: {
+      1: "SF4000",
+      2: "SPIDER FARMER",
+      3: "日本初上陸",
+      color: "#993e41",
+    },
+    img: {
+      src: "/img/sf4000/sf4000main.png",
+      alt: "SPIDER FARMER",
+      width: 900,
+      height: 670,
+    },
+    desc: {
+      1: "本場アメリカからのこのLEDブランド、今栽培業界で大ヒット中！スリムな本体に防水や機器連動機能など性能もバッチリ！テント栽培にぴったりのサイズで個人栽培用ではもちろん、研究所や農園からの注文も続出しています。SAMSUNG LM301Bチップを1,212個も使用した太陽光ライト",
+      2: "です。",
+    },
+    button: "SF4000の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
+    href: "/products/marshydro/sf4000",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-red-400 via-red-300 to-red-200",
+      outer: "bg-gray-900",
+    },
+    text: "text-white",
+    shortTitle: "SF4000",
+    descForMenu: "スリム＆クール。SPIDER FARMER入荷",
+    lead: "最新モデル",
+    feature: [
+      "SPIDER FARMER社",
+      "2020年最新版LM301Bチップ搭載",
+      "1,212個のLEDチップセットアップ",
+      "120cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "デイジーチェーン",
+      "648mm x 536mm",
       "ノイズレス",
     ],
     video: {
