@@ -29,10 +29,6 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/products/marshydro/sf4000</loc>
-  </url>
-
-  <url>
     <loc>https://fatlightslim.com/products/marshydro/sp150</loc>
   </url>
 
@@ -46,5 +42,9 @@
 
   <url>
     <loc>https://fatlightslim.com/products/marshydro/ts</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/spiderfarmer/sf4000</loc>
   </url>
 </urlset>

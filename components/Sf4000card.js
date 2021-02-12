@@ -85,7 +85,7 @@ const LeftCol = ({ title, desc, button }) => (
       <span className="whitespace-nowrap">{desc[2]}</span>
     </p>
 
-    <Link href="/products/marshydro/sf4000">
+    <Link href="/products/spiderfarmer/sf4000">
       <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
         {button}
       </a>

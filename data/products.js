@@ -332,7 +332,7 @@ export const products = [
     },
     button: "SF4000の詳細を見る",
     // href: "https://shop.fatlightslim.com/products/mars-hydro-sp3000",
-    href: "/products/marshydro/sf4000",
+    href: "/products/spiderfarmer/sf4000",
     // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
     bg: {
       inner: "from-red-400 via-red-300 to-red-200",
