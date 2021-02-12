@@ -6,7 +6,7 @@ import CardBanner from "../../../components/CardBanner";
 import BlogBanner from "../../../components/BlogBanner";
 import Contact from "../../../components/Contact";
 import Video from "../../../components/Video";
-import Size from "../../../components/Size";
+import Sizepink from "../../../components/Sizepink";
 import Optimal from "../../../components/Optimal";
 import ProductFeatureWhite from "../../../components/ProductFeatureWhite";
 import CompareTableSF4000 from "../../../components/CompareTableSF4000";
@@ -23,7 +23,7 @@ export default function SpiderfarmerSf4000({}) {
     <Layout productJson={sf4000} productId={productId}>
       <CardBanner {...sf4000} />
       <ProductFeatureWhite feature={feature} />
-      <Size spec={spec} />
+      <Sizepink spec={spec} />
       <CompareTableSF4000
         main={products[5]}
         left={products[3]}
@@ -63,7 +63,7 @@ const feature = [
 
   {
     lead:
-      "SAMSUNG LM301Bの性能はピカイチ。1Wあたりの収穫量は業界トップレベルです。さらに、UL・CE公認のドライバを使い、電気代は最大30%OFF",
+      "SAMSUNG LM301Bの性能はピカイチ。1Wあたりの収穫量は業界トップレベルです。さらに、UL・CE公認のドライバーを使い、電気代は最大30%OFF",
     img: {
       src: "/img/sf4000/hardware.png",
       alt: "hardware",
@@ -83,7 +83,7 @@ const feature = [
   },
   {
     lead:
-      "トップレベルの完全防水設計でどこにでも安心設置。さらに！ボディー自体が熱循環パンネルになっていて、ファンがなくても熱くなることはありません。",
+      "トップレベルの完全防水設計でどこにでも安心設置。さらに！ボディ自体が熱循環パネルになっていて、ファンがなくても熱くなることはありません。",
     img: {
       src: "/img/sf4000/sf4000w.png",
       alt: "heatsink",
