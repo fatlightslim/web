@@ -22,7 +22,7 @@ export default function SpiderfarmerSf4000({}) {
   return (
     <Layout productJson={sf4000} productId={productId}>
       <CardBanner {...sf4000} />
-      <ProductFeaturewhite feature={feature} />
+      <ProductFeatureWhite feature={feature} />
       <Size spec={spec} />
       <CompareTableSF4000
         main={products[5]}
