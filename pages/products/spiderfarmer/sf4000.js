@@ -8,7 +8,7 @@ import Contact from "../../../components/Contact";
 import Video from "../../../components/Video";
 import Size from "../../../components/Size";
 import Optimal from "../../../components/Optimal";
-import ProductFeaturewhite from "../../../components/ProductFeaturewhite";
+import ProductFeatureWhite from "../../../components/ProductFeatureWhite";
 import CompareTableSF4000 from "../../../components/CompareTableSF4000";
 
 export default function SpiderfarmerSf4000({}) {
