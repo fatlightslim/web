@@ -35,13 +35,13 @@ export default function Sizepink({spec}) {
 
 function Table({data}) {
   return (
-    <table className="min-w-full border border-red-800 text-center text-sm text-red-800 font-medium ">
+    <table className="min-w-full border border-red-600 text-center text-sm text-red-500 font-medium ">
       <thead>
         <tr>
           <th
             scope="col"
             colSpan="2"
-            className="px-6 py-3 text-red-800 font-bold text-lg tracking-wider bg-white"
+            className="px-6 py-3 text-red-600 font-bold text-lg tracking-wider bg-white"
           >
             製品仕様
           </th>
@@ -52,8 +52,8 @@ function Table({data}) {
           const desc = v.desc.split("\n")
           return (
             <tr key={v.label}>
-              <th className="py-2 border border-red-800">{v.label}</th>
-              <td className="py-2 border border-red-800">
+              <th className="py-2 border border-red-600">{v.label}</th>
+              <td className="py-2 border border-red-600">
                 {desc.map((v) => (
                   <span key={v} className="block">{v}</span>
                 ))}
