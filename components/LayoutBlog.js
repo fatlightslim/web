@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Layout from "./Layout"
 
-export default function Layout({ img, title, subTitle, children }) {
+export default function LayoutBlog({ img, title, subTitle, children }) {
   return (
-    <div className="relative py-16 bg-white overflow-hidden">
+    <Layout>
+    <div className="relative py-16 bg-white overflow-hidden max-w-4xl mx-auto">
       <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
         <div
           className="relative h-full text-lg max-w-prose mx-auto"
@@ -119,18 +121,19 @@ export default function Layout({ img, title, subTitle, children }) {
         </div>
         <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
           <figure>
-            <Image
+            {/* <Image
               className="w-full rounded-lg"
               src={img}
               alt={title}
               width={1310}
               height={873}
-            />
+            /> */}
           </figure>
 
           {children}
         </div>
       </div>
     </div>
+    </Layout>
   )
 }
