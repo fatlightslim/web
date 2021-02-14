@@ -12,12 +12,14 @@ import ProductFeatureWhite from "../../../components/ProductFeatureWhite";
 import CompareTableSF4000 from "../../../components/CompareTableSF4000";
 
 export default function SpiderfarmerSf4000({}) {
+
   const sf4000 = products[5];
   sf4000.bg.outer = "bg-white";
   const productId =
     process.env.products[
       sf4000["href"].split("/")[sf4000["href"].split("/").length - 1]
     ];
+    console.log(productId);
 
   return (
     <Layout productJson={sf4000} productId={productId}>
@@ -73,7 +75,8 @@ const feature = [
   },
   {
     lead:
-      "成長ステージ別の設置TIPをご紹介！簡単に高さを調節できるロープ付きで、成長ステージに合わせた栽培がもっとラクになります。",
+      // "成長ステージ別の設置TIPをご紹介！簡単に高さを調節できるロープ付きで、成長ステージに合わせた栽培がもっとラクになります。",
+      "全ての植物に有効に注がれる贅沢な光。全ての成長ステージに簡単に最適に光量をコントロール。",
     img: {
       src: "/img/sf4000/sftip.png",
       alt: "tip",

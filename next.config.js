@@ -33,6 +33,8 @@ module.exports = withMDX({
       ts: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU1OTM5OTkzNzY1NDA=",
       sp6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NDgxMDcxNjQ=",
       fc6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NzM2NjYyMDQ=",
+      sf4000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxOTE0NzQ1NzM0Njg="
+
     },
     customKey: "my-value",
     company: {
