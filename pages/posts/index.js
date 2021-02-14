@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import Layout from "../../components/Layout"
-import {getImageFields, client} from "../../scripts/contentful"
+import { getImageFields, client } from "../../scripts/contentful"
 
 {
   /* <img
@@ -11,7 +11,6 @@ alt=""
 /> */
 }
 
-
 export async function getStaticProps() {
   return {
     props: {
@@ -20,9 +19,7 @@ export async function getStaticProps() {
   }
 }
 
-
 export default function Posts({ blog }) {
-  console.log(blog);
   return (
     <Layout>
       <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
@@ -47,23 +44,18 @@ export default function Posts({ blog }) {
                   className="flex flex-col rounded-lg shadow-lg overflow-hidden"
                 >
                   <div className="flex-shrink-0">
-                    <Image
-                      src={getImageFields(fields.image)}
-                      // layout="fill"
-                      width={400}
-                      height={200}
-                      className="h-48 w-full object-cover"
-                      alt={fields.url}
-                    />
+                    <div className="h-48 overflow-hidden w-full object-cover">
+                      <Image {...getImageFields(fields.image)}    />
+                    </div>
                   </div>
                   <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
-                        <Link href={`/posts/${fields.category.replace(/\s/g, '-').toLowerCase()}/${fields.url}`}>
+                        <Link href={`/posts/${fields.url}`}>
                           <a className="hover:underline">{fields.category}</a>
                         </Link>
                       </p>
-                        <Link href={`/posts/${fields.category.replace(/\s/g, '-').toLowerCase()}/${fields.url}`}>
+                      <Link href={`/posts/${fields.url}`}>
                         <a className="block mt-2">
                           <p className="text-xl font-semibold text-gray-900">
                             {fields.title}
@@ -78,24 +70,26 @@ export default function Posts({ blog }) {
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        <a href="#">
-                          <span className="sr-only">石川</span>
-                          <img
-                            className="h-10 w-10 rounded-full"
-                            src="/img/birdman_620x350.jpg"
-                            alt="birdman"
+                        {/* <a href="#"> */}
+                          <span className="sr-only">{fields.author.fields.name}</span>
+                          <div className="h-10 w-10"> 
+                          <Image
+                          className="rounded-full border"
+                            
+                            {...getImageFields(fields.author.fields.avatar)}
                           />
-                        </a>
+                        {/* </a> */}
+                        </div>
                       </div>
                       <div className="ml-3">
                         <p className="text-sm font-medium text-gray-900">
-                          <a href="#" className="hover:underline">
-                            石川
-                          </a>
+                          {/* <a href="#" className="hover:underline"> */}
+                          {fields.author.fields.name}
+                          {/* </a> */}
                         </p>
-                        <div className="flex space-x-1 text-sm text-gray-500">
+                        {/* <div className="flex space-x-1 text-sm text-gray-500">
                           <time dateTime="2020-02-12">2/3/2021</time>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
