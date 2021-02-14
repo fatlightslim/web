@@ -4,7 +4,7 @@ import "../styles/slick-theme.css"
 import "video-react/dist/video-react.css"
 import "animate.css/animate.min.css"
 
-import { MDXProvider } from "@mdx-js/react"
+// import { MDXProvider } from "@mdx-js/react"
 import { useRouter } from "next/router"
 import * as gtag from "../scripts/gtag"
 import { useEffect } from "react"
@@ -27,9 +27,9 @@ const App = ({ Component, pageProps }) => {
   }, [router.events])
 
   return (
-    <MDXProvider components={components}>
+    // <MDXProvider components={components}>
       <Component {...pageProps} />
-    </MDXProvider>
+    // </MDXProvider>
   )
 }
 

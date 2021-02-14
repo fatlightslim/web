@@ -5,7 +5,7 @@ module.exports = withMDX({
   // module.exports = {
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
-    domains: ["cdn.shopify.com"],
+    domains: ["cdn.shopify.com", "images.ctfassets.net"],
   },
   // i18n: {
   //   locales: ["ja", "en", "kr"],
