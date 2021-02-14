@@ -3,36 +3,37 @@ import Image from "next/image"
 import Link from "next/link"
 
 
-export default function Ts3000card({
+export default function Sf4000card({
   data = {
-    header: "ベストセラー",
+    header: "SPIDER FARMER",
     title: {
-      1: "再購入率",
-      2: "No.1の",
-      3: "大人気商品",
+      1: "日本初上陸",
+      2: "SPIDER",
+      22: "FARMER",
+      3: "販売開始！",
       //   3: "お届けします。",
-      color: "#f9cf53",
+      color: "#983F43",
     },
     img: {
-      src: "/img/ts/ts3000main.png",
+      src: "/img/sf4000/sf4000main2.png",
       alt: "TS3000",
-      width: 679,
-      height: 400,
+      width:  1000,
+      height: 1000,
     },
     desc: {
-      1: "FATLightSLIMの商品の中で二台目の注文が一番多い！定番ベストセラーをご紹介します。丈夫な本体と明るさ抜群のLEDチップで収穫量増大。ハイスペックの高性能だけど電気代は心配なし。アメリカのAmazonでは大好評のレビューが2,000件以上！ぜひ、チェックしてみてくだ",
-      2: "さい。",
+      1: "新ブランド、追加されました！本場アメリカだけではなく、イギリスやヨーロッパ、オーストラリアでも大好評のSPIDER FARMERがついに日本上陸！その中でも一番売れてる、SF4000のリニューアルバージョンをチョイスしてみました。海外直輸入商品を全国どこにでも送料無料でお届け！このチャンスをお見逃し",
+      2: "なく！",
     },
-    button: "TS3000の詳細ページへ",
+    button: "SF4000の詳細ページへ",
     // bg: "linear-gradient(to right top, #071931 0%, #33274f 50%, #661e43 100%)",
-    bg: "from-pink-700  to-white",
+    bg: "from-pink-300  to-white",
   },
 }) {
   return (
     <section className="md:py-4 md:px-2 bg-gray-200">
       <div
-        className={`text-blue-900 md:rounded-3xl max-w-screen-xl mx-auto `}
-        style={{ background: '#AFCBD8' }}
+        className={`text-white md:rounded-3xl max-w-screen-xl mx-auto `}
+        style={{ background: '#FAA7A8' }}
       >
         <div className="grid md:grid-cols-2 mx-auto gap-0">
           <div className="md:col-span-1 p-8 ">
@@ -73,6 +74,10 @@ const LeftCol = ({ title, desc, button }) => (
       {title[2]}
       </span>
       <br />
+      <span style={{ fontSize: "115%", color: title.color }}> 
+      {title[22]}
+      </span>
+      <br />
       <span className="whitespace-nowrap">{title[3]}</span>
     </p>
     <p className="py-8 max-w-lg lg:mb-4  text-6 md:text-xl font-bold leading-tight tracking-normal">
@@ -80,7 +85,7 @@ const LeftCol = ({ title, desc, button }) => (
       <span className="whitespace-nowrap">{desc[2]}</span>
     </p>
 
-    <Link href="/products/marshydro/ts">
+    <Link href="/products/spiderfarmer/sf4000">
       <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
         {button}
       </a>

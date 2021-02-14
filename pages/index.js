@@ -10,7 +10,7 @@ import Refund from "../components/Refund"
 import FeatureNew from "../components/FeatureNew"
 import NewHero from "../components/NewHero"
 import FCcard from "../components/FCcard";
-import Ts3000card from "../components/Ts3000card";
+import Sf4000card from "../components/Sf4000card";
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
   // Set your secret key. Remember to switch to your live secret key in production!
@@ -37,7 +37,7 @@ function Home({ router }) {
       <NewHero />
       <Headline data={data.Headline} />
       <FeatureNew />
-      <Ts3000card />
+      <Sf4000card />
       <FCcard />
       <Delivery />
       <ReviewBanner />

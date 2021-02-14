@@ -7,6 +7,11 @@ import { client } from "../scripts/shopify"
 import BuyButton from "./BuyButton"
 import Cart from "./Cart"
 
+// client.product.fetchAll().then((products) => {
+//   // Do something with the products
+//   console.log(products);
+// });
+
 export default function Layout({
   children,
   router,
@@ -161,7 +166,7 @@ export default function Layout({
         } ${className}`}
       >
         <Nav setCartOpen={setCartOpen} router={router} />
-        {product && product.productType === "SP" && (
+        {product && product.title !== "MARS HYDRO TSシリーズ" && (
           <BuyButton {...props.BuyButton} />
         )}
         {newChildren}
