@@ -46,7 +46,15 @@ export default function Layout({
       const checkoutId = Cookies.get("checkoutId")
       if (checkoutId) {
         client.checkout.fetch(checkoutId).then((res) => {
+          if (res) {
+            setCheckout(res)
+          } else {
+        client.checkout.create().then((res) => {
           setCheckout(res)
+          Cookies.set("checkoutId", res.id, { expires: 365 })
+        })
+
+          }
         })
       } else {
         client.checkout.create().then((res) => {
