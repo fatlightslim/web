@@ -35,7 +35,7 @@ export default function Confirm({ setForm, items, form, formatter }) {
       status: "cod",
     }).then((value) => {
       setLoading(false)
-      router.push("/order/success")
+      router.push({pathname: "/order/success", query: {_id: value._id, price: sum + fee * 1.1}})
     })
   }
 

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     client_reference_id,
     line_items,
     mode: "payment",
-    success_url: url + "order/success?session_id={CHECKOUT_SESSION_ID}",
+    success_url: url + "/order/success?session_id={CHECKOUT_SESSION_ID}",
     cancel_url: url,
   })
 

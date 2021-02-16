@@ -34,6 +34,6 @@ export default function MarsHydroSp3000({ products }) {
 
 export async function getStaticProps() {
   return {
-    props: await getProductsFromContentful(),
+    props: await getProductsFromContentful()
   }
 }

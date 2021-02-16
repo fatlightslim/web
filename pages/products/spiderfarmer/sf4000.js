@@ -19,7 +19,6 @@ export default function SpiderfarmerSf4000({}) {
     process.env.products[
       sf4000["href"].split("/")[sf4000["href"].split("/").length - 1]
     ];
-    console.log(productId);
 
   return (
     <Layout productJson={sf4000} productId={productId}>

@@ -39,7 +39,7 @@ export default function PaymentForm({ setForm, form, items }) {
 
     // Call your backend to create the Checkout Session
     const session = await fetchPostJSON("/api/sessions", {
-      url: location.href,
+      url: window.location.origin,
       client_reference_id: form.value._id,
       customer_email: form.value.customer.email,
       line_items: items.map((v) => {

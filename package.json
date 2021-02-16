@@ -22,6 +22,7 @@
     "contentful": "^8.1.7",
     "cors": "^2.8.5",
     "js-cookie": "^2.2.1",
+    "mailgun-js": "^0.22.0",
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "mongodb": "^3.6.4",

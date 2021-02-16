@@ -2,7 +2,7 @@ import { withRouter } from "next/router"
 import { useState, useEffect } from "react"
 import Nav from "./Nav"
 import Footer from "./Footer"
-import Cart from "./stripe/Cart"
+import Cart from "./stripe/Cart3"
 import AddToCart from "./stripe/AddToCart"
 import Payment from "./stripe/Payment"
 

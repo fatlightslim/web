@@ -3,11 +3,8 @@ import Link from "next/link"
 import { OutlineCheck } from "./Svg"
 import { getImageFields } from "../scripts/contentful"
 
-const formatter = new Intl.NumberFormat("ja", {
-  maximumSignificantDigits: 3,
-})
-
 export default function PricingTable({ main, left, right }) {
+
   const Header = () => (
     <div className="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
       <div className="text-center">
@@ -41,13 +38,14 @@ export default function PricingTable({ main, left, right }) {
     </div>
   )
 
-  const Price = ({ price }) => (
-    <>
+  const Price = ({ price }) => { 
+    const regularPrice = (Math.ceil(price / 0.8 / 100) * 100)
+    return <>
       <div className="text-center px-3 mt-4">
-        <span className="line-through text-red-500 tracking-tight text-gray-900 mr-1 inline-flex">
+        <span className="line-through text-red-500 tracking-tight  mr-1 inline-flex">
           <span className="text-md text-gray-900">&yen;</span>
           <span className="text-lg text-gray-900">
-            {formatter.format(price * 1.2)}
+            {regularPrice.toLocaleString()}
           </span>
         </span>
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
@@ -57,14 +55,14 @@ export default function PricingTable({ main, left, right }) {
       <div className="flex items-center justify-center">
         <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
           <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-          <span className="font-extrabold">{formatter.format(price)}</span>
+          <span className="font-extrabold">{price.toLocaleString()}</span>
         </span>
       </div>
       <span className="text-xl font-medium text-gray-500 block text-center">
         税込・送料込
       </span>
     </>
-  )
+  }
 
   const List = ({ pricingFeatureList, primary }) => {
     const list = primary ? pricingFeatureList : pricingFeatureList.slice(0, 3)
