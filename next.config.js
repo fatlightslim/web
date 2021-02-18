@@ -1,7 +1,4 @@
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-})
-module.exports = withMDX({
+module.exports = {
   // module.exports = {
   pageExtensions: ["js", "jsx", "mdx"],
   images: {
@@ -51,4 +48,4 @@ module.exports = withMDX({
       twitter: "@fatlightslim",
     },
   },
-})
+}

@@ -10,6 +10,7 @@ export default function Cart3({
   setForm,
   items,
 }) {
+
   const increaseQuantity = (n = 1, id) => {
     const val = items.filter((v) => v.product.sys.id === id)[0]["qty"] + n
 

@@ -6,6 +6,19 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          {/* <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap"
+            media="print"
+            onload="this.media='all'"
+          /> */}
+
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -27,7 +40,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script> </script> 
+          <script> </script>
         </body>
       </Html>
     )

@@ -2,8 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { OutlineCheck } from "./Svg"
 import { getImageFields } from "../scripts/contentful"
+import { useContext } from "react"
+import { Add2Cart } from "./Layout2021"
 
 export default function PricingTable({ main, left, right }) {
+  const { addItem } = useContext(Add2Cart)
 
   const Header = () => (
     <div className="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
@@ -38,30 +41,32 @@ export default function PricingTable({ main, left, right }) {
     </div>
   )
 
-  const Price = ({ price }) => { 
-    const regularPrice = (Math.ceil(price / 0.8 / 100) * 100)
-    return <>
-      <div className="text-center px-3 mt-4">
-        <span className="line-through text-red-500 tracking-tight  mr-1 inline-flex">
-          <span className="text-md text-gray-900">&yen;</span>
-          <span className="text-lg text-gray-900">
-            {regularPrice.toLocaleString()}
+  const Price = ({ price }) => {
+    const regularPrice = Math.ceil(price / 0.8 / 100) * 100
+    return (
+      <>
+        <div className="text-center px-3 mt-4">
+          <span className="line-through text-red-500 tracking-tight  mr-1 inline-flex">
+            <span className="text-md text-gray-900">&yen;</span>
+            <span className="text-lg text-gray-900">
+              {regularPrice.toLocaleString()}
+            </span>
           </span>
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+            20%OFF
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
+            <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
+            <span className="font-extrabold">{price.toLocaleString()}</span>
+          </span>
+        </div>
+        <span className="text-xl font-medium text-gray-500 block text-center">
+          税込・送料込
         </span>
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-          20%OFF
-        </span>
-      </div>
-      <div className="flex items-center justify-center">
-        <span className="px-3 flex items-start text-6xl tracking-tight text-gray-900">
-          <span className="mt-2 mr-2 text-4xl font-medium">&yen;</span>
-          <span className="font-extrabold">{price.toLocaleString()}</span>
-        </span>
-      </div>
-      <span className="text-xl font-medium text-gray-500 block text-center">
-        税込・送料込
-      </span>
-    </>
+      </>
+    )
   }
 
   const List = ({ pricingFeatureList, primary }) => {
@@ -160,13 +165,13 @@ export default function PricingTable({ main, left, right }) {
             <List {...fields} primary={true} />
             <div className="mt-10">
               <div className="rounded-lg shadow-md">
-                <a
-                  href="#"
+                <button
+                  onClick={() => addItem(product, 1)}
                   className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                   aria-describedby="tier-growth"
                 >
                   購入する
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -178,7 +183,7 @@ export default function PricingTable({ main, left, right }) {
     <div className="bg-gray-900">
       <Header />
       <div className="mt-16 bg-white pb-12 lg:mt-20 lg:pb-20">
-        <div className="relative z-0">
+        <div className="relative z-30">
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-7">

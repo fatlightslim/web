@@ -2,6 +2,7 @@ import { fetchPostJSON } from "../../utils/api-helpers"
 // fetchPostJSON('/api/orders', )
 import { buffer } from "micro"
 import Cors from "micro-cors"
+
 const cors = Cors({
   allowMethods: ["POST", "HEAD"],
 })
@@ -18,12 +19,13 @@ export const config = {
 const fulfillOrder = (session) => {
   // Sending the customer a receipt email.
   // console.log("Fulfilling order", session)
-  fetchPostJSON(`${session.cancel_url}api/orders`, {
+  fetchPostJSON(`${session.cancel_url}/api/orders`, {
     _id: session.client_reference_id,
     payment: session,
     status: "paid",
   }).then((r) => {
     console.log("Fulfilled")
+    
   })
 
   // mailgun
@@ -32,7 +34,7 @@ const fulfillOrder = (session) => {
 const createOrder = (session) => {
   // Saving a copy of the order in your own database.
   // console.log("Creating order", session)
-  fetchPostJSON(`${session.cancel_url}api/orders`, {
+  fetchPostJSON(`${session.cancel_url}/api/orders`, {
     _id: session.client_reference_id,
     payment: session,
     status: "awaiting_payment",

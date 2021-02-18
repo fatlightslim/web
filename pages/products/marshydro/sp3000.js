@@ -13,7 +13,6 @@ import PricingTable from "../../../components/PricingTable"
 
 export default function MarsHydroSp3000({ products }) {
   const { sp3000: product, sp150, ts } = products
-
   return (
     <Layout product={product}>
       <ProductCard product={product} />

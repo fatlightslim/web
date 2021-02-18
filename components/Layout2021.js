@@ -1,5 +1,5 @@
 import { withRouter } from "next/router"
-import { useState, useEffect } from "react"
+import { useState, useEffect, createContext } from "react"
 import Nav from "./Nav"
 import Footer from "./Footer"
 import Cart from "./stripe/Cart3"
@@ -7,6 +7,8 @@ import AddToCart from "./stripe/AddToCart"
 import Payment from "./stripe/Payment"
 
 const APP_KEY = "fatlightslim_cart"
+
+export const Add2Cart = createContext()
 
 const formatter = new Intl.NumberFormat("ja", {
   style: "currency",
@@ -76,7 +78,9 @@ function Layout({ product, children, router }) {
           <Payment {...locals} />
         ) : (
           <>
-            {children}
+            <Add2Cart.Provider value={{ addItem }}>
+              {children}
+            </Add2Cart.Provider>
             <Cart {...locals} />
           </>
         )}
