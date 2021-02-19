@@ -3,27 +3,27 @@ import Image from "next/image"
 import Link from "next/link"
 
 
-export default function FCcard({
+export default function OfficialSpider({
   data = {
-    header: "フォルダブルライト登場！",
+    header: "SPIDER FARMER",
     title: {
-      1: "最先端の",
-      2: "新商品",
-      3: "ついに入荷！",
+      1: "SPIDER",
+      2: "FARMER",
+      3: "公式代理店",
       //   3: "お届けします。",
-      color: "#FAA134",
+      color: "#ffc000",
     },
     img: {
-      src: "/img/fc6500/fcmain.png",
+      src: "/img/sf7000/sf7000main.png",
       alt: "FC6500",
       width: 1000,
       height: 827,
     },
     desc: {
-      1: "お待たせいたしました！MARS HYDRO最新技術の完全版。業界No.1のSAMSUNG LM301Bチップを3,144個も使用したハイスペックライトがついに登場！大人気モデルのTS3000やSP3000よりも約3倍以上のLEDチップをセットアップ。自慢のハイエンドモデル",
-      2: "です。",
+      1: "FATLightSLIMは、SPIDER FARMERの公式代理店です。商品到着後3年未満の場合は、商品検証を行い無償または有償での修理・交換を行います。※お客様ご自身の使用による破損や故障は保証対象外となり",
+      2: "ます。",
     },
-    button: "FC6500の詳細ページへ",
+    button: "SPIDER FARMER商品ページへ",
     // bg: "linear-gradient(to right top, #071931 0%, #33274f 50%, #661e43 100%)",
     bg: "from-pink-700  to-white",
   },
@@ -31,8 +31,8 @@ export default function FCcard({
   return (
     <section className="md:py-4 md:px-2 bg-gray-200">
       <div
-        className={`text-purple-700 md:rounded-3xl max-w-screen-xl mx-auto `}
-        style={{ background: '#dac5e7' }}
+        className={`text-green-700 md:rounded-3xl max-w-screen-xl mx-auto `}
+        style={{ background: '#E3F4DF' }}
       >
         <div className="grid md:grid-cols-2 mx-auto gap-0">
           <div className="md:col-span-1 p-8 ">
@@ -65,22 +65,22 @@ const Header = ({ header }) => (
 
 const LeftCol = ({ title, desc, button }) => (
   <>
-    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-nowrap text-purple-700">
-    <span className="whitespace-nowrap text-purple-700">{title[1]}</span> 
-       
+    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-nowrap">
+      
+        {title[1]}
       <br />
-      <span style={{ fontSize: "115%", color: title.color }}> 
+      <span > 
       {title[2]}
       </span>
       <br />
-      <span className="whitespace-nowrap text-purple-700　text-opacity-50">{title[3]}</span>
+      <span style={{ fontSize: "115%", color: title.color }}className="whitespace-nowrap">{title[3]}</span>
     </p>
     <p className="py-8 max-w-lg lg:mb-4  text-6 md:text-xl font-bold leading-tight tracking-normal">
       {desc[1]}
       <span className="whitespace-nowrap">{desc[2]}</span>
     </p>
 
-    <Link href="/products/marshydro/fc6500">
+    <Link href="/products/spiderfarmer/sf7000">
       <a className="bg-transparent rounded-full font-semibold  py-2 px-4 border-2">
         {button}
       </a>

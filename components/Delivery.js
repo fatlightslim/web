@@ -12,8 +12,8 @@ export default function Deliver({
     img: {
       src: "/img/delivery.png",
       alt: "配送料無料",
-      width: 1150,
-      height: 1171,
+      width: 900,
+      height: 900,
     },
     desc: {
       0: "大変恐縮ですが... 商品到着まで7〜10日程度のお時間をください!!",
