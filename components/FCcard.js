@@ -11,7 +11,7 @@ export default function FCcard({
       2: "新商品",
       3: "ついに入荷！",
       //   3: "お届けします。",
-      color: "#fc2",
+      color: "#360056",
     },
     img: {
       src: "/img/fc6500/fcmain.png",
@@ -31,8 +31,8 @@ export default function FCcard({
   return (
     <section className="md:py-4 md:px-2 bg-gray-200">
       <div
-        className={`text-green-700 md:rounded-3xl max-w-screen-xl mx-auto `}
-        style={{ background: '#E3F4DF' }}
+        className={`text-purple-700 md:rounded-3xl max-w-screen-xl mx-auto `}
+        style={{ background: '#dac5e7' }}
       >
         <div className="grid md:grid-cols-2 mx-auto gap-0">
           <div className="md:col-span-1 p-8 ">
@@ -65,15 +65,15 @@ const Header = ({ header }) => (
 
 const LeftCol = ({ title, desc, button }) => (
   <>
-    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-nowrap">
-      
-        {title[1]}
+    <p className="text-5xl md:text-6xl font-extrabold leading-none tracking-normal whitespace-nowrap text-purple-700">
+    <span className="whitespace-nowrap text-purple-700">{title[1]}</span> 
+       
       <br />
       <span style={{ fontSize: "115%", color: title.color }}> 
       {title[2]}
       </span>
       <br />
-      <span className="whitespace-nowrap">{title[3]}</span>
+      <span className="whitespace-nowrap text-purple-700　text-opacity-50">{title[3]}</span>
     </p>
     <p className="py-8 max-w-lg lg:mb-4  text-6 md:text-xl font-bold leading-tight tracking-normal">
       {desc[1]}

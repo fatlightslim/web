@@ -21,11 +21,15 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/posts/how-to-choose-your-grow-light</loc>
+    <loc>https://fatlightslim.com/posts/[slug]</loc>
   </url>
 
   <url>
     <loc>https://fatlightslim.com/posts/index</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/order/success</loc>
   </url>
 
   <url>
@@ -53,12 +57,6 @@
   </url>
 
   <url>
-    <loc
-      >https://fatlightslim.com/posts/ishikawa-in-da-house/what-is-daisychain</loc
-    >
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/posts/ishikawa-in-da-house/what-is-ppfd</loc>
+    <loc>https://fatlightslim.com/products/spiderfarmer/sf7000</loc>
   </url>
 </urlset>

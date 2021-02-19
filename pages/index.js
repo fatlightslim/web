@@ -1,6 +1,5 @@
-import { withRouter } from "next/router"
 import { data } from "../data/home"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout2021"
 import Headline from "../components/Headline"
 import FeatureSummary from "../components/FeatureSummary"
 import Delivery from "../components/Delivery"
@@ -11,6 +10,8 @@ import FeatureNew from "../components/FeatureNew"
 import NewHero from "../components/NewHero"
 import FCcard from "../components/FCcard";
 import Sf4000card from "../components/Sf4000card";
+import OfficialSpider from "../components/OfficialSpider"
+
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
   // Set your secret key. Remember to switch to your live secret key in production!
@@ -31,14 +32,15 @@ import Sf4000card from "../components/Sf4000card";
 //   }
 // }
 
-function Home({ router }) {
+function Home() {
   return (
-    <Layout router={router}>
+    <Layout>
       <NewHero />
       <Headline data={data.Headline} />
       <FeatureNew />
-      <Sf4000card />
       <FCcard />
+      <Sf4000card />
+      <OfficialSpider />
       <Delivery />
       <ReviewBanner />
       <Refund />
@@ -48,4 +50,4 @@ function Home({ router }) {
   )
 }
 
-export default withRouter(Home)
+export default Home
