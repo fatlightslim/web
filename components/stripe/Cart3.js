@@ -9,8 +9,8 @@ export default function Cart3({
   removeItemInCart,
   setForm,
   items,
+  form,
 }) {
-
   const increaseQuantity = (n = 1, id) => {
     const val = items.filter((v) => v.product.sys.id === id)[0]["qty"] + n
 
@@ -18,6 +18,7 @@ export default function Cart3({
       updateQtyInCart(id, val)
     }
   }
+
   const Header = () => (
     <div className="px-4 sm:px-6">
       <div className="flex items-start justify-between">
@@ -67,7 +68,7 @@ export default function Cart3({
         買い物を続ける
       </button>
       <button
-        onClick={() => setForm({ key: "ORDER", value: {} })}
+        onClick={() => setForm({ key: "ORDER", value: form.value })}
         className="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         ご購入手続き
@@ -179,7 +180,11 @@ export default function Cart3({
     <div
       className={`${cartOpen ? "z-50" : "z-0"} fixed inset-0 overflow-hidden`}
     >
-      <div className="absolute inset-0 overflow-hidden">
+      <div
+        className={`${
+          cartOpen ? "z-50" : "z-0"
+        } absolute inset-0 overflow-hidden`}
+      >
         <section
           className="absolute inset-y-0 right-0 pl-10 max-w-full flex"
           aria-labelledby="slide-over-heading"

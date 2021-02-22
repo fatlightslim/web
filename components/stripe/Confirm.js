@@ -1,10 +1,9 @@
 import { fetchPostJSON } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, Lock } from "../Svg"
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 
-
-export default function Confirm({ setForm, items, form, formatter }) {
+export default function Confirm({ setForm, items, form  }) {
   const router = useRouter()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
   const [loading, setLoading] = useState(false)
@@ -26,7 +25,8 @@ export default function Confirm({ setForm, items, form, formatter }) {
     fee = 10000
   }
 
-  const onSubmit = (customer) => {
+  const onSubmit = () => {
+    const customer = form.value.customer
     setLoading(true)
     fetchPostJSON("/api/orders", {
       _id: form.value._id,
@@ -35,7 +35,10 @@ export default function Confirm({ setForm, items, form, formatter }) {
       status: "cod",
     }).then((value) => {
       setLoading(false)
-      router.push({pathname: "/order/success", query: {_id: value._id, price: sum + fee * 1.1}})
+      router.push({
+        pathname: "/order/success",
+        query: { _id: value._id, price: sum + fee * 1.1 },
+      })
     })
   }
 
@@ -83,15 +86,15 @@ export default function Confirm({ setForm, items, form, formatter }) {
         <div className="px-4 py-5 sm:p-6 text-sm leading-6">
           <div className="grid grid-cols-2">
             <span>商品金額計</span>
-            <span className="text-right">{formatter.format(sum)}</span>
+            <span className="text-right">&yen;{(sum).toLocaleString()}</span>
           </div>
           <div className="">
             <span>配送料 (無料キャンペーン中)</span>
-            <span className="float-right">{formatter.format(0)}</span>
+            <span className="float-right">&yen;{(0).toLocaleStringto()}</span>
           </div>
           <div className="">
-            <span>代引手数料 ({formatter.format(fee)} x 消費税)</span>
-            <span className="float-right">{formatter.format(fee * 1.1)}</span>
+            <span>代引手数料 &yen;({(fee).toLocaleString()} x 消費税)</span>
+            <span className="float-right">&yen;{(fee * 1.1).toLocaleString()}</span>
           </div>
 
           <hr className="my-4" />
@@ -99,7 +102,7 @@ export default function Confirm({ setForm, items, form, formatter }) {
           <div className="text-sm  font-bold">
             <span>お支払い金額</span>
             <span className="float-right text-lg -mt-1">
-              {formatter.format(sum + fee * 1.1)}
+            &yen;{(sum + fee * 1.1).toLocaleString()}
             </span>
           </div>
         </div>

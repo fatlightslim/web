@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 import Logo from "../Logo"
 import Confirm from "./Confirm"
@@ -7,11 +6,11 @@ import PaymentForm from "./PaymentForm"
 import Breadcrumb from "./Breadcrumb"
 import { Transition } from "@headlessui/react"
 import { useState } from "react"
-import {Cart} from "../Svg"
+import { Cart } from "../Svg"
 
 export default function Payment(props) {
   const [isOpen, setIsOpen] = useState(false)
-  const { formatter, items } = props
+  const { items } = props
   const sum = items.reduce((v, x) => v + x.product.fields.price * x.qty, 0)
   const discount = 0
 
@@ -23,7 +22,6 @@ export default function Payment(props) {
       <div className="z-0 relative">
         <div className="relative z-10 bg-gray-50 bg-opacity-80 text shadow">
           <div className="max-w-7xl mx-auto flex px-4 py-6 sm:px-6 lg:px-8">
-            {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -36,7 +34,7 @@ export default function Payment(props) {
               <Chev isOpen={isOpen} />
             </button>
             <span className="font-medium flex-grow text-right">
-              {formatter.format(sum)}
+            &yen;{sum.toLocaleString()}
             </span>
           </div>
         </div>
@@ -83,12 +81,12 @@ export default function Payment(props) {
                               {title}
                             </p>
                             <p className="mt-1 text-xs text-gray-500">
-                              {formatter.format(price)}
+                            &yen;{price.toLocaleString()}
                             </p>
                           </div>
                         </div>
                         <p className="mt-2 text-sm text-gray-500 flex-grow text-right">
-                          {formatter.format(price * v.qty)}
+                        &yen;{(price * v.qty).toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -119,20 +117,26 @@ export default function Payment(props) {
               <div className="text-right py-4 px-2 border text-xs leading-5">
                 <div className="grid grid-cols-2">
                   <p>小計</p>
-                  <p className="text-right mr-2 font-semibold">{formatter.format(sum)}</p>
+                  <p className="text-right mr-2 font-semibold">
+                    &yen;{sum.toLocaleString()}
+                  </p>
                 </div>
                 <div className="grid grid-cols-2">
-                <p>配送料</p>
+                  <p>配送料</p>
                   <p className="text-right mr-2 font-semibold">無料</p>
                 </div>
                 <div className="grid grid-cols-2">
-                <p>クーポン割引</p>
-                  <p className="text-right mr-2 font-semibold">{formatter.format(discount)}</p>
+                  <p>クーポン割引</p>
+                  <p className="text-right mr-2 font-semibold">
+                    &yen;{discount.toLocaleString()}
+                  </p>
                 </div>
               </div>
               <div className="text-right py-4 px-2 grid grid-cols-2 border text-sm font-bold">
                 <p>合計</p>
-                  <p className="text-right mr-2 text-md">{formatter.format(sum - discount)}</p>
+                <p className="text-right mr-2 text-md">
+                  &yen;{(sum - discount).toLocaleString()}
+                </p>
               </div>
             </div>
           </Transition>

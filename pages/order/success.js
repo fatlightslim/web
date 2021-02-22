@@ -8,7 +8,6 @@ const APP_KEY = "fatlightslim_cart"
 
 const ResultPage = () => {
   const router = useRouter()
-  localStorage.removeItem(APP_KEY)
 
   // Fetch CheckoutSession from static page via
   // https://nextjs.org/docs/basic-features/data-fetching#static-generation
@@ -21,9 +20,12 @@ const ResultPage = () => {
   const client_reference_id = data ? data.client_reference_id : router.query._id
   const price = data ? data.amount_total : router.query.price
   if (!client_reference_id) return null
+  const paymentMethod = data ? "支払い済み" : "代金引換"
+
+  localStorage.removeItem(APP_KEY)
 
   return (
-    <Layout title="Checkout Payment Result | Next.js + TypeScript Example">
+    <Layout>
       <div className="bg-gray-100">
         <div className="pt-12 sm:pt-16 lg:pt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +91,7 @@ const ResultPage = () => {
                 </div>
                 <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
                   <p className="text-lg leading-6 font-medium text-gray-900">
-                    代金引換
+                    {paymentMethod}
                   </p>
                   <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
                     <span className="text-4xl font-medium">&yen;</span>
@@ -98,11 +100,11 @@ const ResultPage = () => {
                   <div className="mt-6">
                     <div className="rounded-md shadow">
                       <a
-                        href="mailto:hello@fatlightslim.com"
-                        // href={`mailto:hello@fatlightslim.com?subject=購入後のお問い合わせ #${client_reference_id.substr(
-                        //   18
-                        // )}`}
-                        className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
+                        target="_blank"
+                        href={`mailto:hello@fatlightslim.com?subject=購入後のお問い合わせ #${client_reference_id.substr(
+                          18
+                        )}`}
+                        className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
                       >
                         お問い合わせ
                       </a>

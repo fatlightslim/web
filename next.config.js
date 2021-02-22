@@ -20,6 +20,7 @@ module.exports = {
     return config
   },
   env: {
+    EMAIL: "hello@sbo.llc",
     shopify: {
       domain: "fatlightslim.myshopify.com",
       storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
@@ -33,7 +34,6 @@ module.exports = {
       sf4000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxOTE0NzQ1NzM0Njg="
 
     },
-    customKey: "my-value",
     company: {
       ja: "合同会社SBO",
       en: "SBO LLC",

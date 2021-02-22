@@ -10,11 +10,6 @@ const APP_KEY = "fatlightslim_cart"
 
 export const Add2Cart = createContext()
 
-const formatter = new Intl.NumberFormat("ja", {
-  style: "currency",
-  currency: "JPY",
-})
-
 function Layout({ product, children, router }) {
   const initialForm = { key: null, value: {} }
   const [form, setForm] = useState(initialForm)
@@ -54,7 +49,6 @@ function Layout({ product, children, router }) {
   }
 
   const locals = {
-    formatter,
     product,
     items,
     addItem,
@@ -71,7 +65,7 @@ function Layout({ product, children, router }) {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {!form.key && <Nav {...locals} />}
-        {!["/", "/payment"].includes(router.pathname) && (
+        {product && !["/", "/payment"].includes(router.pathname) && (
           <AddToCart {...locals} />
         )}
         {form.key ? (

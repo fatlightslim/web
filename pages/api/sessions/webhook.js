@@ -1,8 +1,6 @@
-import { fetchPostJSON } from "../../utils/api-helpers"
-// fetchPostJSON('/api/orders', )
+import { fetchPostJSON } from "../../../utils/api-helpers"
 import { buffer } from "micro"
-import Cors from "micro-cors"
-
+import Cors from "micro-cors" 
 const cors = Cors({
   allowMethods: ["POST", "HEAD"],
 })
@@ -17,7 +15,6 @@ export const config = {
 }
 
 const fulfillOrder = (session) => {
-  // Sending the customer a receipt email.
   // console.log("Fulfilling order", session)
   fetchPostJSON(`${session.cancel_url}/api/orders`, {
     _id: session.client_reference_id,
@@ -25,10 +22,7 @@ const fulfillOrder = (session) => {
     status: "paid",
   }).then((r) => {
     console.log("Fulfilled")
-    
   })
-
-  // mailgun
 }
 
 const createOrder = (session) => {
@@ -44,9 +38,14 @@ const createOrder = (session) => {
 }
 
 const emailCustomerAboutFailedPayment = (session) => {
-  // TODO: fill me in
-  console.log("Emailing customer", session)
-  const status = "payment_failed"
+  // console.log("Emailing customer", session)
+  fetchPostJSON(`${session.cancel_url}/api/orders`, {
+    _id: session.client_reference_id,
+    payment: session,
+    status: "payment_failed",
+  }).then((r) => {
+    console.log("payment_failed")
+  })
 }
 
 async function handler(req, res) {
