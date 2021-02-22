@@ -3,11 +3,11 @@ import Logo from "./Logo"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { products } from "../data/products"
-import { Play } from "./Svg"
+import { products } from "../data/menu"
+import { Play, Bag } from "./Svg"
 
 
-export default function Nav({ router, setCartOpen }) {
+export default function Nav({  setCartOpen }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const CartOpen = () => (
@@ -16,20 +16,7 @@ export default function Nav({ router, setCartOpen }) {
       type="button"
       className="group rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none "
     >
-      <svg
-        className="h-6 w-6 text-gray-50"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1}
-          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-        />
-      </svg>
+      <Bag />
     </button>
   )
 
@@ -125,14 +112,6 @@ const List = ({ shortTitle, descForMenu, href, img, index, header }) => {
               </p>
               <p className="mt-1 text-sm text-gray-500">{descForMenu}</p>
             </div>
-
-            {/* <Link href={href}>
-          <a
-            className="float-left mt-1 mr-2 px-2 py-1 border border-transparent text-white text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            購入
-          </a>
-        </Link> */}
             <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
               さらに詳しく <span aria-hidden="true">→</span>
             </p>
