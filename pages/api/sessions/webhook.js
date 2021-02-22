@@ -5,7 +5,7 @@ const cors = Cors({
   allowMethods: ["POST", "HEAD"],
 })
 
-const stripe = require("stripe")("sk_test_FexbqIZUfPreFhwr7BIWaRw4") //(process.env.STRIPE_SECRET_KEY)
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY_TEST)
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
 // Stripe requires the raw body to construct the event.
 export const config = {

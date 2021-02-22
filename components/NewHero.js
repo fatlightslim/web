@@ -1,7 +1,8 @@
 import Image from "next/image"
-const bg = "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/hero.jpg?v=1610334052"
+import { getImageFields } from "../scripts/contentful"
 
-export default function NewHero(params) {
+export default function NewHero({ hero, angle, amazon }) {
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900 lg:bg-gray-300">
       <div
@@ -12,13 +13,13 @@ export default function NewHero(params) {
           top: "-25%",
           left: "-100%",
           backgroundSize: "800px auto",
-          backgroundImage: `url("${bg}")`,
+          backgroundImage: `url("${getImageFields(hero).src}")`,
         }}
       />
       <div
         className="relative min-h-screen lg:min-w-3xl xl:min-w-4xl lg:flex lg:items-center lg:justify-center lg:w-3/5 lg:py-20 lg:pl-8 lg:pr-8 bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://cdn.shopify.com/s/files/1/0470/9089/2956/files/angled-background.svg?v=1610347412")',
+          backgroundImage: `url("${getImageFields(angle).src}")`,
           backgroundSize: "100% auto",
           backgroundPosition: "-5px -5px",
         }}
@@ -27,23 +28,19 @@ export default function NewHero(params) {
           <div className="px-6 md:max-w-3xl md:mx-auto lg:mx-0 lg:max-w-none">
             <h1 className="mt-3 text-3xl sm:text-4xl font-semibold font-display text-white sm:mt-6 xl:text-6xl">
               <div style={{ width: 130 }} className="mt-8 sm:ml-2 lg:hidden">
-                <Image
-                  src="/img/amazon_PNG11-768x280.png"
-                  alt="amazon.com,アメリカAmazon"
-                  width={300}
-                  height={109}
-                />
+                <Image {...getImageFields(amazon)} />
               </div>
               <div
                 style={{ width: 220 }}
                 className="xl:-mt-20 ml-2 hidden lg:block"
               >
-                <Image
+                <Image {...getImageFields(amazon)} />
+                {/* <Image
                   src="/img/amazon_PNG11-768x280.png"
                   alt="amazon.com,アメリカAmazon"
                   width={300}
                   height={109}
-                />
+                /> */}
               </div>
               <span className="block -mt-4 mb-2">全米No. 1 ベストセラー</span>
               <span className="block mb-4">植物育成用LEDライト</span>
@@ -65,10 +62,10 @@ export default function NewHero(params) {
                 top: "-100%",
                 left: "-100%",
                 backgroundSize: "400px auto",
-                backgroundImage: `url("${bg}")`,
+                backgroundImage: `url("${getImageFields(hero).src}")`,
               }}
             >
-{/* 
+              {/* 
               <Image
                 // width={1000}
                 // height={1598}

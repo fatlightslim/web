@@ -56,7 +56,7 @@ function Product({ title, img, bg, desc, button, header, href }) {
 
 export default function RelatedProducts2({}) {
   return (
-    <section className="bg-gray-200 md:pt-4 md:pb-0 dosis">
+    <section className="bg-gray-200 md:pt-4 md:pb-0 dosis ">
          <div className="sm:grid sm:grid-cols-3 gap-2 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 px-2 py-1 ">
           {[1, 0, 3].map((v) => {
             return <Product key={v} {...products[v]}  />

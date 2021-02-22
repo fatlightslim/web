@@ -3,6 +3,8 @@ import { fetchPostJSON } from "../../utils/api-helpers"
 import { useForm, Controller } from "react-hook-form"
 import { useEffect, forwardRef, useState } from "react"
 import { ExCircle, ChevRight } from "../Svg"
+import { Total } from "./CartBar"
+
 
 function isEmpty(obj) {
   return !Object.keys(obj).length
@@ -147,7 +149,7 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
           errors[en]
             ? "border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 z-10"
             : "border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-        } relative block w-full bg-transparent focus:z-10 sm:text-sm`,
+        } relative block w-full bg-transparent focus:z-10 sm:text-sm bg-white`,
       }
       return (
         <div className={wrapper} key={en}>
@@ -178,7 +180,7 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
     </button>
   )
 
-  return (
+  const Form = () => (
     <div className="px-4 max-w-xl mx-auto">
       <h3
         className={`${
@@ -188,7 +190,7 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
       />
 
       <form onSubmit={handleSubmit(onSubmit, onError)}>
-        <div className="bg-white">
+        <div className="">
           <Fieldset text="お届け先情報">
             <div className="flex -space-x-px">
               <Fields group="delivery1" />
@@ -221,6 +223,15 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
         </div>
         {/* <DevTool control={control} /> */}
       </form>
+    </div>
+  )
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 h-screen  sm:bg-gray-50">
+      <div className="relative hidden sm:block border-r p-8">
+        <Total sum={3000} discount={0} />
+      </div>
+      <Form />
     </div>
   )
 }

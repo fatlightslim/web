@@ -1,5 +1,5 @@
 
-const stripe = require("stripe")("sk_test_FexbqIZUfPreFhwr7BIWaRw4") //(process.env.STRIPE_SECRET_KEY)
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY_TEST)
 
 export default async function handler(req, res) {
   const { customer_email, line_items, url, client_reference_id } = req.body

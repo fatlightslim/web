@@ -48,11 +48,11 @@ module.exports = {
       },
     },
   },
-  // variants: {
-  //   extend: {
-  //     border: ["last"],
-  //   },
-  // },
+  variants: {
+    extend: {
+      backgroundColor: ['disabled'],
+    },
+  },
   plugins: [
     // require("@tailwindcss/aspect-ratio")
     require("@tailwindcss/typography"),

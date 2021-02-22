@@ -16,7 +16,7 @@ export default function SpiderfarmerSf7000({ products }) {
 
 
   return (
-    <Layout product={product}>
+    <Layout product={product} products={products}>
       <ProductCard product={product} />
       <ProductFeature feature={product.fields.feature} />
       <Size spec={product.fields.spec} />

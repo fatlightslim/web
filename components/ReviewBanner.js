@@ -62,7 +62,7 @@ export default function ReviewBanner({
 }) {
   return (
 
-    <section className="md:py-4 md:px-2 bg-white">
+    <section className="relative z-10 md:py-4 md:px-2 bg-white">
       <div
         // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
         // style={{ background: data.bg }}

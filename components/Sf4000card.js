@@ -30,7 +30,7 @@ export default function Sf4000card({
   },
 }) {
   return (
-    <section className="md:py-4 md:px-2 bg-gray-200">
+    <section className="md:py-4 md:px-2 bg-gray-200 ">
       <div
         className={`text-white md:rounded-3xl max-w-screen-xl mx-auto `}
         style={{ background: '#FAA7A8' }}

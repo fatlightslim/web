@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useState } from "react"
 import { Transition } from "@headlessui/react"
 import { Cart, X, Close, Minus, Plus } from "../Svg"
 
@@ -178,12 +179,12 @@ export default function Cart3({
   )
   return (
     <div
-      className={`${cartOpen ? "z-50" : "z-0"} fixed inset-0 overflow-hidden`}
+      className={`${cartOpen ? "fixed z-50" : ""} inset-0 overflow-hidden`}
     >
       <div
         className={`${
-          cartOpen ? "z-50" : "z-0"
-        } absolute inset-0 overflow-hidden`}
+          cartOpen ? "absolute z-50" : ""
+        }  inset-0 overflow-hidden`}
       >
         <section
           className="absolute inset-y-0 right-0 pl-10 max-w-full flex"

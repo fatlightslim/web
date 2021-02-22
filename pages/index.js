@@ -1,3 +1,7 @@
+import {
+  getProductsFromContentful,
+  getImageFromContentful,
+} from "../scripts/contentful"
 import { data } from "../data/home"
 import Layout from "../components/Layout2021"
 import Headline from "../components/Headline"
@@ -8,34 +12,17 @@ import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
 import FeatureNew from "../components/FeatureNew"
 import NewHero from "../components/NewHero"
-import FCcard from "../components/FCcard";
-import Sf4000card from "../components/Sf4000card";
+import FCcard from "../components/FCcard"
+import Sf4000card from "../components/Sf4000card"
 import OfficialSpider from "../components/OfficialSpider"
 
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
-  // Set your secret key. Remember to switch to your live secret key in production!
-  // See your keys here: https://dashboard.stripe.com/account/apikeys
-  // const Stripe = require("stripe")
 
-// export async function getStaticProps() {
-//   const res = await client.product.fetchAll()
-//   const products = await JSON.parse(JSON.stringify(res))
-
-//   // const products = await stripe.products.list();
-
-
-//   return {
-//     props: {
-//       products,
-//     },
-//   }
-// }
-
-function Home() {
+export default function Home({ products, assets }) {
   return (
-    <Layout>
-      <NewHero />
+    <Layout products={products.products}>
+      <NewHero {...assets} />
       <Headline data={data.Headline} />
       <FeatureNew />
       <FCcard />
@@ -50,4 +37,15 @@ function Home() {
   )
 }
 
-export default Home
+export async function getStaticProps() {
+  return {
+    props: {
+      products: await getProductsFromContentful(),
+      assets: {
+        hero: await getImageFromContentful("1aAtHaA1vPe5s5ZCfjgfMZ"),
+        angle: await getImageFromContentful("12o0dyvOxeYGsm1V46Xh0q"),
+        amazon: await getImageFromContentful("2TntmVSqP6qzoCUi0fImyS")
+      },
+    },
+  }
+}

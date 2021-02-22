@@ -38,7 +38,7 @@ export default function RelatedProducts() {
       <div className="bg-gray-200 p-0 md:pt-4 grid md:grid-cols-3">
         {products.map((data, index) => {
           return (
-            <section className="p-2 grid-span-1" key={index}>
+            <section className="relative z-10 p-2 grid-span-1" key={index}>
               <div
                 // className={`p-8 text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
                 className={`text-white rounded-3xl p-4 md:min-h-screen`}

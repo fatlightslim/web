@@ -14,7 +14,7 @@ import PricingTable from "../../../components/PricingTable"
 export default function MarsHydroSp3000({ products }) {
   const { sp3000: product, sp150, ts } = products
   return (
-    <Layout product={product}>
+    <Layout product={product} products={products}>
       <ProductCard product={product} />
       <Video video={product.fields.video} />
       <ProductFeature feature={product.fields.feature} />

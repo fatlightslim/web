@@ -1,13 +1,15 @@
+import { getImageFields } from "../scripts/contentful"
 import { Transition } from "@headlessui/react"
 import Logo from "./Logo"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { products } from "../data/menu"
 import { Play, Bag } from "./Svg"
 
+const blacklist = ["sf1000", "sf2000"]
 
-export default function Nav({  setCartOpen }) {
+export default function Nav({ setCartOpen, products }) {
+
   const [menuOpen, setMenuOpen] = useState(false)
 
   const CartOpen = () => (
@@ -65,7 +67,7 @@ export default function Nav({  setCartOpen }) {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-1 hidden"
       >
-        <Menu />
+        <Menu products={products} />
         <Actions />
       </Transition>
     </div>
@@ -81,36 +83,42 @@ export default function Nav({  setCartOpen }) {
   )
 }
 
-const Menu = () => (
-  <div className="bg-white mt-1">
+const Menu = ({ products }) => (
+  <div className="bg-white mt-1 ">
     <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-      {products.map((v, i) => (
-        <List {...v} key={v.shortTitle} index={i} />
-      ))}
+      {Object.entries(products).map((v, i) => {
+        return blacklist.includes(v[0]) ? null : (
+          <List
+            {...v[1].fields}
+            key={v[0]}
+            isLast={i === products.length - 1}
+          />
+        )
+      })}
     </div>
   </div>
 )
 
-const List = ({ shortTitle, descForMenu, href, img, index, header }) => {
+const List = ({ title, url, image, lead, isLast }) => {
   let className =
     "-m-3 p-3 flex flex-col justify-between sm:rounded-lg hover:bg-gray-50 transition ease-in-out duration-150 border-b border-dotted sm:border-none last:border-none"
-  if (index === products.length - 1) {
+  if (isLast) {
     className += " border-none"
   }
 
   return (
-    <Link href={href}>
+    <Link href={url}>
       <a className={className}>
         <div className="flex md:h-full lg:flex-col md:text-center">
           <div className="w-16 sm:w-32 md:mx-auto">
-            <Image {...img} />
+            <Image {...getImageFields(image)} />
           </div>
           <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
             <div>
-              <p className="text-base font-bold text-gray-900 dosis">
-                {header} {shortTitle}
+              <p className="text-base font-bold text-gray-900 dosis">{title}</p>
+              <p className="mt-1 text-sm text-gray-500">
+                {lead.title.replace("|", "")}
               </p>
-              <p className="mt-1 text-sm text-gray-500">{descForMenu}</p>
             </div>
             <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
               さらに詳しく <span aria-hidden="true">→</span>

@@ -1,21 +1,20 @@
 import { getProductsFromContentful } from "../../../scripts/contentful"
-import Layout from "../../../components/Layout2021";
-import Delivery from "../../../components/Delivery";
-import Refund from "../../../components/Refund";
-import BlogBanner from "../../../components/BlogBanner";
-import Contact from "../../../components/Contact";
-import Sizepink from "../../../components/Sizepink";
-import Optimal from "../../../components/Optimal";
-import ProductFeatureWhite from "../../../components/ProductFeatureWhite";
-import ProductCard from "../../../components/ProductCard";
-import PricingTable from "../../../components/PricingTable";
+import Layout from "../../../components/Layout2021"
+import Delivery from "../../../components/Delivery"
+import Refund from "../../../components/Refund"
+import BlogBanner from "../../../components/BlogBanner"
+import Contact from "../../../components/Contact"
+import Sizepink from "../../../components/Sizepink"
+import Optimal from "../../../components/Optimal"
+import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
+import ProductCard from "../../../components/ProductCard"
+import PricingTable from "../../../components/PricingTable"
 
 export default function SpiderfarmerSf4000({ products }) {
   const { sf4000: product, fc6500, sp6500 } = products
 
-
   return (
-    <Layout product={product}>
+    <Layout product={product} products={products}>
       <ProductCard product={product} />
       <ProductFeatureWhite feature={product.fields.feature} />
       <Sizepink spec={product.fields.spec} />
@@ -28,7 +27,7 @@ export default function SpiderfarmerSf4000({ products }) {
         <Contact />
       </div>
     </Layout>
-  );
+  )
 }
 
 export async function getStaticProps() {

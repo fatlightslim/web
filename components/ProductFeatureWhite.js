@@ -15,7 +15,7 @@ export default function ProductFeature({ feature }) {
 
 function Container({ children }) {
   return (
-    <div className="bg-white text-left">
+    <div className="bg-white text-left ">
       <div className="max-w-7xl mx-auto bg-white ">{children}</div>
     </div>
   )

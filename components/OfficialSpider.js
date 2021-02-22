@@ -30,7 +30,7 @@ export default function OfficialSpider({
   },
 }) {
   return (
-    <section className="md:py-4 md:px-2 bg-gray-200">
+    <section className="md:py-4 md:px-2 bg-gray-200 relative z-10">
       <div
         className={`text-green-700 md:rounded-3xl max-w-screen-xl mx-auto `}
         style={{ background: '#E3F4DF' }}

@@ -10,7 +10,7 @@ const APP_KEY = "fatlightslim_cart"
 
 export const Add2Cart = createContext()
 
-function Layout({ product, children, router }) {
+function Layout({ product, children, router, products }) {
   const initialForm = { key: null, value: {} }
   const [form, setForm] = useState(initialForm)
   const [cartOpen, setCartOpen] = useState(false)
@@ -64,7 +64,7 @@ function Layout({ product, children, router }) {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
-        {!form.key && <Nav {...locals} />}
+        {!form.key && <Nav {...locals} products={products} />}
         {product && !["/", "/payment"].includes(router.pathname) && (
           <AddToCart {...locals} />
         )}

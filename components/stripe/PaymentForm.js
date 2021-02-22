@@ -16,14 +16,23 @@ const data = [
   },
 ]
 
+const fee = [
+  { key: "1万円以下", value: "300円" },
+  { key: "3万円以下", value: "400円" },
+  { key: "10万円以下", value: "1,000円" },
+  { key: "50万円以下", value: "2,000円" },
+  { key: "60万円以下", value: "6,000円" },
+]
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe("pk_test_zNo27sNLzkmLdTz57DSU1eik") //(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST
+)
 
 export default function PaymentForm({ setForm, form, items }) {
   const [active, setActive] = useState(data[0]["label"])
   const [loading, setLoading] = useState(false)
-
 
   const handleClick = async () => {
     setLoading(true)
@@ -74,126 +83,120 @@ export default function PaymentForm({ setForm, form, items }) {
     }
   }
 
+  const Fee = () => (
+    <div className="py-8">
+      <table className="divide-y divide-gray-200 w-full">
+        <thead className="bg-gray-50 text-sm font-thin">
+          <tr>
+            <th className="pt-1">代引金額</th>
+            <th className="pt-1">代引手数料（税別）</th>
+          </tr>
+        </thead>
+        <tbody className="text-sm text-right divide-y dosis">
+          {fee.map((v) => {
+            const className = { className: "pr-12 py-2 whitespace-nowrap" }
+            return (
+              <tr>
+                <td {...className}>{v.key}</td>
+                <td {...className}>{v.value}</td>
+              </tr>
+            )
+          })}
+
+          <tr className="text-center">
+            <td colSpan={2} className="px-4 py-2">
+              60万円超は10万円増す毎に1,000円を加算
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
+
+  const Fieldset = () => (
+    <fieldset className="">
+      <legend className="sr-only">Payment form</legend>
+      <div className="bg-white rounded-md -space-y-px">
+        {data.map((v, i) => {
+          const on = active === v.label
+          return (
+            <div
+              key={v.label}
+              className={`${
+                on ? "bg-indigo-50 border-indigo-200 z-10" : "border-gray-200"
+              } ${
+                i === data.length - 1
+                  ? "border-gray-200 rounded-bl-md rounded-br-md"
+                  : "rounded-tl-md rounded-tr-md"
+              } relative border  p-4 flex`}
+            >
+              <div className="flex items-center h-5">
+                <input
+                  id={v.label}
+                  name="payment_method"
+                  type="radio"
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
+                  defaultChecked={on}
+                  onClick={() => setActive(v.label)}
+                />
+              </div>
+              <label
+                htmlFor={v.label}
+                className="ml-3 flex flex-col cursor-pointer"
+              >
+                <span
+                  className={`${
+                    on ? "text-indigo-900" : "text-gray-900"
+                  } block text-sm font-medium`}
+                >
+                  {v.label}
+                </span>
+                <span
+                  className={`${
+                    on ? "text-indigo-700" : "text-gray-500"
+                  } block text-sm`}
+                >
+                  {v.desc}
+                </span>
+              </label>
+            </div>
+          )
+        })}
+      </div>
+    </fieldset>
+  )
+
+  const Actions = () => (
+    <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+      <div className="rounded-md shadow">
+        <button
+          onClick={() => handleClick()}
+          className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+        >
+          {loading && <Spin />}
+          {data[1]["label"] === active ? "注文確認画面" : "決済情報確認"}
+          <ChevRight />
+        </button>
+      </div>
+      <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+        <button
+          onClick={() => setForm({ key: "ORDER", value: form.value })}
+          className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+        >
+          戻る
+        </button>
+      </div>
+    </div>
+  )
+
   return (
     <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
       <h3 className="text-center py-12 font-bold text-gray-600">
         お支払い方法を選択してください。
       </h3>
-      <fieldset className="">
-        <legend className="sr-only">Payment form</legend>
-        <div className="bg-white rounded-md -space-y-px">
-          {data.map((v, i) => {
-            const on = active === v.label
-            return (
-              <div
-                key={v.label}
-                className={`${
-                  on ? "bg-indigo-50 border-indigo-200 z-10" : "border-gray-200"
-                } ${
-                  i === data.length - 1
-                    ? "border-gray-200 rounded-bl-md rounded-br-md"
-                    : "rounded-tl-md rounded-tr-md"
-                } relative border  p-4 flex`}
-              >
-                <div className="flex items-center h-5">
-                  <input
-                    id={v.label}
-                    name="payment_method"
-                    type="radio"
-                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
-                    defaultChecked={on}
-                    onClick={() => setActive(v.label)}
-                  />
-                </div>
-                <label
-                  htmlFor={v.label}
-                  className="ml-3 flex flex-col cursor-pointer"
-                >
-                  <span
-                    className={`${
-                      on ? "text-indigo-900" : "text-gray-900"
-                    } block text-sm font-medium`}
-                  >
-                    {v.label}
-                  </span>
-                  <span
-                    className={`${
-                      on ? "text-indigo-700" : "text-gray-500"
-                    } block text-sm`}
-                  >
-                    {v.desc}
-                  </span>
-                </label>
-              </div>
-            )
-          })}
-        </div>
-      </fieldset>
-
-      {data[1]["label"] === active ? (
-        <div className="py-8">
-          <table className="divide-y divide-gray-200 w-full">
-            <thead className="bg-gray-50 text-sm font-thin">
-              <tr>
-                <th className="pt-1">代引金額</th>
-                <th className="pt-1">代引手数料（税別）</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm text-right divide-y dosis">
-              <tr className="">
-                <td className="pr-12 py-2 whitespace-nowrap">1万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">300円</td>
-              </tr>
-              <tr>
-                <td className="pr-12 py-2 whitespace-nowrap">3万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">400円</td>
-              </tr>
-              <tr>
-                <td className="pr-12 py-2 whitespace-nowrap">10万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">600円</td>
-              </tr>
-              <tr>
-                <td className="pr-12 py-2 whitespace-nowrap">30万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">1,000円</td>
-              </tr>
-              <tr>
-                <td className="pr-12 py-2 whitespace-nowrap">50万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">2,000円</td>
-              </tr>
-              <tr>
-                <td className="pr-12 py-2 whitespace-nowrap">60万円以下</td>
-                <td className="pr-12 py-2 whitespace-nowrap">6,000円</td>
-              </tr>
-              <tr className="text-center">
-                <td colSpan={2} className="px-4 py-2">
-                  60万円超は10万円増す毎に1,000円を加算
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ) : null}
-
-      <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-        <div className="rounded-md shadow">
-          <button
-            onClick={() => handleClick()}
-            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-          >
-            {loading && <Spin />}
-            {data[1]["label"] === active ? "注文確認画面" : "決済情報確認"}
-            <ChevRight />
-          </button>
-        </div>
-        <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-          <button
-            onClick={() => setForm({ key: "ORDER", value: form.value })}
-            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-          >
-            戻る
-          </button>
-        </div>
-      </div>
+      <Fieldset />
+      {data[1]["label"] === active ? <Fee /> : null}
+      <Actions />
     </div>
   )
 }
