@@ -1,20 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import Layout from "../../components/Layout"
-import { getImageFields, client } from "../../scripts/contentful"
-
-{
-  /* <img
-className="h-10 w-10 rounded-full border"
-src="/img/Bender_Rodriguez.png"
-alt=""
-/> */
-}
+import { getImageFields, getPostsFromContentful } from "../../scripts/contentful"
 
 export async function getStaticProps() {
   return {
     props: {
-      blog: await client.getEntries({ content_type: "blog" }),
+      blog: await getPostsFromContentful(),
     },
   }
 }

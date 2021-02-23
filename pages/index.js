@@ -1,6 +1,5 @@
-import { withRouter } from "next/router"
 import { data } from "../data/home"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout2021"
 import Headline from "../components/Headline"
 import FeatureSummary from "../components/FeatureSummary"
 import Delivery from "../components/Delivery"
@@ -31,9 +30,9 @@ import Sf4000card from "../components/Sf4000card";
 //   }
 // }
 
-function Home({ router }) {
+function Home() {
   return (
-    <Layout router={router}>
+    <Layout>
       <NewHero />
       <Headline data={data.Headline} />
       <FeatureNew />
@@ -48,4 +47,4 @@ function Home({ router }) {
   )
 }
 
-export default withRouter(Home)
+export default Home
