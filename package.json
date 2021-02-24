@@ -2,8 +2,9 @@
   "name": "fatlightslim.com",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "create-manifest": "node ./utils/createManifest",
+    "dev": "yarn create-manifest && next",
+    "build": "yarn create-manifest && next build",
     "start": "next start"
   },
   "dependencies": {
@@ -22,11 +23,13 @@
     "babel-plugin-transform-define": "^2.0.0",
     "contentful": "^8.1.7",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "js-cookie": "^2.2.1",
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "mongodb": "^3.6.4",
     "next": "^10.0.7-canary.2",
+    "next-seo": "^4.20.0",
     "postcss": "^8.1.13",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -41,11 +44,14 @@
   },
   "devDependencies": {
     "@hookform/devtools": "^2.2.1",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
     "globby": "^11.0.1",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "typescript": "^3.9.3"
   },
   "license": "MIT"
 }

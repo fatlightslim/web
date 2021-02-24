@@ -37,7 +37,7 @@ export const Play = ({ ...props }) => (
     />
   </svg>
 )
-export const Cart = ({ ...props }) => (
+export const CartSvg = ({ ...props }) => (
   <svg
     className="-mt-1 w-6 h-6 inline-block text-indigo-500 mr-2"
     xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +229,7 @@ export const Close = ({ ...props }) => (
 export const Spin = ({ ...props }) => (
   <svg
     {...props}
-    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+    className="animate-spin  ml-4 h-5 w-5 text-white"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

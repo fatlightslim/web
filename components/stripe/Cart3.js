@@ -1,7 +1,6 @@
 import Image from "next/image"
-import { useState } from "react"
 import { Transition } from "@headlessui/react"
-import { Cart, X, Close, Minus, Plus } from "../Svg"
+import { CartSvg, X, Close, Minus, Plus } from "../Svg"
 
 export default function Cart3({
   cartOpen,
@@ -27,7 +26,7 @@ export default function Cart3({
           id="slide-over-heading"
           className="text-lg font-medium text-gray-900"
         >
-          <Cart />
+          <CartSvg />
           ショッピングカート
         </h2>
         <div className="ml-3 h-7 flex items-center">

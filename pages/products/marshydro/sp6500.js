@@ -1,39 +1,24 @@
-import { getProductsFromContentful } from "../../../scripts/contentful"
-import Layout from "../../../components/Layout2021"
-import Delivery from "../../../components/Delivery"
-import Refund from "../../../components/Refund"
-import BlogBanner from "../../../components/BlogBanner"
-import Contact from "../../../components/Contact"
-import Size from "../../../components/Size"
-import Optimal from "../../../components/Optimal"
 import ProductFeature from "../../../components/ProductFeature"
-import ProductCard from "../../../components/ProductCard"
 import PricingTable from "../../../components/PricingTable"
+import ProductCard from "../../../components/ProductCard"
+import AddToCart from "../../../components/AddToCart"
+import Delivery from "../../../components/Delivery"
+import Layout from "../../../components/Layout"
+import Refund from "../../../components/Refund"
+import Size from "../../../components/Size"
 
-
-export default function MarsHydrosp6500({ products}) {
-  const { sp6500: product, sp150, ts } = products
+export default function MarsHydrosp6500(props) {
+  const { sp6500: product, fc6500, sf7000 } = props.products
 
   return (
-    <Layout product={product}>
+    <Layout {...props}>
+      <AddToCart product={product} {...props}/>
       <ProductCard product={product} />
       <ProductFeature feature={product.fields.feature} />
       <Delivery />
       <Refund />
       <Size spec={product.fields.spec} />
-      <PricingTable main={product} left={sp150} right={ts} />
-      <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
-        <BlogBanner />
-        <Optimal />
-        <Contact />
-      </div>
+      <PricingTable main={product} left={fc6500} right={sf7000} {...props} />
     </Layout>
   )
-}
-
-
-export async function getStaticProps() {
-  return {
-    props: await getProductsFromContentful(),
-  }
 }

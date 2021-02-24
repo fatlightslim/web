@@ -1,16 +1,22 @@
-import { fetchPostJSON } from "../../utils/api-helpers"
+import { fetchPostJSON, cleanUp } from "../../utils/api-helpers"
 // import { DevTool } from "@hookform/devtools"
-import { useForm, Controller } from "react-hook-form"
-import { useEffect, forwardRef, useState } from "react"
+import { useForm } from "react-hook-form"
+import { useEffect } from "react"
 import { ExCircle, ChevRight } from "../Svg"
 import { Total } from "./CartBar"
-
+import { useCart } from "../../utils/useCart.tsx"
 
 function isEmpty(obj) {
   return !Object.keys(obj).length
 }
 
-export default function OrderForm({ setForm, items, form, initialForm }) {
+export default function OrderForm({
+  setForm,
+  form,
+  initialForm,
+  setCartOpen,
+}) {
+  const {items} = useCart()
   const {
     getValues,
     control,
@@ -34,9 +40,9 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
 
   const onSubmit = (customer) => {
     fetchPostJSON("/api/orders", {
-      customer,
-      items,
       _id: form.value._id,
+      customer,
+      items: cleanUp(items),
       status: "draft",
     }).then((value) => {
       setForm({ key: "PAYMENT", value })
@@ -215,7 +221,10 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
 
           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
             <Button
-              onClick={() => setForm(initialForm)}
+              onClick={() => {
+                setForm(initialForm)
+                setCartOpen(false)
+              }}
               color="text-indigo-600 bg-white hover:bg-gray-50 "
               label="戻る"
             />
@@ -229,7 +238,7 @@ export default function OrderForm({ setForm, items, form, initialForm }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 h-screen  sm:bg-gray-50">
       <div className="relative hidden sm:block border-r p-8">
-        <Total sum={3000} discount={0} />
+        {/* <Total sum={3000} discount={0} /> */}
       </div>
       <Form />
     </div>

@@ -3,21 +3,24 @@ import OrderForm from "./OrderForm"
 import PaymentForm from "./PaymentForm"
 import Breadcrumb from "./Breadcrumb"
 import CartBar from "./CartBar"
+import { useCart } from "../../utils/useCart.tsx"
 
 export default function Payment(props) {
+  const { items, cartTotal } = useCart()
+  const locals = {...props, items, cartTotal}
   return (
     <>
-      <CartBar {...props} />
+      <CartBar {...locals} />
       <Breadcrumb {...props} />
-      <Conditional {...props} />
+      <Conditional {...locals} />
     </>
   )
 }
 
 const Conditional = (props) => {
   switch (props.form.key) {
-    case "DONE":
-      return <Done {...props} />
+    // case "DONE":
+    //   return <Done {...props} />
     case "CONFIRM":
       return <Confirm {...props} />
     case "ORDER":

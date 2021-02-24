@@ -1,4 +1,3 @@
-import { data } from "../data/home"
 
 export default function Faq({
   data = [

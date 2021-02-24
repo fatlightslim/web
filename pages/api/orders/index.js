@@ -47,12 +47,12 @@ async function handler(req, res) {
       { upsert: true, returnOriginal: false },
       (err, r) => {
         if (err) console.log(err)
-        // NOTICE: returned _id is not String but Object
         sendMail({
-          _id: r.value._id.toString(),
+          _id: r.value._id.toString(), // NOTICE: returned _id is not String but Object
           status,
           to: r.value.customer.email,
-        }).then(() => {
+        }).then((x) => {
+          console.log(x);
           res.json(r.value)
         })
       }
@@ -109,7 +109,7 @@ async function handler(req, res) {
             { upsert: true, returnOriginal: false },
             (err, r) => {
               if (err) console.log(err)
-              resolve()
+              resolve(r)
             }
           )
         })

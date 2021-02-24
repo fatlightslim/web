@@ -1,83 +1,69 @@
-import { products } from "../data/products";
-import Link from "next/link";
-import Image from "next/image";
-import BlogBanner from "./BlogBanner";
-import Contact from "./Contact";
-import Optimal from "./Optimal";
-const productsSorted = [1, 0, 3, 2, 4]
+import Link from "next/link"
+import Image from "next/image"
+import { getImageFields, BLACKLIST } from "../scripts/contentful"
 
-function Product({ title, img, bg, desc, button, header, href }) {
+function Product({ title, image, color, lead, name, brand, url }) {
   return (
     <div className="max-w-7xl mx-auto mt-2">
       <div
-        className={`rounded-xl shadow-xl overflow-hidden bg-gradient-to-r ${bg.inner}`}
+        className={`rounded-xl shadow-xl overflow-hidden bg-gradient-to-r ${color.gradient}`}
       >
         <div className="pt-10 pb-12 px-6 sm:p-8 lg:p-4">
           <div className="lg:self-center">
             <header>
-              <h3 className="dosis text-white text-xl font-bold">{header}</h3>
+              <h3 className="dosis text-white text-xl font-bold">{brand}</h3>
             </header>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white">
               <span
                 className="block text-5xl: md:text-6xl"
-                style={{ fontSize: "130%", color: title.color }}
+                style={{ fontSize: "130%", color: color.main }}
               >
-                {title[1]}
+                {name}
               </span>
-              <span className="block">{title[2]}</span>
-              <span className="block">{title[3]}</span>
+              {lead.title.split("|").map((v) => {
+                return (
+                  <span className="block" key={v}>
+                    {v}
+                  </span>
+                )
+              })}
             </h2>
             <p className="mt-4 text-lg leading-6 text-white font-bold">
-              {desc[1]}
-              {desc[2]}
+              {lead.desc}
             </p>
-            <Link href={href}>
-            <a
-              
-              className="mt-8 bg-transparent border border-white rounded-full shadow px-4 py-2 inline-flex items-center text-base font-bold text-white"
-            >
-              {button}
-            </a>
+            <Link href={url}>
+              <a className="mt-8 bg-transparent border border-white rounded-full shadow px-4 py-2 inline-flex items-center text-base font-bold text-white">
+                {name}の詳細を見る
+              </a>
             </Link>
           </div>
         </div>
         <div className="-mt-8 mx-2 lg:m-8">
-          <Image
-            src={img.src}
-            width={img.width}
-            height={img.height}
-            alt={img.alt}
-          />
+          <Image {...getImageFields(image)} />
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default function RelatedProducts2({}) {
+export default function RelatedProducts2({ products }) {
   return (
     <section className="bg-gray-200 md:pt-4 md:pb-0 dosis ">
-         <div className="sm:grid sm:grid-cols-3 gap-2 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 px-2 py-1 ">
-          {[1, 0, 3].map((v) => {
-            return <Product key={v} {...products[v]}  />
-          })}
-        </div>
-        <div className="sm:grid sm:grid-cols-2 gap-2 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 px-2 py-1">
-          {[2, 4].map((v) => {
-            return <Product key={v} {...products[v]}  />
-          })}
-        </div>
+      <div className="sm:grid sm:grid-cols-3 gap-2 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 px-2 py-1 ">
+        {[1, 0, 3].map((v) => {
+          return <Product key={v} {...products[v][1].fields} />
+        })}
+      </div>
+      <div className="sm:grid sm:grid-cols-2 gap-2 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 px-2 py-1">
+        {[2, 4].map((v) => {
+          return <Product key={v} {...products[v][1].fields} />
+        })}
+      </div>
       {/* <div className="grid lg:grid-cols-3 gap-2 bg-gray-200 p-2 md:pt-4 md:pb-0 dosis">
         {productsSorted.map((index) => (
           <Product key={index} {...products[index]} />
         ))}
       </div> */}
-
-      <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-2">
-        <BlogBanner />
-        <Optimal />
-        <Contact />
-      </div>
     </section>
-  );
+  )
 }

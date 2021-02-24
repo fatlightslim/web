@@ -1,20 +1,21 @@
 import Image from "next/image"
 import { tsdata } from "../data/tsdata"
 import Link from "next/link"
+import { useCart } from "../utils/useCart.tsx"
 
-export default function TStable({ urls, addVariantToCart  }) {
+export default function TStable({ urls  }) {
   return (
     <div className="bg-gray-900 relative z-30">
       <div className="text-white max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <Header />
         <div className="mt-12 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {[0, 1, 2].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]} addVariantToCart={addVariantToCart}  />
+            return <Product key={v} {...tsdata[v]} product={urls[v]}   />
           })}
         </div>
         <div className=" sm:mt-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
           {[3, 4].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]} addVariantToCart={addVariantToCart} />
+            return <Product key={v} {...tsdata[v]} product={urls[v]}  />
           })}
         </div>
       </div>
@@ -73,7 +74,8 @@ function List({ text }) {
   )
 }
 
-function Title({ product, img, shortTitle, price, short, addVariantToCart }) {
+function Title({ product, img, shortTitle, price, short }) {
+  const {addItem} = useCart()
   return (
     <div className="p-6 dosis">
       <Img img={img} className="sm:rounded" />
@@ -89,7 +91,7 @@ function Title({ product, img, shortTitle, price, short, addVariantToCart }) {
         </span>
       </p>
       <button
-        onClick={() => addVariantToCart(product.id, 1)}
+        onClick={() => addItem(product.id, 1)}
         className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
       >
         今すぐ購入

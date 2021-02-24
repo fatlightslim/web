@@ -1,7 +1,11 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
-import { useState } from "react"
+import { useState, useContext } from "react"
+// import { Add2Cart } from "../pages/_app"
+import { useCart } from "../utils/useCart.tsx"
 
-export default function AddToCart({ product, addItem, ...rest }) {
+export default function AddToCart({ product, setCartOpen }) {
+  // const { addItem } = useContext(Add2Cart)
+  const { addItem } = useCart()
   const [isVisible, setIsVisible] = useState(false)
   const { brand, name, color } = product.fields
 
@@ -34,7 +38,11 @@ export default function AddToCart({ product, addItem, ...rest }) {
             </div>
             <div>
               <button
-                onClick={() => addItem(product, 1)}
+                onClick={() => {
+                  const item = {id: product.sys.id, price: product.fields.price, ...product}
+                  addItem(item, 1)
+                  setCartOpen(true)
+                }}
                 className="float-right mt-1 px-3 py-1.5 border border-transparent text-xs font-bold rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 購入

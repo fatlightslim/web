@@ -131,7 +131,7 @@ function Social({
   ],
 }) {
   return (
-    <div className="flex justify-center space-x-6 md:order-2 py-8 lg:py-12 relative z-30">
+    <div className="flex justify-center space-x-6 md:order-2 py-8 lg:py-12">
       {data.map((v) => (
         <a
           key={v.sr}

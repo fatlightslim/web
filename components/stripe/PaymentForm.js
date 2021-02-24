@@ -1,4 +1,4 @@
-import { fetchPostJSON } from "../../utils/api-helpers"
+import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, ChevRight } from "../Svg"
 import { loadStripe } from "@stripe/stripe-js"
@@ -16,7 +16,7 @@ const data = [
   },
 ]
 
-const fee = [
+const feeList = [
   { key: "1万円以下", value: "300円" },
   { key: "3万円以下", value: "400円" },
   { key: "10万円以下", value: "1,000円" },
@@ -30,9 +30,10 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST
 )
 
-export default function PaymentForm({ setForm, form, items }) {
+export default function PaymentForm({ setForm, form, items, cartTotal }) {
   const [active, setActive] = useState(data[0]["label"])
   const [loading, setLoading] = useState(false)
+  const fee = calcFee(cartTotal)
 
   const handleClick = async () => {
     setLoading(true)
@@ -51,7 +52,7 @@ export default function PaymentForm({ setForm, form, items }) {
       client_reference_id: form.value._id,
       customer_email: form.value.customer.email,
       line_items: items.map((v) => {
-        const { title, price, image } = v.product.fields
+        const { title, price, image } = v.fields
         return {
           price_data: {
             currency: "jpy",
@@ -93,10 +94,11 @@ export default function PaymentForm({ setForm, form, items }) {
           </tr>
         </thead>
         <tbody className="text-sm text-right divide-y dosis">
-          {fee.map((v) => {
+          {feeList.map((v) => {
             const className = { className: "pr-12 py-2 whitespace-nowrap" }
             return (
-              <tr>
+              // TODO: hilight current fee
+              <tr key={v.key}>
                 <td {...className}>{v.key}</td>
                 <td {...className}>{v.value}</td>
               </tr>
@@ -137,7 +139,9 @@ export default function PaymentForm({ setForm, form, items }) {
                   type="radio"
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
                   defaultChecked={on}
-                  onClick={() => setActive(v.label)}
+                  onClick={() => {
+                    setActive(v.label)
+                  }}
                 />
               </div>
               <label

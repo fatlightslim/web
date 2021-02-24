@@ -3,7 +3,7 @@ import { useState, useEffect, createContext } from "react"
 import Nav from "./Nav"
 import Footer from "./Footer"
 import Cart from "./stripe/Cart3"
-import AddToCart from "./stripe/AddToCart"
+import AddToCart from "./AddToCart"
 import Payment from "./stripe/Payment"
 
 const APP_KEY = "fatlightslim_cart"

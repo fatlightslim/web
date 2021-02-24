@@ -1,13 +1,18 @@
 import { useRouter } from "next/router"
-import Layout from "../../components/Layout2021"
 import useSWR from "swr"
 import { fetchGetJSON } from "../../utils/api-helpers"
 import { SolidCheck } from "../../components/Svg"
+import Layout from "../../components/Layout"
+import { useCart } from "../../utils/useCart"
+import { useEffect } from "react"
 
-const APP_KEY = "fatlightslim_cart"
-
-const ResultPage = () => {
+const ResultPage = (props) => {
   const router = useRouter()
+  const { emptyCart } = useCart()
+
+  useEffect(() => {
+    emptyCart()
+  }, [])
 
   // Fetch CheckoutSession from static page via
   // https://nextjs.org/docs/basic-features/data-fetching#static-generation
@@ -22,10 +27,8 @@ const ResultPage = () => {
   if (!client_reference_id) return null
   const paymentMethod = data ? "支払い済み" : "代金引換"
 
-  localStorage.removeItem(APP_KEY)
-
   return (
-    <Layout>
+    <Layout {...props}>
       <div className="bg-gray-100">
         <div className="pt-12 sm:pt-16 lg:pt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,9 +104,9 @@ const ResultPage = () => {
                     <div className="rounded-md shadow">
                       <a
                         target="_blank"
-                        href={`mailto:hello@fatlightslim.com?subject=購入後のお問い合わせ #${client_reference_id.substr(
-                          18
-                        )}`}
+                        href={`mailto:hello@fatlightslim.com?subject=購入後のお問い合わせ #${client_reference_id
+                          .substr(18)
+                          .toUpperCase()}`}
                         className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
                       >
                         お問い合わせ

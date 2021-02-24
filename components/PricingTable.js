@@ -3,10 +3,11 @@ import Link from "next/link"
 import { OutlineCheck } from "./Svg"
 import { getImageFields } from "../scripts/contentful"
 import { useContext } from "react"
-import { Add2Cart } from "./Layout2021"
+// import { Add2Cart } from "../pages/_app"
+import { useCart } from "../utils/useCart"
 
-export default function PricingTable({ main, left, right }) {
-  const { addItem } = useContext(Add2Cart)
+export default function PricingTable({ main, left, right, setCartOpen }) {
+  const { addItem } = useCart() 
 
   const Header = () => (
     <div className="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
@@ -166,7 +167,11 @@ export default function PricingTable({ main, left, right }) {
             <div className="mt-10">
               <div className="rounded-lg shadow-md">
                 <button
-                  onClick={() => addItem(product, 1)}
+                  onClick={() => {
+                    const item = {id: product.sys.id, price: product.fields.price, ...product}
+                    addItem(item, 1)
+                    setCartOpen(true)
+                  }}
                   className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                   aria-describedby="tier-growth"
                 >

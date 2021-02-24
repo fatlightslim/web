@@ -1,37 +1,24 @@
-import { getProductsFromContentful } from "../../../scripts/contentful"
-import Layout from "../../../components/Layout2021"
+import AddToCart from "../../../components/AddToCart"
 import Delivery from "../../../components/Delivery"
 import Refund from "../../../components/Refund"
-import BlogBanner from "../../../components/BlogBanner"
-import Contact from "../../../components/Contact"
 import Sizepink from "../../../components/Sizepink"
-import Optimal from "../../../components/Optimal"
 import ProductFeatureWhite from "../../../components/ProductFeatureWhite"
 import ProductCard from "../../../components/ProductCard"
 import PricingTable from "../../../components/PricingTable"
+import Layout from "../../../components/Layout"
 
-export default function SpiderfarmerSf4000({ products }) {
-  const { sf4000: product, fc6500, sp6500 } = products
+export default function SpiderfarmerSf4000(props) {
+  const { sf4000: product, fc6500, sp6500 } = props.products
 
   return (
-    <Layout product={product} products={products}>
+    <Layout {...props}>
+      <AddToCart product={product} {...props} />
       <ProductCard product={product} />
       <ProductFeatureWhite feature={product.fields.feature} />
       <Sizepink spec={product.fields.spec} />
-      <PricingTable main={product} left={sp6500} right={fc6500} />
+      <PricingTable main={product} left={sp6500} right={fc6500} {...props} />
       <Delivery />
       <Refund />
-      <div className="grid lg:grid-cols-3 gap-0 md:gap-2 bg-gray-200 md:p-2 md:py-4">
-        <BlogBanner />
-        <Optimal />
-        <Contact />
-      </div>
     </Layout>
   )
-}
-
-export async function getStaticProps() {
-  return {
-    props: await getProductsFromContentful(),
-  }
 }
