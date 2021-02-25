@@ -1,22 +1,16 @@
-import { fetchPostJSON, cleanUp } from "../../utils/api-helpers"
+import { fetchPostJSON, cleanUp, calcFee } from "../../utils/api-helpers"
 // import { DevTool } from "@hookform/devtools"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { ExCircle, ChevRight } from "../Svg"
-import { Total } from "./CartBar"
-import { useCart } from "../../utils/useCart.tsx"
+import { Details } from "./CartBar"
 
 function isEmpty(obj) {
   return !Object.keys(obj).length
 }
 
-export default function OrderForm({
-  setForm,
-  form,
-  initialForm,
-  setCartOpen,
-}) {
-  const {items} = useCart()
+export default function OrderForm(props) {
+  const { setForm, form, initialForm, setCartOpen, items } = props
   const {
     getValues,
     control,
@@ -236,9 +230,9 @@ export default function OrderForm({
   )
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 h-screen  sm:bg-gray-50">
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 ">
       <div className="relative hidden sm:block border-r p-8">
-        {/* <Total sum={3000} discount={0} /> */}
+        <Details {...props} />
       </div>
       <Form />
     </div>

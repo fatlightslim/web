@@ -1,20 +1,9 @@
 import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
+import { Details } from "./CartBar"
 import { useState } from "react"
 import { Spin, ChevRight } from "../Svg"
 import { loadStripe } from "@stripe/stripe-js"
 
-const data = [
-  {
-    label: "オンライン決済",
-    desc:
-      "各種クレジットカード, Apple Pay, Google Payが手数料無料でご利用いただけます.",
-  },
-  {
-    label: "代金引換",
-    desc:
-      "国内配送のみ. 代引手数料がかかります. 佐川急便の代引きサービスでお届けします.",
-  },
-]
 
 const feeList = [
   { key: "1万円以下", value: "300円" },
@@ -30,14 +19,22 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST
 )
 
-export default function PaymentForm({ setForm, form, items, cartTotal }) {
-  const [active, setActive] = useState(data[0]["label"])
+export default function PaymentForm(props) {
+  const {
+    labels,
+    setForm,
+    form,
+    items,
+    cartTotal,
+    paymentMethod,
+    setPaymentMethod,
+  } = props
   const [loading, setLoading] = useState(false)
   const fee = calcFee(cartTotal)
 
   const handleClick = async () => {
     setLoading(true)
-    data[1]["label"] === active
+    labels[1]["label"] === paymentMethod
       ? setForm({ key: "CONFIRM", value: form.value })
       : createStripeSession()
   }
@@ -54,9 +51,9 @@ export default function PaymentForm({ setForm, form, items, cartTotal }) {
       line_items: items.map((v) => {
         const { title, price, image } = v.fields
         return {
-          price_data: {
+          price_labels: {
             currency: "jpy",
-            product_data: {
+            product_labels: {
               name: title,
               images: ["https:" + image.fields.file.url],
             },
@@ -119,15 +116,15 @@ export default function PaymentForm({ setForm, form, items, cartTotal }) {
     <fieldset className="">
       <legend className="sr-only">Payment form</legend>
       <div className="bg-white rounded-md -space-y-px">
-        {data.map((v, i) => {
-          const on = active === v.label
+        {labels.map((v, i) => {
+          const on = paymentMethod === v.label
           return (
             <div
               key={v.label}
               className={`${
                 on ? "bg-indigo-50 border-indigo-200 z-10" : "border-gray-200"
               } ${
-                i === data.length - 1
+                i === labels.length - 1
                   ? "border-gray-200 rounded-bl-md rounded-br-md"
                   : "rounded-tl-md rounded-tr-md"
               } relative border  p-4 flex`}
@@ -140,7 +137,7 @@ export default function PaymentForm({ setForm, form, items, cartTotal }) {
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
                   defaultChecked={on}
                   onClick={() => {
-                    setActive(v.label)
+                    setPaymentMethod(v.label)
                   }}
                 />
               </div>
@@ -178,7 +175,9 @@ export default function PaymentForm({ setForm, form, items, cartTotal }) {
           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
         >
           {loading && <Spin />}
-          {data[1]["label"] === active ? "注文確認画面" : "決済情報確認"}
+          {labels[1]["label"] === paymentMethod
+            ? "注文確認画面"
+            : "決済情報確認"}
           <ChevRight />
         </button>
       </div>
@@ -194,13 +193,18 @@ export default function PaymentForm({ setForm, form, items, cartTotal }) {
   )
 
   return (
-    <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h3 className="text-center py-12 font-bold text-gray-600">
-        お支払い方法を選択してください。
-      </h3>
-      <Fieldset />
-      {data[1]["label"] === active ? <Fee /> : null}
-      <Actions />
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 ">
+      <div className="relative hidden sm:block border-r p-8">
+        <Details {...props} />
+      </div>
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-center py-12 font-bold text-gray-600">
+          お支払い方法を選択してください。
+        </h3>
+        <Fieldset />
+        {labels[1]["label"] === paymentMethod ? <Fee /> : null}
+        <Actions />
+      </div>
     </div>
   )
 }
