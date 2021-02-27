@@ -13,8 +13,8 @@ async function handler(req, res) {
   switch (req.method) {
     // case "DELETE":
     //   return del()
-    // case "GET":
-    //   return get()
+    case "GET":
+      return res.json(await db.collection("orders").find({}).sort({_ts: -1}).toArray())
     // case "PATCH":
     //   return patch()
     // case "PUT":
@@ -51,10 +51,13 @@ async function handler(req, res) {
           _id: r.value._id.toString(), // NOTICE: returned _id is not String but Object
           status,
           to: r.value.customer.email,
-        }).then((x) => {
-          console.log(x);
-          res.json(r.value)
         })
+          .then((x) => {
+            res.json(r.value)
+          })
+          .catch((err) => {
+            res.json(err)
+          })
       }
     )
   }

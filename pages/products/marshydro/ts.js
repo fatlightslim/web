@@ -39,7 +39,7 @@ export default function MarsHydroTS(props) {
     <Layout {...props}>
       <ProductCard product={product} />
       <ProductFeature feature={product.fields.feature} />
-      <TStable urls={variant} {...props} />
+      <TStable urls={variant} product={product} {...props} />
       <Delivery />
       <Refund />
     </Layout>

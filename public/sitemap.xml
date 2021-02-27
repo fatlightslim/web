@@ -13,11 +13,19 @@
   </url>
 
   <url>
+    <loc>https://fatlightslim.com/order</loc>
+  </url>
+
+  <url>
     <loc>https://fatlightslim.com/policies</loc>
   </url>
 
   <url>
     <loc>https://fatlightslim.com/terms</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/admin/index</loc>
   </url>
 
   <url>
@@ -30,6 +38,10 @@
 
   <url>
     <loc>https://fatlightslim.com/posts/index</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
   </url>
 
   <url>

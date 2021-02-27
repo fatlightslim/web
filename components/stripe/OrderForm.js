@@ -1,27 +1,18 @@
+import Link from "next/link"
 import { fetchPostJSON, cleanUp, calcFee } from "../../utils/api-helpers"
-// import { DevTool } from "@hookform/devtools"
+import { DevTool } from "@hookform/devtools"
 import { useForm } from "react-hook-form"
-import { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { ExCircle, ChevRight } from "../Svg"
-import { Details } from "./CartBar"
+import CartDetail from "./CartDetail"
 
 function isEmpty(obj) {
   return !Object.keys(obj).length
 }
 
 export default function OrderForm(props) {
-  const { setForm, form, initialForm, setCartOpen, items } = props
-  const {
-    getValues,
-    control,
-    setValue,
-    register,
-    handleSubmit,
-    errors,
-    formState,
-  } = useForm({
-    // mode: "onChange",
-  })
+  const { setForm, form, items } = props
+  const { handleSubmit, errors, control, register, setValue } = useForm()
 
   useEffect(() => {
     const { customer } = form.value
@@ -38,8 +29,8 @@ export default function OrderForm(props) {
       customer,
       items: cleanUp(items),
       status: "draft",
-    }).then((value) => {
-      setForm({ key: "PAYMENT", value })
+    }).then((r) => {
+      setForm({ key: "PAYMENT", value: r })
     })
   }
 
@@ -61,180 +52,159 @@ export default function OrderForm(props) {
     }
   }
 
-  const values = getValues()
-  const fields = {
-    delivery1: [
-      {
-        defaultValue: values.zip,
-        en: "zip",
-        ja: "郵便番号",
-        ref: {
-          required: true,
-          pattern: {
-            value: /^\d{3}-?\d{4}$/,
-            message: "正しい郵便番号を入力してください。",
-          },
-        },
-        onChange: (e) => e.target.value.length > 6 && getZip(e.target.value),
-        onBlur: (e) => getZip(e.target.value),
-        wrapper: "w-1/2 flex-1 min-w-0",
-        round: "rounded-tl-md",
-      },
-      {
-        defaultValue: values.pref,
-        en: "pref",
-        ja: "都道府県",
-        wrapper: "flex-1 min-w-0",
-        round: "rounded-tr-md",
-        ref: { required: true },
-      },
-    ],
-    delivery2: [
-      {
-        defaultValue: values.addr1,
-        en: "addr1",
-        ja: "住所",
-        ref: { required: true },
-      },
-      {
-        defaultValue: values.addr2,
-        en: "addr2",
-        ja: "建物名・部屋番号",
-        ref: {},
-        round: "rounded-b-md",
-      },
-    ],
-    contact: [
-      {
-        defaultValue: values.email,
-        en: "email",
-        ja: "メールアドレス",
-        round: "rounded-t-md",
-        ref: {
-          required: "必須項目",
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "正しいメールアドレスを入力してください",
-          },
-        },
-      },
-      {
-        defaultValue: values.name,
-        en: "name",
-        ja: "氏名",
-        ref: { required: true },
-      },
-      {
-        defaultValue: values.tel,
-        en: "tel",
-        ja: "電話番号",
-        round: "rounded-b-md",
-        ref: { required: true },
-      },
-    ],
-  }
-
-  const Fields = ({ group }) => {
-    // const ref = React.createRef()
-    return fields[group].map((v) => {
-      const { en, ja, ref, round = "rounded-none", wrapper = "", ...rest } = v
-      // console.log(register);
-      const attr = {
-        name: en,
-        id: en,
-        placeholder: ja,
-        ref: register(ref),
-        type: "text",
-        className: `${round} ${
-          errors[en]
-            ? "border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 z-10"
-            : "border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-        } relative block w-full bg-transparent focus:z-10 sm:text-sm bg-white`,
-      }
-      return (
-        <div className={wrapper} key={en}>
-          <label htmlFor={en} className="sr-only" children={en} />
-          <input {...rest} {...attr} />
-        </div>
-      )
-    })
-  }
-
-  const Fieldset = ({ children, text }) => (
-    <fieldset className="mt-6">
-      <legend
-        className="block text-sm font-medium text-gray-700"
-        children={text}
-      />
-      <div className="mt-1 rounded-md shadow-sm -space-y-px">{children}</div>
-    </fieldset>
-  )
-
-  const Button = ({ icon, label, color, ...props }) => (
-    <button
-      {...props}
-      className={`${color} w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10`}
-    >
-      {label}
-      {icon}
-    </button>
-  )
-
-  const Form = () => (
-    <div className="px-4 max-w-xl mx-auto">
-      <h3
-        className={`${
-          isEmpty(errors) ? "text-gray-600" : "text-red-500"
-        } text-center pt-12 pb-6 font-bold`}
-        children="配送情報を入力してください。"
-      />
-
-      <form onSubmit={handleSubmit(onSubmit, onError)}>
-        <div className="">
-          <Fieldset text="お届け先情報">
-            <div className="flex -space-x-px">
-              <Fields group="delivery1" />
-            </div>
-            <Fields group="delivery2" />
-          </Fieldset>
-
-          <Fieldset text="ご連絡先情報">
-            <Fields group="contact" />
-          </Fieldset>
-        </div>
-
-        <div className="mt-8 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-          <div className="rounded-md shadow">
-            <Button
-              type="submit"
-              label="支払情報確認"
-              icon={<ChevRight />}
-              color="text-white bg-indigo-600 hover:bg-indigo-700"
-            />
-          </div>
-
-          <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-            <Button
-              onClick={() => {
-                setForm(initialForm)
-                setCartOpen(false)
-              }}
-              color="text-indigo-600 bg-white hover:bg-gray-50 "
-              label="戻る"
-            />
-          </div>
-        </div>
-        {/* <DevTool control={control} /> */}
-      </form>
-    </div>
-  )
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 ">
       <div className="relative hidden sm:block border-r p-8">
-        <Details {...props} />
+        <CartDetail {...props} />
       </div>
-      <Form />
+
+      <div className="px-4 max-w-xl mx-auto">
+        <h3
+          className={`${
+            isEmpty(errors) ? "text-gray-600" : "text-red-500"
+          } text-center pt-12 pb-6 font-bold`}
+          children="配送情報を入力してください。"
+        />
+
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
+          <fieldset className="mt-6">
+            <legend
+              className="block text-sm font-medium text-gray-700"
+              children="お届け先情報"
+            />
+
+            <div className="mt-1 rounded-md shadow-sm -space-y-px">
+              <div className="flex -space-x-px">
+                <div className="w-1/2 flex-1 min-w-0">
+                  <Field
+                    name="zip"
+                    label="郵便番号"
+                    round="rounded-tl-md"
+                    onChange={(e) =>
+                      e.target.value.length > 6 && getZip(e.target.value)
+                    }
+                    ref={register({
+                      required: true,
+                      pattern: {
+                        value: /^\d{3}-?\d{4}$/,
+                        message: "正しい郵便番号を入力してください。",
+                      },
+                    })}
+                    onBlur={(e) => getZip(e.target.value)}
+                  />
+                </div>
+                <div className="w-1/2 flex-1 min-w-0">
+                  <Field
+                    name="pref"
+                    label="都道府県"
+                    round="rounded-tr-md"
+                    ref={register({ required: true })}
+                  />
+                </div>
+              </div>
+
+              <Field
+                name="addr1"
+                label="住所"
+                ref={register({ required: true })}
+              />
+              <Field
+                name="addr2"
+                label="建物名・部屋番号"
+                round="rounded-b-md"
+                ref={register}
+              />
+            </div>
+          </fieldset>
+
+          <fieldset className="mt-6">
+            <legend
+              className="block text-sm font-medium text-gray-700"
+              children="お届け先情報"
+            />
+            <div className="mt-1 rounded-md shadow-sm -space-y-px">
+              <Field
+                name="email"
+                label="メールアドレス"
+                round="rounded-t-md"
+                ref={register({
+                  required: "必須項目",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "正しいメールアドレスを入力してください",
+                  },
+                })}
+              />
+              <Field
+                name="name"
+                label="氏名"
+                ref={register({ required: true })}
+              />
+              <Field
+                name="tel"
+                label="電話番号"
+                round="rounded-b-md"
+                ref={register({ required: true })}
+              />
+            </div>
+          </fieldset>
+
+          <div className="mt-8 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+            <div className="rounded-md shadow">
+              <button
+                type="submit"
+                className="text-white bg-indigo-600 hover:bg-indigo-700 w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10"
+              >
+                支払情報確認 <ChevRight />
+              </button>
+            </div>
+
+            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+              <Link href="/">
+                <a
+                  className="text-indigo-600 bg-white hover:bg-gray-50 w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10"
+                  children="戻る"
+                />
+              </Link>
+            </div>
+          </div>
+          {/* <DevTool control={control} /> */}
+        </form>
+      </div>
     </div>
   )
 }
+
+const Field = React.forwardRef(
+  ({ name, label, register, round = "rounded-none", ...rest }, ref) => {
+    const { errors } = useForm()
+    return (
+      <div>
+        <label htmlFor="tel" className="sr-only">
+          {label}
+        </label>
+        <div className="relative rounded-md shadow-sm">
+          <input
+            type="text"
+            name={name}
+            id={name}
+            ref={ref}
+            className={`${round} focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 relative block w-full rounded-none  bg-transparent focus:z-10 sm:text-sm`}
+            // className={`${
+            //   errors.tel
+            //     ? "border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500"
+            //     : "focus:ring-indigo-500 focus:border-indigo-500 border-gray-300"
+            // } relative block w-full rounded-none rounded-b-md bg-transparent focus:z-10 sm:text-sm`}
+            placeholder={label}
+            {...rest}
+          />
+          {errors.tel && (
+            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+              <ExCircle className="h-5 w-5 text-red-500" />
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+)

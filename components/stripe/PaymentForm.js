@@ -1,9 +1,8 @@
-import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
-import { Details } from "./CartBar"
+import { fetchPostJSON } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, ChevRight } from "../Svg"
 import { loadStripe } from "@stripe/stripe-js"
-
+import CartDetail from "./CartDetail"
 
 const feeList = [
   { key: "1万円以下", value: "300円" },
@@ -20,21 +19,12 @@ const stripePromise = loadStripe(
 )
 
 export default function PaymentForm(props) {
-  const {
-    labels,
-    setForm,
-    form,
-    items,
-    cartTotal,
-    paymentMethod,
-    setPaymentMethod,
-  } = props
+  const { labels, setForm, form, items, pay, setPay } = props
   const [loading, setLoading] = useState(false)
-  const fee = calcFee(cartTotal)
 
   const handleClick = async () => {
     setLoading(true)
-    labels[1]["label"] === paymentMethod
+    labels[1]["label"] === pay
       ? setForm({ key: "CONFIRM", value: form.value })
       : createStripeSession()
   }
@@ -51,9 +41,9 @@ export default function PaymentForm(props) {
       line_items: items.map((v) => {
         const { title, price, image } = v.fields
         return {
-          price_labels: {
+          price_data: {
             currency: "jpy",
-            product_labels: {
+            product_data: {
               name: title,
               images: ["https:" + image.fields.file.url],
             },
@@ -117,7 +107,7 @@ export default function PaymentForm(props) {
       <legend className="sr-only">Payment form</legend>
       <div className="bg-white rounded-md -space-y-px">
         {labels.map((v, i) => {
-          const on = paymentMethod === v.label
+          const on = pay === v.label
           return (
             <div
               key={v.label}
@@ -137,7 +127,7 @@ export default function PaymentForm(props) {
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
                   defaultChecked={on}
                   onClick={() => {
-                    setPaymentMethod(v.label)
+                    setPay(v.label)
                   }}
                 />
               </div>
@@ -175,9 +165,7 @@ export default function PaymentForm(props) {
           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
         >
           {loading && <Spin />}
-          {labels[1]["label"] === paymentMethod
-            ? "注文確認画面"
-            : "決済情報確認"}
+          {labels[1]["label"] === pay ? "注文確認画面" : "決済情報確認"}
           <ChevRight />
         </button>
       </div>
@@ -195,14 +183,14 @@ export default function PaymentForm(props) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 ">
       <div className="relative hidden sm:block border-r p-8">
-        <Details {...props} />
+        <CartDetail {...props} />
       </div>
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h3 className="text-center py-12 font-bold text-gray-600">
           お支払い方法を選択してください。
         </h3>
         <Fieldset />
-        {labels[1]["label"] === paymentMethod ? <Fee /> : null}
+        {labels[1]["label"] === pay ? <Fee /> : null}
         <Actions />
       </div>
     </div>

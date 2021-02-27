@@ -1,17 +1,12 @@
+import Link from "next/link"
 import Image from "next/image"
 import { Transition } from "@headlessui/react"
 import { CartSvg, X, Close, Minus, Plus } from "../Svg"
 import { useCart } from "../../utils/useCart.tsx"
 import { getImageFields } from "../../scripts/contentful"
 
-export default function Cart({ cartOpen = false, setCartOpen, form, setForm }) {
-  const {
-    isEmpty,
-    totalUniqueItems,
-    items,
-    updateItemQty,
-    removeItem,
-  } = useCart()
+export default function Cart(props) {
+  const { cartOpen = false, setCartOpen, form, setForm } = props
 
   const Header = () => (
     <div className="px-4 sm:px-6">
@@ -36,22 +31,6 @@ export default function Cart({ cartOpen = false, setCartOpen, form, setForm }) {
     </div>
   )
 
-  const Body = () => (
-    <div className="mt-6 relative flex-1 px-4 sm:px-6">
-      <ul className="grid grid-cols-1 gap-1">
-        {!isEmpty ? (
-          items.map((v) => {
-            const id = v.sys.id
-            // console.log(v);
-            return <List {...v.fields} key={id} id={id} qty={v.qty} />
-          })
-        ) : (
-          <p>カートは空です。</p>
-        )}
-      </ul>
-    </div>
-  )
-
   const Actions = () => (
     <div className="flex-shrink-0 px-4 py-4 flex justify-center">
       <button
@@ -61,25 +40,14 @@ export default function Cart({ cartOpen = false, setCartOpen, form, setForm }) {
       >
         買い物を続ける
       </button>
-      <button
-        onClick={() => setForm({ key: "ORDER", value: form.value })}
+      <Link href="/order">
+      <a
+        // onClick={() => setForm({ key: "ORDER", value: form.value })}
         className="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         ご購入手続き
-      </button>
-    </div>
-  )
-
-  const RemoveItem = ({ id }) => (
-    <div className="absolute top-0 right-0 -mt-2 -mr-1">
-      <button
-        onClick={() => removeItem(id)}
-        type="button"
-        className="text-white focus:outline-none "
-      >
-        <span className="sr-only">Close</span>
-        <Close />
-      </button>
+      </a>
+      </Link>
     </div>
   )
 
@@ -88,71 +56,6 @@ export default function Cart({ cartOpen = false, setCartOpen, form, setForm }) {
       <div className="px-2 py-4 text-xs font-medium text-center">
         <p className="text-lg">7日間の返品保証をお約束します。</p>
         万が一ご満足いただけない場合は全額返金させていただきます。
-      </div>
-    </div>
-  )
-
-  const List = ({ brand, image, name, price, id, qty }) => {
-    return (
-      <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 my-2 relative">
-        <div className="w-full flex items-center justify-between p-6 space-x-6">
-          <div className="flex-1 truncate">
-            <RemoveItem id={id} />
-            <div className="flex items-center space-x-3">
-              <h3 className="text-gray-900 text-sm font-medium truncate">
-                {name}
-              </h3>
-              <span className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                {brand}
-              </span>
-            </div>
-            <p className="mt-1 text-gray-500 text-sm truncate">
-              {/* 大阪より即日配送 */}
-              海外工場から発送
-            </p>
-          </div>
-          <div className="w-10 h-10  flex-shrink-0">
-            <Image {...getImageFields(image)} />
-          </div>
-        </div>
-        <div>
-          <div className="-mt-px flex divide-x divide-gray-200">
-            <div className="w-0 flex-1 flex">
-              <div className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-lg text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
-                &yen;{(parseInt(price) * qty).toLocaleString()}
-                <span className="text-xs text-center ml-3 text-gray-400">
-                  税込
-                  <br />
-                  送料込
-                </span>
-              </div>
-            </div>
-            <div className="-ml-px w-0 flex-1 flex">
-              <div className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
-                <Counter id={id} qty={qty} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    )
-  }
-  const Counter = ({ id, qty }) => (
-    <div className="flex items-center">
-      <div className="flex-shrink  px-2 bg-white">
-        <button type="button" onClick={() => updateItemQty(id, qty-1)}>
-          <Minus width={16} height={16} />
-        </button>
-        <span
-          type="number"
-          max={99}
-          min={1}
-          className="text-center align-text-bottom font-bold px-2 border-none"
-          children={qty}
-        />
-        <button type="button" onClick={() => updateItemQty(id, qty+1)}>
-          <Plus width={16} height={16} />
-        </button>
       </div>
     </div>
   )
@@ -188,6 +91,109 @@ export default function Cart({ cartOpen = false, setCartOpen, form, setForm }) {
             </div>
           </Transition>
         </section>
+      </div>
+    </div>
+  )
+}
+
+const Body = () => {
+  const { items, isEmpty } = useCart()
+  return (
+    <div className="mt-6 relative flex-1 px-4 sm:px-6">
+      <ul className="grid grid-cols-1 gap-1">
+        {!isEmpty ? (
+          items.map((v) => {
+            const id = v.sys.id
+            return <List {...v.fields} key={id} id={id} qty={v.qty} />
+          })
+        ) : (
+          <p>カートは空です。</p>
+        )}
+      </ul>
+    </div>
+  )
+}
+
+const List = ({ brand, image, name, price, id, qty }) => {
+  return (
+    <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 my-2 relative">
+      <div className="w-full flex items-center justify-between p-6 space-x-6">
+        <div className="flex-1 truncate">
+          <RemoveItem id={id} />
+          <div className="flex items-center space-x-3">
+            <h3 className="text-gray-900 text-sm font-medium truncate">
+              {name}
+            </h3>
+            <span className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+              {brand}
+            </span>
+          </div>
+          <p className="mt-1 text-gray-500 text-sm truncate">
+            {/* 大阪より即日配送 */}
+            海外工場から発送
+          </p>
+        </div>
+        <div className="w-10 h-10  flex-shrink-0">
+          <Image {...getImageFields(image)} />
+        </div>
+      </div>
+      <div>
+        <div className="-mt-px flex divide-x divide-gray-200">
+          <div className="w-0 flex-1 flex">
+            <div className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-lg text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+              &yen;{(parseInt(price) * qty).toLocaleString()}
+              <span className="text-xs text-center ml-3 text-gray-400">
+                税込
+                <br />
+                送料込
+              </span>
+            </div>
+          </div>
+          <div className="-ml-px w-0 flex-1 flex">
+            <div className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+              <Counter id={id} qty={qty} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  )
+}
+
+const RemoveItem = ({ id }) => {
+  const { removeItem } = useCart()
+  return (
+    <div className="absolute top-0 right-0 -mt-2 -mr-1">
+      <button
+        onClick={() => removeItem(id)}
+        type="button"
+        className="text-white focus:outline-none "
+      >
+        <span className="sr-only">Close</span>
+        <Close />
+      </button>
+    </div>
+  )
+}
+
+const Counter = ({ id, qty }) => {
+  const { updateItemQty } = useCart()
+  return (
+    <div className="flex items-center">
+      <div className="flex-shrink  px-2 bg-white">
+        <button type="button" onClick={() => updateItemQty(id, qty - 1)}>
+          <Minus width={16} height={16} />
+        </button>
+        <span
+          type="number"
+          max={99}
+          min={1}
+          className="text-center align-text-bottom font-bold px-2 border-none"
+          children={qty}
+        />
+        <button type="button" onClick={() => updateItemQty(id, qty + 1)}>
+          <Plus width={16} height={16} />
+        </button>
       </div>
     </div>
   )

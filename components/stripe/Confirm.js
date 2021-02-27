@@ -8,31 +8,32 @@ export default function Confirm({
   items,
   form,
   cartTotal,
-  initialForm,
+  coupon,
   setCartOpen,
 }) {
   const router = useRouter()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
   const [loading, setLoading] = useState(false)
   const fee = calcFee(cartTotal)
+  const coupon_off = coupon.amount_off || 0
 
   const onSubmit = () => {
-    const customer = form.value.customer
+    const {_id, customer} = form.value
     setLoading(true)
     setCartOpen(false)
 
     fetchPostJSON("/api/orders", {
-      _id: form.value._id,
+      _id,
       customer,
       items: cleanUp(items),
       status: "cod",
     }).then((value) => {
-      setForm(initialForm)
-      setLoading(false)
-      router.replace({
+      router.push({
         pathname: "/order/success",
-        query: { _id: value._id, price: cartTotal + fee * 1.1 },
+        query: { _id: value._id, price: cartTotal + fee - coupon_off},
       })
+      setLoading(false)
+      // setForm({ key: "ORDER", value: {}})
     })
   }
 
@@ -89,9 +90,13 @@ export default function Confirm({
             <span className="float-right">&yen;{0}</span>
           </div>
           <div className="">
-            <span>代引手数料 &yen;({fee.toLocaleString()} x 消費税)</span>
+            <span>クーポン割引</span>
+            <span className="float-right">&yen;{coupon_off.toLocaleString()}</span>
+          </div>
+          <div className="">
+            <span>代引手数料 (消費税込)</span>
             <span className="float-right">
-              &yen;{(fee * 1.1).toLocaleString()}
+              &yen;{(fee).toLocaleString()}
             </span>
           </div>
 
@@ -100,7 +105,7 @@ export default function Confirm({
           <div className="text-sm  font-bold">
             <span>お支払い金額</span>
             <span className="float-right text-lg -mt-1">
-              &yen;{(cartTotal + fee * 1.1).toLocaleString()}
+              &yen;{(cartTotal + fee - coupon_off).toLocaleString()}
             </span>
           </div>
         </div>
