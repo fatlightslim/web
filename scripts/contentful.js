@@ -29,6 +29,7 @@ export async function getProductsFromContentful() {
   })
   return {
     products: {
+      sf2000: res.items[8],
       sf1000: res.items[7],
       sf7000: res.items[6],
       sf4000: res.items[4],
