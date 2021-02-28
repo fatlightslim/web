@@ -203,7 +203,7 @@ export const products = [
     },
     text: "text-white",
     shortTitle: "SP6500",
-    descForMenu: "最新チップ搭載の本格派。収穫量は2.5倍",
+    descForMenu: "広い範囲をしっかりカバー！",
     lead: "最新モデル",
     feature: [
       "2020年最新版LB301Bチップ搭載",
@@ -343,6 +343,186 @@ export const products = [
     text: "text-white",
     shortTitle: "SF4000",
     descForMenu: "スリム＆クール。SPIDER FARMER入荷",
+    lead: "最新モデル",
+    feature: [
+      "SPIDER FARMER社",
+      "2020年最新版LM301Bチップ搭載",
+      "1,212個のLEDチップセットアップ",
+      "120cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "デイジーチェーン",
+      "648mm x 536mm",
+      "ノイズレス",
+    ],
+    video: {
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
+  },
+  {
+    meta: {
+      title: "SPIDER FARMER SF1000",
+      description:
+        // "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+        "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライトです。"        
+    },
+    header: "SPIDER FARMER",
+    price: {
+      sale: "120,000",
+      regular: "130,000",
+    },
+    title: {
+      1: "SF4000",
+      2: "SPIDER FARMER",
+      3: "日本初上陸",
+      color: "#993e41",
+    },
+    img: {
+      src: "/img/sf4000/sf4000main.png",
+      alt: "SPIDER FARMER",
+      width: 900,
+      height: 670,
+    },
+    desc: {
+      // 1: "本場アメリカからのこのLEDブランド、今栽培業界で大ヒット中！スリムな本体に防水や機器連動機能など性能もバッチリ！テント栽培にぴったりのサイズで個人栽培用ではもちろん、研究所や農園からの注文も続出しています。SAMSUNG LM301Bチップを1,212個も使用した太陽光ライト",
+      1: "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライト",
+      2: "です。",
+    },
+    button: "SF4000の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/Spider-Farmer-Sf1000",
+    href: "/products/spiderfarmer/sf1000",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-red-400 via-red-300 to-red-200",
+      outer: "bg-gray-900",
+    },
+    text: "text-white",
+    shortTitle: "SF4000",
+    descForMenu: "スリム＆クール。SPIDER FARMER入荷",
+    lead: "最新モデル",
+    feature: [
+      "SPIDER FARMER社",
+      "2020年最新版LM301Bチップ搭載",
+      "1,212個のLEDチップセットアップ",
+      "120cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "デイジーチェーン",
+      "648mm x 536mm",
+      "ノイズレス",
+    ],
+    video: {
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
+  },
+  {
+    meta: {
+      title: "SPIDER FARMER SF1000",
+      description:
+        // "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+        "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライトです。"        
+    },
+    header: "SPIDER FARMER",
+    price: {
+      sale: "120,000",
+      regular: "130,000",
+    },
+    title: {
+      1: "SF4000",
+      2: "SPIDER FARMER",
+      3: "日本初上陸",
+      color: "#993e41",
+    },
+    img: {
+      src: "/img/sf1000/sf1000sam.png",
+      alt: "SPIDER FARMER",
+      width: 900,
+      height: 670,
+    },
+    desc: {
+      // 1: "本場アメリカからのこのLEDブランド、今栽培業界で大ヒット中！スリムな本体に防水や機器連動機能など性能もバッチリ！テント栽培にぴったりのサイズで個人栽培用ではもちろん、研究所や農園からの注文も続出しています。SAMSUNG LM301Bチップを1,212個も使用した太陽光ライト",
+      1: "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライト",
+      2: "です。",
+    },
+    button: "SF4000の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/Spider-Farmer-Sf1000",
+    href: "/products/spiderfarmer/sf1000",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-red-400 via-red-300 to-red-200",
+      outer: "bg-gray-900",
+    },
+    text: "text-white",
+    shortTitle: "SF1000",
+    descForMenu: "小さなモンスター。ここに見参！",
+    lead: "最新モデル",
+    feature: [
+      "SPIDER FARMER社",
+      "2020年最新版LM301Bチップ搭載",
+      "1,212個のLEDチップセットアップ",
+      "120cm x 120cmテント向け",
+      "IP65 防水・防塵",
+      "最大収穫量 2.5g/w",
+      "アルミ製ヒートシンク",
+      "デイジーチェーン",
+      "648mm x 536mm",
+      "ノイズレス",
+    ],
+    video: {
+      src:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/Best_grow_choice_for_2ftx4ft_Mars_Hydro_SP_3000_Led_Grow_Light_New_2020.mp4?v=1602890067",
+      poster:
+        "https://cdn.shopify.com/s/files/1/0470/9089/2956/files/SP3000.png?v=1602887948",
+    },
+  },
+  {
+    meta: {
+      title: "SPIDER FARMER SF2000",
+      description:
+        // "ついにMARS HYDROのフラッグシップモデルが登場！業界最上級スペックの新しいライトをぜひチェックしてみてください。今回も期待以上の仕上がりで海外でも売切れ続出中❗️ 本場アメリカAmazon.comでベストセラーNo.1を獲得した信頼性と安心感😀 今年のベストバイはこれで決まりです!!!",
+        "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライトです。"        
+    },
+    header: "SPIDER FARMER",
+    price: {
+      sale: "120,000",
+      regular: "130,000",
+    },
+    title: {
+      1: "SF2000",
+      2: "SPIDER FARMER",
+      3: "日本初上陸",
+      color: "#993e41",
+    },
+    img: {
+      src: "/img/sf2000/SF2000.png",
+      alt: "SPIDER FARMER",
+      width: 900,
+      height: 670,
+    },
+    desc: {
+      // 1: "本場アメリカからのこのLEDブランド、今栽培業界で大ヒット中！スリムな本体に防水や機器連動機能など性能もバッチリ！テント栽培にぴったりのサイズで個人栽培用ではもちろん、研究所や農園からの注文も続出しています。SAMSUNG LM301Bチップを1,212個も使用した太陽光ライト",
+      1: "業界に激震！今もっとも勢いのあるLEDブランドSPIDER FARMER 大ヒット中！80x80cmテントにジャストなサイズ、マストな機能を搭載したフルスペックモデル！大学等の研究機関をはじめプロ農園にも採用される信頼の性能。最強の誉れ高いSAMSUNG LM301Bチップを贅沢に1,212個採用した2021年のマストバイ太陽光ライト",
+      2: "です。",
+    },
+    button: "SF2000の詳細を見る",
+    // href: "https://shop.fatlightslim.com/products/Spider-Farmer-Sf1000",
+    href: "/products/spiderfarmer/sf2000",
+    // bg: "linear-gradient(to right top, #194189 0%, #3B4980 25%, #8738A7 100%)",
+    bg: {
+      inner: "from-red-400 via-red-300 to-red-200",
+      outer: "bg-gray-900",
+    },
+    text: "text-white",
+    shortTitle: "SF2000",
+    descForMenu: "スパイダーウェブで植物の心を鷲掴み！",
     lead: "最新モデル",
     feature: [
       "SPIDER FARMER社",
