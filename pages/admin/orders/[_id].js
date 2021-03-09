@@ -1,25 +1,25 @@
 import Layout from "../../../components/admin/AdminLayout"
 
-
 export default function AdminOrder({ order }) {
   const { log, customer, _id } = order
-  console.log(customer)
-  console.log(order)
-  const data = []
-  Object.keys(customer).forEach((v) => {
-    data.push({ [v]: customer[v] })
-  })
+  // console.log(customer)
+  // console.log(order)
+  // const data = []
+  // Object.keys(customer).forEach((v) => {
+  //   data.push({ [v]: customer[v] })
+  // })
+  const address = customer.zip + " " + customer.addr1 + customer.addr2
 
-const Field = ({ name }) => {
-  return (
-    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-      <dt className="text-sm font-medium text-gray-500">{name}</dt>
-      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-        <span className="">{name === "addr" ? customer.zip + " " + customer.addr1 + customer.addr2 : customer[name]}</span>
-      </dd>
-    </div>
-  )
-}
+  const Field = ({ name }) => {
+    return (
+      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+        <dt className="text-sm font-medium text-gray-500">{name}</dt>
+        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <span className="">{name === "addr" ? address : customer[name]}</span>
+        </dd>
+      </div>
+    )
+  }
 
   return (
     <Layout order={order}>
@@ -47,26 +47,7 @@ const Field = ({ name }) => {
             <Field name="name" />
             <Field name="addr" />
             <Field name="email" />
-            <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-              <dt className="text-sm font-medium text-gray-500">About</dt>
-              <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                <span className="flex-grow">
-                  Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                  incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                  consequat sint. Sit id mollit nulla mollit nostrud in ea
-                  officia proident. Irure nostrud pariatur mollit ad adipisicing
-                  reprehenderit deserunt qui eu.
-                </span>
-                <span className="ml-4 flex-shrink-0">
-                  <button
-                    type="button"
-                    className="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Update
-                  </button>
-                </span>
-              </dd>
-            </div>
+            <Field name="pay" />
             <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
               <dt className="text-sm font-medium text-gray-500">Attachments</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

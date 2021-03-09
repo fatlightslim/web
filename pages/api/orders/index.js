@@ -64,7 +64,7 @@ async function handler(req, res) {
 
   async function sendMail({ _id, status, to }) {
     return new Promise((resolve, reject) => {
-      const order_id = _id.substr(18)
+      const order_id = _id.substr(18).toUpperCase()
       const data = {
         sent_order_confirm: {
           subject: `${process.env.site.name} ご注文の確認 #${order_id}`,
@@ -72,10 +72,12 @@ async function handler(req, res) {
         },
         sent_shipping: {
           subject: `${process.env.site.name} ご注文の商品(${order_id})が発送されました`,
+          template: "d-6410e5d78a16446dab36463a37ad6210"
         },
 
         sent_failure: {
           subject: `重要なお知らせ: ${process.env.site.name} のご注文について ${order_id} `,
+          template: "d-9f5e67f4369e4a9eaa6ed0f5b4b72bb9"
         },
       }
       let statusToPush

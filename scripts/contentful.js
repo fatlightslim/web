@@ -3,7 +3,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 })
 
-export const BLACKLIST = ["sf1000", "sf2000"]
+export const BLACKLIST = []//"sf1000", "sf2000"]
 
 export function getImageFields(image) {
     return {

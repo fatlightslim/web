@@ -42,7 +42,8 @@ export default function Nav({ menuOpen = false,  setMenuOpen, setCartOpen, produ
     </button>
   )
 
-  const FlayoutMenu = () => (
+  return (
+    <div className={`py-1 bg-black bg-opacity-80 z-30`}>
     <div className={`relative z-40`}>
       <div className="relative">
         <div className="max-w-7xl mx-auto flex px-4 sm:px-6 lg:px-8">
@@ -54,7 +55,7 @@ export default function Nav({ menuOpen = false,  setMenuOpen, setCartOpen, produ
 
       <Transition
         show={menuOpen}
-        className={`absoluteinset-x-0 transform shadow-lg`}
+        className={`absolute inset-x-0 transform shadow-lg`}
         enter="transition ease-out duration-200"
         enterFrom="opacity-0 -translate-y-1"
         enterTo="opacity-100 translate-y-0 block"
@@ -66,14 +67,6 @@ export default function Nav({ menuOpen = false,  setMenuOpen, setCartOpen, produ
         <Actions />
       </Transition>
     </div>
-  )
-  let className = "py-1 bg-black bg-opacity-80 z-30"
-  // if (router && router.pathname === "/") {
-  //   className += " fixed top-0 w-full z-40"
-  // }
-  return (
-    <div className={className}>
-      <FlayoutMenu />
     </div>
   )
 }

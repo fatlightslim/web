@@ -1,6 +1,6 @@
+import Image from "next/image"
 import { ExCircle, SolidCheck } from "../Svg"
 import { getImageFields } from "../../scripts/contentful"
-import Image from "next/image"
 import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
 
 export default function CartDetail(props) {
@@ -36,7 +36,7 @@ const Total = ({ cartTotal, pay, coupon, labels }) => {
             &yen;{discount.toLocaleString()}
           </p>
         </div>
-        {pay !== labels[[0]].label && (
+        {pay !== labels[0].label && (
           <div className="grid grid-cols-2">
             <p>代引手数料</p>
             <p className="text-right mr-2 font-semibold text-sm">
@@ -52,7 +52,7 @@ const Total = ({ cartTotal, pay, coupon, labels }) => {
         <p>合計</p>
         <p className="text-right mr-2 text-sm">
           &yen;
-          {pay === labels[[0]].label
+          {pay === labels[0].label
             ? (cartTotal - discount).toLocaleString()
             : (cartTotal + fee - discount).toLocaleString()}
         </p>
