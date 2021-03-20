@@ -1,11 +1,17 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&subset=japanese");
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    /* font-family: Dosis, sans-serif !important; */
+  /* font-family: Dosis, sans-serif !important; */
 }
+
+.noto {
+  font-family: "Noto Serif JP", serif;
+}
+
 
 .dosis {
   font-family: Dosis, sans-serif;

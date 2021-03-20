@@ -1,25 +1,23 @@
 import Image from "next/image"
 import Link from "next/link"
 import Countdown from "react-countdown"
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import HeroMars from "./HeroMars"
 
 export default function Hero({}) {
   return (
-    <>
+    <Carousel
+    autoPlay
+    infiniteLoop
+    // dynamicHeight
+    showStatus={false}
+    showThumbs={false}
+    >
       <Sale />
-    </>
-    // <Carousel
-    // autoPlay
-    // infiniteLoop
-    // // dynamicHeight
-    // showStatus={false}
-    // showThumbs={false}
-    // >
-    //   <Sale />
-    //   <MarsHydro />
-    //   <Sf4000card />
-    // </Carousel>
+      <HeroMars />
+      {/* <Sf4000card /> */}
+    </Carousel>
   )
 }
 
