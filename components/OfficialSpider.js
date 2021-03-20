@@ -1,5 +1,3 @@
-
-
 import Image from "next/image"
 import Link from "next/link"
 
@@ -37,7 +35,7 @@ export default function OfficialSpider({
       >
         <div className="grid md:grid-cols-2 mx-auto gap-0">
           <div className="md:col-span-1 p-8 ">
-            <Header {...data} />
+            {/* <Header {...data} /> */}
             <LeftCol {...data} />
           </div>
 

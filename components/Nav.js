@@ -5,8 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { Play, Bag } from "./Svg"
 
-
-export default function Nav({ menuOpen = false,  setMenuOpen, setCartOpen, products }) {
+export default function Nav({
+  menuOpen = false,
+  setMenuOpen,
+  setCartOpen,
+  products,
+  ...props
+}) {
   const CartOpen = () => (
     <button
       onClick={() => setCartOpen(true)}
@@ -42,38 +47,48 @@ export default function Nav({ menuOpen = false,  setMenuOpen, setCartOpen, produ
     </button>
   )
 
-  const FlayoutMenu = () => (
-    <div className={`relative z-40`}>
-      <div className="relative">
-        <div className="max-w-7xl mx-auto flex px-4 sm:px-6 lg:px-8">
-          <MenuButton />
-          <Logo className="text-gray-50 mx-auto" />
-          <CartOpen />
-        </div>
-      </div>
+  const actions = [
+    // { label: "全ての商品を見る" },
+    { label: "よくある質問", link: "/faq" },
+    { label: "お問い合わせ", link: "/contact" },
+  ]
 
-      <Transition
-        show={menuOpen}
-        className={`absoluteinset-x-0 transform shadow-lg`}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0 block"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 -translate-y-1 hidden"
-      >
-        <Menu products={products} />
-        <Actions />
-      </Transition>
-    </div>
-  )
   let className = "py-1 bg-black bg-opacity-80 z-30"
   // if (router && router.pathname === "/") {
   //   className += " fixed top-0 w-full z-40"
   // }
   return (
     <div className={className}>
-      <FlayoutMenu />
+      <div className={`relative z-40`}>
+        <div className="relative">
+          <div className="max-w-7xl mx-auto flex px-4 sm:px-6 lg:px-8">
+            <MenuButton />
+            <Logo className="text-gray-50 mx-auto" />
+            <CartOpen />
+          </div>
+        </div>
+
+        <Transition
+          show={menuOpen}
+          className={`absolute inset-x-0 transform shadow-lg`}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 -translate-y-1"
+          enterTo="opacity-100 translate-y-0 block"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 -translate-y-1 hidden"
+        >
+          <Menu products={products} />
+
+          <div className="bg-gray-50">
+            <div className="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
+              {actions.map((v) => (
+                <ActionMenu {...v} key={v.label} {...props} />
+              ))}
+            </div>
+          </div>
+        </Transition>
+      </div>
     </div>
   )
 }
@@ -125,23 +140,7 @@ const List = ({ title, url, image, lead, isLast }) => {
   )
 }
 
-const actions = [
-  // { label: "全ての商品を見る" },
-  { label: "よくある質問", link: "/faq" },
-  { label: "お問い合わせ", link: "/contact" },
-]
-
-const Actions = () => (
-  <div className="bg-gray-50">
-    <div className="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
-      {actions.map((v) => (
-        <ActionMenu {...v} key={v.label} />
-      ))}
-    </div>
-  </div>
-)
-
-const ActionMenu = ({ label, link }) => (
+const ActionMenu = ({ label, link, ...props }) => (
   <div className="flow-root">
     <Link href={link}>
       <a className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 transition ease-in-out duration-150">

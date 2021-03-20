@@ -1,6 +1,4 @@
 import "../styles/index.css"
-import "slick-carousel/slick/slick.css"
-import "../styles/slick-theme.css"
 import "video-react/dist/video-react.css"
 
 import { DefaultSeo } from "next-seo"

@@ -12,7 +12,6 @@ body {
   font-family: "Noto Serif JP", serif;
 }
 
-
 .dosis {
   font-family: Dosis, sans-serif;
 }
@@ -27,7 +26,6 @@ body {
 
 /* Write your own custom component styles here */
 
-
 /* Start purging... */
 
 @tailwind utilities;
@@ -35,21 +33,10 @@ body {
 
 /* Your own custom utilities */
 
-.text-silver {
-  background: radial-gradient(#eff1ff, #000);
-  background-size: 100% 200%;
-  background-position: 50% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
-.nav-white {
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255,255,255,0.72);
+.bg-spider {
+  background: #e3f4df;
 }
-
 .bg-line {
   background: #01a04b;
 }
@@ -73,7 +60,6 @@ body {
   background: linear-gradient(transparent 60%, #ffff66 60%);
 }
 
-
 .headline img:not(.no-grow):hover {
   transform: scale(1.1);
 }
@@ -81,202 +67,12 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.text-125 {
-  font-size: 125%;
-}
-
-.text-180 {
-  font-size: 180%;
-}
-
-
-
-.char {
-    display: inline-block;
-    animation-delay: calc(.25s + var(--char-index) * .1s);
-    transition: all .25s calc(.25s + var(--char-index) * .1s);
-}
-.text--enter [data-scroll='out'] .char {
-  opacity: 0;
-  transform: translate(0, -150%);
-}
-.text--enter .char {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* scroll trigger */
-[data-scroll="in"] .char {
-  opacity: 1;
-}
-
-/* adjust height for carousel */
-@media (max-width: 768px) {
-  .slide {
-    min-height: 855px;
-  }
-}
-@media (min-width:768px) and ( max-width:1024px) {
-  .slide {
-    min-height: 1147px;
-  }
-}
-
-/* Bugfix for slick.js */
-
-.slick-slider {
-  display: table !important;
-  table-layout: fixed !important;
-  width: 100% !important;
-}
-
-
-@-webkit-keyframes scrollSmall {
-  0% {
-    transform: rotate(-13deg) translateY(0);
-  }
-  to {
-    transform: rotate(-13deg) translateY(-639px);
-  }
-}
-@keyframes scrollSmall {
-  0% {
-    transform: rotate(-13deg) translateY(0);
-  }
-  to {
-    transform: rotate(-13deg) translateY(-639px);
-  }
-}
-@-webkit-keyframes scrollLarge {
-  0% {
-    transform: rotate(-13deg) translateY(0);
-  }
-  to {
-    transform: rotate(-13deg) translateY(-1278px);
-  }
-}
-@keyframes scrollLarge {
-  0% {
-    transform: rotate(-13deg) translateY(0);
-  }
-  to {
-    transform: rotate(-13deg) translateY(-1278px);
-  }
-}
-.scroll-bg {
-  -webkit-animation-name: scrollSmall;
-  animation-name: scrollSmall;
-  -webkit-animation-duration: 15s;
-  animation-duration: 15s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-@media (min-width: 1024px) {
-  .scroll-bg {
-    -webkit-animation-name: scrollLarge;
-    animation-name: scrollLarge;
-    -webkit-animation-duration: 35s;
-    animation-duration: 35s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-  }
-}
-
-
-.seigaiha {
-  /* width: 300px;
-  height: 300px; */
-  background-color: #1A1E79;
-  background-image: radial-gradient(
-      circle at 100% 150%,
-      #1A1E79 24%,
-      #fff 24%,
-      #fff 28%,
-      #1A1E79 28%,
-      #1A1E79 36%,
-      #fff 36%,
-      #fff 40%,
-      transparent 40%,
-      transparent
-    ),
-    radial-gradient(
-      circle at 0 150%,
-      #1A1E79 24%,
-      #fff 24%,
-      #fff 28%,
-      #1A1E79 28%,
-      #1A1E79 36%,
-      #fff 36%,
-      #fff 40%,
-      transparent 40%,
-      transparent
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      #fff 10%,
-      #1A1E79 10%,
-      #1A1E79 23%,
-      #fff 23%,
-      #fff 30%,
-      #1A1E79 30%,
-      #1A1E79 43%,
-      #fff 43%,
-      #fff 50%,
-      #1A1E79 50%,
-      #1A1E79 63%,
-      #fff 63%,
-      #fff 71%,
-      transparent 71%,
-      transparent
-    ),
-    radial-gradient(
-      circle at 100% 50%,
-      #fff 5%,
-      #1A1E79 5%,
-      #1A1E79 15%,
-      #fff 15%,
-      #fff 20%,
-      #1A1E79 20%,
-      #1A1E79 29%,
-      #fff 29%,
-      #fff 34%,
-      #1A1E79 34%,
-      #1A1E79 44%,
-      #fff 44%,
-      #fff 49%,
-      transparent 49%,
-      transparent
-    ),
-    radial-gradient(
-      circle at 0 50%,
-      #fff 5%,
-      #1A1E79 5%,
-      #1A1E79 15%,
-      #fff 15%,
-      #fff 20%,
-      #1A1E79 20%,
-      #1A1E79 29%,
-      #fff 29%,
-      #fff 34%,
-      #1A1E79 34%,
-      #1A1E79 44%,
-      #fff 44%,
-      #fff 49%,
-      transparent 49%,
-      transparent
-    );
-  background-size: 50px 25px;
-}
 .wahoo {
   /* font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif; */
   position: relative;
   padding: 1.5rem 1rem;
-  -webkit-box-shadow: 0 2px 14px rgba(0, 0, 0, .1);
-  box-shadow: 0 2px 14px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
 }
 
 .wahoo:before,
@@ -285,9 +81,21 @@ body {
   left: 0;
   width: 100%;
   height: 4px;
-  content: '';
-  background-image: -webkit-linear-gradient(315deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
-  background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+  content: "";
+  background-image: -webkit-linear-gradient(
+    315deg,
+    #704308 0%,
+    #ffce08 40%,
+    #e1ce08 60%,
+    #704308 100%
+  );
+  background-image: linear-gradient(
+    135deg,
+    #704308 0%,
+    #ffce08 40%,
+    #e1ce08 60%,
+    #704308 100%
+  );
 }
 
 .wahoo:before {
@@ -297,3 +105,4 @@ body {
 .wahoo:after {
   bottom: 0;
 }
+

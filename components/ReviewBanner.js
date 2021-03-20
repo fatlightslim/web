@@ -1,34 +1,7 @@
+import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import { Carousel } from "react-responsive-carousel"
 import Image from "next/image"
 import { reviews } from "../data/reviews"
-import Slider from "react-slick";
-
-const Header = ({ header }) => (
-  <header className="dosis mb-8">
-    <h3 className="text-xl font-bold">{header}</h3>
-  </header>
-)
-
-const LeftCol = ({ title, img, button }) => (
-  <>
-    <p className="text-3xl font-bold tracking-normal  md:pr-24">
-      <span style={{  color: title.color }}>
-        {title[1]}
-        {title[2]}
-      {/* <br /> */}
-      {title[3]}
-      </span>
-    </p>
-    <div className="mt-12 md:mt-0 max-w-xs">
-      <Image
-        src={img.src}
-        width={img.width}
-        height={img.height}
-        alt={img.alt}
-      />
-    </div>
-
-  </>
-)
 
 export default function ReviewBanner({
   data = {
@@ -48,69 +21,71 @@ export default function ReviewBanner({
     // bg: "linear-gradient(to right top, #071931 0%, #33274f 50%, #661e43 100%)",
     // // bg: "from-purple-900 via-pink-700 to-red-700",
   },
-  settings = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplaySpeed: 5000,
-    autoplay: true,
-
-  }
 }) {
   return (
-
-    <section className="relative z-10 md:py-4 md:px-2 bg-white">
-      <div
-        // className={`text-white rounded-3xl bg-gradient-to-r ${data.bg}`}
-        // style={{ background: data.bg }}
-        // style={{ background: data.bg, minHeight: 766 }}
-        className="bg-white md:rounded-3xl max-w-screen-xl p-8 mx-auto"
-      >
+    <div className="relative max-w-7xl mx-auto">
+      <div className="px-8 py-8 bg-white md:absolute md:left-0 md:h-full md:w-1/2">
         <Header {...data} />
+        {/* <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixqx=EqnZfs2epz&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&blend=6366F1&sat=-100&blend-mode=multiply" alt="" /> */}
+        <div className="sm:flex">
 
-        <div className="grid md:grid-cols-2 mx-auto gap-0">
-          <div className="md:col-span-1">
-            <LeftCol {...data} />
-          </div>
+        <div className="w-full sm:w-48 inline-block sm:flex-shrink">
 
-          <div className="md:col-span-1 w-full">
-            <Slider {...settings}>
-              {reviews.map((item) => (
-                <Review key={item.img} item={item} />
-              ))}
-            </Slider>
+        <Image {...data.img} />
+        </div>
+        <p className="text-3xl font-bold tracking-normal sm:flex-1">
+          <span style={{ color: data.title.color }}>
+            {data.title[1]}
+            {data.title[2]}
+            {/* <br /> */}
+            {data.title[3]}
+          </span>
+        </p>
+        </div>
 
-          </div>
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:pt-12 sm:px-6 lg:px-8">
+        <div className="md:ml-auto md:w-1/2 md:pl-10">
+          <Carousel
+            autoPlay
+            infiniteLoop
+            showStatus={false}
+            showThumbs={false}
+            interval={5000}
+            showIndicators={false}
+          >
+            {reviews.map((item) => (
+              <Review key={item.img} item={item} />
+            ))}
+          </Carousel>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
-
 
 function Review({ item }) {
   return (
     <>
-      <div className="mt-8 md:mt-0">
-        <Image
-          src={item.img}
-          width={1340}
-          height={365}
-          alt={item.lead}
-        />
+      <div className="mt-8 md:mt-0 ">
+        <Image src={item.img} width={1340} height={365} alt={item.lead} />
       </div>
-      <div className={`col-sm-6 ${item.bg}  align-self-center`}>
-        <p className="font-bold">
-          {item.lead}
-        </p>
-        <p className="pl-5 pr-5 text-black">
-          {item.lead2}
-        </p>
+      <div className={`col-sm-6 ${item.bg}  align-self-center text-left`}>
+        <p className="font-bold">{item.lead}</p>
+        <p className="pl-5 pr-5 text-black">{item.lead2}</p>
       </div>
-     </>
-
+    </>
   )
 }
+
+const LeftCol = ({ title, img, button }) => (
+  <>
+    <div className="mt-12 md:mt-0 max-w-xs"></div>
+  </>
+)
+
+const Header = ({ header }) => (
+  <header className="dosis mb-8">
+    <h3 className="text-xl font-bold">{header}</h3>
+  </header>
+)

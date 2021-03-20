@@ -1,23 +1,27 @@
 import Image from "next/image"
 import Link from "next/link"
 import Countdown from "react-countdown"
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import { Carousel } from "react-responsive-carousel"
 import HeroMars from "./HeroMars"
+import SpiderOfficial from "./SpiderOfficial"
+import { ChevRight } from "./Svg"
 
 export default function Hero({}) {
   return (
-    <Carousel
-    autoPlay
-    infiniteLoop
-    // dynamicHeight
-    showStatus={false}
-    showThumbs={false}
-    >
-      <Sale />
-      <HeroMars />
-      {/* <Sf4000card /> */}
-    </Carousel>
+    <div className="bg-gray-50">
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        interval={7000}
+      >
+        <Sale />
+        <HeroMars />
+        <SpiderOfficial />
+      </Carousel>
+    </div>
   )
 }
 
@@ -51,20 +55,7 @@ const Sale = () => (
               <Link href="/sale/spring-2021">
                 <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                   詳細を見る
-                  <svg
-                    className="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                    />
-                  </svg>
+                  <ChevRight />
                 </a>
               </Link>
             </div>
@@ -101,8 +92,7 @@ export const Timer = () => (
 )
 
 export const Title = () => (
-
-    <h2 className="text-2xl font-extrabold sm:text-4xl text-gray-50 py-2 noto text-center wahoo bg-black bg-opacity-80">
-      諸行無常セール 令和三年春場所
-    </h2>
+  <h2 className="text-2xl font-extrabold sm:text-4xl text-gray-50 py-2 noto text-center wahoo bg-black bg-opacity-80">
+    諸行無常セール 令和三年春場所
+  </h2>
 )

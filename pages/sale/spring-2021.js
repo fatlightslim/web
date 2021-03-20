@@ -1,15 +1,17 @@
+import { useCart } from "../../utils/useCart"
+import Link from "next/link"
 import { Timer, Title } from "../../components/Hero"
-import { products } from "../../data/products"
+import { getImageFields } from "../../scripts/contentful"
 import Layout from "../../components/Layout"
 import Image from "next/image"
 
 export default function Sale(props) {
-  console.log(props);
+  console.log(props.products)
+  const { fc6500, sp3000, sp150, ts } = props.products
+  const data = [sp150, sp3000, ts, fc6500]
   return (
     <Layout {...props}>
       <Title />
-
-      {/* <MarsHydro /> */}
       <Timer />
 
       <div className="bg-gray-100">
@@ -29,11 +31,9 @@ export default function Sale(props) {
           <div className="relative">
             <div className="absolute inset-0 h-1/2 bg-gray-100" />
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              {products.map((v) =>
-                v.header === "SPIDER FARMER" ? null : (
-                  <Product key={v.shortTitle} {...v} />
-                )
-              )}
+              {data.map((v) => (
+                <Product key={v.sys.id} {...v} {...props} />
+              ))}
             </div>
           </div>
         </div>
@@ -42,85 +42,102 @@ export default function Sale(props) {
   )
 }
 
-const Product = ({ img, shortTitle, price, desc }) => (
-  <div className="mb-8 max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-    <div className="flex-1 bg-white px-6 py-8 lg:p-12">
-      <div className="sm:flex">
-        <div className="sm:flex-shrink mr-8  mb-8 sm:mb-0">
-          <div className="w-48 mx-auto">
-          <Image {...img} />
+export const Product = ({ fields, sys, setCartOpen }) => {
+  const { image, title, price, pricingFeatureList, url, description } = fields
+  const { addItem } = useCart()
+  return (
+    <div className="mb-8 max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+      <div className="flex-1 bg-white px-6 py-8 lg:p-12">
+        <div className="sm:flex">
+          <div className="sm:flex-shrink mr-8  mb-8 sm:mb-0">
+            <div className="w-48 mx-auto">
+              <Image {...getImageFields(image)} />
+            </div>
+          </div>
+          <div className="sm:flex-1">
+            <h3 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+              {title}
+            </h3>
+            <p className="mt-6 text-base text-gray-500">{description}</p>
           </div>
         </div>
-      <div className="sm:flex-1">
-        <h3 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
-          {shortTitle}
-        </h3>
-        <p className="mt-6 text-base text-gray-500">
-          {desc[1]}
-          {desc[2]}
+        <div className="mt-8">
+          <div className="flex items-center">
+            <h4 className="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+              商品概要
+            </h4>
+            <div className="flex-1 border-t-2 border-gray-200" />
+          </div>
+          <ul className="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
+            {pricingFeatureList.slice(0, 4).map((v) => (
+              <List key={v} v={v} />
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+        <p className="text-lg leading-6 font-medium text-gray-900 ">
+          <span className="line-through text-red-500">
+            <span className="text-gray-600">
+              &yen; {(Math.ceil(price / 0.8 / 100) * 100).toLocaleString()}
+            </span>
+          </span>
+          <span className="inline-block align-middle px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 ml-2">
+            20%OFF
+          </span>
         </p>
-      </div>
-      </div>
-      <div className="mt-8">
-        <div className="flex items-center">
-          <h4 className="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
-            What's included
-          </h4>
-          <div className="flex-1 border-t-2 border-gray-200" />
+        <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
+          <span>&yen; {price.toLocaleString()}</span>
+          {/* <span className="ml-3 text-xl font-medium text-gray-500">USD</span> */}
         </div>
-        <ul className="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
-          <li className="flex items-start lg:col-span-1">
-            <div className="flex-shrink-0">
-              {/* Heroicon name: solid/check-circle */}
-              <svg
-                className="h-5 w-5 text-green-400"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <p className="ml-3 text-sm text-gray-700">Private forum access</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-      <p className="text-lg leading-6 font-medium text-gray-900">
-        <span className="line-through">
-          &yen; {price.regular.toLocaleString()}
-        </span>
-      </p>
-      <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
-        <span>&yen; {price.sale.toLocaleString()}</span>
-        {/* <span className="ml-3 text-xl font-medium text-gray-500">USD</span> */}
-      </div>
-      <p className="mt-4 text-sm">
-        <span href="#" className="font-medium text-gray-500">
-          税込・送料込
-        </span>
-      </p>
-      <div className="mt-6">
-        <div className="rounded-md shadow">
-          <a
-            href="#"
-            className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
-          >
-            カートに追加
-          </a>
+        <p className="mt-4 text-sm">
+          <span href="#" className="font-medium text-gray-500">
+            税込・送料込
+          </span>
+        </p>
+        <div className="mt-6">
+          <div className="rounded-lg shadow-md">
+            <button
+              onClick={() => {
+                const item = { id: sys.id, price, fields, sys }
+                addItem(item, 1)
+                setCartOpen(true)
+              }}
+              className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
+              aria-describedby="tier-growth"
+            >
+              購入する
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 text-sm">
+          <Link href={url}>
+            <a className="font-medium text-gray-900 underline">詳しく見る</a>
+          </Link>
         </div>
       </div>
-      <div className="mt-4 text-sm">
-        <a href="#" className="font-medium text-gray-900 underline">
-          詳しく見る
-        </a>
-      </div>
     </div>
-  </div>
+  )
+}
+
+export const List = ({ v }) => (
+  <li className="flex items-start lg:col-span-1">
+    <div className="flex-shrink-0">
+      {/* Heroicon name: solid/check-circle */}
+      <svg
+        className="h-5 w-5 text-green-400"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </div>
+    <p className="ml-3 text-sm text-gray-700">{v}</p>
+  </li>
 )

@@ -169,7 +169,7 @@ export const ChevRight = ({ ...props }) => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="{2}"
+      strokeWidth={2}
       d="M13 5l7 7-7 7M5 5l7 7-7 7"
     />
   </svg>
