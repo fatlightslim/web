@@ -8,7 +8,7 @@ export default function Sale(props) {
     <Layout {...props}>
       <Title />
 
-      <MarsHydro />
+      {/* <MarsHydro /> */}
       <Timer />
 
       <div className="bg-gray-100">
