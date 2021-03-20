@@ -7,7 +7,8 @@ import ReviewBanner from "../components/ReviewBanner"
 import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
 import FeatureNew from "../components/FeatureNew"
-import NewHero from "../components/NewHero"
+// import NewHero from "../components/NewHero"
+import Hero from "../components/Hero"
 import FCcard from "../components/FCcard"
 import Sf4000card from "../components/Sf4000card"
 import OfficialSpider from "../components/OfficialSpider"
@@ -19,7 +20,8 @@ import Layout from "../components/Layout"
 export default function Home({ assets, ...props }) {
   return (
     <Layout {...props}>
-      <NewHero {...assets} />
+      <Hero {...assets} />
+      {/* <NewHero {...assets} /> */}
       <Headline data={data.Headline} />
       <FeatureNew />
       <FCcard />

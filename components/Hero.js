@@ -1,94 +1,110 @@
 import Image from "next/image"
 import Link from "next/link"
+import Countdown from "react-countdown"
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel';
 
-export default function Hero({
-  data = {
-    h1: {
-      title: "Clear headline that explains your products main benefit",
-      desc:
-        "Explain your unique solution in short and how it solves a problem your customer has.",
-      tags: () => (
-        <span>Clear headline that explains your products main benefit</span>
-      ),
-    },
-    button: {
-      title: "Clear CTA Text",
-      desc: "Reduce Risk: Free 14 day trial",
-    },
-    img: {
-      src: "/img/hero-device.png",
-      alt: "Hero Device",
-      width: 1712,
-      height: 1016,
-    },
-    logo: {
-      title: "Join 1,000+ software businesses who use SaasFolio daily",
-    },
-  },
-  setClicked
-}) {
+export default function Hero({}) {
   return (
-    // <div
-    //   className="w-full bg-no-repeat bg-cover bg-center"
-    //   style={{
-    //     backgroundImage: "url(/img/lights.jpg)",
-    //   }}
+    <>
+      <Sale />
+    </>
+    // <Carousel
+    // autoPlay
+    // infiniteLoop
+    // // dynamicHeight
+    // showStatus={false}
+    // showThumbs={false}
     // >
-
-    <div className="w-full slide">
-      <div className="slide" style={{
-        position: 'fixed',
-        height: '100vh',
-        width: '100vw',
-        // minHeight: 768,
-        overflow: 'hidden',
-        zIndex: -1
-      }}>
-        <Image
-          src="/img/main.jpg"
-          alt="main background"
-          // width={1280}
-          // height={853}
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
-      <div className="container mx-auto py-8 ">
-        <div className="px-2 py-8 text-center md:w-4/5 mx-auto bg-black bg-opacity-90 rounded-2xl">
-          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <data.h1.tags />
-          </h1>
-          <p className="text-xl py-4 max-w-screen-md mx-auto text-gray-50">{data.h1.desc}</p>
-          <div className="flex justify-center items-center flex-col">
-            {/* <Link href="/"> */}
-              <a onClick={() => setClicked(true)}
-              href="#"
-              className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl">
-                {data.button.title}
-              </a>
-            {/* </Link> */}
-            <small className="capitalize mt-2 text-gray-200">
-              {data.button.desc}
-            </small>
-          </div>
-        </div>
-
-        {/* <div className="text-center ">
-          <div className="">
-            <div className="w-5/6 sm:col-4/6 w-4/5 lg:w-full mx-auto">
-              <div className="md:max-w-xl lg:max-w-4xl mx-auto z-10 relative">
-                <Image
-                  src={data.img.src}
-                  alt={data.img.alt}
-                  width={data.img.width}
-                  height={data.img.height}
-                />
-              </div>
-            </div>
-          </div>
-        </div> */}
-      </div>
-    </div>
+    //   <Sale />
+    //   <MarsHydro />
+    //   <Sf4000card />
+    // </Carousel>
   )
 }
+
+const Sale = () => (
+  <div className="bg-gray-50">
+    <Title />
+    <div className="sm:flex">
+      <div className="flex-shrink-0  sm:mr-4 sm:w-1/2">
+        <Image
+          src="/img/tengu.jpg"
+          alt="tengu"
+          className=""
+          width={1200}
+          height={849}
+        />
+      </div>
+      <div className="mx-auto max-w-7xl w-full py-6 lg:pt-12 text-center lg:text-left">
+        <div className="px-4  sm:px-8 xl:pr-16">
+          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl ">
+            <span className="sm:text-6xl dosis">MARS HYDRO</span>
+            <span className="text-indigo-600">特集</span>
+          </h1>
+          <p className="my-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
+            人気の商品を期間限定で日替わりセール中。ビギナーにオススメのモデルから本格栽培用の定番モデルまでお得な価格でお届けします。
+          </p>
+
+          <Timer />
+
+          <div className="mt-10 sm:flex sm:justify-center">
+            <div className="rounded-md shadow ">
+              <Link href="/sale/spring-2021">
+                <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                  詳細を見る
+                  <svg
+                    className="w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+export const Timer = () => (
+  <dl className="rounded-lg bg-white shadow-lg">
+    <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
+      <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
+        終了まで
+      </dt>
+      <dd className="order-1 text-5xl font-extrabold text-indigo-600">
+        <Countdown
+          renderer={({ hours, minutes, seconds }) => (
+            <span>
+              {hours}
+              <span className="text-xs px-1">時間</span>
+              {minutes}
+              <span className="text-xs px-1">分</span>
+              {seconds}
+              <span className="text-xs px-1">秒</span>
+            </span>
+          )}
+          date={new Date().setHours(23, 59, 59, 999)}
+        />
+      </dd>
+    </div>
+  </dl>
+)
+
+export const Title = () => (
+
+    <h2 className="text-2xl font-extrabold sm:text-4xl text-gray-50 py-2 noto text-center wahoo bg-black bg-opacity-80">
+      諸行無常セール 令和三年春場所
+    </h2>
+)
