@@ -179,3 +179,115 @@ body {
     animation-iteration-count: infinite;
   }
 }
+
+
+.seigaiha {
+  /* width: 300px;
+  height: 300px; */
+  background-color: #1A1E79;
+  background-image: radial-gradient(
+      circle at 100% 150%,
+      #1A1E79 24%,
+      #fff 24%,
+      #fff 28%,
+      #1A1E79 28%,
+      #1A1E79 36%,
+      #fff 36%,
+      #fff 40%,
+      transparent 40%,
+      transparent
+    ),
+    radial-gradient(
+      circle at 0 150%,
+      #1A1E79 24%,
+      #fff 24%,
+      #fff 28%,
+      #1A1E79 28%,
+      #1A1E79 36%,
+      #fff 36%,
+      #fff 40%,
+      transparent 40%,
+      transparent
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      #fff 10%,
+      #1A1E79 10%,
+      #1A1E79 23%,
+      #fff 23%,
+      #fff 30%,
+      #1A1E79 30%,
+      #1A1E79 43%,
+      #fff 43%,
+      #fff 50%,
+      #1A1E79 50%,
+      #1A1E79 63%,
+      #fff 63%,
+      #fff 71%,
+      transparent 71%,
+      transparent
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      #fff 5%,
+      #1A1E79 5%,
+      #1A1E79 15%,
+      #fff 15%,
+      #fff 20%,
+      #1A1E79 20%,
+      #1A1E79 29%,
+      #fff 29%,
+      #fff 34%,
+      #1A1E79 34%,
+      #1A1E79 44%,
+      #fff 44%,
+      #fff 49%,
+      transparent 49%,
+      transparent
+    ),
+    radial-gradient(
+      circle at 0 50%,
+      #fff 5%,
+      #1A1E79 5%,
+      #1A1E79 15%,
+      #fff 15%,
+      #fff 20%,
+      #1A1E79 20%,
+      #1A1E79 29%,
+      #fff 29%,
+      #fff 34%,
+      #1A1E79 34%,
+      #1A1E79 44%,
+      #fff 44%,
+      #fff 49%,
+      transparent 49%,
+      transparent
+    );
+  background-size: 50px 25px;
+}
+.wahoo {
+  /* font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif; */
+  position: relative;
+  padding: 1.5rem 1rem;
+  -webkit-box-shadow: 0 2px 14px rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .1);
+}
+
+.wahoo:before,
+.wahoo:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  content: '';
+  background-image: -webkit-linear-gradient(315deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+  background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+}
+
+.wahoo:before {
+  top: 0;
+}
+
+.wahoo:after {
+  bottom: 0;
+}
