@@ -1,9 +1,10 @@
+import { NextSeo } from "next-seo"
 import { useRouter } from "next/router"
 import useSWR from "swr"
 import { fetchGetJSON } from "../../utils/api-helpers"
 import { SolidCheck } from "../../components/Svg"
 import Layout from "../../components/Layout"
-import { useCart } from "../../utils/useCart"
+import { useCart } from "react-use-cart"
 import { useEffect } from "react"
 
 const ResultPage = (props) => {
@@ -25,10 +26,11 @@ const ResultPage = (props) => {
   const client_reference_id = data ? data.client_reference_id : router.query._id
   const price = data ? data.amount_total : router.query.price
   if (!client_reference_id) return null
-  const paymentMethod = data ? "支払い済み" : "代金引換"
+  const pay = data ? "支払い済み" : "代金引換"
 
   return (
     <Layout {...props}>
+      <NextSeo noindex title="注文確認" description="" />
       <div className="bg-gray-100">
         <div className="pt-12 sm:pt-16 lg:pt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +74,7 @@ const ResultPage = (props) => {
                       {[
                         "注文確認メールをお送りいたしました。",
                         "配送手配が完了後、出荷メールをお送りします。",
-                        "大阪倉庫より即日発送いたします。",
+                        "在庫がある商品は即日発送いたします。",
                         "ご不明な点などあれば、お問い合わせください。",
                       ].map((v) => {
                         return (
@@ -94,7 +96,7 @@ const ResultPage = (props) => {
                 </div>
                 <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
                   <p className="text-lg leading-6 font-medium text-gray-900">
-                    {paymentMethod}
+                    {pay}
                   </p>
                   <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
                     <span className="text-4xl font-medium">&yen;</span>
@@ -109,7 +111,8 @@ const ResultPage = (props) => {
                           .toUpperCase()}`}
                         className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
                       >
-                        お問い合わせ
+                        {/* お問い合わせ */}
+                        hello@fatlightslim.com
                       </a>
                     </div>
                   </div>

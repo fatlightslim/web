@@ -1,13 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { OutlineCheck } from "./Svg"
-import { getImageFields } from "../scripts/contentful"
-import { useContext } from "react"
-// import { Add2Cart } from "../pages/_app"
-import { useCart } from "../utils/useCart"
+import { getImageFields } from "../utils/contentful"
+import { useCart } from "react-use-cart"
 
 export default function PricingTable({ main, left, right, setCartOpen }) {
-  const { addItem } = useCart() 
+  const { addItem } = useCart()
 
   const Header = () => (
     <div className="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
@@ -168,7 +166,11 @@ export default function PricingTable({ main, left, right, setCartOpen }) {
               <div className="rounded-lg shadow-md">
                 <button
                   onClick={() => {
-                    const item = {id: product.sys.id, price: product.fields.price, ...product}
+                    const item = {
+                      id: product.sys.id,
+                      price: product.fields.price,
+                      ...product,
+                    }
                     addItem(item, 1)
                     setCartOpen(true)
                   }}

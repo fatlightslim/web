@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { getImageFields, BLACKLIST } from "../scripts/contentful"
+import { getImageFields, BLACKLIST } from "../utils/contentful"
 
 function Product({ title, image, color, lead, name, brand, url }) {
   return (

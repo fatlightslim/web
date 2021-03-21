@@ -21,11 +21,19 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/order/success</loc>
+    <loc>https://fatlightslim.com/admin/index</loc>
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/sale/spring-2021</loc>
+    <loc>https://fatlightslim.com/order/detail</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/order/index</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/order/success</loc>
   </url>
 
   <url>
@@ -34,6 +42,14 @@
 
   <url>
     <loc>https://fatlightslim.com/posts/index</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/sale/spring-2021</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
   </url>
 
   <url>
@@ -54,6 +70,10 @@
 
   <url>
     <loc>https://fatlightslim.com/products/marshydro/ts</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/secondmarket/index</loc>
   </url>
 
   <url>

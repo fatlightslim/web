@@ -9,7 +9,7 @@ module.exports = {
   //   defaultLocale: "ja",
   // },
   plugins: [
-    require("@tailwindcss/typography"),
+    // require("@tailwindcss/typography"),
     // ...
   ],
   webpack: (config, { isServer }) => {
@@ -47,5 +47,6 @@ module.exports = {
       email: "hello@fatlightslim.com",
       twitter: "@fatlightslim",
     },
+    title: "植物用LEDライト専門店 FATLightSLIM"
   },
 }

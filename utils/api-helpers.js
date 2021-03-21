@@ -39,7 +39,7 @@ export function cleanUp(items) {
 }
 
 // export function getTotal(items) {
-//   return items.reduce((v, x) => v + x.fields.price * x.qty, 0)
+//   return items.reduce((v, x) => v + x.fields.price * x.quantity, 0)
 // }
 
 export function calcFee(cartTotal) {
@@ -55,7 +55,7 @@ export function calcFee(cartTotal) {
   } else if (cartTotal > 500000 && cartTotal <= 600000) {
     fee = 6000
   } else if (cartTotal > 600000) {
-    fee = 10000
+    fee = Math.round(cartTotal/100000)*1000
   }
-  return fee
+  return parseInt(fee *1.1)
 }

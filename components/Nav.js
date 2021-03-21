@@ -1,4 +1,4 @@
-import { getImageFields, BLACKLIST } from "../scripts/contentful"
+import { getImageFields, BLACKLIST } from "../utils/contentful"
 import { Transition } from "@headlessui/react"
 import Logo from "./Logo"
 import Link from "next/link"

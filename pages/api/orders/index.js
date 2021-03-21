@@ -1,8 +1,7 @@
 import { connectToDatabase } from "../../../utils/mongodb"
 import { ObjectId } from "mongodb"
 import Cors from "micro-cors"
-const sgMail = require("@sendgrid/mail")
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+import { sendMail } from "../../../utils/email-helpers"
 
 const cors = Cors({
   allowMethods: ["POST", "HEAD"],
@@ -11,14 +10,10 @@ const cors = Cors({
 async function handler(req, res) {
   const { db } = await connectToDatabase()
   switch (req.method) {
-    // case "DELETE":
-    //   return del()
-    // case "GET":
-    //   return get()
-    // case "PATCH":
-    //   return patch()
-    // case "PUT":
-    //   return put()
+    case "GET":
+      return res.json(
+        await db.collection("orders").find({}).sort({ _ts: -1 }).toArray()
+      )
     case "POST":
       return await post()
     default:
@@ -27,7 +22,7 @@ async function handler(req, res) {
   }
 
   async function post() {
-    const { _id, status, ...rest } = req.body
+    const { _id, status, url, ...rest } = req.body
     const _ts = new Date()
 
     db.collection("orders").findOneAndUpdate(
@@ -47,84 +42,26 @@ async function handler(req, res) {
       { upsert: true, returnOriginal: false },
       (err, r) => {
         if (err) console.log(err)
-        sendMail({
-          _id: r.value._id.toString(), // NOTICE: returned _id is not String but Object
-          status,
-          to: r.value.customer.email,
-        }).then((x) => {
-          console.log(x);
-          res.json(r.value)
-        })
+        const data = { ...r.value, url }
+        sendMail(data, status)
+          .then(() => {
+            res.json(r.value)
+          })
+          .catch((err) => {
+            console.log(err)
+            res.json(err)
+          })
       }
     )
   }
-
-  async function sendMail({ _id, status, to }) {
-    return new Promise((resolve, reject) => {
-      const order_id = _id.substr(18)
-      const data = {
-        sent_order_confirm: {
-          subject: `${process.env.site.name} ご注文の確認 #${order_id}`,
-          template: "d-5da79b6010c642cab0c6483d95f161e2",
-        },
-        sent_shipping: {
-          subject: `${process.env.site.name} ご注文の商品(${order_id})が発送されました`,
-        },
-
-        sent_failure: {
-          subject: `重要なお知らせ: ${process.env.site.name} のご注文について ${order_id} `,
-        },
-      }
-      let statusToPush
-      if (["paid", "cod"].includes(status)) {
-        statusToPush = "sent_order_confirm"
-      } else if (status === "shipping") {
-        statusToPush = "sent_shipping"
-      } else if (status === "payment_failed") {
-        statusToPush = "sent_failure"
-      } else {
-        resolve()
-      }
-
-      sgMail
-        .send({
-          to,
-          bcc: "yokosuka@gmail.com",
-          from: process.env.EMAIL,
-          subject: data[statusToPush].subject,
-          templateId: data[statusToPush].template,
-          dynamicTemplateData: {},
-        })
-        .then(() => {
-          db.collection("orders").findOneAndUpdate(
-            { _id: ObjectId(_id) },
-            {
-              $push: {
-                log: {
-                  status: statusToPush,
-                  _ts: new Date(),
-                },
-              },
-            },
-            { upsert: true, returnOriginal: false },
-            (err, r) => {
-              if (err) console.log(err)
-              resolve(r)
-            }
-          )
-        })
-        .catch((error) => {
-          console.error(error)
-          reject(error)
-        })
-    })
-  }
 }
+
+export default cors(handler)
 
 // const schema = {
 //   _id: ObjectId,
 //   _ts: DateTime, // A.K.A updatedAt. createdAt is supposed to be extracted from _id. ObjectId.getTimestamp().
-//   items: Array, // line items from contentful and qty. {{ product: { fields, sys }}, qty: 1 }
+//   items: Array, // line items from contentful and quantity. {{ product: { fields, sys }}, quantity: 1 }
 //   status: Array [
 //     {status: "cod", _ts: new Date() }
 //   ], // ['cod', 'awaiting_payment', 'paid', 'sent_failure', 'done', 'shipping', 'sent_order_confirm', 'sent_shipping', 'payment_failed']
@@ -171,5 +108,3 @@ async function handler(req, res) {
 //     total_details: { amount_discount: 0, amount_tax: 0 }
 //   }
 // }
-
-export default cors(handler)

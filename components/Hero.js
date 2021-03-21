@@ -6,6 +6,7 @@ import { Carousel } from "react-responsive-carousel"
 import HeroMars from "./HeroMars"
 import SpiderOfficial from "./SpiderOfficial"
 import { ChevRight } from "./Svg"
+import { useEffect } from "react"
 
 export default function Hero({}) {
   return (
@@ -66,30 +67,38 @@ const Sale = () => (
   </div>
 )
 
-export const Timer = () => (
-  <dl className="rounded-lg bg-white shadow-lg">
-    <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-      <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
-        終了まで
-      </dt>
-      <dd className="order-1 text-5xl font-extrabold text-indigo-600">
-        <Countdown
-          renderer={({ hours, minutes, seconds }) => (
-            <span>
-              {hours}
-              <span className="text-xs px-1">時間</span>
-              {minutes}
-              <span className="text-xs px-1">分</span>
-              {seconds}
-              <span className="text-xs px-1">秒</span>
-            </span>
-          )}
-          date={new Date().setHours(23, 59, 59, 999)}
-        />
-      </dd>
-    </div>
-  </dl>
-)
+export const Timer = () => {
+  // useEffect(() => {}, [])
+  return (
+    <dl className="rounded-lg bg-white shadow-lg">
+      <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
+        <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
+          終了まで
+        </dt>
+        <dd className="order-1 text-5xl font-extrabold text-indigo-600">
+          <Countdown
+            // autoStart={false}
+            suppressHydrationWarning={true}
+            renderer={({ api, hours, minutes, seconds }) => {
+              // api.start()
+              return (
+                <span>
+                  {hours}
+                  <span className="text-xs px-1">時間</span>
+                  {minutes}
+                  <span className="text-xs px-1">分</span>
+                  {seconds}
+                  <span className="text-xs px-1">秒</span>
+                </span>
+              )
+            }}
+            date={new Date().setHours(23, 59, 59, 999)}
+          />
+        </dd>
+      </div>
+    </dl>
+  )
+}
 
 export const Title = () => (
   <h2 className="text-2xl font-extrabold sm:text-4xl text-gray-50 py-2 noto text-center wahoo bg-black bg-opacity-80">

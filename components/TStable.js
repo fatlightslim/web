@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { tsdata } from "../data/tsdata"
 import Link from "next/link"
-import { useCart } from "../utils/useCart.tsx"
+import { useCart } from "react-use-cart"
 
 export default function TStable({ urls  }) {
   return (

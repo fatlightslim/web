@@ -1,7 +1,9 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
 import { useState, useContext } from "react"
 // import { Add2Cart } from "../pages/_app"
-import { useCart } from "../utils/useCart.tsx"
+import { useCart } from "react-use-cart";
+
+
 
 export default function AddToCart({ product, setCartOpen }) {
   // const { addItem } = useContext(Add2Cart)

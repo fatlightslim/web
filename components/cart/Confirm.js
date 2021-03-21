@@ -2,36 +2,43 @@ import { fetchPostJSON, cleanUp, calcFee } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, Lock } from "../Svg"
 import { useRouter } from "next/router"
+import { useCart } from "react-use-cart"
 
-export default function Confirm({
-  setForm,
-  items,
-  form,
-  cartTotal,
-  initialForm,
-  setCartOpen,
-}) {
+export default function Confirm({ setForm, form, coupon, setCartOpen, labels, pay  }) {
   const router = useRouter()
+  const { items, cartTotal, totalItems } = useCart()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
   const [loading, setLoading] = useState(false)
-  const fee = calcFee(cartTotal)
+  const fee = labels[0]["label"] === pay ? 0 : calcFee(cartTotal)
+  const coupon_off = coupon.amount_off || 0
+  const delivery = 0
+  const total = cartTotal + fee + delivery - coupon_off
 
   const onSubmit = () => {
-    const customer = form.value.customer
+    const { _id, customer } = form.value
     setLoading(true)
     setCartOpen(false)
 
     fetchPostJSON("/api/orders", {
-      _id: form.value._id,
+      _id,
       customer,
       items: cleanUp(items),
       status: "cod",
+      charge: {
+        delivery,
+        discount: coupon_off,
+        deliveryFee: fee,
+        subTotal: cartTotal,
+        tax: 0,
+        total,
+        pay: "cod",
+      },
+      url: window.location.origin,
     }).then((value) => {
-      setForm(initialForm)
       setLoading(false)
-      router.replace({
+      router.push({
         pathname: "/order/success",
-        query: { _id: value._id, price: cartTotal + fee * 1.1 },
+        query: { _id: value._id, price: total },
       })
     })
   }
@@ -85,22 +92,24 @@ export default function Confirm({
             </span>
           </div>
           <div className="">
-            <span>配送料 (無料キャンペーン中)</span>
+            <span>配送料</span>
             <span className="float-right">&yen;{0}</span>
           </div>
           <div className="">
             <span>代引手数料 &yen;({fee.toLocaleString()} x 消費税)</span>
-            <span className="float-right">
-              &yen;{(fee * 1.1).toLocaleString()}
-            </span>
+            <span className="float-right">&yen;{fee.toLocaleString()}</span>
           </div>
+          {coupon_off > 0 &&           <div className="">
+            <span>割引</span>
+            <span className="float-right">&yen;{coupon_off.toLocaleString()}</span>
+          </div>}
 
           <hr className="my-4" />
 
           <div className="text-sm  font-bold">
             <span>お支払い金額</span>
             <span className="float-right text-lg -mt-1">
-              &yen;{(cartTotal + fee * 1.1).toLocaleString()}
+              &yen;{total.toLocaleString()}
             </span>
           </div>
         </div>
@@ -111,11 +120,15 @@ export default function Confirm({
           <button
             onClick={() => onSubmit()}
             type="button"
-            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-md font-bold rounded-md text-white bg-indigo-800 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+            className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-md font-bold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
             // disabled={loading}
           >
             注文を確定する
-            {loading ? <Spin /> : <Lock />}
+            {loading ? (
+              <Spin className="animate-spin ml-2 h-5 w-5 text-white" />
+            ) : (
+              <Lock />
+            )}
           </button>
         </div>
 

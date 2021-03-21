@@ -1,49 +1,62 @@
-import { useCart } from "../../utils/useCart"
+import { NextSeo } from "next-seo"
+import { useCart } from "react-use-cart"
 import Link from "next/link"
 import { Timer, Title } from "../../components/Hero"
-import { getImageFields } from "../../scripts/contentful"
+import { getImageFields } from "../../utils/contentful"
 import Layout from "../../components/Layout"
 import Image from "next/image"
 
 export default function Sale(props) {
-  console.log(props.products)
   const { fc6500, sp3000, sp150, ts } = props.products
+  ts.fields.title = "MARS HYDRO TS600"
   const data = [sp150, sp3000, ts, fc6500]
   return (
-    <Layout {...props}>
-      <Title />
-      <Timer />
+      <Layout {...props}>
+      <NextSeo
+        title="諸行無常セール 令和三年春場所"
+        description="人気の商品を期間限定で日替わりセール中。ビギナーにオススメのモデルから本格栽培用の定番モデルまでお得な価格でお届けします。"
+      />
+        <Title />
+        <Timer />
 
-      <div className="bg-gray-100">
-        <div className="pt-12 sm:pt-16 lg:pt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
-                他店より1円でも高い場合はご相談ください。
-              </h2>
-              <p className="mt-4 text-xl text-gray-600">
-                当店は全国一律送料無料でお届けします。万が一商品にご満足いただけない場合は、7日間の返品保証
-              </p>
+        <div className="bg-gray-100">
+          <div className="pt-12 sm:pt-16 lg:pt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
+                  他店より1円でも高い場合はご相談ください。
+                </h2>
+                <p className="mt-4 text-xl text-gray-600">
+                  当店は全国一律送料無料でお届けします。万が一商品にご満足いただけない場合は、7日間の返品保証
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+            <div className="relative">
+              <div className="absolute inset-0 h-1/2 bg-gray-100" />
+              <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {data.map((v) => (
+                  <Product key={v.sys.id} {...v} {...props} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
-          <div className="relative">
-            <div className="absolute inset-0 h-1/2 bg-gray-100" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              {data.map((v) => (
-                <Product key={v.sys.id} {...v} {...props} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
   )
 }
 
 export const Product = ({ fields, sys, setCartOpen }) => {
-  const { image, title, price, pricingFeatureList, url, description } = fields
+  const {
+    image,
+    title,
+    price,
+    pricingFeatureList,
+    url,
+    description,
+    regularPrice,
+  } = fields
   const { addItem } = useCart()
   return (
     <div className="mb-8 max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
@@ -55,7 +68,7 @@ export const Product = ({ fields, sys, setCartOpen }) => {
             </div>
           </div>
           <div className="sm:flex-1">
-            <h3 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+            <h3 className="noto text-2xl font-extrabold text-gray-900 sm:text-3xl">
               {title}
             </h3>
             <p className="mt-6 text-base text-gray-500">{description}</p>
@@ -79,12 +92,17 @@ export const Product = ({ fields, sys, setCartOpen }) => {
         <p className="text-lg leading-6 font-medium text-gray-900 ">
           <span className="line-through text-red-500">
             <span className="text-gray-600">
-              &yen; {(Math.ceil(price / 0.8 / 100) * 100).toLocaleString()}
+              &yen;{" "}
+              {regularPrice
+                ? regularPrice.toLocaleString()
+                : (Math.ceil(price / 0.8 / 100) * 100).toLocaleString()}
             </span>
           </span>
-          <span className="inline-block align-middle px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 ml-2">
-            20%OFF
-          </span>
+          {!regularPrice && (
+            <span className="inline-block align-middle px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 ml-2">
+              20%OFF
+            </span>
+          )}
         </p>
         <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
           <span>&yen; {price.toLocaleString()}</span>
@@ -110,11 +128,13 @@ export const Product = ({ fields, sys, setCartOpen }) => {
             </button>
           </div>
         </div>
-        <div className="mt-4 text-sm">
-          <Link href={url}>
-            <a className="font-medium text-gray-900 underline">詳しく見る</a>
-          </Link>
-        </div>
+        {url && (
+          <div className="mt-4 text-sm">
+            <Link href={url}>
+              <a className="font-medium text-gray-900 underline">詳しく見る</a>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
