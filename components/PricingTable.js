@@ -4,7 +4,7 @@ import { OutlineCheck } from "./Svg"
 import { getImageFields } from "../utils/contentful"
 import { useCart } from "react-use-cart"
 
-export default function PricingTable({ main, left, right, setCartOpen }) {
+export default function PricingTable({ main, left, right }) {
   const { addItem } = useCart()
 
   const Header = () => (
@@ -172,7 +172,6 @@ export default function PricingTable({ main, left, right, setCartOpen }) {
                       ...product,
                     }
                     addItem(item, 1)
-                    setCartOpen(true)
                   }}
                   className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
                   aria-describedby="tier-growth"

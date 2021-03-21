@@ -1,9 +1,24 @@
-import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
+import { fetchPostJSON } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, ChevRight } from "../Svg"
 import { loadStripe } from "@stripe/stripe-js"
 import CartDetail from "./CartDetail"
 import { useCart } from "react-use-cart"
+
+const labels = [
+  {
+    key: "online",
+    label: "オンライン決済",
+    desc:
+      "各種クレジットカード, Apple Pay, Google Payが手数料無料でご利用いただけます.",
+  },
+  {
+    key: "cod",
+    label: "代金引換",
+    desc:
+      "国内配送のみ. 代引手数料がかかります. 佐川急便の代引きサービスでお届けします.",
+  },
+]
 
 const feeList = [
   { key: "1万円以下", value: "300円" },
@@ -20,17 +35,14 @@ const stripePromise = loadStripe(
 )
 
 export default function PaymentForm(props) {
-  const { labels, setForm, form, pay, setPay, coupon } = props
+  const { setForm, form, pay, setPay, coupon } = props
   const [loading, setLoading] = useState(false)
-  const { items, cartTotal, totalItems } = useCart()
-  const fee = labels[0]["label"] === pay ? 0 : calcFee(cartTotal)
-  const coupon_off = coupon.amount_off || 0
-  const delivery = 0
-  const total = cartTotal + delivery + fee - coupon_off
+  const { items } = useCart()
+  const { discount } = charge
 
   const handleClick = async () => {
     setLoading(true)
-    labels[1]["label"] === pay
+    pay === "cod"
       ? setForm({ key: "CONFIRM", value: form.value })
       : createStripeSession()
   }
@@ -44,15 +56,7 @@ export default function PaymentForm(props) {
       url: window.location.origin,
       client_reference_id: form.value._id,
       customer_email: form.value.customer.email,
-      metadata: {
-        delivery,
-        discount: coupon_off,
-        deliveryFee: fee,
-        subTotal: cartTotal,
-        tax: 0,
-        total,
-        pay: "online",
-      },
+      metadata: { ...charge, pay },
       line_items: items.map((v) => {
         const { title, price, image } = v.fields
         return {
@@ -69,14 +73,14 @@ export default function PaymentForm(props) {
       }),
     }
 
-    if (coupon_off > 0) {
+    if (discount > 0) {
       payload.discounts = [
         {
           coupon: coupon.id,
         },
       ]
     }
-    
+
     const session = await fetchPostJSON("/api/sessions", payload)
 
     // When the customer clicks on the button, redirect them to Checkout.
@@ -132,10 +136,10 @@ export default function PaymentForm(props) {
       <legend className="sr-only">Payment form</legend>
       <div className="bg-white rounded-md -space-y-px">
         {labels.map((v, i) => {
-          const on = pay === v.label
+          const on = pay === v.key
           return (
             <div
-              key={v.label}
+              key={v.key}
               className={`${
                 on ? "bg-indigo-50 border-indigo-200 z-10" : "border-gray-200"
               } ${
@@ -146,18 +150,18 @@ export default function PaymentForm(props) {
             >
               <div className="flex items-center h-5">
                 <input
-                  id={v.label}
+                  id={v.key}
                   name="payment_method"
                   type="radio"
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 cursor-pointer border-gray-300"
                   defaultChecked={on}
                   onClick={() => {
-                    setPay(v.label)
+                    setPay(v.key)
                   }}
                 />
               </div>
               <label
-                htmlFor={v.label}
+                htmlFor={v.key}
                 className="ml-3 flex flex-col cursor-pointer"
               >
                 <span
@@ -192,7 +196,7 @@ export default function PaymentForm(props) {
           {loading && (
             <Spin className="animate-spin -ml-4 h-5 w-5 text-white" />
           )}
-          {labels[1]["label"] === pay ? "注文確認画面" : "決済情報確認"}
+          {pay === "cod" ? "注文確認画面" : "決済情報確認"}
           <ChevRight />
         </button>
       </div>
@@ -217,7 +221,7 @@ export default function PaymentForm(props) {
           お支払い方法を選択してください。
         </h3>
         <Fieldset />
-        {labels[1]["label"] === pay ? <Fee /> : null}
+        {pay === "cod" ? <Fee /> : null}
         <Actions />
       </div>
     </div>

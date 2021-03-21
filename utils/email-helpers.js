@@ -10,8 +10,8 @@ function getTemplateData(data) {
   const address = zip + " " + pref + addr1 + addr2
 
   const price_detail = [{ title: "配送料", amount: charge.delivery.toLocaleString() }]
-  if (charge.deliveryFee > 0)
-    price_detail.push({ title: "代引手数料", amount: charge.deliveryFee.toLocaleString() })
+  if (charge.fee > 0)
+    price_detail.push({ title: "代引手数料", amount: charge.fee.toLocaleString() })
   if (charge.discount > 0)
     price_detail.push({ title: "割引", amount: charge.discount.toLocaleString() })
 

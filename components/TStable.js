@@ -1,28 +1,27 @@
+import { getImageFields } from "../utils/contentful"
 import Image from "next/image"
-import { tsdata } from "../data/tsdata"
-import Link from "next/link"
 import { useCart } from "react-use-cart"
 
-export default function TStable({ urls  }) {
+export default function TStable({ product, ...rest }) {
+  const { lineItem } = product.fields
   return (
     <div className="bg-gray-900 relative z-30">
       <div className="text-white max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <Header />
         <div className="mt-12 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {[0, 1, 2].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]}   />
+            return <Product key={v} product={lineItem[v]} {...rest} />
           })}
         </div>
         <div className=" sm:mt-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
           {[3, 4].map((v) => {
-            return <Product key={v} {...tsdata[v]} product={urls[v]}  />
+            return <Product key={v} product={lineItem[v]} {...rest} />
           })}
         </div>
       </div>
     </div>
   )
 }
-
 function Header(params) {
   return (
     <div className="sm:flex sm:flex-col sm:align-center">
@@ -35,18 +34,6 @@ function Header(params) {
     </div>
   )
 }
-function Img({ img }) {
-  return (
-    <Image
-      src={img.src}
-      width={img.width}
-      height={img.height}
-      alt={img.alt}
-      className="sm:rounded"
-    />
-  )
-}
-
 function Check() {
   return (
     <svg
@@ -64,7 +51,6 @@ function Check() {
     </svg>
   )
 }
-
 function List({ text }) {
   return (
     <li className="flex space-x-3">
@@ -73,25 +59,33 @@ function List({ text }) {
     </li>
   )
 }
-
-function Title({ product, img, shortTitle, price, short }) {
-  const {addItem} = useCart()
+function Title({ fields, sys }) {
+  const { name, image, price, hook } = fields
+  const { addItem } = useCart()
   return (
     <div className="p-6 dosis">
-      <Img img={img} className="sm:rounded" />
-
-      <h2 className="text-lg leading-6 font-medium text-gray-900">{shortTitle}</h2>
-      <p className="mt-4 text-sm text-gray-500">{short}</p>
+      <Image {...getImageFields(image)} className="sm:rounded" />
+      <h2 className="text-lg leading-6 font-medium text-gray-900">{name}</h2>
+      <p className="mt-4 text-sm text-gray-500">{hook}</p>
       <p className="mt-8">
         <span className="text-4xl font-extrabold text-gray-900">
-          ¥{price.sale}
+          ¥{price.toLocaleString()}
         </span>
         <span className="text-base font-medium text-gray-500 line-through">
-          ¥{price.regular}
+          ¥{(price + 10000).toLocaleString()}
         </span>
       </p>
       <button
-        onClick={() => addItem(product.id, 1)}
+        onClick={() => {
+          fields.brand = "MARS HYDRO"
+          const item = {
+            id: sys.id,
+            price: price,
+            sys,
+            fields,
+          }
+          addItem(item, 1)
+        }}
         className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
       >
         今すぐ購入
@@ -99,13 +93,14 @@ function Title({ product, img, shortTitle, price, short }) {
     </div>
   )
 }
-function Product(props) {
+function Product({ product, ...rest }) {
+  // console.log(product);
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200 my-4 sm:my-0">
-      <Title {...props} />
+      <Title {...product} {...rest} />
       <div className="pt-6 pb-8 px-6">
         <ul className="mt-6 space-y-4">
-          {props.spec.map((v, i) => {
+          {product.fields.spec.map((v, i) => {
             return <List key={i} text={v} />
           })}
         </ul>

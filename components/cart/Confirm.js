@@ -1,18 +1,15 @@
-import { fetchPostJSON, cleanUp, calcFee } from "../../utils/api-helpers"
+import { fetchPostJSON, cleanUp } from "../../utils/api-helpers"
 import { useState } from "react"
 import { Spin, Lock } from "../Svg"
 import { useRouter } from "next/router"
 import { useCart } from "react-use-cart"
 
-export default function Confirm({ setForm, form, coupon, setCartOpen, labels, pay  }) {
+export default function Confirm({ setForm, form, charge, setCartOpen }) {
   const router = useRouter()
-  const { items, cartTotal, totalItems } = useCart()
+  const { items } = useCart()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
   const [loading, setLoading] = useState(false)
-  const fee = labels[0]["label"] === pay ? 0 : calcFee(cartTotal)
-  const coupon_off = coupon.amount_off || 0
-  const delivery = 0
-  const total = cartTotal + fee + delivery - coupon_off
+  const { fee, total, discount, delivery, subTotal } = charge
 
   const onSubmit = () => {
     const { _id, customer } = form.value
@@ -24,15 +21,7 @@ export default function Confirm({ setForm, form, coupon, setCartOpen, labels, pa
       customer,
       items: cleanUp(items),
       status: "cod",
-      charge: {
-        delivery,
-        discount: coupon_off,
-        deliveryFee: fee,
-        subTotal: cartTotal,
-        tax: 0,
-        total,
-        pay: "cod",
-      },
+      charge,
       url: window.location.origin,
     }).then((value) => {
       setLoading(false)
@@ -87,22 +76,24 @@ export default function Confirm({ setForm, form, coupon, setCartOpen, labels, pa
         <div className="px-4 py-5 sm:p-6 text-sm leading-6">
           <div className="grid grid-cols-2">
             <span>商品金額計</span>
-            <span className="text-right">
-              &yen;{cartTotal.toLocaleString()}
-            </span>
+            <span className="text-right">&yen;{subTotal.toLocaleString()}</span>
           </div>
           <div className="">
             <span>配送料</span>
-            <span className="float-right">&yen;{0}</span>
+            <span className="float-right">&yen;{delivery}</span>
           </div>
           <div className="">
             <span>代引手数料 &yen;({fee.toLocaleString()} x 消費税)</span>
             <span className="float-right">&yen;{fee.toLocaleString()}</span>
           </div>
-          {coupon_off > 0 &&           <div className="">
-            <span>割引</span>
-            <span className="float-right">&yen;{coupon_off.toLocaleString()}</span>
-          </div>}
+          {discount > 0 && (
+            <div className="">
+              <span>割引</span>
+              <span className="float-right">
+                &yen;{discount.toLocaleString()}
+              </span>
+            </div>
+          )}
 
           <hr className="my-4" />
 

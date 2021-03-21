@@ -12,8 +12,7 @@ function isEmpty(obj) {
 
 export default function OrderForm(props) {
   const { setForm, form, items } = props
-  const { handleSubmit, errors, control, register, setValue } = useForm()
-  const { cartTotal, totalItems } = useCart()
+  const { handleSubmit, errors, register, setValue } = useForm()
 
   useEffect(() => {
     const { customer } = form.value
@@ -30,14 +29,7 @@ export default function OrderForm(props) {
       customer,
       items: cleanUp(items),
       status: "draft",
-      charge: {
-        delivery: 0,
-        discount: 0,
-        fee: 0,
-        subTotal: cartTotal,
-        tax: 0,
-        total: cartTotal,
-      },
+      charge
     }).then((r) => {
       setForm({ key: "PAYMENT", value: r })
     })

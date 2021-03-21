@@ -47,7 +47,7 @@ export default function Sale(props) {
   )
 }
 
-export const Product = ({ fields, sys, setCartOpen }) => {
+export const Product = ({ fields, sys }) => {
   const {
     image,
     title,
@@ -119,7 +119,6 @@ export const Product = ({ fields, sys, setCartOpen }) => {
               onClick={() => {
                 const item = { id: sys.id, price, fields, sys }
                 addItem(item, 1)
-                setCartOpen(true)
               }}
               className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700"
               aria-describedby="tier-growth"

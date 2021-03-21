@@ -205,7 +205,7 @@ function Items({ items, charge }) {
             </div>
             <div className="mt-4 flex-shrink-0 sm:mt-0">
               <div className="flex overflow-hidden">
-                &yen;{charge.deliveryFee.toLocaleString()}
+                &yen;{charge.fee.toLocaleString()}
               </div>
             </div>
           </div>
