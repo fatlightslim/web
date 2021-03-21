@@ -1,4 +1,3 @@
-
 import { connectToDatabase } from "../../../utils/mongodb"
 import { ObjectId } from "mongodb"
 

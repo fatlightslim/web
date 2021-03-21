@@ -68,7 +68,6 @@ const List = ({ customer, log, _id, charge }) => {
                 </p>
               </div>
             </div>
-
           </div>
         </a>
       </Link>

@@ -12,8 +12,6 @@ const products = data.default
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
-  const initialForm = { key: null, value: {} }
-  const [form, setForm] = useState(initialForm)
   const [cartOpen, setCartOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -27,24 +25,17 @@ const MyApp = ({ Component, pageProps }) => {
   //   }
   // }, [router.events])
 
-  useEffect(() => {
-    document.body.scrollTop = 0 // For Safari
-    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
-  }, [form])
 
   useEffect(() => {
     setMenuOpen(false)
   }, [router.pathname])
 
   const props = {
-    initialForm,
     products,
     cartOpen,
     setCartOpen,
     menuOpen,
     setMenuOpen,
-    form,
-    setForm,
   }
 
   return (

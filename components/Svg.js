@@ -1,17 +1,3 @@
-export const ArrowLeft = ({ ...props }) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
 export const ClipboardCheck = ({ ...props }) => (
   <svg
     {...props}
@@ -27,6 +13,7 @@ export const ClipboardCheck = ({ ...props }) => (
     />
   </svg>
 )
+
 export const Cog = ({ ...props }) => (
   <svg
     {...props}
@@ -67,9 +54,10 @@ export const Question = ({ ...props }) => (
     />
   </svg>
 )
+
 export const Home = ({ ...props }) => (
   <svg
-    {...props}
+    className="mr-4 h-6 w-6 text-gray-400 group-hover:text-gray-500"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -79,7 +67,7 @@ export const Home = ({ ...props }) => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={1}
+      strokeWidth={2}
       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
     />
   </svg>
@@ -241,6 +229,21 @@ export const Lock = ({ ...props }) => (
       strokeLinejoin="round"
       strokeWidth={2}
       d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+    />
+  </svg>
+)
+
+export const ArrowLeft = ({ ...props }) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+  >
+    <path
+      fillRule="evenodd"
+      d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+      clipRule="evenodd"
     />
   </svg>
 )

@@ -40,6 +40,8 @@ export default function Confirm({ setForm, form, coupon, setCartOpen, labels, pa
         pathname: "/order/success",
         query: { _id: value._id, price: total },
       })
+      setLoading(false)
+      // setForm({ key: "ORDER", value: {}})
     })
   }
 
