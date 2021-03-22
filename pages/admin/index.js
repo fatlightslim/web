@@ -2,20 +2,13 @@ import Layout from "../../components/admin/AdminLayout"
 import OrderList from "../../components/admin/OrderList"
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0"
 import useSWR from "swr"
+import { fetchGetJSON } from "../../utils/api-helpers"
 const fetcher = async (uri) => {
   const response = await fetch(uri)
   return response.json()
 }
 // stats, seo, orders,
-export default withPageAuthRequired(function Admin({}) {
-  const { user, error, isLoading } = useUser()
-  const { data } = useSWR("/api/orders", fetcher)
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>{error.message}</div>
-
-  // if (error) return <div>oops... {error.message}</div>;
-  if (data === undefined) return <div>Loading...</div>
+export default withPageAuthRequired(function Admin({data}) {
 
   return (
     <Layout>
@@ -24,11 +17,8 @@ export default withPageAuthRequired(function Admin({}) {
   )
 })
 
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch(`http://localhost:3000/api/orders`)
-//   const data = await res.json()
-
-//   // Pass data to the page via props
-//   return { props: { data } }
-// }
+export async function getServerSideProps() {
+  return {
+    props: { data: await fetchGetJSON(`http://localhost:3000/api/orders`) },
+  }
+}
