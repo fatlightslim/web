@@ -90,10 +90,11 @@ export default withPageAuthRequired(function AdminOrder({ order }) {
 })
 
 export async function getServerSideProps({ params }) {
+  const URL = process.env.URL || 'http://localhost:3000'
   return {
     props: {
       order: await fetchGetJSON(
-        "http://localhost:3000/api/orders/" + params._id
+        `${URL}/api/orders/` + params._id
       ),
     }, // will be passed to the page component as props
   }

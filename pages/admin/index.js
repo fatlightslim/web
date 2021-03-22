@@ -18,7 +18,8 @@ export default withPageAuthRequired(function Admin({data}) {
 })
 
 export async function getServerSideProps() {
+  const URL = process.env.URL || 'http://localhost:3000'
   return {
-    props: { data: await fetchGetJSON(`http://localhost:3000/api/orders`) },
+    props: { data: await fetchGetJSON(`${URL}/api/orders`) },
   }
 }
