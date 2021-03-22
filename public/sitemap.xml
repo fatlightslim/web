@@ -13,19 +13,11 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/order</loc>
-  </url>
-
-  <url>
     <loc>https://fatlightslim.com/policies</loc>
   </url>
 
   <url>
     <loc>https://fatlightslim.com/terms</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/admin/index</loc>
   </url>
 
   <url>
@@ -41,11 +33,7 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/posts/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/posts/index</loc>
+    <loc>https://fatlightslim.com/admin/index</loc>
   </url>
 
   <url>
@@ -53,7 +41,31 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
+    <loc>https://fatlightslim.com/products/marshydro/fc6500</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/marshydro/sp150</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/marshydro/sp3000</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/marshydro/sp6500</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/marshydro/ts</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/posts/[slug]</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/posts/index</loc>
   </url>
 
   <url>
@@ -77,22 +89,6 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/products/marshydro/fc6500</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/products/marshydro/sp150</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/products/marshydro/sp3000</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/products/marshydro/sp6500</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/products/marshydro/ts</loc>
+    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
   </url>
 </urlset>

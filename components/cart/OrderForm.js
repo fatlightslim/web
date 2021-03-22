@@ -11,7 +11,8 @@ function isEmpty(obj) {
 }
 
 export default function OrderForm(props) {
-  const { setForm, form, items } = props
+  const {items} = useCart()
+  const { setForm, form, charge } = props
   const { handleSubmit, errors, register, setValue } = useForm()
 
   useEffect(() => {

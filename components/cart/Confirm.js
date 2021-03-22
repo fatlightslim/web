@@ -4,7 +4,7 @@ import { Spin, Lock } from "../Svg"
 import { useRouter } from "next/router"
 import { useCart } from "react-use-cart"
 
-export default function Confirm({ setForm, form, charge, setCartOpen }) {
+export default function Confirm({ pay, setForm, form, charge, setCartOpen }) {
   const router = useRouter()
   const { items } = useCart()
   const { addr1, addr2, pref, name, tel, zip, email } = form.value.customer
@@ -21,7 +21,7 @@ export default function Confirm({ setForm, form, charge, setCartOpen }) {
       customer,
       items: cleanUp(items),
       status: "cod",
-      charge,
+      charge: {...charge, pay},
       url: window.location.origin,
     }).then((value) => {
       setLoading(false)

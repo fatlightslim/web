@@ -9,15 +9,15 @@ import { useRouter } from "next/router"
 
 const getSeo = (pathname) => {
   switch (pathname) {
-    case '/posts':
+    case "/posts":
       return "ブログ |"
-    case '/contact':
+    case "/contact":
       return "お問い合わせ |"
-    case '/faq':
+    case "/faq":
       return "よくある質問 |"
-    case '/terms':
+    case "/terms":
       return "利用規約 |"
-    case '/policies':
+    case "/policies":
       return "サイトポリシー |"
     default:
       return ""
@@ -25,15 +25,20 @@ const getSeo = (pathname) => {
 }
 export default function Layout({ children, ...props }) {
   const router = useRouter()
-  const product = props.products[
-    router.pathname.split("/")[3]
-  ]
+  let product = null
+  if (props.products) {
+    product = props.products[router.pathname.split("/")[3]]
+  }
   return (
     <>
-      {product ? <NextSeo
-        title={`${product.fields.title} | ${process.env.title}`}
-        description={product.fields.description}
-      /> : <NextSeo title={`${getSeo(router.pathname)} ${process.env.title}`} />}
+      {product ? (
+        <NextSeo
+          title={`${product.fields.title} | ${process.env.title}`}
+          description={product.fields.description}
+        />
+      ) : (
+        <NextSeo title={`${getSeo(router.pathname)} ${process.env.title}`} />
+      )}
       <div className="flex flex-col min-h-screen">
         <main className="flex-grow">
           <Nav {...props} />

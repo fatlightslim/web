@@ -1,9 +1,8 @@
-import { Product, List } from "../../sale/spring-2021"
-import { getDataFromContentful, getImageFields } from "../../../utils/contentful"
+import { Product } from "../../sale/spring-2021"
+import { getDataFromContentful } from "../../../utils/contentful"
 import Layout from "../../../components/Layout"
 
 export default function SecondMarket({used, ...props}) {
-  console.log(used);
   return (
     <Layout {...props}>
       <div className="bg-gray-100">
@@ -14,7 +13,7 @@ export default function SecondMarket({used, ...props}) {
                 中古品・未使用品
               </h2>
               <p className="mt-4 text-xl text-gray-600">
-                1ヶ月保証・送料無料でお届けします。
+                人気モデルの中古品を1ヶ月保証・送料無料でお届けします。
               </p>
             </div>
           </div>

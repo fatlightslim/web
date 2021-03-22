@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Play, Bag } from "./Svg"
 
 export default function Nav({
-  menuOpen = false,
+  menuOpen,
   setMenuOpen,
   setCartOpen,
   products,

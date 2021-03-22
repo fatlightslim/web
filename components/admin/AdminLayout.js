@@ -1,25 +1,29 @@
 import { useRouter } from "next/router"
-import { ArrowLeft } from "../Svg"
 import { MobileMenu, DesktopMenu } from "./Menu"
+import { useState } from "react"
+
 // stats, seo, orders,
-export default function Admin({ children, order }) {
+export default function Admin({ children }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
   return (
     <div className="h-screen bg-white  flex">
-      {/* <MobileMenu /> */}
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       <DesktopMenu />
       <div className="flex-1 flex flex-col">
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="relative z-10   bg-white border-b border-gray-200 px-2 md:px-4">
-            {/* <MenuButton />
-             */}
-            {order ? <Actions order={order} /> : <Search />}
-          </div>
+        <div className="w-full max-w-4xl mx-auto  md:px-8 xl:px-0">
+          {router.pathname === "/admin" && (
+            <div className="mb-8 relative w-full max-w-4xl z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex">
+              <MenuButton setIsOpen={setIsOpen} />
+              <Search />
+            </div>
+          )}
         </div>
         <main
           className="flex-1 overflow-y-auto focus:outline-none"
           tabIndex={0}
         >
-          <div className="py-10 relative max-w-4xl mx-auto px-2.5 md:px-8 ">
+          <div className="relative max-w-4xl mx-auto px-2.5 ">
             {children}
           </div>
         </main>
@@ -28,46 +32,11 @@ export default function Admin({ children, order }) {
   )
 }
 
-const labels = {
-  sent_order_confirm: "配送待ち",
-  cod: "配送待ち",
-}
-
-const Actions = ({ order }) => {
-  const router = useRouter()
-  const { _id, log } = order
-  const status = log[log.length - 1].status
-
-  return (
-    <div className="py-2">
-      <div className="flex justify-between ">
-        <div className="items-center flex">
-          <button
-            type="button"
-            onClick={() => router.push("/admin")}
-            className=" bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-
-        </div>
-
-        <div className="items-center flex">
-          <button
-            disabled
-            type="submit"
-            className="disabled:opacity-50 disabled:cursor-not-allowed ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const MenuButton = () => (
-  <button className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 md:hidden">
+const MenuButton = ({ setIsOpen }) => (
+  <button
+    onClick={() => setIsOpen(true)}
+    className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 md:hidden"
+  >
     <span className="sr-only">Open sidebar</span>
     {/* Heroicon name: outline/menu-alt=""-2 */}
     <svg
@@ -151,12 +120,3 @@ const Search = () => (
     </div>
   </div>
 )
-
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/orders`)
-  const data = await res.json()
-
-  // Pass data to the page via props
-  return { props: { data } }
-}

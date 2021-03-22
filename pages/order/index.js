@@ -36,7 +36,7 @@ export default function OrderIndex(props) {
 
   useEffect(() => {
     setCharge(getCharge())
-  }, [cartTotal, coupon])
+  }, [cartTotal, coupon, pay])
 
   useEffect(() => {
     if (items.length === 0) {

@@ -1,11 +1,12 @@
 import "../styles/index.css"
 import "video-react/dist/video-react.css"
 
+import { UserProvider } from "@auth0/nextjs-auth0"
 import { DefaultSeo } from "next-seo"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { CartProvider } from "react-use-cart"
-
+// TODO: add GA
 import * as data from "../manifest.json"
 const products = data.default
 
@@ -26,33 +27,38 @@ const MyApp = ({ Component, pageProps }) => {
     setMenuOpen,
   }
 
+  // const handleItemUpdate = (item) => {
+  //   console.log(pageProps);
+  // }
   const handleItemAdd = (item) => {
     setCartOpen(true)
   }
 
   return (
-    <CartProvider
-      id="fatlightslim"
-      onItemAdd={handleItemAdd}
-      // onItemUpdate={handleItemUpdate}
-    >
-      <DefaultSeo
-        title="植物用LEDライト専門店 FATLightSLIM"
-        description="海外で人気の植物栽培用ライトを安心価格で安全にお届けします。ホビー用途から商用向けまでお取り扱い中！MARS HYDRO公式代理店。SPIDER FARMER公式代理店"
-        // openGraph={{
-        //   type: "website",
-        //   locale: "en_IE",
-        //   url: "https://www.url.ie/",
-        //   site_name: "SiteName",
-        // }}
-        // twitter={{
-        //   handle: "@handle",
-        //   site: "@site",
-        //   cardType: "summary_large_image",
-        // }}
-      />
-      <Component {...pageProps} {...props} />
-    </CartProvider>
+    <UserProvider>
+      <CartProvider
+        id="fatlightslim"
+        onItemAdd={handleItemAdd}
+        // onItemUpdate={handleItemUpdate}
+      >
+        <DefaultSeo
+          title="植物用LEDライト専門店 FATLightSLIM"
+          description="海外で人気の植物栽培用ライトを安心価格で安全にお届けします。ホビー用途から商用向けまでお取り扱い中！MARS HYDRO公式代理店。SPIDER FARMER公式代理店"
+          // openGraph={{
+          //   type: "website",
+          //   locale: "en_IE",
+          //   url: "https://www.url.ie/",
+          //   site_name: "SiteName",
+          // }}
+          // twitter={{
+          //   handle: "@handle",
+          //   site: "@site",
+          //   cardType: "summary_large_image",
+          // }}
+        />
+        <Component {...pageProps} {...props} />
+      </CartProvider>
+    </UserProvider>
   )
 }
 

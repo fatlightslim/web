@@ -7,21 +7,30 @@ const cors = Cors({
   allowMethods: ["POST", "HEAD"],
 })
 
-async function handler(req, res) {
-  const { db } = await connectToDatabase()
-  switch (req.method) {
-    case "GET":
-      return res.json(
-        await db.collection("orders").find({}).sort({ _ts: -1 }).toArray()
-      )
-    case "POST":
-      return await post()
-    default:
-      res.setHeader("Allow", "POST")
-      res.status(405).end("Method Not Allowed")
+export default cors(async function handler(req, res) {
+  const auth = req.headers.authorization
+  try {
+    if (auth !== `Bearer ${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`) {
+      throw Error("Bad request")
+    }
+    const { db } = await connectToDatabase()
+    switch (req.method) {
+      case "GET":
+        return res.json(
+          await db.collection("orders").find({}).sort({ _ts: -1 }).toArray()
+        )
+      case "POST":
+        return await post()
+      default:
+        res.setHeader("Allow", "POST")
+        res.status(405).end("Method Not Allowed")
+    }
+  } catch (err) {
+    res.status(500).json({ statusCode: 500, message: err.message })
   }
 
   async function post() {
+    const { db } = await connectToDatabase()
     const { _id, status, url, ...rest } = req.body
     const _ts = new Date()
 
@@ -54,9 +63,7 @@ async function handler(req, res) {
       }
     )
   }
-}
-
-export default cors(handler)
+})
 
 // const schema = {
 //   _id: ObjectId,
@@ -64,7 +71,7 @@ export default cors(handler)
 //   items: Array, // line items from contentful and quantity. {{ product: { fields, sys }}, quantity: 1 }
 //   status: Array [
 //     {status: "cod", _ts: new Date() }
-//   ], // ['cod', 'awaiting_payment', 'paid', 'sent_failure', 'done', 'shipping', 'sent_order_confirm', 'sent_shipping', 'payment_failed']
+//   ], // ['cod', 'awaiting_payment', 'paid', 'sent_failure', 'done', 'shipping', 'sent_order_confirm', 'sent_tracking', 'payment_failed']
 //   customer: {
 //     name: String,
 //     email: String,

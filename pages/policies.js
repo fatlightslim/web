@@ -115,19 +115,21 @@ export default function Policies({
       ),
     },
   ],
-}) {
+...props}) {
   return (
-    <section className="max-w-2xl mx-auto  px-4 py-12 ">
-      {data.map((v) => {
-        return (
-          <div key={v.title} className="text-sm mb-8">
-            <h2 className="text-lg font-bold tracking-tighter border-b pb-1 mb-3">
-              {v.title}
-            </h2>
-            <v.desc />
-          </div>
-        )
-      })}
-    </section>
+ <Layout {...props}>
+      <section className="max-w-2xl mx-auto  px-4 py-12 ">
+        {data.map((v) => {
+          return (
+            <div key={v.title} className="text-sm mb-8">
+              <h2 className="text-lg font-bold tracking-tighter border-b pb-1 mb-3">
+                {v.title}
+              </h2>
+              <v.desc />
+            </div>
+          );
+        })}
+      </section>
+    </Layout>
   )
 }

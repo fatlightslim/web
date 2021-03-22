@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 function getTemplateData(data) {
   const _id = data._id.toString() // NOTICE: returned _id is not String but Object
-  const { customer, items, charge, payment, subject, url } = data
+  const { customer, items, charge, payment, subject, url, tracking } = data
   const { addr1, addr2, zip, pref } = customer
   const address = zip + " " + pref + addr1 + addr2
 
@@ -16,7 +16,7 @@ function getTemplateData(data) {
     price_detail.push({ title: "割引", amount: charge.discount.toLocaleString() })
 
   return {
-    // tracking_code,
+    tracking,
     subject,
     url,
     name: customer.name,
@@ -53,12 +53,12 @@ function buildEmail(data, s) {
       subject: `${process.env.site.name} ご注文の確認 #${order_id}`,
       template: "d-5da79b6010c642cab0c6483d95f161e2",
     },
-    sent_shipping: {
-      subject: `${process.env.site.name} ご注文の商品(${order_id})が発送されました`,
+    sent_tracking: {
+      subject: `${process.env.site.name} ご注文の商品(#${order_id})が発送されました`,
       template: "d-6410e5d78a16446dab36463a37ad6210",
     },
     sent_failure: {
-      subject: `重要なお知らせ: ${process.env.site.name} のご注文について ${order_id} `,
+      subject: `重要なお知らせ: ${process.env.site.name} のご注文について #${order_id} `,
       template: "d-9f5e67f4369e4a9eaa6ed0f5b4b72bb9",
     },
   }
@@ -83,8 +83,8 @@ export async function sendMail(data, status) {
     let newStatus
     if (["paid", "cod"].includes(status)) {
       newStatus = "sent_order_confirm"
-    } else if (status === "shipping") {
-      newStatus = "sent_shipping"
+    } else if (status === "tracking") {
+      newStatus = "sent_tracking"
     } else if (status === "payment_failed") {
       newStatus = "sent_failure"
     } else {

@@ -1,4 +1,6 @@
 import { X, Home, Question, ExCircle, Cog } from "../../components/Svg"
+import { Transition } from "@headlessui/react"
+import Logo from "../Logo"
 
 function Menu({ isMobile }) {
   /* Current: "bg-purple-50 border-purple-600 text-purple-600", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" */
@@ -93,46 +95,43 @@ const menu = [
   },
 ]
 
-export const MobileMenu = () => {
+export const MobileMenu = ({ setIsOpen, isOpen }) => {
   return (
     <div className="md:hidden">
-      <div className="fixed inset-0 z-40 flex">
-        {/*
-Off-canvas menu overlay, show/hide based on off-canvas menu state.
-
-Entering: "transition-opacity ease-linear duration-300"
-From: "opacity-0"
-To: "opacity-100"
-Leaving: "transition-opacity ease-linear duration-300"
-From: "opacity-100"
-To: "opacity-0"
-*/}
-        <div className="fixed inset-0" aria-hidden="true">
+      <div className={`${isOpen ? "z-40" : "z-0"} fixed inset-0 flex`}>
+        <Transition
+          show={isOpen}
+          enter="transition-opacity ease-linear duration-300"
+          enterFrom="opacity-0 "
+          enterTo="opacity-100"
+          leave="transition-opacity ease-linear duration-300"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0 "
+          className="fixed inset-0"
+        >
           <div className="absolute inset-0 bg-gray-600 opacity-75" />
-        </div>
-        {/*
-Off-canvas menu, show/hide based on off-canvas menu state.
-
-Entering: "transition ease-in-out duration-300 transform"
-From: "-translate-x-full"
-To: "translate-x-0"
-Leaving: "transition ease-in-out duration-300 transform"
-From: "translate-x-0"
-To: "-translate-x-full"
-*/}
-        <div className="relative max-w-xs w-full bg-white pt-5 pb-4 flex-1 flex flex-col">
+        </Transition>
+        <Transition
+          show={isOpen}
+          enter="transition ease-in-out duration-300 transform"
+          enterFrom="-translate-x-full"
+          enterTo="translate-x-0"
+          leave="transition ease-in-out duration-300 transform"
+          leaveFrom="translate-x-0"
+          leaveTo="-translate-x-full"
+          className="relative max-w-xs w-full bg-white pt-5 pb-4 flex-1 flex flex-col"
+        >
           <div className="absolute top-0 right-0 -mr-14 p-1">
-            <button className="h-12 w-12 rounded-full flex items-center justify-center focus:outline-none focus:bg-gray-600">
+            <button
+              onClick={() => setIsOpen(false)}
+              className=" h-12 w-12 rounded-full flex items-center justify-center focus:outline-none focus:bg-gray-600"
+            >
               <X />
               <span className="sr-only">Close sidebar</span>
             </button>
           </div>
           <div className="flex-shrink-0 px-4 flex items-center">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/easywire-logo-purple-600-mark-gray-900-text.svg"
-              alt="Easywire"
-            />
+            <Logo />
           </div>
           <div className="mt-5 flex-1 h-0 overflow-y-auto">
             <nav className="h-full flex flex-col">
@@ -148,7 +147,7 @@ To: "-translate-x-full"
                   Help
                 </a>
                 <a
-                  href="#"
+                  href="/api/auth/logout"
                   className="group rounded-md py-2 px-4 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                 >
                   <Cog className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />
@@ -157,7 +156,7 @@ To: "-translate-x-full"
               </div>
             </nav>
           </div>
-        </div>
+        </Transition>
         <div className="flex-shrink-0 w-14" aria-hidden="true">
           {/* Dummy element to force sidebar to shrink to fit close icon */}
         </div>
@@ -172,11 +171,7 @@ export const DesktopMenu = () => (
       {/* Sidebar component, swap this element with another sidebar if you like */}
       <nav className="bg-gray-50 border-r border-gray-200 pt-5 pb-4 flex flex-col flex-grow overflow-y-auto">
         <div className="flex-shrink-0 px-4 flex items-center">
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/easywire-logo-purple-600-mark-gray-900-text.svg"
-            alt="Easywire"
-          />
+          <Logo />
         </div>
         <div className="flex-grow mt-5 flex flex-col">
           <div className="flex-1 space-y-1">
@@ -192,7 +187,7 @@ export const DesktopMenu = () => (
             Help
           </a>
           <a
-            href="#"
+            href="/api/auth/logout"
             className="group py-2 px-4 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
           >
             <Cog className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" />

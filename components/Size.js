@@ -11,7 +11,7 @@ export default function Size({spec}) {
               <div className="flex flex-col">
                 <div className=" overflow-x-auto ">
                   <div className="align-top inline-block min-w-full sm:px-6 lg:px-8">
-                    <div className="shadow overflow-hidden border border-green-700">
+                    <div className="shadow overflow-hidden border border-gray-500">
                       <Table {...spec} />
                     </div>
                   </div>
@@ -35,13 +35,13 @@ export default function Size({spec}) {
 
 function Table({data}) {
   return (
-    <table className="min-w-full border border-green-700 text-center text-sm text-green-800 font-medium ">
-      <thead>
+    <table className="min-w-full  text-center text-sm text-gray-600 font-medium ">
+      <thead >
         <tr>
           <th
             scope="col"
             colSpan="2"
-            className="px-6 py-3 text-green-800 font-bold text-lg tracking-wider bg-white"
+            className="px-6 py-3 text-gray-600 font-bold text-lg tracking-wider bg-white border-b border-gray-500"
           >
             製品仕様
           </th>
@@ -52,8 +52,8 @@ function Table({data}) {
           const desc = v.desc.split("\n")
           return (
             <tr key={v.label}>
-              <th className="py-2 border border-green-700">{v.label}</th>
-              <td className="py-2 border border-green-700">
+              <th className="py-2 border ">{v.label}</th>
+              <td className="py-2 border ">
                 {desc.map((v) => (
                   <span key={v} className="block">{v}</span>
                 ))}

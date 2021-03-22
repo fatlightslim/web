@@ -1,10 +1,13 @@
+import { withPageAuthRequired } from "@auth0/nextjs-auth0"
+
 import Link from "next/link"
 import { ClipboardCheck } from "../../components/Svg"
 
 const labels = {
   sent_order_confirm: "配送待ち",
+  sent_tracking: "配送中",
   cod: "配送待ち",
-  draft: "Draft"
+  draft: "カゴ落ち",
 }
 
 const List = ({ customer, log, _id, charge }) => {
@@ -75,7 +78,7 @@ const List = ({ customer, log, _id, charge }) => {
   )
 }
 
-export default function OrderList({ orders }) {
+export default withPageAuthRequired(function OrderList({ orders }) {
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md">
       <ul className="divide-y divide-gray-200">
@@ -85,4 +88,4 @@ export default function OrderList({ orders }) {
       </ul>
     </div>
   )
-}
+})

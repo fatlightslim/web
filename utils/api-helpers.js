@@ -1,6 +1,10 @@
 export async function fetchGetJSON(url) {
   try {
-    const data = await fetch(url).then((res) => res.json())
+    const data = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
+      }
+    }).then((res) => res.json())
     return data
   } catch (err) {
     throw new Error(err.message)
@@ -18,6 +22,7 @@ export async function fetchPostJSON(url, data) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
       },
       redirect: "follow", // manual, *follow, error
       referrerPolicy: "no-referrer", // no-referrer, *client
