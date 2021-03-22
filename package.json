@@ -27,6 +27,7 @@
     "micro-cors": "^0.1.1",
     "mongodb": "^3.6.4",
     "next": "^10.0.7-canary.2",
+    "next-ga": "^2.3.4",
     "next-seo": "^4.20.0",
     "queue-microtask": "^1.2.2",
     "react": "^16.13.1",

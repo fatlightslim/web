@@ -25,6 +25,14 @@
   </url>
 
   <url>
+    <loc>https://fatlightslim.com/posts/[slug]</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/posts/index</loc>
+  </url>
+
+  <url>
     <loc>https://fatlightslim.com/order/detail</loc>
   </url>
 
@@ -34,14 +42,6 @@
 
   <url>
     <loc>https://fatlightslim.com/order/success</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/posts/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://fatlightslim.com/posts/index</loc>
   </url>
 
   <url>
