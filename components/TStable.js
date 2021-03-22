@@ -1,7 +1,5 @@
-import { getImageFields } from "../scripts/contentful"
+import { getImageFields } from "../utils/contentful"
 import Image from "next/image"
-import { tsdata } from "../data/tsdata"
-import Link from "next/link"
 import { useCart } from "react-use-cart"
 
 export default function TStable({ product, ...rest }) {
@@ -24,7 +22,6 @@ export default function TStable({ product, ...rest }) {
     </div>
   )
 }
-
 function Header(params) {
   return (
     <div className="sm:flex sm:flex-col sm:align-center">
@@ -37,7 +34,6 @@ function Header(params) {
     </div>
   )
 }
-
 function Check() {
   return (
     <svg
@@ -55,7 +51,6 @@ function Check() {
     </svg>
   )
 }
-
 function List({ text }) {
   return (
     <li className="flex space-x-3">
@@ -64,22 +59,20 @@ function List({ text }) {
     </li>
   )
 }
-
-function Title({ fields, sys, setCartOpen }) {
+function Title({ fields, sys }) {
   const { name, image, price, hook } = fields
   const { addItem } = useCart()
   return (
     <div className="p-6 dosis">
       <Image {...getImageFields(image)} className="sm:rounded" />
-
       <h2 className="text-lg leading-6 font-medium text-gray-900">{name}</h2>
       <p className="mt-4 text-sm text-gray-500">{hook}</p>
       <p className="mt-8">
         <span className="text-4xl font-extrabold text-gray-900">
-          ¥{price.toLocaleString()}
+          &yen;{price.toLocaleString()}
         </span>
         <span className="text-base font-medium text-gray-500 line-through">
-          ¥{(price + 10000).toLocaleString()}
+        &yen;{(price + 10000).toLocaleString()}
         </span>
       </p>
       <button
@@ -92,7 +85,6 @@ function Title({ fields, sys, setCartOpen }) {
             fields,
           }
           addItem(item, 1)
-          setCartOpen(true)
         }}
         className="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
       >

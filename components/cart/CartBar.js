@@ -3,7 +3,6 @@ import { CartSvg } from "../Svg"
 import { Transition } from "@headlessui/react"
 import { useState } from "react"
 import CartDetail from "./CartDetail"
-import { useCart } from "react-use-cart"
 
 const Chev = ({ isOpen }) => (
   <svg
@@ -25,12 +24,8 @@ const Chev = ({ isOpen }) => (
 )
 
 export default function CartBar(props) {
-  const { coupon, labels, pay } = props
-  const { cartTotal, totalItems } = useCart()
+  const { total } = props.charge
   const [isOpen, setIsOpen] = useState(false)
-  const discount = coupon.amount_off || 0
-  const fee = labels[0]["label"] === pay ? 0 : calcFee(cartTotal)
-  const total = cartTotal + fee - discount
 
   return (
     <>

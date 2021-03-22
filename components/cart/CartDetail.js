@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { ExCircle, SolidCheck } from "../Svg"
-import { getImageFields } from "../../scripts/contentful"
-import { fetchPostJSON, calcFee } from "../../utils/api-helpers"
+import { getImageFields } from "../../utils/contentful"
+import { fetchPostJSON } from "../../utils/api-helpers"
+import { useCart } from "react-use-cart"
 
 export default function CartDetail(props) {
   return (
@@ -14,29 +15,33 @@ export default function CartDetail(props) {
   )
 }
 
-const Total = ({ cartTotal, pay, coupon, labels }) => {
-  const fee = calcFee(cartTotal)
-  const discount = coupon.amount_off || 0
+const Total = ({ pay, charge }) => {
+  const { fee, total, discount, delivery, subTotal } = charge
+
   return (
     <div className="max-w-7xl mx-auto px-4">
       <div className="text-left py-4 mt-4 px-2 text-xs leading-5">
         <div className="grid grid-cols-2">
           <p>小計</p>
           <p className="text-right mr-2 font-semibold text-sm">
-            &yen;{cartTotal.toLocaleString()}
+            &yen;{subTotal.toLocaleString()}
           </p>
         </div>
         <div className="grid grid-cols-2">
           <p>配送料</p>
-          <p className="text-right mr-2 font-semibold">無料</p>
-        </div>
-        <div className="grid grid-cols-2">
-          <p>クーポン割引</p>
           <p className="text-right mr-2 font-semibold text-sm">
-            &yen;{discount.toLocaleString()}
+            &yen;{delivery.toLocaleString()}
           </p>
         </div>
-        {pay !== labels[0].label && (
+        {discount > 0 && (
+          <div className="grid grid-cols-2">
+            <p>クーポン割引</p>
+            <p className="text-right mr-2 font-semibold text-sm">
+              &yen;{discount.toLocaleString()}
+            </p>
+          </div>
+        )}
+        {pay === "cod" && (
           <div className="grid grid-cols-2">
             <p>代引手数料</p>
             <p className="text-right mr-2 font-semibold text-sm">
@@ -52,48 +57,54 @@ const Total = ({ cartTotal, pay, coupon, labels }) => {
         <p>合計</p>
         <p className="text-right mr-2 text-sm">
           &yen;
-          {pay === labels[0].label
+          {/* {pay === labels[0].label
             ? (cartTotal - discount).toLocaleString()
-            : (cartTotal + fee - discount).toLocaleString()}
+            : (cartTotal + fee - discount).toLocaleString()} */}
+          {total.toLocaleString()}
         </p>
       </div>
     </div>
   )
 }
 
-const Summary = ({ items }) => (
-  <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 ">
-    {items.map((v) => {
-      const { title, image, price } = v.fields
-      return (
-        <div
-          key={v.sys.id}
-          className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
-        >
-          <div className="flex ">
-            <div className="flex-shrink-0">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-white text-white sm:h-12 sm:w-12">
-                <Image {...getImageFields(image)} />
+const Summary = () => {
+  const { items } = useCart()
+  return (
+    <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 ">
+      {items.map((v) => {
+        const { title, image, price } = v.fields
+        return (
+          <div
+            key={v.sys.id}
+            className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
+          >
+            <div className="flex ">
+              <div className="flex-shrink-0">
+                {image && (
+                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-white text-white sm:h-12 sm:w-12">
+                    <Image {...getImageFields(image)} />
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="ml-4">
-              <div>
-                <p className="text-sm font-medium text-gray-900">{title}</p>
-                <p className="mt-1 text-xs text-gray-500">
-                  &yen;{price.toLocaleString()} x {v.qty}
-                </p>
+              <div className="ml-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-900">{title}</p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    &yen;{price.toLocaleString()} x {v.quantity}
+                  </p>
+                </div>
               </div>
+              <p className="mt-2 text-sm text-gray-500 flex-grow text-right">
+                &yen;{(price * v.quantity).toLocaleString()}
+              </p>
             </div>
-            <p className="mt-2 text-sm text-gray-500 flex-grow text-right">
-              &yen;{(price * v.qty).toLocaleString()}
-            </p>
+            <div className="mt-4 w-full border-t border-gray-300" />
           </div>
-          <div className="mt-4 w-full border-t border-gray-300" />
-        </div>
-      )
-    })}
-  </div>
-)
+        )
+      })}
+    </div>
+  )
+}
 
 const Coupon = ({ coupon, setCoupon }) => {
   const COUPON_SET = coupon.name !== undefined
@@ -146,7 +157,7 @@ const Coupon = ({ coupon, setCoupon }) => {
   )
 }
 
-const Icon = ({name}) => {
+const Icon = ({ name }) => {
   return name === "error" ? (
     <ExCircle className="h-5 w-5 text-red-500" />
   ) : (
