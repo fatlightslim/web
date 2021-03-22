@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { CartProvider } from "react-use-cart"
 
+import * as data from "../manifest.json"
 const products = data.default
 
 const MyApp = ({ Component, pageProps }) => {
