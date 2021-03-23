@@ -40,7 +40,8 @@ module.exports = {
       address: "〒812-0883 福岡市博多区南本町2-1-9",
     },
     site: {
-      name: "FATLightSLIM",
+      // name: "FATLightSLIM",
+      name: "FATLIGHT",
       url: "http://fatlightslim.com/",
       email: "hello@fatlightslim.com",
       twitter: "@fatlightslim",

@@ -49,10 +49,6 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
-  </url>
-
-  <url>
     <loc>https://fatlightslim.com/products/marshydro/fc6500</loc>
   </url>
 
@@ -73,6 +69,10 @@
   </url>
 
   <url>
+    <loc>https://fatlightslim.com/products/secondmarket/index</loc>
+  </url>
+
+  <url>
     <loc>https://fatlightslim.com/products/spiderfarmer/all</loc>
   </url>
 
@@ -85,6 +85,6 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/products/secondmarket/index</loc>
+    <loc>https://fatlightslim.com/admin/orders/[_id]</loc>
   </url>
 </urlset>
