@@ -20,7 +20,6 @@ module.exports = {
     return config
   },
   env: {
-    EMAIL: "hello@sbo.llc",
     shopify: {
       domain: "fatlightslim.myshopify.com",
       storefrontAccessToken: "1916a03edc91d97ee7ee99f5ab8add14",
@@ -32,12 +31,11 @@ module.exports = {
       sp6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NDgxMDcxNjQ=",
       fc6500: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxMTA2NzM2NjYyMDQ=",
       sf4000: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzYxOTE0NzQ1NzM0Njg="
-
     },
     company: {
       ja: "合同会社SBO",
       en: "SBO LLC",
-      person: "TUNG HAN SHEN",
+      person: "阿比留 真孝",
       tel: "092-980-4282",
       address: "〒812-0883 福岡市博多区南本町2-1-9",
     },

@@ -49,7 +49,10 @@ const Sale = () => (
             人気の商品を期間限定で日替わりセール中。ビギナーにオススメのモデルから本格栽培用の定番モデルまでお得な価格でお届けします。
           </p>
 
+<SafeHydrate>
+
           <Timer />
+</SafeHydrate>
 
           <div className="mt-10 sm:flex sm:justify-center">
             <div className="rounded-md shadow ">
@@ -67,6 +70,14 @@ const Sale = () => (
   </div>
 )
 
+const SafeHydrate = ({ children }) => {
+  return (
+    <div suppressHydrationWarning>
+      {typeof window === 'undefined' ? null : children}
+    </div>
+  )
+};
+
 export const Timer = () => {
   // useEffect(() => {}, [])
   return (
@@ -77,10 +88,7 @@ export const Timer = () => {
         </dt>
         <dd className="order-1 text-5xl font-extrabold text-indigo-600">
           <Countdown
-            // autoStart={false}
-            suppressHydrationWarning={true}
             renderer={({ api, hours, minutes, seconds }) => {
-              // api.start()
               return (
                 <span>
                   {hours}

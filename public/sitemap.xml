@@ -73,10 +73,6 @@
   </url>
 
   <url>
-    <loc>https://fatlightslim.com/products/secondmarket/index</loc>
-  </url>
-
-  <url>
     <loc>https://fatlightslim.com/products/spiderfarmer/all</loc>
   </url>
 
@@ -86,5 +82,9 @@
 
   <url>
     <loc>https://fatlightslim.com/products/spiderfarmer/sf7000</loc>
+  </url>
+
+  <url>
+    <loc>https://fatlightslim.com/products/secondmarket/index</loc>
   </url>
 </urlset>
