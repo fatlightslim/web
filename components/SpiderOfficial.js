@@ -16,7 +16,7 @@ export default function SpiderOfficial({}) {
                   width={779}
                   height={108}
                 />
-                <span className="block text-6xl font-extrabold text-yellow-500">
+                <span className="noto block text-6xl font-extrabold text-yellow-400">
                   日本上陸
                 </span>
               </h2>
