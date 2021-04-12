@@ -6,7 +6,6 @@ import { Carousel } from "react-responsive-carousel"
 import HeroMars from "./HeroMars"
 import SpiderOfficial from "./SpiderOfficial"
 import { ChevRight } from "./Svg"
-import { useEffect } from "react"
 
 export default function Hero({}) {
   return (
