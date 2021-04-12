@@ -24,7 +24,7 @@ export default function Posts({ blog, ...props }) {
               植物用ライトの選び方
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-              FATLightSLIMのスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
+            FATLightSLIMのスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
             </p>
           </div>
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">

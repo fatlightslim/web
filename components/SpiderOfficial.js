@@ -16,7 +16,7 @@ export default function SpiderOfficial({}) {
                   width={779}
                   height={108}
                 />
-                <span className="block text-6xl font-extrabold text-yellow-500">
+                <span className="noto block text-6xl font-extrabold text-yellow-400">
                   日本上陸
                 </span>
               </h2>
@@ -38,8 +38,8 @@ export default function SpiderOfficial({}) {
             <Image
               src="/img/sf7000/sf7000main.png"
               alt="Spider Farmer"
-              width={1296}
-              height={1065}
+              width={900}
+              height={740}
             />
           </div>
         </div>

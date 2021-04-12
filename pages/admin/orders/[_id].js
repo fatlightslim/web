@@ -6,12 +6,6 @@ import Image from "next/image"
 import { ArrowLeft, Calendar, SolidCheck } from "../../../components/Svg"
 import { useState } from "react"
 import { useRouter } from "next/router"
-import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0"
-import useSWR from "swr"
-const fetcher = async (uri) => {
-  const response = await fetch(uri)
-  return response.json()
-}
 
 const labels = {
   sent_order_confirm: "配送待ち",
@@ -25,11 +19,11 @@ const labels = {
   pay: "決済方法",
 }
 
-export default withPageAuthRequired(function AdminOrder({ order }) {
+export default function AdminOrder({ order }) {
   const [code, setCode] = useState(order.tracking)
   const { log, customer, _id, _ts, charge } = order
   const address = customer.zip + " " + customer.addr1 + customer.addr2
-  const locals = { code, setCode, order }
+  const locals = { code, setcode, order }
 
   const Field = ({ name }) => {
     return (
@@ -87,7 +81,7 @@ export default withPageAuthRequired(function AdminOrder({ order }) {
       <Log {...locals} />
     </Layout>
   )
-})
+}
 
 export async function getServerSideProps({ params }) {
   const URL = process.env.URL || 'http://localhost:3000'

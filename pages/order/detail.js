@@ -1,28 +1,25 @@
 import { NextSeo } from "next-seo"
+import ReactToPrint from "react-to-print"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import useSWR from "swr"
 import { fetchGetJSON } from "../../utils/api-helpers"
 import { SolidCheck } from "../../components/Svg"
 import Layout from "../../components/Layout"
-import { useEffect } from "react"
+import { useRef } from "react"
 import { getImageFields } from "../../utils/contentful"
+import Receipt from "../../components/Receipt"
 
 export default function Detail(props) {
   const router = useRouter()
+  const componentRef = useRef()
 
   const { data, error } = useSWR(
     router.query._id ? `/api/orders/${router.query._id}` : null,
     fetchGetJSON
   )
-  // useEffect(() => {
-  //   if (!router.query._id) {
-  //     router.replace("/")
-  //   }
-  // }, [data])
 
   if (!data) return <></>
-  // console.log(data)
   const { charge, customer, items, log, _id, _ts } = data
 
   return (
@@ -115,9 +112,17 @@ export default function Detail(props) {
                       >
                         お問い合わせ
                       </a> */}
-                      <p className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900">
-                        領収書をダウンロード
-                      </p>
+                      <ReactToPrint
+                        trigger={() => (
+                          <button className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900">
+                            領収書をダウンロード
+                          </button>
+                        )}
+                        content={() => componentRef.current}
+                      />
+                      <div className="hidden">
+                      <Receipt {...data} ref={componentRef} />
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,3 @@
-import { withPageAuthRequired } from "@auth0/nextjs-auth0"
 
 import Link from "next/link"
 import { ClipboardCheck } from "../../components/Svg"
@@ -78,7 +77,7 @@ const List = ({ customer, log, _id, charge }) => {
   )
 }
 
-export default withPageAuthRequired(function OrderList({ orders }) {
+export default function OrderList({ orders }) {
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md">
       <ul className="divide-y divide-gray-200">
@@ -88,4 +87,4 @@ export default withPageAuthRequired(function OrderList({ orders }) {
       </ul>
     </div>
   )
-})
+}

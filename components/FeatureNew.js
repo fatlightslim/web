@@ -371,7 +371,7 @@ function Slide({ settings }) {
   return (
     <div className="relative z-10  py-16 bg-gray-50  overflow-hidden lg:py-24">
       <h2 className="dosis text-center text-2xl px-4 text-gray-500 font-bold">
-        これらの悩み、FATLightSLIMならすべて解決できます！
+        これらの悩み、FATlightSLIMならすべて解決できます！
       </h2>
       <section className="md:py-4 md:px-2 flex justify-center">
         <div

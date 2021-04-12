@@ -1,35 +1,42 @@
 import { useRouter } from "next/router"
 import { MobileMenu, DesktopMenu } from "./Menu"
 import { useState } from "react"
+import { useUser } from "@auth0/nextjs-auth0"
 
 // stats, seo, orders,
 export default function Admin({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
-  return (
-    <div className="h-screen bg-white  flex">
-      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-      <DesktopMenu />
-      <div className="flex-1 flex flex-col">
-        <div className="w-full max-w-4xl mx-auto  md:px-8 xl:px-0">
-          {router.pathname === "/admin" && (
-            <div className="mb-8 relative w-full max-w-4xl z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex">
-              <MenuButton setIsOpen={setIsOpen} />
-              <Search />
-            </div>
-          )}
-        </div>
-        <main
-          className="flex-1 overflow-y-auto focus:outline-none"
-          tabIndex={0}
-        >
-          <div className="relative max-w-4xl mx-auto px-2.5 ">
-            {children}
+
+  const { user, error, isLoading } = useUser()
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>{error.message}</div>
+  if (user) {
+    return (
+      <div className="h-screen bg-white  flex">
+        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        <DesktopMenu />
+        <div className="flex-1 flex flex-col">
+          <div className="w-full max-w-4xl mx-auto  md:px-8 xl:px-0">
+            {router.pathname === "/admin" && (
+              <div className="mb-8 relative w-full max-w-4xl z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex">
+                <MenuButton setIsOpen={setIsOpen} />
+                <Search />
+              </div>
+            )}
           </div>
-        </main>
+          <main
+            className="flex-1 overflow-y-auto focus:outline-none"
+            tabIndex={0}
+          >
+            <div className="relative max-w-4xl mx-auto px-2.5 ">{children}</div>
+          </main>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+  return (window.location.href = "/api/auth/login")
 }
 
 const MenuButton = ({ setIsOpen }) => (

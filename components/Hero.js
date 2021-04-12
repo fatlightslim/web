@@ -35,21 +35,23 @@ const Sale = () => (
           src="/img/tengu.jpg"
           alt="tengu"
           className=""
-          width={1200}
-          height={849}
+          width={800}
+          height={566}
         />
       </div>
       <div className="mx-auto max-w-7xl w-full py-6 lg:pt-12 text-center lg:text-left">
         <div className="px-4  sm:px-8 xl:pr-16">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl ">
-            <span className="sm:text-6xl dosis">MARS HYDRO</span>
-            <span className="text-indigo-600">特集</span>
+            <span className="sm:text-6xl">MARS HYDRO</span>
+            <span className="text-indigo-600 ml-0.5">特集</span>
           </h1>
           <p className="my-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
             人気の商品を期間限定で日替わりセール中。ビギナーにオススメのモデルから本格栽培用の定番モデルまでお得な価格でお届けします。
           </p>
 
-          <Timer />
+          <SafeHydrate>
+            <Timer />
+          </SafeHydrate>
 
           <div className="mt-10 sm:flex sm:justify-center">
             <div className="rounded-md shadow ">
@@ -67,6 +69,14 @@ const Sale = () => (
   </div>
 )
 
+const SafeHydrate = ({ children }) => {
+  return (
+    <div suppressHydrationWarning>
+      {typeof window === "undefined" ? null : children}
+    </div>
+  )
+}
+
 export const Timer = () => {
   // useEffect(() => {}, [])
   return (
@@ -77,10 +87,7 @@ export const Timer = () => {
         </dt>
         <dd className="order-1 text-5xl font-extrabold text-indigo-600">
           <Countdown
-            // autoStart={false}
-            suppressHydrationWarning={true}
             renderer={({ api, hours, minutes, seconds }) => {
-              // api.start()
               return (
                 <span>
                   {hours}

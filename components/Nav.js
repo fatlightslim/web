@@ -93,10 +93,12 @@ export default function Nav({
   )
 }
 
-const Menu = ({ products }) => (
-  <div className="bg-white mt-1 ">
+const Menu = ({ products }) => { 
+  const {sf2000, sf1000, ...rest} = products
+
+  return <div className="bg-white mt-1 ">
     <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-      {Object.entries(products).map((v, i) => {
+      {Object.entries(rest).map((v, i) => {
         return BLACKLIST.includes(v[0]) ? null : (
           <List
             {...v[1].fields}
@@ -107,7 +109,7 @@ const Menu = ({ products }) => (
       })}
     </div>
   </div>
-)
+ }
 
 const List = ({ title, url, image, lead, isLast }) => {
   let className =
