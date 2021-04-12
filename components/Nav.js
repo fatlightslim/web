@@ -15,6 +15,7 @@ export default function Nav({
   const CartOpen = () => (
     <button
       onClick={() => setCartOpen(true)}
+      name="cart"
       type="button"
       className="group rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none "
     >
@@ -25,6 +26,7 @@ export default function Nav({
   const MenuButton = () => (
     <button
       onClick={() => setMenuOpen(!!!menuOpen)}
+      name="menu"
       type="button"
       className={`${
         menuOpen ? "text-gray-900" : "text-gray-500"
