@@ -23,15 +23,15 @@ const handler = nc()
         html,
       })
       .then(
-        () => {},
+        () => {
+          res.json("done")
+        },
         (error) => {
           console.error(error)
 
           if (error.response) {
             console.error(error.response.body)
           }
-
-          res.json("done")
         }
       )
   })
