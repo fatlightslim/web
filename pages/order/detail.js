@@ -113,15 +113,16 @@ export default function Detail(props) {
                         お問い合わせ
                       </a> */}
                       <ReactToPrint
+                        documentTitle={`FATLightSLIM - #${_id.substr(18)}`}
                         trigger={() => (
                           <button className="relative focus:z-40 flex items-center justify-center px-5 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900">
-                            領収書をダウンロード
+                            領収書を印刷
                           </button>
                         )}
                         content={() => componentRef.current}
                       />
                       <div className="hidden">
-                      <Receipt {...data} ref={componentRef} />
+                        <Receipt {...data} ref={componentRef} />
                       </div>
                     </div>
                   </div>
