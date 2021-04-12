@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
-import { GA_TRACKING_ID } from "../scripts/gtag"
+import { GA_TRACKING_ID } from "../utils/gtag"
 
 export default class MyDocument extends Document {
   render() {
@@ -22,12 +22,11 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          {/* <script dangerouslySetInnerHTML={{__html: `document.addEventListener('DOMContentLoaded', (event) => document.getElementById('nav').classList.add('animate__slideInDown')`}} /> */}
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script> </script> 
+          <script> </script>
         </body>
       </Html>
     )

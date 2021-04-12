@@ -1,27 +1,19 @@
 import Image from "next/image"
 import Link from "next/link"
 import Layout from "../../components/Layout"
-import { getImageFields, client } from "../../scripts/contentful"
-
-{
-  /* <img
-className="h-10 w-10 rounded-full border"
-src="/img/Bender_Rodriguez.png"
-alt=""
-/> */
-}
+import { getImageFields, getPostsFromContentful } from "../../utils/contentful"
 
 export async function getStaticProps() {
   return {
     props: {
-      blog: await client.getEntries({ content_type: "blog" }),
+      blog: await getPostsFromContentful(),
     },
   }
 }
 
-export default function Posts({ blog }) {
+export default function Posts({ blog, ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div className="absolute inset-0">
           <div className="bg-white h-1/3 sm:h-2/3" />
@@ -32,7 +24,7 @@ export default function Posts({ blog }) {
               植物用ライトの選び方
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-              FATLightSLIMのスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
+            FATLightSLIMのスタッフが経験してきた室内LED栽培の記録です。オタク達がこれまで使ってきたライトを紹介します！
             </p>
           </div>
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">

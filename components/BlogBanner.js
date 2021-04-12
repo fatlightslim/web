@@ -29,7 +29,7 @@ function Circle({}) {
 
 function Button() {
   return (
-    <div className="text-center relative z-30">
+    <div className="text-center">
     <a
       href="/posts"
       className="bg-yellow-400 hover:bg-yellow-500 rounded border border-yellow-500 shadow font-semibold px-6 py-2 inline-block transition duration-500 ease-in-out cursor-pointer text-xl text-black"

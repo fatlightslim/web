@@ -3,9 +3,9 @@ import ContactBanner from "../components/Contact"
 import Optimal from "../components/Optimal"
 import BlogBanner from "../components/BlogBanner"
 
-export default function Contact(params) {
+export default function Contact(props) {
   return (
-    <Layout>
+    <Layout {...props}>
       <ContactBanner />
       <Optimal />
       <BlogBanner />

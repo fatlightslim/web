@@ -11,7 +11,8 @@ export default function FCcard({
       2: "新商品",
       3: "ついに入荷！",
       //   3: "お届けします。",
-      color: "#fc2",
+      color: "#360056",
+
     },
     img: {
       src: "/img/fc6500/fcmain.png",

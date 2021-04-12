@@ -1,4 +1,4 @@
-## What is this? 
+<!-- ## What is this? 
 
 This is the open source e-commerce template based on fatlightslim.com 
 
@@ -19,21 +19,7 @@ You are supposed to have a knowledge about `react.js` and  `css`.
 ## Why?
 
 Our site is by standing on the shoulders of giants.
-<!-- http://fatlightslim.com/thanks -->
-https://web-git-main.fatlightslim.vercel.app/thanks
-
-## How to use
-
-```bash
-git clone https://github.com/fatlightslim/web.git fatlightslim-clone
-cd fatlightslim-clone
-npm i
-npm run dev
-```
-
-## How to deploy
-
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+-->
 
 ## References
 - Next.js

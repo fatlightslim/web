@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Layout from "../components/Layout";
+import Link from "next/link"
+import Layout from "../components/Layout"
 
 export default function Policies({
   data = [
@@ -9,8 +9,7 @@ export default function Policies({
         <div className="text-xs">
           <p>
             {process.env.site.name}
-            で購入されたMARS
-            HYDRO社の製品は海外工場から直送もしくは大阪市の倉庫からの発送となります。配送コストを抑え低価格で商品を提供するため、ご注文から到着まで7~10日程度のお時間を頂戴することをあらかじめご了承くださいますようお願いいたします。
+            で購入されたMARS HYDRO社及びSPIDER FARMER社の製品は海外工場から直送もしくは大阪市の倉庫からの発送となります。配送コストを抑え低価格で商品を提供するため、ご注文から到着まで7~10日程度のお時間を頂戴することをあらかじめご了承くださいますようお願いいたします。
             ご購入後、追跡番号をメールにてお送りいたしますので配送状況については、当該サイトにてご確認いただければ幸いです。
             ご注文いただいた製品の配送については、いったん
             {process.env.site.name}
@@ -115,9 +114,9 @@ export default function Policies({
       ),
     },
   ],
-}) {
+...props}) {
   return (
-    <Layout>
+ <Layout {...props}>
       <section className="max-w-2xl mx-auto  px-4 py-12 ">
         {data.map((v) => {
           return (
@@ -131,5 +130,5 @@ export default function Policies({
         })}
       </section>
     </Layout>
-  );
+  )
 }

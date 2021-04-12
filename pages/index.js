@@ -1,51 +1,34 @@
-import { withRouter } from "next/router"
+import Image from "next/image"
 import { data } from "../data/home"
-import Layout from "../components/Layout"
 import Headline from "../components/Headline"
 import FeatureSummary from "../components/FeatureSummary"
 import Delivery from "../components/Delivery"
 import ReviewBanner from "../components/ReviewBanner"
-import RelatedProducts from "../components/RelatedProducts2"
 import Refund from "../components/Refund"
 import FeatureNew from "../components/FeatureNew"
-import NewHero from "../components/NewHero"
-import FCcard from "../components/FCcard";
-import Sf4000card from "../components/Sf4000card";
+import BrandLink from "../components/BrandLink"
+import Hero from "../components/Hero"
+import Layout from "../components/Layout"
+import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import { Carousel } from "react-responsive-carousel"
+
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
-  // Set your secret key. Remember to switch to your live secret key in production!
-  // See your keys here: https://dashboard.stripe.com/account/apikeys
-  // const Stripe = require("stripe")
-
-// export async function getStaticProps() {
-//   const res = await client.product.fetchAll()
-//   const products = await JSON.parse(JSON.stringify(res))
-
-//   // const products = await stripe.products.list();
-
-
-//   return {
-//     props: {
-//       products,
-//     },
-//   }
-// }
-
-function Home({ router }) {
+export default function Home({ ...props }) {
   return (
-    <Layout router={router}>
-      <NewHero />
+    <Layout {...props}>
+      <Hero />
+      {/* <NewHero {...assets} /> */}
       <Headline data={data.Headline} />
       <FeatureNew />
-      <Sf4000card />
-      <FCcard />
+      {/* <FCcard /> */}
+      {/* <Sf4000card /> */}
+      {/* <OfficialSpider /> */}
       <Delivery />
-      <ReviewBanner />
       <Refund />
+      <ReviewBanner />
       <FeatureSummary />
-      <RelatedProducts />
+      <BrandLink brand="spiderfarmer" {...props} />
     </Layout>
   )
 }
-
-export default withRouter(Home)

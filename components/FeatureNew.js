@@ -1,7 +1,7 @@
 import Image from "next/image"
-import CheckMark from "./Checkmark"
 import { reviews } from "../data/nayami"
-import Slider from "react-slick"
+import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import { Carousel } from "react-responsive-carousel"
 
 export default function FeatureNew({
   data = {
@@ -24,8 +24,8 @@ export default function FeatureNew({
 }) {
   return (
     <>
-      <Carousel settings={settings} />
-      <div className="py-16 bg-black  overflow-hidden lg:py-24">
+      <Slide settings={settings} />
+      <div className="relative z-10 py-16 bg-black  overflow-hidden lg:py-24">
         <div className="relative  max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
           <div className="relative mt-12 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div className="relative">
@@ -367,11 +367,11 @@ function Review({ item }) {
   )
 }
 
-function Carousel({ settings }) {
+function Slide({ settings }) {
   return (
-    <div className="py-16 bg-gray-50  overflow-hidden lg:py-24">
+    <div className="relative z-10  py-16 bg-gray-50  overflow-hidden lg:py-24">
       <h2 className="dosis text-center text-2xl px-4 text-gray-500 font-bold">
-        これらの悩み、FATLightSLIMならすべて解決できます！
+        これらの悩み、FATlightSLIMならすべて解決できます！
       </h2>
       <section className="md:py-4 md:px-2 flex justify-center">
         <div
@@ -382,11 +382,18 @@ function Carousel({ settings }) {
         >
           <div className="mx-auto gap-0">
             <div className="md:col-span-1 w-full px-2">
-              <Slider {...settings}>
+            <Carousel
+              autoPlay
+              infiniteLoop
+              showStatus={false}
+              showThumbs={false}
+              interval={5000}
+              showIndicators={false}
+            >
                 {reviews.map((item) => (
                   <Review key={item.img} item={item} />
                 ))}
-              </Slider>
+              </Carousel>
             </div>
           </div>
         </div>

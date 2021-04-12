@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import Layout from "./Layout"
-import { getImageFields } from "../scripts/contentful"
+import { getImageFields } from "../utils/contentful"
 
-export default function LayoutBlog({ image, title, category, children }) {
+export default function LayoutBlog({ image, title, category, children, ...props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <div className="relative py-16 bg-white overflow-hidden mx-auto">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div

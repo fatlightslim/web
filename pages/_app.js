@@ -1,21 +1,21 @@
 import "../styles/index.css"
-import "slick-carousel/slick/slick.css"
-import "../styles/slick-theme.css"
 import "video-react/dist/video-react.css"
-import "animate.css/animate.min.css"
 
-// import { MDXProvider } from "@mdx-js/react"
+import { UserProvider } from "@auth0/nextjs-auth0"
+import { DefaultSeo } from "next-seo"
 import { useRouter } from "next/router"
-import * as gtag from "../scripts/gtag"
-import { useEffect } from "react"
-import Card from "../components/tailwindui/Card"
+import { useState, useEffect } from "react"
+import { CartProvider } from "react-use-cart"
+import * as data from "../manifest.json"
+import * as gtag from "../utils/gtag"
 
-const components = {
-  card: Card,
-}
+const products = data.default
 
-const App = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
+  const [cartOpen, setCartOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
@@ -26,11 +26,51 @@ const App = ({ Component, pageProps }) => {
     }
   }, [router.events])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [router.pathname])
+
+  const props = {
+    products,
+    cartOpen,
+    setCartOpen,
+    menuOpen,
+    setMenuOpen,
+  }
+
+  // const handleItemUpdate = (item) => {
+  //   console.log(pageProps);
+  // }
+  const handleItemAdd = (item) => {
+    setCartOpen(true)
+  }
+
   return (
-    // <MDXProvider components={components}>
-      <Component {...pageProps} />
-    // </MDXProvider>
+    <UserProvider >
+      <CartProvider
+        id="fatlight"
+        onItemAdd={handleItemAdd}
+        // onItemUpdate={handleItemUpdate}
+      >
+        <DefaultSeo
+          title="植物用LEDライト専門店 FATLightSLIM"
+          description="海外で人気の植物栽培用ライトを安心価格で安全にお届けします。ホビー用途から商用向けまでお取り扱い中！MARS HYDRO公式代理店。SPIDER FARMER公式代理店"
+          openGraph={{
+            type: "website",
+            locale: "ja_JP",
+            url: "https://fatlightslim.com/",
+            site_name: "FATLightSLIM",
+          }}
+          twitter={{
+            handle: "@fatlightslim",
+            site: "@fatlightslim",
+            cardType: "summary_large_image",
+          }}
+        />
+        <Component {...pageProps} {...props} />
+      </CartProvider>
+    </UserProvider>
   )
 }
 
-export default App
+export default MyApp

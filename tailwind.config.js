@@ -1,4 +1,5 @@
 module.exports = {
+  // darkMode: 'media',
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
@@ -42,19 +43,32 @@ module.exports = {
     },
   },
   theme: {
-    extend: {
-      colors: {
-        "accent-1": "#333",
-      },
+    // extend: {
+    //   colors: {
+    //     "accent-1": "#333",
+    //   },
+    // },
+    cursor: {
+      auto: "auto",
+      default: "default",
+      pointer: "pointer",
+      wait: "wait",
+      text: "text",
+      move: "move",
+      "not-allowed": "not-allowed",
+      crosshair: "crosshair",
+      "zoom-in": "zoom-in",
     },
   },
-  // variants: {
-  //   extend: {
-  //     border: ["last"],
-  //   },
-  // },
+  variants: {
+    extend: {
+      opacity: ["disabled"],
+      cursor: ['hover', 'focus']
+    },
+  },
   plugins: [
-    // require("@tailwindcss/aspect-ratio")
-    require('@tailwindcss/typography'),
+    // require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
   ],
 }

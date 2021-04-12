@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Layout from "../components/Layout"
 
-export default function Terms() {
+export default function Terms(props) {
   return (
-    <Layout>
+    <Layout {...props}>
       <section className="max-w-2xl mx-auto text-center px-4 py-12">
         <h1 className="text-4xl font-bold tracking-tighter">
           Webサイト利用規約
