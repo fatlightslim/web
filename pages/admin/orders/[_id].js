@@ -23,7 +23,7 @@ export default function AdminOrder({ order }) {
   const [code, setCode] = useState(order.tracking)
   const { log, customer, _id, _ts, charge } = order
   const address = customer.zip + " " + customer.addr1 + customer.addr2
-  const locals = { code, setcode, order }
+  const locals = { code, setCode, order }
 
   const Field = ({ name }) => {
     return (
