@@ -1,4 +1,7 @@
+import Link from "next/link"
 import Image from "next/image"
+import { ChevRight } from "./Svg"
+
 export default function HeroMars({}) {
   return (
     <div className="relative bg-gray-50 ">
@@ -20,18 +23,24 @@ export default function HeroMars({}) {
               </span>
 
               <span className="dosis text-6xl sm:text-7xl">MARS HYDRO</span>
-          {/* <Image
+              {/* <Image
             width={989}
             height={121}
             // className="absolute w-full h-full object-cover"
             alt="marshydro"
             src="/img/mars_logo.png"
           /> */}
-
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
               太陽光のように強力なLEDライトで収穫量が段違いに向上します！ホビー用途から商業用途まで室内栽培の本場アメリカで大人気のベストセラー植物用ライトです。
             </p>
+
+              <Link href="/sale/spring-2021">
+              <a className="mt-8 border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-bold bg-transparent text-indigo-600 hover:bg-indigo-50">
+                MARS HYDRO 商品ページへ
+                <ChevRight />
+              </a>
+            </Link>
           </div>
         </div>
         <div className="h-80 overflow-hidden relative w-full lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">

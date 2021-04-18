@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { data } from "../data/home"
 import Headline from "../components/Headline"
 import FeatureSummary from "../components/FeatureSummary"
@@ -9,18 +8,20 @@ import FeatureNew from "../components/FeatureNew"
 import BrandLink from "../components/BrandLink"
 import Hero from "../components/Hero"
 import Layout from "../components/Layout"
-import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
-import { Carousel } from "react-responsive-carousel"
+import HeroMars from "../components/HeroMars"
+import SpiderOfficial from "../components/SpiderOfficial"
 
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
 export default function Home({ ...props }) {
   return (
     <Layout {...props}>
-      <Hero />
+      <Hero {...props} />
       {/* <NewHero {...assets} /> */}
       <Headline data={data.Headline} />
       <FeatureNew />
+      <HeroMars />
+      <SpiderOfficial />
       {/* <FCcard /> */}
       {/* <Sf4000card /> */}
       {/* <OfficialSpider /> */}

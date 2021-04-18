@@ -1,27 +1,29 @@
 import Image from "next/image"
 import Link from "next/link"
 import Countdown from "react-countdown"
-import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+// import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import HeroMars from "./HeroMars"
 import SpiderOfficial from "./SpiderOfficial"
 import { ChevRight } from "./Svg"
+import Happy420 from "./campaign/Happy420"
 
-export default function Hero({}) {
+export default function Hero(props) {
   return (
-    <div className="bg-gray-50">
-      <Carousel
-        autoPlay
-        infiniteLoop
-        showStatus={false}
-        showThumbs={false}
-        interval={7000}
-      >
-        <Sale />
-        <HeroMars />
-        <SpiderOfficial />
-      </Carousel>
-    </div>
+        <Happy420 {...props} />
+    // <div className="bg-gray-50">
+    //   <Carousel
+    //     autoPlay
+    //     infiniteLoop
+    //     showStatus={false}
+    //     showThumbs={false}
+    //     interval={7000}
+    //   >
+    //     {/* <Sale /> */}
+    //     <HeroMars />
+    //     <SpiderOfficial />
+    //   </Carousel>
+    // </div>
   )
 }
 

@@ -85,13 +85,13 @@ export default function Confirm({ pay, setForm, form, charge, setCartOpen }) {
             <span className="float-right">&yen;{delivery}</span>
           </div>
           <div className="">
-            <span>代引手数料 &yen;({fee.toLocaleString()} x 消費税)</span>
+            <span>代引手数料</span>
             <span className="float-right">&yen;{fee.toLocaleString()}</span>
           </div>
           {discount > 0 && (
             <div className="">
               <span>割引</span>
-              <span className="float-right">
+              <span className="float-right text-red-500">
                 &yen;{discount.toLocaleString()}
               </span>
             </div>

@@ -3,6 +3,7 @@ import { ExCircle, SolidCheck } from "../Svg"
 import { getImageFields } from "../../utils/contentful"
 import { fetchPostJSON } from "../../utils/api-helpers"
 import { useCart } from "react-use-cart"
+import { useState } from "react"
 
 export default function CartDetail(props) {
   return (
@@ -15,8 +16,9 @@ export default function CartDetail(props) {
   )
 }
 
-const Total = ({ pay, charge }) => {
+const Total = ({ pay, charge, coupon }) => {
   const { fee, total, discount, delivery, subTotal } = charge
+  const COUPON_SET = coupon.name !== undefined || discount
 
   return (
     <div className="max-w-7xl mx-auto px-4">
@@ -33,7 +35,7 @@ const Total = ({ pay, charge }) => {
             &yen;{delivery.toLocaleString()}
           </p>
         </div>
-        {discount > 0 && (
+        {COUPON_SET && (
           <div className="grid grid-cols-2">
             <p>クーポン割引</p>
             <p className="text-right mr-2 font-semibold text-sm">
@@ -57,9 +59,6 @@ const Total = ({ pay, charge }) => {
         <p>合計</p>
         <p className="text-right mr-2 text-sm">
           &yen;
-          {/* {pay === labels[0].label
-            ? (cartTotal - discount).toLocaleString()
-            : (cartTotal + fee - discount).toLocaleString()} */}
           {total.toLocaleString()}
         </p>
       </div>

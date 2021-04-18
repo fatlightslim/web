@@ -17,11 +17,26 @@ export default function OrderIndex(props) {
   const [form, setForm] = useState({ key: "ORDER", value: {} })
   const [pay, setPay] = useState("online")
   const [charge, setCharge] = useState(getCharge())
-  // console.log(charge);
+
+  function getDiscount() {
+    let discount = 0
+    // HAPPY420 coupon
+    const inCart = items.map((v) => {
+      const { fields, quantity, sys } = v
+      const { name } = fields
+      const inSale = ["SF7000", "SP3000", "SP150"].includes(name)
+      return inSale && quantity > 1 && v
+    })
+    inCart.forEach((v) => {
+      discount += v.quantity * coupon.amount_off || 0
+    })
+
+    return discount
+  }
 
   function getCharge() {
     const delivery = 0
-    const discount = coupon.amount_off || 0
+    const discount = getDiscount()
     const fee = pay === "online" ? 0 : calcFee(cartTotal)
     const total = cartTotal + delivery + fee - discount
     return {
