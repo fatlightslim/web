@@ -31,7 +31,8 @@ export default function OrderIndex(props) {
       discount += v.quantity * coupon.amount_off || 0
     })
 
-    return discount
+
+    return discount > 0 ? discount : coupon.amount_off || 0
   }
 
   function getCharge() {
