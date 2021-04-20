@@ -8,7 +8,7 @@ export default function Happy420(props) {
   const campaign = [sf7000, sp3000, sp150]
   // console.log(campaign);
   return (
-    <div className="overflow-hidden bg-gray-900 text-gray-300 -mt-32 pt-32">
+    <div className="overflow-hidden bg-gray-900 text-gray-300 ">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-9 xl:pt-20 pb-16">
         <div className="sm:mb-24 xl:mb-32 lg:flex">
           <div className="flex-none relative z-10 flex flex-col items-start lg:pt-10 max-w-screen-sm mx-auto lg:max-w-2xl lg:mx-0 lg:pr-20 mb-12 sm:mb-16 lg:mb-0">

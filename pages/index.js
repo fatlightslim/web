@@ -10,6 +10,7 @@ import Hero from "../components/Hero"
 import Layout from "../components/Layout"
 import HeroMars from "../components/HeroMars"
 import SpiderOfficial from "../components/SpiderOfficial"
+import Happy420 from "../components/campaign/Happy420"
 
 // import Client from 'shopify-buy/index.unoptimized.umd'
 // const client = Client.buildClient(process.env.shopify)
@@ -20,8 +21,6 @@ export default function Home({ ...props }) {
       {/* <NewHero {...assets} /> */}
       <Headline data={data.Headline} />
       <FeatureNew />
-      <HeroMars />
-      <SpiderOfficial />
       {/* <FCcard /> */}
       {/* <Sf4000card /> */}
       {/* <OfficialSpider /> */}
@@ -29,6 +28,7 @@ export default function Home({ ...props }) {
       <Refund />
       <ReviewBanner />
       <FeatureSummary />
+      <Happy420 {...props} />
       <BrandLink brand="spiderfarmer" {...props} />
     </Layout>
   )

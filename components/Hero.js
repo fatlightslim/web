@@ -4,26 +4,25 @@ import Countdown from "react-countdown"
 // import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import HeroMars from "./HeroMars"
+import SecondMarket from "./SecondMarket"
 import SpiderOfficial from "./SpiderOfficial"
 import { ChevRight } from "./Svg"
-import Happy420 from "./campaign/Happy420"
 
 export default function Hero(props) {
   return (
-        <Happy420 {...props} />
-    // <div className="bg-gray-50">
-    //   <Carousel
-    //     autoPlay
-    //     infiniteLoop
-    //     showStatus={false}
-    //     showThumbs={false}
-    //     interval={7000}
-    //   >
-    //     {/* <Sale /> */}
-    //     <HeroMars />
-    //     <SpiderOfficial />
-    //   </Carousel>
-    // </div>
+    <div className="bg-gray-50">
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        interval={7000}
+      >
+        <SpiderOfficial />
+        <HeroMars />
+        <SecondMarket />
+      </Carousel>
+    </div>
   )
 }
 
