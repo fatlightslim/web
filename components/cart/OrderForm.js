@@ -48,7 +48,7 @@ export default function OrderForm(props) {
   }
 
   const getZip = async (value) => {
-    let r = await fetch("http://api.zipaddress.net/?zipcode=" + value)
+    let r = await fetch("https://api.zipaddress.net/?zipcode=" + value)
     r = await r.json()
     if (r.data) {
       setValue("zip", value)
