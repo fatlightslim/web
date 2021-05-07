@@ -15,6 +15,7 @@ async function createManifest() {
   })
 
   const data = {
+    se7000: res.items[9],
     sf2000: res.items[8],
     sf1000: res.items[7],
     sf7000: res.items[6],
