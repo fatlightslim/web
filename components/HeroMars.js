@@ -7,7 +7,7 @@ export default function HeroMars({}) {
     <div className="relative bg-gray-50 ">
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-12 pb-20 text-center lg:py-24 lg:text-left">
-          <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
+          <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16 lg:mt-28">
             <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
               <div className="w-1/2 mx-auto  lg:mx-0">
                 <Image

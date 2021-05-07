@@ -48,12 +48,19 @@ export default function OrderForm(props) {
   }
 
   const getZip = async (value) => {
-    let r = await fetch("https://api.zipaddress.net/?zipcode=" + value)
-    r = await r.json()
-    if (r.data) {
-      setValue("zip", value)
-      setValue("pref", r.data["pref"])
-      setValue("addr1", r.data["address"])
+    const left3 = value.replace("-", "").slice(0, 3)
+    const right4 = value.replace("-", "").slice(3)
+    if (right4.length === 4) {
+      let r = await fetch(
+        `https://madefor.github.io/postal-code-api/api/v1/${left3}/${right4}.json`
+      )
+      r = await r.json()
+      const data = r.data[0].ja
+      if (data) {
+        setValue("zip", value)
+        setValue("pref", data["prefecture"])
+        setValue("addr1", data["address1"] + data["address2"])
+      }
     }
   }
 
