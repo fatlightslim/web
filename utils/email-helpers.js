@@ -26,6 +26,7 @@ function getTemplateData(data) {
   return {
     tracking,
     subject,
+    tel: customer.tel,
     url,
     name: customer.name,
     order_id: "#" + _id.substr(18).toUpperCase(),
